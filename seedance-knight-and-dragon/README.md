@@ -210,15 +210,15 @@ TIMELINE — follow exactly, in this order, and do not reorder or compress:
            radial wave rolling outward from the jaw; it reaches the lens and the stems
            in the foreground flatten away from the blast while the fallen camera
            trembles in the grass without moving from where it landed. Her cloak snaps
-           horizontal. She
-           drops into a braced stance, sword raised across her body, and does not
-           retreat.
+           horizontal. She drops into a braced stance, sword raised across her body,
+           and does not retreat.
 
 20.0-21.0  Hold on the open maw. Cut.
 
-STYLE — Photoreal live action. For the first 4.6 seconds: consumer-camera look, slightly
-soft, candid social-media footage, deliberately not cinematic. From 4.6 seconds onward:
-cinematic, heavy atmospheric perspective, subtle vignette. Throughout: cool desaturated
+STYLE — Photoreal live action throughout. Up to 05.4: consumer-camera look, slightly soft,
+candid social-media footage, deliberately not cinematic. From 05.4 onward, once the camera
+is lying in the grass: the same camera and the same grade, but the framing is now
+cinematic — heavy atmospheric perspective, subtle vignette. Throughout: cool desaturated
 grade, teal-cyan shadows, lifted milky blacks, low contrast, fine grain. Live action, not
 animated, not stylised.
 ```
