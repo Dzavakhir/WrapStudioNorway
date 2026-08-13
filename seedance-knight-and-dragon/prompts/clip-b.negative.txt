@@ -1,4 +1,4 @@
-camera pan, camera tilt, zoom, dolly in, dolly out, push in, pull back, handheld shake, camera drift, orbit, crane, drone shot, cinematic camera move after the opening settle;
+camera pan, camera tilt, zoom, dolly in, dolly out, push in, pull back, handheld shake, camera drift, orbit, crane, drone shot, cinematic camera move after it lands; camera being picked up again, hand reaching for the camera, someone catching the camera, the camera landing face-down, the camera landing lens-up at the sky, the camera sliding or rolling on after it lands;
 
 smartphone, phone, mobile phone, holding a phone, a phone in her hand, phone in frame, black rectangle, screen, tablet, device visible in frame, selfie stick;
 

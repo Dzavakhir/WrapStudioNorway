@@ -1,8 +1,8 @@
 HORIZONTAL 16:9 video, 1920x1080, landscape orientation. 40mm lens.
 
-OPENING — The clip BEGINS mid-swing, heavily motion-blurred, sweeping in from the left. Over the first half-second the movement dies out and the frame SETTLES into a wide shot and then LOCKS. Do not start from a still frame.
+OPENING — The clip BEGINS with the camera still in the air, tumbling end over end in heavy motion blur — grass, white sky, grass — as if it had just been thrown. Over the first second it hits the ground, bounces once in the stems, and comes to rest LYING ON ITS SIDE in the grass, which is why this shot is horizontal. Do not start from a still frame.
 
-CAMERA — After it settles, the camera is completely LOCKED for the rest of the shot: no pan, no tilt, no zoom, no dolly, no shake, no drift. It sits low, at grass-top height, roughly 40cm above the ground. Only the woman, the creature and the grass move. NO device is visible anywhere in frame.
+CAMERA — From the moment it lands, the camera is completely LOCKED for the rest of the shot: it is lying abandoned in the grass, nobody is holding it, and there is no pan, no tilt, no zoom, no dolly, no shake, no drift. It rests low, at grass-top height, roughly 30cm above the ground, with blades of grass crossing the bottom of frame right at the lens, close and far out of focus. Only the woman, the creature and the grass move. The camera object itself is never visible in frame.
 
 FOREGROUND — A single out-of-focus blade of green grass rises through the lower-left corner as a soft bokeh element.
 
@@ -11,7 +11,7 @@ SUBJECT — Dead centre, SMALL, about one sixth of the frame height: a woman kni
 CREATURE — Filling the upper two-thirds of the frame behind her, a colossal dragon lies prone in the meadow, head resting on the ground, snout pointing right, eyes closed. Its head alone is five times her full height. Pearl-white and ice-blue hide. A broad field of opalescent dichroic scales across the neck and shoulder throwing prismatic pink, cyan, mint and gold glints. A saw-tooth ridge of tall bone-white dorsal spines runs down the neck and back. A fan of long pale spines frames the cheeks and jaw like a frill. Two thick bone-white horns sweep back from the crown, banded near the base with dark bronze metal cuffs. Two whip-thin bronze tendrils arc from behind each eye over the brow. Fine pebbled scales on the muzzle, pink nostril slits, a pink-flushed nose. An enormous folded membranous wing, semi-translucent pale grey-pink with visible finger bones, lies on the left. The far body dissolves into fog. Slow faint plumes of breath vapour drift from the nostrils into the cold air.
 
 ACTION, in strict order —
-(0-0.8 s) The blur dies out, the frame settles into the wide and locks.
+(0-1 s) The tumbling camera lands, bounces once and comes to rest on its side in the grass. The image steadies and locks.
 (0.8-3.5 s) Nothing happens. The dragon sleeps. Only the grass and her cloak move in the wind.
 (3.5-5.5 s) One vast amber eye opens — warm gold iris, vertical black slit pupil — and finds her. The head does not move.
 (5.5-6.5 s) She raises the sword slowly out to her side.

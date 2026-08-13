@@ -1,4 +1,4 @@
-VERTICAL 9:16 video, 1080x1920, portrait orientation for the entire film. One continuous 21-second take. NO device is ever visible anywhere — the camera is her point of view, nothing is held up to film with. No dialogue, no speech, no voice-over at any point.
+VERTICAL 9:16 video, 1080x1920, portrait orientation for the entire film. One continuous 21-second take. The camera is her point of view for the first 3.7 seconds and is then thrown away and left lying in the grass, still recording, for the rest of the film. The camera object itself is NEVER visible in frame — no phone, no device, no hand holding anything up to film with. No dialogue, no speech, no voice-over at any point.
 
 CHARACTER — Take her face, skin tone and features from the reference image and do not restyle them. Dark hair to just past the collarbone, loose, lifting across her cheek in the wind. Full mirror-polished white steel plate armour, bright and reflective like a mirror: gorget, layered pauldrons, articulated arm harness, gauntlets with segmented finger lames, breastplate engraved with fine fleur-de-lis and a cruciform motif, blackened chainmail voiders at the armpits, domed rivets. An ivory hooded cloak to mid-calf. A long straight sword in a plain scabbard on a wide brown leather belt at her hip.
 
@@ -20,29 +20,33 @@ TIMELINE — follow exactly, in this order, and do not reorder or compress:
 
 02.5-03.0  Her eyes snap right. The straw leaves her lips.
 
-03.0-03.6  Without looking, she flicks her wrist and throws the cup back over her right
-           shoulder. Her hand is now EMPTY. It drops straight down and out of the bottom
-           of the frame and does not come back up. She picks nothing up. She holds
-           nothing.
+03.0-03.3  Without looking, she flicks her wrist and throws the cup back over her right
+           shoulder. Her hand is now EMPTY.
 
-03.6-04.6  IMMEDIATELY, with no pause, the CAMERA ITSELF whips hard and flat to the
-           right, away from her face, past her shoulder, out toward the creature.
-           Violent horizontal motion blur. The camera stays LEVEL and UPRIGHT — it does
-           not roll, does not tip, does not tumble, does not spin, does not go upside
-           down.
+03.3-03.7  Then, in the same dismissive motion, she throws THE CAMERA ITSELF backwards
+           over her right shoulder. Her arm swings back and releases. Nobody is holding
+           it any more.
 
-04.6-05.6  The blur dies out and the frame SETTLES into a wide shot at grass-top height,
-           roughly 40cm above the ground, and then LOCKS. From this moment the camera
-           NEVER MOVES AGAIN for the rest of the film: no pan, no tilt, no zoom, no
-           dolly, no shake, no drift. Only she, the creature and the grass move. A
-           single out-of-focus blade of grass rises through the lower-left corner.
-           SHE IS NOW SMALL — about one sixth of the frame height, standing in the lower
-           third, back three-quarters to camera, feet hidden among the stems, cloak
-           drifting. The creature's head and neck rise up the frame above and behind
-           her, filling the upper two-thirds. Her small size against it is the whole
-           point of the shot.
+03.7-04.8  THE CAMERA IS IN THE AIR, tumbling backwards away from her. The frame spins
+           end over end — grass, white sky, grass, white sky — in heavy motion blur,
+           while she and the creature recede and shrink rapidly into the distance.
 
-05.6-08.5  Stillness. The creature sleeps. Nothing happens. Only the grass and her cloak
+04.8-05.4  It hits the ground, bounces once in the stems, and comes to rest lying in
+           the grass, lens pointing forward at her back. A few blades of grass fall
+           across the lens, close and far out of focus.
+
+05.4-05.9  The image steadies and LOCKS. From this moment the camera NEVER MOVES AGAIN
+           for the rest of the film: it is lying abandoned in the grass, nobody is
+           holding it, there is no pan, no tilt, no zoom, no dolly, no drift. Only she,
+           the creature and the grass move. The shot is now a LOW WIDE at grass-top
+           height, roughly 30cm above the ground, blades of grass crossing the bottom
+           of frame right at the lens. SHE IS NOW SMALL — about one sixth of the frame
+           height, standing in the lower third, back three-quarters to camera, feet
+           hidden among the stems, cloak drifting. The creature's head and neck rise up
+           the frame above and behind her, filling the upper two-thirds. Her small size
+           against it is the whole point of the shot.
+
+05.9-08.5  Stillness. The creature sleeps. Nothing happens. Only the grass and her cloak
            move in the wind.
 
 08.5-10.5  One vast amber eye opens — warm gold iris, vertical black slit pupil — and
@@ -63,7 +67,10 @@ TIMELINE — follow exactly, in this order, and do not reorder or compress:
 17.3-20.0  The jaws split open into a roar — pale pink-lavender palate, rows of white
            conical teeth, long pink tongue, thin strands of saliva — and a dense plume of
            hot breath vapour blasts out into the cold air. The grass lies flat in a
-           radial wave rolling outward from the jaw. Her cloak snaps horizontal. She
+           radial wave rolling outward from the jaw; it reaches the lens and the stems
+           in the foreground flatten away from the blast while the fallen camera
+           trembles in the grass without moving from where it landed. Her cloak snaps
+           horizontal. She
            drops into a braced stance, sword raised across her body, and does not
            retreat.
 

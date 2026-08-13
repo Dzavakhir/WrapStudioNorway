@@ -1,6 +1,6 @@
 HORIZONTAL 16:9 video, 1920x1080, landscape orientation, continuing from the previous frame. 40mm lens.
 
-CAMERA — Completely LOCKED for the entire shot: no pan, no tilt, no zoom, no dolly, no shake, no drift. Low, at grass-top height, roughly 40cm above the ground. Only the woman, the creature and the grass move. NO device is visible anywhere in frame.
+CAMERA — Completely LOCKED for the entire shot: the camera is lying abandoned on its side in the grass where it was thrown, nobody is holding it, and there is no pan, no tilt, no zoom, no dolly, no shake, no drift. Low, at grass-top height, roughly 30cm above the ground, with blades of grass crossing the bottom of frame right at the lens. Only the woman, the creature and the grass move.
 
 FOREGROUND — A single out-of-focus blade of green grass rises through the lower-left corner as a soft bokeh element.
 
@@ -11,7 +11,7 @@ CREATURE — A colossal dragon, head already lifted clear of the grass and facin
 ACTION, in strict order —
 (0-1 s) The pupils flick down to the sword in her hand, then back up to her face. One slow blink. Recognition, not hunger.
 (1-2.3 s) The head cranes forward and lowers toward her until it fills the frame, breath fogging the cold air in slow pulses from the nostrils.
-(2.3-4.3 s) The jaws split open into a roar — pale pink-lavender palate, rows of white conical teeth, long pink tongue, thin strands of saliva — and a dense plume of hot breath vapour blasts out into the cold air. The grass lies flat in a radial wave rolling outward from the jaw. Her cloak snaps horizontal. She drops into a braced stance, sword raised across her body, and does not retreat.
+(2.3-4.3 s) The jaws split open into a roar — pale pink-lavender palate, rows of white conical teeth, long pink tongue, thin strands of saliva — and a dense plume of hot breath vapour blasts out into the cold air. The grass lies flat in a radial wave rolling outward from the jaw; it reaches the lens and the stems in the foreground flatten away from the blast while the fallen camera trembles in the grass without moving from where it landed. Her cloak snaps horizontal. She drops into a braced stance, sword raised across her body, and does not retreat.
 (4.3-5 s) Hold on the open maw.
 
 LIGHT — Bright flat overcast daylight, high-key, luminous glowing white fog, fully diffuse, no shadows, no visible sun. Pale, airy and light. Dense low ground fog. Flat pale blue-white sky. Soft bloom on the white scales. NOT dark, NOT dusk, NOT moody, NOT low-key.

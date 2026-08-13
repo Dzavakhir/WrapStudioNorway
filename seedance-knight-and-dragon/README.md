@@ -138,7 +138,7 @@
 кадру, она стоит в нижней трети, и пасть опускается на неё сверху.
 
 ```text
-VERTICAL 9:16 video, 1080x1920, portrait orientation for the entire film. One continuous 21-second take. NO device is ever visible anywhere — the camera is her point of view, nothing is held up to film with. No dialogue, no speech, no voice-over at any point.
+VERTICAL 9:16 video, 1080x1920, portrait orientation for the entire film. One continuous 21-second take. The camera is her point of view for the first 3.7 seconds and is then thrown away and left lying in the grass, still recording, for the rest of the film. The camera object itself is NEVER visible in frame — no phone, no device, no hand holding anything up to film with. No dialogue, no speech, no voice-over at any point.
 
 CHARACTER — Take her face, skin tone and features from the reference image and do not restyle them. Dark hair to just past the collarbone, loose, lifting across her cheek in the wind. Full mirror-polished white steel plate armour, bright and reflective like a mirror: gorget, layered pauldrons, articulated arm harness, gauntlets with segmented finger lames, breastplate engraved with fine fleur-de-lis and a cruciform motif, blackened chainmail voiders at the armpits, domed rivets. An ivory hooded cloak to mid-calf. A long straight sword in a plain scabbard on a wide brown leather belt at her hip.
 
@@ -160,29 +160,33 @@ TIMELINE — follow exactly, in this order, and do not reorder or compress:
 
 02.5-03.0  Her eyes snap right. The straw leaves her lips.
 
-03.0-03.6  Without looking, she flicks her wrist and throws the cup back over her right
-           shoulder. Her hand is now EMPTY. It drops straight down and out of the bottom
-           of the frame and does not come back up. She picks nothing up. She holds
-           nothing.
+03.0-03.3  Without looking, she flicks her wrist and throws the cup back over her right
+           shoulder. Her hand is now EMPTY.
 
-03.6-04.6  IMMEDIATELY, with no pause, the CAMERA ITSELF whips hard and flat to the
-           right, away from her face, past her shoulder, out toward the creature.
-           Violent horizontal motion blur. The camera stays LEVEL and UPRIGHT — it does
-           not roll, does not tip, does not tumble, does not spin, does not go upside
-           down.
+03.3-03.7  Then, in the same dismissive motion, she throws THE CAMERA ITSELF backwards
+           over her right shoulder. Her arm swings back and releases. Nobody is holding
+           it any more.
 
-04.6-05.6  The blur dies out and the frame SETTLES into a wide shot at grass-top height,
-           roughly 40cm above the ground, and then LOCKS. From this moment the camera
-           NEVER MOVES AGAIN for the rest of the film: no pan, no tilt, no zoom, no
-           dolly, no shake, no drift. Only she, the creature and the grass move. A
-           single out-of-focus blade of grass rises through the lower-left corner.
-           SHE IS NOW SMALL — about one sixth of the frame height, standing in the lower
-           third, back three-quarters to camera, feet hidden among the stems, cloak
-           drifting. The creature's head and neck rise up the frame above and behind
-           her, filling the upper two-thirds. Her small size against it is the whole
-           point of the shot.
+03.7-04.8  THE CAMERA IS IN THE AIR, tumbling backwards away from her. The frame spins
+           end over end — grass, white sky, grass, white sky — in heavy motion blur,
+           while she and the creature recede and shrink rapidly into the distance.
 
-05.6-08.5  Stillness. The creature sleeps. Nothing happens. Only the grass and her cloak
+04.8-05.4  It hits the ground, bounces once in the stems, and comes to rest lying in
+           the grass, lens pointing forward at her back. A few blades of grass fall
+           across the lens, close and far out of focus.
+
+05.4-05.9  The image steadies and LOCKS. From this moment the camera NEVER MOVES AGAIN
+           for the rest of the film: it is lying abandoned in the grass, nobody is
+           holding it, there is no pan, no tilt, no zoom, no dolly, no drift. Only she,
+           the creature and the grass move. The shot is now a LOW WIDE at grass-top
+           height, roughly 30cm above the ground, blades of grass crossing the bottom
+           of frame right at the lens. SHE IS NOW SMALL — about one sixth of the frame
+           height, standing in the lower third, back three-quarters to camera, feet
+           hidden among the stems, cloak drifting. The creature's head and neck rise up
+           the frame above and behind her, filling the upper two-thirds. Her small size
+           against it is the whole point of the shot.
+
+05.9-08.5  Stillness. The creature sleeps. Nothing happens. Only the grass and her cloak
            move in the wind.
 
 08.5-10.5  One vast amber eye opens — warm gold iris, vertical black slit pupil — and
@@ -203,7 +207,10 @@ TIMELINE — follow exactly, in this order, and do not reorder or compress:
 17.3-20.0  The jaws split open into a roar — pale pink-lavender palate, rows of white
            conical teeth, long pink tongue, thin strands of saliva — and a dense plume of
            hot breath vapour blasts out into the cold air. The grass lies flat in a
-           radial wave rolling outward from the jaw. Her cloak snaps horizontal. She
+           radial wave rolling outward from the jaw; it reaches the lens and the stems
+           in the foreground flatten away from the blast while the fallen camera
+           trembles in the grass without moving from where it landed. Her cloak snaps
+           horizontal. She
            drops into a braced stance, sword raised across her body, and does not
            retreat.
 
@@ -223,7 +230,7 @@ smartphone, phone, mobile phone, holding a phone, a phone in her hand, phone app
 
 UFO, flying saucer, spacecraft, spaceship, alien ship, dome, glass dome, lit windows, glowing windows, landing legs, building, hangar, tent, vehicle, machine, boulder;
 
-camera roll, rolling camera, camera tumbling, spinning camera, barrel roll, upside down, inverted frame, 180 degree rotation, camera dropped, dutch angle;
+camera being picked up again, hand reaching for the camera, someone catching the camera, the camera landing face-down in the dirt, the camera landing lens-up at the sky, the camera continuing to fly, the camera rolling on after it lands, the camera sliding;
 
 camera pan after the whip, camera tilt after the whip, zoom, dolly in, dolly out, push in, pull back, handheld shake in the second half, camera drift, orbit, crane, drone shot, cinematic camera move after the settle;
 
@@ -263,23 +270,24 @@ _Разделы 8-13 — маршрут с разворотом телефона
 `prompts/clip-a.txt` · `prompts/clip-a.negative.txt`
 
 ```text
-VERTICAL 9:16 selfie video, 1080x1920, portrait orientation. Wide front-facing lens at arm's length, 24mm, mild barrel distortion. NO device is ever visible anywhere in this shot — the camera IS her point of view, nothing is held up to film with.
+VERTICAL 9:16 selfie video, 1080x1920, portrait orientation. Wide front-facing lens at arm's length, 24mm, mild barrel distortion. The camera is her point of view, and at the end of this shot she throws it away. The camera object itself is NEVER visible in frame — no phone, no device, no hand holding anything up to film with.
 
 SUBJECT — Take her face, skin tone and features from the supplied reference image and do not restyle them. Dark hair to just past the collarbone, loose, lifting and crossing her cheek in the wind. She wears full mirror-polished white steel plate armour, bright and reflective like a mirror: gorget, layered pauldrons, articulated rerebrace-couter-vambrace on the near arm, gauntlet with segmented finger lames, breastplate engraved with fine fleur-de-lis and a cruciform motif, blackened chainmail voiders at the armpits, domed rivets. An ivory hooded cloak sits over her shoulders behind her neck. A long straight sword in a plain scabbard rides on a wide brown leather belt at her hip, untouched throughout.
 
 ACTION, in strict order —
-(0-2 s) She sips iced black coffee through a white straw from a clear plastic to-go cup with a domed lid, ice cubes and condensation on the plastic, gauntleted fingers wrapped around it. Her gaze wanders off past the lens to the right, unfocused. She looks profoundly bored. She never makes eye contact with the lens.
-(2-2.4 s) Her eyes snap right. The straw leaves her lips.
-(2.4-3 s) Without looking, she flicks her wrist and throws the cup back over her right shoulder. Her hand is now EMPTY. It drops straight down and out of the bottom of the frame and does not come back up. She picks nothing up. She holds nothing. Both her hands are empty for the rest of the shot.
-(3-5 s) IMMEDIATELY, with no pause, the CAMERA ITSELF whips hard to the right, away from her face, past her shoulder, swinging out toward the shape lying in the fog. Violent horizontal motion blur, her pauldron and hair smearing across the lens. The camera stays LEVEL and UPRIGHT throughout — it does not roll, does not tip, does not tumble, does not turn upside down, does not spin. It is a fast flat pan to the right and nothing else. This movement must fill the entire final two seconds and must NOT be finished before the clip ends.
+(0-2.2 s) She sips iced black coffee through a white straw from a clear plastic to-go cup with a domed lid, ice cubes and condensation on the plastic, gauntleted fingers wrapped around it. Her gaze wanders off past the lens to the right, unfocused. She looks profoundly bored. She never makes eye contact with the lens.
+(2.2-2.5 s) Her eyes snap right. The straw leaves her lips.
+(2.5-2.9 s) Without looking, she flicks her wrist and throws the cup back over her right shoulder. Her hand is now EMPTY. She picks nothing up.
+(2.9-3.3 s) IMMEDIATELY, with no pause, in the same dismissive motion, she throws THE CAMERA ITSELF backwards over her right shoulder. Her arm swings back and releases. Nobody is holding it any more.
+(3.3-5 s) THE CAMERA IS IN THE AIR, tumbling backwards away from her. The frame spins end over end — grass, white sky, grass, white sky — in heavy motion blur, while she and the pale shape behind her recede and shrink rapidly into the distance.
 
-END OF SHOT — The clip ENDS while the camera is still travelling, still heavily blurred, still moving. It does not settle, does not slow down, does not arrive, does not fade.
+END OF SHOT — The clip ENDS while the camera is still in the air, still tumbling, still heavily blurred, before it lands. It does not land, does not settle, does not slow down, does not fade.
 
 SCENE — A vast flat meadow of short green grass drowned in dense cold fog, visibility about twenty-five metres, no horizon line. About thirty metres behind her right shoulder, mostly swallowed by fog and far out of focus, lies the flank of an ENORMOUS SLEEPING ANIMAL: a long low ridge of pale scaled hide, a row of bone-white spines running along its back, the curve of a huge jaw resting in the grass. It is a living creature, unmistakably organic, made of hide and bone. It is NOT a vehicle, NOT a machine, NOT a spacecraft, NOT a dome, NOT a tent, NOT a rock, NOT a building, and it has NO lights and NO windows. She never looks at it and never mentions it.
 
 LIGHT — Bright flat overcast daylight, high-key, luminous glowing white fog, fully diffuse, no shadows, no visible sun. Pale, airy and light. Cool blue-grey ambient with milky lifted blacks. NOT dark, NOT dusk, NOT moody, NOT low-key.
 
-CAMERA — Handheld selfie framing with small natural drift and micro-shake, no gimbal, no stabilisation. Her near forearm and pauldron loom huge in the lower foreground, running out of frame toward the lens. Her head sits in the upper third.
+CAMERA — Handheld selfie framing with small natural drift and micro-shake, no gimbal, no stabilisation. Her near forearm and pauldron loom huge in the lower foreground, running out of frame toward the lens. Her head sits in the upper third. From 2.9 s the camera is an object in flight: it tumbles freely, end over end, and the framing is whatever a thrown camera would record.
 
 STYLE — Photoreal, consumer-camera look, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine sensor noise. Candid social-media footage, deliberately not cinematic.
 ```
@@ -350,9 +358,9 @@ looking into the lens, eye contact with camera, smiling, posing, winking, talkin
 ```text
 HORIZONTAL 16:9 video, 1920x1080, landscape orientation. 40mm lens.
 
-OPENING — The clip BEGINS mid-swing, heavily motion-blurred, sweeping in from the left. Over the first half-second the movement dies out and the frame SETTLES into a wide shot and then LOCKS. Do not start from a still frame.
+OPENING — The clip BEGINS with the camera still in the air, tumbling end over end in heavy motion blur — grass, white sky, grass — as if it had just been thrown. Over the first second it hits the ground, bounces once in the stems, and comes to rest LYING ON ITS SIDE in the grass, which is why this shot is horizontal. Do not start from a still frame.
 
-CAMERA — After it settles, the camera is completely LOCKED for the rest of the shot: no pan, no tilt, no zoom, no dolly, no shake, no drift. It sits low, at grass-top height, roughly 40cm above the ground. Only the woman, the creature and the grass move. NO device is visible anywhere in frame.
+CAMERA — From the moment it lands, the camera is completely LOCKED for the rest of the shot: it is lying abandoned in the grass, nobody is holding it, and there is no pan, no tilt, no zoom, no dolly, no shake, no drift. It rests low, at grass-top height, roughly 30cm above the ground, with blades of grass crossing the bottom of frame right at the lens, close and far out of focus. Only the woman, the creature and the grass move. The camera object itself is never visible in frame.
 
 FOREGROUND — A single out-of-focus blade of green grass rises through the lower-left corner as a soft bokeh element.
 
@@ -361,7 +369,7 @@ SUBJECT — Dead centre, SMALL, about one sixth of the frame height: a woman kni
 CREATURE — Filling the upper two-thirds of the frame behind her, a colossal dragon lies prone in the meadow, head resting on the ground, snout pointing right, eyes closed. Its head alone is five times her full height. Pearl-white and ice-blue hide. A broad field of opalescent dichroic scales across the neck and shoulder throwing prismatic pink, cyan, mint and gold glints. A saw-tooth ridge of tall bone-white dorsal spines runs down the neck and back. A fan of long pale spines frames the cheeks and jaw like a frill. Two thick bone-white horns sweep back from the crown, banded near the base with dark bronze metal cuffs. Two whip-thin bronze tendrils arc from behind each eye over the brow. Fine pebbled scales on the muzzle, pink nostril slits, a pink-flushed nose. An enormous folded membranous wing, semi-translucent pale grey-pink with visible finger bones, lies on the left. The far body dissolves into fog. Slow faint plumes of breath vapour drift from the nostrils into the cold air.
 
 ACTION, in strict order —
-(0-0.8 s) The blur dies out, the frame settles into the wide and locks.
+(0-1 s) The tumbling camera lands, bounces once and comes to rest on its side in the grass. The image steadies and locks.
 (0.8-3.5 s) Nothing happens. The dragon sleeps. Only the grass and her cloak move in the wind.
 (3.5-5.5 s) One vast amber eye opens — warm gold iris, vertical black slit pupil — and finds her. The head does not move.
 (5.5-6.5 s) She raises the sword slowly out to her side.
@@ -388,7 +396,7 @@ STYLE — Photoreal cinematic, cool desaturated grade, teal-cyan shadows, lifted
 Negative (первые две строки — самые важные):
 
 ```text
-camera pan, camera tilt, zoom, dolly in, dolly out, push in, pull back, handheld shake, camera drift, orbit, crane, drone shot, cinematic camera move after the opening settle;
+camera pan, camera tilt, zoom, dolly in, dolly out, push in, pull back, handheld shake, camera drift, orbit, crane, drone shot, cinematic camera move after it lands; camera being picked up again, hand reaching for the camera, someone catching the camera, the camera landing face-down, the camera landing lens-up at the sky, the camera sliding or rolling on after it lands;
 
 smartphone, phone, mobile phone, holding a phone, a phone in her hand, phone in frame, black rectangle, screen, tablet, device visible in frame, selfie stick;
 
@@ -453,46 +461,41 @@ add facial description on top of the photo, you will only fight the image.
 ## 12. Сборка в монтаже
 
 ```text
-ONE CUT into clip B, plus a quarter turn on six frames. Nothing else.
-No flash, no black frames, no blur plugin, no transition of any kind.
+ONE CUT. No flash, no black frames, no rotation keyframes, no blur plugin,
+no transition of any kind. The thrown camera does all of it for you.
 
 1.  Timeline: 1080 x 1920, 24 fps.
 
-2.  CLIP A            00:00.00 -> 00:04.75      as generated, vertical, full bleed.
-                                                 Trim the out-point to the frame where
-                                                 the whip blur is HEAVIEST.
+2.  CLIP A            00:00.00 -> 00:05.00      as generated, vertical, full bleed.
+                                                 She throws the cup at ~2.4 s and the
+                                                 camera at ~2.9 s. Trim the out-point to
+                                                 a frame where the tumble blur is
+                                                 HEAVIEST and the camera is still in
+                                                 the air.
 
-3.  THE QUARTER TURN  00:04.75 -> 00:05.00      Clip A's last 6 frames only.
-                                                 Keyframe rotation 0 -> 90 degrees CW
-                                                 across those 6 frames, ease-in.
-                                                 DO NOT ask the model to do this -- it
-                                                 overshoots and tumbles past 180. The
-                                                 model gives you a flat whip; the turn
-                                                 is yours, and 6 frames is all it takes
-                                                 because the frame is already a smear.
-
-4.  CLIP B1           00:05.00 -> 00:15.00      ROTATE 90 DEGREES CLOCKWISE.
+3.  CLIP B1           00:05.00 -> 00:15.00      ROTATE 90 DEGREES CLOCKWISE.
                                                  1920x1080 rotated = 1080x1920 exactly.
                                                  Zero letterboxing, no scaling, full bleed.
-                                                 Trim the in-point to ITS heaviest blur
+                                                 Trim the in-point to ITS heaviest tumble
                                                  frame, then butt it straight against A.
 
-5.  CLIP B2           00:15.00 -> 00:20.00      same rotation. Straight cut from B1, no
+4.  CLIP B2           00:15.00 -> 00:20.00      same rotation. Straight cut from B1, no
                                                  transition -- the head position matches
                                                  because B2 started from B1's last frame.
 
-6.  OUT               00:20.00 -> 00:20.40      hard cut to black. No fade.
+5.  OUT               00:20.00 -> 00:20.40      hard cut to black. No fade.
 
 Total: ~20.4 s.  (A + B1 only = ~15.4 s, and that is the tighter cut.)
 
-WHY THE CUT INTO B IS INVISIBLE. Both sides of it are heavy motion blur travelling
-in the same direction, so the eye cannot find the join. That is why clip A must END
-mid-whip and clip B1 must BEGIN mid-whip before settling -- if either one is already
-at rest, you lose the invisible cut and you are back to needing a flash and black
-frames to hide a seam.
+WHY THERE ARE NO ROTATION KEYFRAMES ANY MORE. The camera is tumbling on both sides
+of the cut, so the eye cannot find the join AND the 90-degree change of orientation
+is already motivated: the camera lands on its side in the grass. That is why clip A
+must END with the camera still in the air and clip B1 must BEGIN with it still in
+the air. If clip A lands, you lose both the invisible cut and the reason the frame
+is sideways.
 
 The viewer turns the phone COUNTER-CLOCKWISE to see clip B upright, and does it
-without being told, because the image demands it.
+without being told, because they just watched the camera fall on its side.
 
 TEST IT ON A REAL PHONE. Turn auto-rotate ON and confirm the player does NOT
 re-rotate your clip and kill the whole gag. Upload as a single flat 9:16 file --
@@ -518,13 +521,20 @@ NO dialogue, NO voice-over, ever.
                      panned hard right and behind. Small and dry -- a punctuation
                      mark, not an event.
 
-00:03.4 - 00:05.0   Armour and cloth rustle, air roaring across the mic as the camera
-                     whips. Loud, ugly, real.
+00:02.9 - 00:05.0   The camera throw. Armour and cloth as her arm swings, then air
+                     roaring across the mic in pulses as the camera tumbles -- the wind
+                     noise should wobble in time with the spin. Loud, ugly, real.
 
-00:05.0 - 00:08.5   The whip lands. Wind bed continues UNBROKEN ACROSS THE CUT -- do
-                     not dip the audio at the join, the continuous sound is what sells
-                     the two clips as one take. A low sustained drone fades in
-                     underneath, around 200-600 Hz, strings or wordless choir.
+00:05.0 - 00:05.4   IMPACT. One dull thud into soft ground, a short rustle of stems, and
+                     the air noise stops dead. This is the best sound in the film -- do
+                     not soften it and do not reverb it.
+
+00:05.4 - 00:08.5   Wind bed continues UNBROKEN ACROSS THE CUT -- do not dip the audio
+                     at the join, the continuous sound is what sells the two clips as
+                     one take. But it is a DIFFERENT wind now: the mic is lying in the
+                     grass, so add close stem rustle and cut the high end slightly, as
+                     though the mic were half buried. A low sustained drone fades in
+                     underneath, around 200-600 Hz.
 
 00:08.5             One low impact sting on the eye opening. Single hit.
 
@@ -535,7 +545,9 @@ NO dialogue, NO voice-over, ever.
                      out. This is the whole punch, and the reference does not do it.
 
 00:17.3 - 00:20.0   Roar: layered sub-bass growl 40-80 Hz, mid-range rasp, broadband
-                     breath noise, brass and choir crescendo over the top.
+                     breath noise, brass and choir crescendo over the top. Add the blast
+                     wave arriving at the fallen mic a beat late -- a low thump and a
+                     hard gust of stem rustle right at the lens.
 
 00:20.0 - 00:20.4   Hard cut to black, roar tail in reverb only.
 ```

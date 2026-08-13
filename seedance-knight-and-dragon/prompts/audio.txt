@@ -10,13 +10,20 @@ NO dialogue, NO voice-over, ever.
                      panned hard right and behind. Small and dry -- a punctuation
                      mark, not an event.
 
-00:03.4 - 00:05.0   Armour and cloth rustle, air roaring across the mic as the camera
-                     whips. Loud, ugly, real.
+00:02.9 - 00:05.0   The camera throw. Armour and cloth as her arm swings, then air
+                     roaring across the mic in pulses as the camera tumbles -- the wind
+                     noise should wobble in time with the spin. Loud, ugly, real.
 
-00:05.0 - 00:08.5   The whip lands. Wind bed continues UNBROKEN ACROSS THE CUT -- do
-                     not dip the audio at the join, the continuous sound is what sells
-                     the two clips as one take. A low sustained drone fades in
-                     underneath, around 200-600 Hz, strings or wordless choir.
+00:05.0 - 00:05.4   IMPACT. One dull thud into soft ground, a short rustle of stems, and
+                     the air noise stops dead. This is the best sound in the film -- do
+                     not soften it and do not reverb it.
+
+00:05.4 - 00:08.5   Wind bed continues UNBROKEN ACROSS THE CUT -- do not dip the audio
+                     at the join, the continuous sound is what sells the two clips as
+                     one take. But it is a DIFFERENT wind now: the mic is lying in the
+                     grass, so add close stem rustle and cut the high end slightly, as
+                     though the mic were half buried. A low sustained drone fades in
+                     underneath, around 200-600 Hz.
 
 00:08.5             One low impact sting on the eye opening. Single hit.
 
@@ -27,6 +34,8 @@ NO dialogue, NO voice-over, ever.
                      out. This is the whole punch, and the reference does not do it.
 
 00:17.3 - 00:20.0   Roar: layered sub-bass growl 40-80 Hz, mid-range rasp, broadband
-                     breath noise, brass and choir crescendo over the top.
+                     breath noise, brass and choir crescendo over the top. Add the blast
+                     wave arriving at the fallen mic a beat late -- a low thump and a
+                     hard gust of stem rustle right at the lens.
 
 00:20.0 - 00:20.4   Hard cut to black, roar tail in reverb only.
