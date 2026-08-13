@@ -129,13 +129,17 @@ Vertical 9:16 handheld selfie video, front-facing phone camera held at arm's len
 
 SUBJECT — A woman in her early twenties, East Asian features, chin-length glossy black bob, fine strands blowing across her cheek, bare skin with visible pores, natural brows, glossy coral-nude lips, one small silver drop earring. She wears full mirror-polished white steel plate armour: gorget, layered pauldrons, articulated rerebrace-couter-vambrace on the extended arm, gauntlet with segmented finger lames, breastplate engraved with fine fleur-de-lis and a cruciform motif, blackened chainmail voiders at the armpits, domed rivets. An ivory hooded cloak hangs behind her shoulders. A cruciform sword with a black leather grip rides on a wide brown leather belt at her hip.
 
-ACTION — She sips iced black coffee through a white straw from a clear plastic to-go cup with a domed lid, ice cubes and condensation on the plastic, gauntleted fingers wrapped around it. Her gaze wanders off-lens to the right. She looks profoundly bored. She lowers the cup out of frame and rests her arm. Her eyes flick right. Her head turns sharply toward a sound behind her. Boredom drops into alert stillness. She holds.
+ACTION, in strict order —
+(0-2 s) She sips iced black coffee through a white straw from a clear plastic to-go cup with a domed lid, ice cubes and condensation on the plastic, gauntleted fingers wrapped around it. Her gaze wanders off-lens to the right. She looks profoundly bored. She never looks into the camera.
+(2-2.6 s) Her eyes flick right. The straw leaves her lips. She has heard something.
+(2.6-3.4 s) Without looking, she flicks her wrist and tosses the cup back over her right shoulder. It tumbles away behind her, the lid coming loose, dark coffee and ice arcing out, and drops into the grass out of focus. Casual, dismissive, finished.
+(3.4-5 s) She turns her wrist and swings the phone away from her face, out to her right and past her shoulder, until it points away from her at the pale mass in the fog. The frame sweeps right in heavy motion blur, her pauldron and cloak whipping past the lens, and the horizon rolls over as she turns the phone onto its side. The last frames are green blur and a vast pale shape resolving ahead.
 
-SCENE — A vast flat meadow of short green grass drowned in dense cold fog, visibility about twenty-five metres, no horizon line. Far behind her right shoulder, deeply out of focus, an enormous pale blue-grey mass lies in the grass. It is never acknowledged.
+SCENE — A vast flat meadow of short green grass drowned in dense cold fog, visibility about twenty-five metres, no horizon line. Far behind her right shoulder, deeply out of focus, an enormous pale blue-grey mass lies in the grass. She never comments on it.
 
 LIGHT — Flat overcast daylight, fully diffuse, no shadows, no visible sun, cool blue-grey ambient, milky lifted blacks.
 
-CAMERA — Handheld selfie with small natural drift and micro-shake, no gimbal, no stabilisation. Her extended forearm and near pauldron loom huge in the lower foreground. Her head sits in the upper third.
+CAMERA — Handheld selfie with small natural drift and micro-shake, no gimbal, no stabilisation. Her extended forearm and near pauldron loom huge in the lower foreground. Her head sits in the upper third. In the final beat the camera swings hard right and rolls onto its side.
 
 STYLE — Photoreal, shot on a modern smartphone, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine grain. Candid social-media footage, deliberately not cinematic.
 ```
@@ -146,13 +150,18 @@ STYLE — Photoreal, shot on a modern smartphone, slightly soft, low contrast, c
 готовы к перегенерациям.
 
 ```text
-FINAL 0.8 SECONDS — The phone whips violently upward into the blank white sky and the frame blows out to near-white, then whips down past her shoulder into the grass at her feet, smearing into dark green motion blur, and goes black.
+ALTERNATIVE FINAL BEAT — instead of the swing, if you want the reference's original
+transition: the phone whips violently upward into the blank white sky and the frame blows out
+to near-white, then whips down past her shoulder into the grass at her feet, smearing into
+dark green motion blur, and goes black.
+
+Weaker choice. The swing is motivated by her, the whip is motivated by nothing.
 ```
 
 Negative:
 
 ```text
-tripod, static camera, locked-off, gimbal, smooth stabilised motion, dolly, crane, orbit; text, watermark, logo, subtitles, captions, UI overlay, timestamp; extra fingers, six fingers, malformed hands, warped gauntlet, melted armour plates, floating armour, plates clipping through the cup; duplicate limbs, two heads, distorted face, asymmetric eyes; cartoon, anime, illustration, 3D render, plastic skin, waxy skin, CGI sheen, beauty-filter smoothing, airbrushed skin; oversaturated, warm orange grade, golden hour, sunlight, hard shadows, lens flare, visible sun; blurry face, low resolution, upscaling artifacts, repeating chainmail pattern; fire, smoke, sparks; blood, gore
+tripod, static camera, locked-off, gimbal, smooth stabilised motion, dolly, crane, orbit; looking into the camera, smiling, posing, winking, talking to camera; still holding the cup at the end, throwing the cup at the camera, coffee splashing the lens, coffee on her face or armour; text, watermark, logo, subtitles, captions, UI overlay, timestamp; extra fingers, six fingers, malformed hands, warped gauntlet, melted armour plates, floating armour, plates clipping through the cup; duplicate limbs, two heads, distorted face, asymmetric eyes; cartoon, anime, illustration, 3D render, plastic skin, waxy skin, CGI sheen, beauty-filter smoothing, airbrushed skin; oversaturated, warm orange grade, golden hour, sunlight, hard shadows, lens flare, visible sun; blurry face, low resolution, upscaling artifacts, repeating chainmail pattern; fire, smoke, sparks; blood, gore
 ```
 
 ## 8. Промпт · Клип B
@@ -197,14 +206,33 @@ camera movement, camera pan, camera tilt, zoom, dolly in, dolly out, push in, pu
 ## 9. Параметры и консистентность персонажа
 
 ```text
-CLIP A   aspect 9:16   1080x1920   24 fps   ~5.0 s   seed: lock it
-CLIP B   aspect 16:9   1920x1080   24 fps   ~10 s    seed: lock it
-CLIP B2  aspect 16:9   1920x1080   24 fps   ~5-6 s   seed: lock it  (only if you split B)
+CLIP A    aspect 9:16   1080x1920   24 fps   5 s (6 s if offered)   seed: lock it
+CLIP B1   aspect 16:9   1920x1080   24 fps   10 s                   seed: lock it
+CLIP B2   aspect 16:9   1920x1080   24 fps   5 s                    seed: lock it
+                                                    start image = B1's last frame
+
+PER-BEAT PACING -- pace the prompt to these or the model rushes the payoff:
+
+A  (5 s)    0.0-2.0   sipping, bored, gaze off-lens
+            2.0-2.6   eyes flick right, straw leaves her lips
+            2.6-3.4   tosses the cup back over her shoulder
+            3.4-5.0   swings the phone around onto the dragon, rolls it on its side
+
+B1 (10 s)   0.0-1.5   she walks away from the lens, the pale mass resolves
+            1.5-4.0   nothing happens. dragon asleep. wind only
+            4.0-5.8   amber eye opens
+            5.8-7.0   she raises the sword
+            7.0-10    head lifts off the ground, starts to turn
+
+B2 (5 s)    0.0-1.5   turns front-on, looks at her sword, slow blink
+            1.5-2.8   cranes forward and down
+            2.8-4.3   jaws open, roar, breath plume, grass wave, she braces
+            4.3-5.0   hold on the open maw
 
 Reference image: feed the SAME character still to every clip.
 Generate her once as a still (front 3/4, armour, ivory cloak, black bob,
 flat overcast light, fog) and reuse that one file everywhere.
-Without it the two halves will not read as the same person.
+Without it the halves will not read as the same person.
 ```
 
 **Честная оговорка.** Конкретные названия полей, доступные длительности и разрешения у Seedance 2.5
@@ -220,26 +248,41 @@ Without it the two halves will not read as the same person.
 ```text
 1.  Timeline: 1080 x 1920, 24 fps.
 
-2.  CLIP A            00:00.00 -> 00:05.05      as generated, vertical, full bleed.
+2.  CLIP A            00:00.00 -> 00:04.67      as generated, vertical, full bleed.
+                                                 Frames 0-112. Cup tossed at ~2.6 s,
+                                                 phone starts swinging at ~3.4 s.
 
-3.  WHIP              00:05.05 -> 00:05.87      directional blur ramping 0 -> 180 px,
-                                                 vertical axis; over-expose to near-white
-                                                 across 00:05.30 -> 00:05.50 (peak ~83% grey);
-                                                 crush back down into the grass.
+3.  THE ROLL          00:04.67 -> 00:05.00      Clip A's last 8 frames only.
+                                                 Keyframe rotation 0 -> 90 degrees CW
+                                                 across those 8 frames, ease-in.
+                                                 Add directional blur ramping 0 -> 140 px
+                                                 along the swing axis.
+                                                 The model already gave you the sweep;
+                                                 you are only finishing the roll, because
+                                                 a generated 90-degree roll is unreliable.
 
-4.  MASKED CUT        00:05.87 -> 00:06.01      4 frames of pure black. Everything changes
-                                                 here: orientation, scale, register.
-                                                 Do not shorten this. Do not cross-dissolve.
+4.  MASKED CUT        00:05.00 -> 00:05.12      3 frames of pure black. Scale and
+                                                 framing change here.
+                                                 Do not cross-dissolve. Do not lengthen
+                                                 past 4 frames -- the swing already did
+                                                 the work the reference needed 4 frames for.
 
-5.  CLIP B            00:06.01 -> 00:20.00      ROTATE 90 DEGREES CLOCKWISE.
+5.  CLIP B1           00:05.12 -> 00:15.12      ROTATE 90 DEGREES CLOCKWISE.
                                                  1920x1080 rotated = 1080x1920 exactly.
                                                  Zero letterboxing, no scaling, full bleed.
-                                                 The viewer now has to turn the phone
-                                                 counter-clockwise to see it upright.
 
-6.  OUT               00:20.00 -> 00:20.55      hard cut to black. No fade.
+6.  CLIP B2           00:15.12 -> 00:20.12      same rotation. Straight cut from B1,
+                                                 no transition -- the head position matches
+                                                 because B2 started from B1's last frame.
+
+7.  OUT               00:20.12 -> 00:20.50      hard cut to black. No fade.
 
 Total: 20.5 s.
+
+The viewer turns the phone COUNTER-CLOCKWISE to see clip B upright. Because she
+visibly turns her own phone onto its side at the end of clip A, the viewer copies
+the gesture almost reflexively -- that is the whole reason this version beats the
+reference, which rolls the camera for no stated reason.
 
 TEST IT ON A REAL PHONE. Turn auto-rotate ON and confirm the player does NOT
 re-rotate your clip and kill the whole gag. Upload as a single flat 9:16 file --
@@ -251,28 +294,38 @@ never as a landscape file with a "turn your phone" caption.
 Модель звук не сделает. Ни одной реплики в референсе нет, и это правильно — но в нём нет и тишины.
 
 ```text
-00:00.0 - 00:05.1   Wind bed, broadband, no music event. One sustained low drone
+00:00.0 - 00:02.6   Wind bed, broadband, no music event. One sustained low drone
                      around 200-600 Hz (strings or wordless choir). Faint straw
                      and ice sounds. NO dialogue, NO voice-over, ever.
 
-00:05.1 - 00:05.9   Cloth-and-air whoosh rising with the whip, filter sweeping up.
+00:02.6 - 00:03.0   The cup toss. Plastic clatter and a wet splash landing in grass,
+                     panned hard right and slightly behind. Keep it small and dry --
+                     it is a punctuation mark, not an event.
 
-00:05.9 - 00:06.0   NEAR SILENCE over the 4 black frames. This is the whole trick.
+00:03.4 - 00:04.7   Cloth-and-armour rustle as she swings the phone. Air moving
+                     across the mic, filter sweeping up. Let the wind bed swell.
 
-00:06.0 - 00:12.0   The drone returns, wider and lower. Add a sub-bass bed.
+00:04.7 - 00:05.0   The roll. One short rising whoosh, cut off hard.
+
+00:05.0 - 00:05.12  NEAR SILENCE over the 3 black frames. This is the whole trick.
+
+00:05.12 - 00:11.0  The drone returns, wider and lower. Add a sub-bass bed.
+                     Her footsteps in grass for the first 1.5 s, then nothing.
                      Slow strings enter underneath.
 
-00:10.3             One low impact sting. Single hit, no reverb tail into the mix.
+00:09.2             One low impact sting on the eye opening. Single hit,
+                     no reverb tail into the mix.
 
-00:12.0 - 00:17.2   Build: rising strings, a ticking pulse. Still no percussion hits.
+00:11.0 - 00:15.0   Build: rising strings, a ticking pulse. Still no percussion hits.
 
-00:17.2 - 00:17.5   DROP TO NEAR SILENCE for 0.3 s. The reference does not do this
+00:15.0 - 00:15.3   DROP TO NEAR SILENCE for 0.3 s. The reference does not do this
                      and it costs it the whole punch. Do it.
 
-00:17.5 - 00:20.0   Full roar: layered sub-bass growl 40-80 Hz, mid-range rasp,
-                     broadband breath noise, brass and choir crescendo over the top.
+00:15.3 - 00:20.1   The turn, the blink, then the roar: layered sub-bass growl
+                     40-80 Hz, mid-range rasp, broadband breath noise, brass and
+                     choir crescendo over the top.
 
-00:20.0 - 00:20.5   Hard cut to black, roar tail in reverb only.
+00:20.1 - 00:20.5   Hard cut to black, roar tail in reverb only.
 ```
 
 ## 12. Как сделать это своим

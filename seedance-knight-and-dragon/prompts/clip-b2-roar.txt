@@ -1,11 +1,17 @@
-Horizontal 16:9 cinematic wide shot, continuing from the previous frame. LOCKED-OFF STATIC CAMERA at grass-top height, 40mm lens. The camera never moves.
+Horizontal 16:9 cinematic wide shot, continuing from the previous frame. LOCKED-OFF STATIC CAMERA sitting in the grass, roughly 30cm above the ground, as though a phone had been propped upright in the stems and left running. 40mm lens. The camera never moves: no pan, no tilt, no zoom, no dolly, no shake. Only the woman, the creature and the grass move.
 
-[ paste the FOREGROUND / SUBJECT / CREATURE / LIGHT / STYLE blocks from the master prompt unchanged ]
+FOREGROUND — Blades of green grass rise through the lower corners of the frame, close to the lens and far out of focus.
+
+SUBJECT — Dead centre, small, about one sixth of the frame height: a woman knight stands with her back three-quarters to camera in knee-high wind-rippled green grass, her feet hidden among the stems. Ivory hooded cloak to mid-calf. Mirror-polished silver plate armour. Chin-length black bob. A long straight silver sword raised out to her side.
+
+CREATURE — A colossal dragon, head already lifted clear of the grass and towering over her, filling the upper two-thirds of the frame. Its head alone is five times her full height. Pearl-white and ice-blue hide. A broad field of opalescent dichroic scales across the neck and shoulder throwing prismatic pink, cyan, mint and gold glints. A saw-tooth ridge of tall bone-white dorsal spines runs down the neck and back. A fan of long pale spines frames the cheeks and jaw like a frill. Two thick bone-white horns sweep back from the crown, banded near the base with dark bronze metal cuffs. Two whip-thin bronze tendrils arc from behind each eye over the brow. Fine pebbled scales on the muzzle, pink nostril slits, a pink-flushed nose. An enormous folded membranous wing, semi-translucent pale grey-pink with visible finger bones, lies on the left. Both eyes open, warm amber gold, vertical black slit pupils, faintly glowing.
 
 ACTION, in strict order —
-1. The colossal head, already lifted, turns fully front-on to the small knight. Both amber eyes lock onto her.
-2. The head tilts a few degrees and the pupils flick down to the sword in her hand, then back to her face. A single slow blink. Recognition, not hunger.
-3. The head cranes forward and lowers toward her until it fills the frame, breath fogging the cold air in slow pulses from the nostrils.
-4. The jaws split open into a roar — pale pink-lavender palate, rows of white conical teeth, long pink tongue, strands of saliva — and a dense plume of hot breath vapour blasts out into the cold air.
-5. The grass lies flat in a radial wave rolling outward from the jaw. Her cloak snaps horizontal. She drops into a braced stance, sword raised across her body, and does not retreat.
-6. Hold on the open maw for a full beat.
+(0-1.5 s) The head turns fully front-on to the small knight. Both eyes lock onto her. It tilts a few degrees and the pupils flick down to the sword in her hand, then back up to her face. One slow blink. Recognition, not hunger.
+(1.5-2.8 s) The head cranes forward and lowers toward her until it fills the frame, breath fogging the cold air in slow pulses from the nostrils.
+(2.8-4.3 s) The jaws split open into a roar — pale pink-lavender palate, rows of white conical teeth, long pink tongue, thin strands of saliva — and a dense plume of hot breath vapour blasts out into the cold air. The grass lies flat in a radial wave rolling outward from the jaw. Her cloak snaps horizontal. She drops into a braced stance, sword raised across her body, and does not retreat.
+(4.3-5 s) Hold on the open maw.
+
+LIGHT — Flat overcast daylight, fully diffuse, no shadows, no visible sun, cool blue-grey. Dense low ground fog. Flat pale blue-white sky. Soft bloom on the white scales.
+
+STYLE — Photoreal cinematic, cool desaturated grade, teal-cyan shadows, lifted milky blacks, low contrast, heavy atmospheric perspective, fine 35mm grain, subtle vignette. Epic fantasy realism, live-action, not animated.

@@ -1,8 +1,27 @@
-CLIP A   aspect 9:16   1080x1920   24 fps   ~5.0 s   seed: lock it
-CLIP B   aspect 16:9   1920x1080   24 fps   ~10 s    seed: lock it
-CLIP B2  aspect 16:9   1920x1080   24 fps   ~5-6 s   seed: lock it  (only if you split B)
+CLIP A    aspect 9:16   1080x1920   24 fps   5 s (6 s if offered)   seed: lock it
+CLIP B1   aspect 16:9   1920x1080   24 fps   10 s                   seed: lock it
+CLIP B2   aspect 16:9   1920x1080   24 fps   5 s                    seed: lock it
+                                                    start image = B1's last frame
+
+PER-BEAT PACING -- pace the prompt to these or the model rushes the payoff:
+
+A  (5 s)    0.0-2.0   sipping, bored, gaze off-lens
+            2.0-2.6   eyes flick right, straw leaves her lips
+            2.6-3.4   tosses the cup back over her shoulder
+            3.4-5.0   swings the phone around onto the dragon, rolls it on its side
+
+B1 (10 s)   0.0-1.5   she walks away from the lens, the pale mass resolves
+            1.5-4.0   nothing happens. dragon asleep. wind only
+            4.0-5.8   amber eye opens
+            5.8-7.0   she raises the sword
+            7.0-10    head lifts off the ground, starts to turn
+
+B2 (5 s)    0.0-1.5   turns front-on, looks at her sword, slow blink
+            1.5-2.8   cranes forward and down
+            2.8-4.3   jaws open, roar, breath plume, grass wave, she braces
+            4.3-5.0   hold on the open maw
 
 Reference image: feed the SAME character still to every clip.
 Generate her once as a still (front 3/4, armour, ivory cloak, black bob,
 flat overcast light, fog) and reuse that one file everywhere.
-Without it the two halves will not read as the same person.
+Without it the halves will not read as the same person.
