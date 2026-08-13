@@ -1,0 +1,26 @@
+1.  Timeline: 1080 x 1920, 24 fps.
+
+2.  CLIP A            00:00.00 -> 00:05.05      as generated, vertical, full bleed.
+
+3.  WHIP              00:05.05 -> 00:05.87      directional blur ramping 0 -> 180 px,
+                                                 vertical axis; over-expose to near-white
+                                                 across 00:05.30 -> 00:05.50 (peak ~83% grey);
+                                                 crush back down into the grass.
+
+4.  MASKED CUT        00:05.87 -> 00:06.01      4 frames of pure black. Everything changes
+                                                 here: orientation, scale, register.
+                                                 Do not shorten this. Do not cross-dissolve.
+
+5.  CLIP B            00:06.01 -> 00:20.00      ROTATE 90 DEGREES CLOCKWISE.
+                                                 1920x1080 rotated = 1080x1920 exactly.
+                                                 Zero letterboxing, no scaling, full bleed.
+                                                 The viewer now has to turn the phone
+                                                 counter-clockwise to see it upright.
+
+6.  OUT               00:20.00 -> 00:20.55      hard cut to black. No fade.
+
+Total: 20.5 s.
+
+TEST IT ON A REAL PHONE. Turn auto-rotate ON and confirm the player does NOT
+re-rotate your clip and kill the whole gag. Upload as a single flat 9:16 file --
+never as a landscape file with a "turn your phone" caption.

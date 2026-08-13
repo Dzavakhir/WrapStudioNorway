@@ -1,0 +1,18 @@
+Vertical 9:16 handheld selfie video, front-facing phone camera held at arm's length, 24mm wide lens, mild barrel distortion.
+
+SUBJECT — A woman in her early twenties, East Asian features, chin-length glossy black bob, fine strands blowing across her cheek, bare skin with visible pores, natural brows, glossy coral-nude lips, one small silver drop earring. She wears full mirror-polished white steel plate armour: gorget, layered pauldrons, articulated rerebrace-couter-vambrace on the extended arm, gauntlet with segmented finger lames, breastplate engraved with fine fleur-de-lis and a cruciform motif, blackened chainmail voiders at the armpits, domed rivets. An ivory hooded cloak hangs behind her shoulders. A cruciform sword with a black leather grip rides on a wide brown leather belt at her hip.
+
+ACTION — She sips iced black coffee through a white straw from a clear plastic to-go cup with a domed lid, ice cubes and condensation on the plastic, gauntleted fingers wrapped around it. Her gaze wanders off-lens to the right. She looks profoundly bored. She lowers the cup out of frame and rests her arm. Her eyes flick right. Her head turns sharply toward a sound behind her. Boredom drops into alert stillness. She holds.
+
+SCENE — A vast flat meadow of short green grass drowned in dense cold fog, visibility about twenty-five metres, no horizon line. Far behind her right shoulder, deeply out of focus, an enormous pale blue-grey mass lies in the grass. It is never acknowledged.
+
+LIGHT — Flat overcast daylight, fully diffuse, no shadows, no visible sun, cool blue-grey ambient, milky lifted blacks.
+
+CAMERA — Handheld selfie with small natural drift and micro-shake, no gimbal, no stabilisation. Her extended forearm and near pauldron loom huge in the lower foreground. Her head sits in the upper third.
+
+STYLE — Photoreal, shot on a modern smartphone, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine grain. Candid social-media footage, deliberately not cinematic.
+
+----------------------------------------------------------------------
+OPTIONAL TAIL (only if you generate the whip in-model):
+
+FINAL 0.8 SECONDS — The phone whips violently upward into the blank white sky and the frame blows out to near-white, then whips down past her shoulder into the grass at her feet, smearing into dark green motion blur, and goes black.

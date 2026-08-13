@@ -1,0 +1,8 @@
+CLIP A   aspect 9:16   1080x1920   24 fps   ~5.0 s   seed: lock it
+CLIP B   aspect 16:9   1920x1080   24 fps   ~10 s    seed: lock it
+CLIP B2  aspect 16:9   1920x1080   24 fps   ~5-6 s   seed: lock it  (only if you split B)
+
+Reference image: feed the SAME character still to every clip.
+Generate her once as a still (front 3/4, armour, ivory cloak, black bob,
+flat overcast light, fog) and reuse that one file everywhere.
+Without it the two halves will not read as the same person.

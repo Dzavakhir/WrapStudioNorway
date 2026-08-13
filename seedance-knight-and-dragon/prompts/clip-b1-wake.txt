@@ -1,0 +1,9 @@
+Horizontal 16:9 cinematic wide shot. LOCKED-OFF STATIC CAMERA on a tripod at grass-top height, roughly 40cm above the ground, 40mm lens. The camera never moves: no pan, no tilt, no zoom, no dolly, no shake. Only the creature and the grass move.
+
+[ paste the FOREGROUND / SUBJECT / CREATURE / LIGHT / STYLE blocks from the master prompt unchanged ]
+
+ACTION, in strict order —
+1. Stillness. The dragon sleeps. Only the grass and her cloak move in the wind.
+2. One vast amber eye opens — warm gold iris, vertical black slit pupil — and finds her.
+3. She raises the sword slowly out to her side.
+4. The head lifts off the ground, the grass beneath its jaw flattening and springing back, and begins to rotate toward her. Hold on the lifted head, both eyes open, faintly glowing.
