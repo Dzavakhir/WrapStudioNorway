@@ -9,14 +9,14 @@ PER-BEAT PACING -- pace the prompt to these or the model rushes the payoff:
 A (4 s)     0.0-1.8   sipping, bored, gaze off-lens
             1.8-2.3   eyes snap right, straw leaves her lips
             2.3-2.8   throws the cup back over her shoulder
-            2.8-4.0   swings the phone straight onto the creature. ENDS MID-SWING.
+            2.8-4.0   camera whips flat right onto the creature. ENDS MID-WHIP.
 
 B (10 s)    0.0-0.8   settles out of the blur onto the sleeping creature
             0.8-3.0   nothing happens. breathing, handheld drift
             3.0-4.5   amber eye opens, looks into the lens
             4.5-6.5   head lifts off the ground, turns to the camera
             6.5-8.0   cranes down, one eye fills half the frame, she steps back
-            8.0-10    roar into the lens, breath fogs the glass, phone tips down
+            8.0-10    roar into the lens, breath fogs the lens, camera tips down
 
 IF 10 s IS NOT AVAILABLE, split B into two:
 CLIP B1  16:9  6 s   settle -> eye opens -> head lifts (use the B1 prompt)

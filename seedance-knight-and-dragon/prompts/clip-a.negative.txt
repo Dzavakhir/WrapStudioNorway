@@ -1,1 +1,11 @@
-tripod, static camera, locked-off, gimbal, smooth stabilised motion, dolly, crane, orbit; looking into the camera, smiling, posing, winking, talking to camera; still holding the cup at the end, throwing the cup at the camera, coffee splashing the lens, coffee on her face or armour; text, watermark, logo, subtitles, captions, UI overlay, timestamp; extra fingers, six fingers, malformed hands, warped gauntlet, melted armour plates, floating armour, plates clipping through the cup; duplicate limbs, two heads, distorted face, asymmetric eyes; cartoon, anime, illustration, 3D render, plastic skin, waxy skin, CGI sheen, beauty-filter smoothing, airbrushed skin; oversaturated, warm orange grade, golden hour, sunlight, hard shadows, lens flare, visible sun; blurry face, low resolution, upscaling artifacts, repeating chainmail pattern; fire, smoke, sparks; blood, gore
+smartphone, phone, mobile phone, cell phone, iphone, holding a phone, a phone in her hand, phone appearing in her hand, black rectangle in her hand, screen, tablet, device, camera visible in frame, selfie stick, picking an object up, holding anything after the throw;
+
+UFO, flying saucer, spacecraft, spaceship, alien ship, dome, glass dome, lit windows, glowing windows, landing legs, building, hangar, tent, vehicle, machine, boulder, rock formation;
+
+camera roll, rolling camera, camera tumbling, spinning camera, barrel roll, upside down, inverted frame, 180 degree rotation, full rotation, camera dropped, camera falling, dutch angle;
+
+horizontal frame, landscape orientation, 16:9, widescreen, black bars, letterbox;
+
+dark, underexposed, dusk, twilight, night, murky, gloomy, heavy shadows, low-key moody grade, crushed blacks;
+
+looking into the lens, eye contact with camera, smiling, posing, winking, talking to camera; tripod, static camera, locked-off, gimbal, smooth stabilised motion, dolly, crane, orbit; sword, weapon, blade, scabbard; coffee splashing the lens, coffee on her face; text, watermark, logo, subtitles, captions, UI overlay, timestamp; extra fingers, six fingers, malformed hands, warped gauntlet, melted armour plates, floating armour; duplicate limbs, two heads, distorted face, asymmetric eyes; cartoon, anime, illustration, 3D render, plastic costume armour, matte white plastic, waxy skin, CGI sheen, beauty-filter smoothing; oversaturated, warm orange grade, golden hour, sunlight, hard shadows, lens flare, visible sun; blurry face, low resolution, upscaling artifacts, repeating chainmail pattern; fire, smoke, sparks; blood, gore

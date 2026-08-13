@@ -1,15 +1,15 @@
-Horizontal 16:9 handheld phone video, continuing from the previous frame. FIRST PERSON: she is behind the camera, filming with one hand. She is not in the shot. 24mm wide lens, handheld, never locked.
+HORIZONTAL 16:9 video, 1920x1080, continuing from the previous frame. Handheld first-person point of view. She is BEHIND the camera and is never visible in the shot. NO device is visible anywhere in frame. 24mm wide lens, handheld, never locked.
 
-FRAMING — Low, roughly chest height. In the lower right corner, close to the lens and slightly out of focus, the edge of her gauntleted hand and the rim of her polished pauldron stay visible for scale.
+FRAMING — Low, roughly chest height. At the very bottom right edge of frame, out of focus, the rim of her polished pauldron and a few strands of her hair intrude into the shot for scale. Her breath drifts into the bottom of frame as faint vapour. No hand, no arm, no object.
 
 CREATURE — A colossal dragon, head already lifted clear of the grass and facing the camera, filling most of the frame. Pearl-white and ice-blue hide. A broad field of opalescent dichroic scales across the neck and shoulder throwing prismatic pink, cyan, mint and gold glints. A saw-tooth ridge of tall bone-white dorsal spines runs down the neck and back. A fan of long pale spines frames the cheeks and jaw like a frill. Two thick bone-white horns sweep back from the crown, banded near the base with dark bronze metal cuffs. Two whip-thin bronze tendrils arc from behind each eye over the brow. Fine pebbled scales on the muzzle, pink nostril slits, a pink-flushed nose. Both eyes open, warm amber gold, vertical black slit pupils, faintly glowing.
 
 ACTION, in strict order —
-(0-1.2 s) The head tilts a few degrees and the pupils flick down to the phone in her hand, then back up. One slow blink. Recognition, not hunger.
-(1.2-2.5 s) The head cranes down toward the phone until one amber eye alone fills half the frame. The frame jerks backward as she takes a step back, but she keeps filming.
+(0-1.2 s) The head tilts a few degrees and the pupils flick down toward the lens, then back up. One slow blink. Recognition, not hunger.
+(1.2-2.5 s) The head cranes down toward the lens until one amber eye alone fills half the frame. The frame jerks backward as she takes a step back, but the camera keeps running.
 (2.5-4.3 s) The jaws split open into a roar directly into the lens — pale pink-lavender palate, rows of white conical teeth, long pink tongue, thin strands of saliva. Hot breath vapour blasts across the glass and briefly fogs it. The grass lies flat in a radial wave.
-(4.3-5 s) The phone shakes hard and tips, the frame swinging down toward the grass at her feet, where one polished greave and boot show for a moment, tiny against the creature above.
+(4.3-5 s) The camera shakes hard and tips, swinging down toward the grass at her feet, where one polished greave and boot show for a moment, tiny against the creature above.
 
-LIGHT — Flat overcast daylight, fully diffuse, no shadows, no visible sun, cool blue-grey. Dense low ground fog. Flat pale blue-white sky. Soft bloom on the white scales.
+LIGHT — Bright flat overcast daylight, high-key, luminous glowing white fog, fully diffuse, no shadows, no visible sun. Pale, airy and light. Dense low ground fog. Flat pale blue-white sky. Soft bloom on the white scales. NOT dark, NOT dusk, NOT moody, NOT low-key.
 
-STYLE — Photoreal, shot on a modern smartphone, handheld, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine sensor noise, mild rolling-shutter wobble on the fast moves. Found-footage realism. NOT cinematic, no film look, no tripod, no colour-graded blockbuster look.
+STYLE — Photoreal, consumer-camera look, handheld, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine sensor noise, mild rolling-shutter wobble on the fast moves. Found-footage realism. NOT cinematic, no film look, no tripod, no colour-graded blockbuster look.

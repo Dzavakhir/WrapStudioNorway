@@ -1,31 +1,38 @@
-ONE CUT. No flash, no black frames, no rotation keyframes, no blur plugin,
-no transition of any kind. That is the point.
+ONE CUT, plus a quarter turn on six frames. Nothing else. No flash, no black
+frames, no blur plugin, no transition of any kind.
 
 1.  Timeline: 1080 x 1920, 24 fps.
 
-2.  CLIP A            00:00.00 -> 00:04.00      as generated, vertical, full bleed.
+2.  CLIP A            00:00.00 -> 00:04.75      as generated, vertical, full bleed.
                                                  Trim the out-point to the frame where
-                                                 the swing blur is HEAVIEST -- usually
-                                                 2 or 3 frames before the clip ends.
+                                                 the whip blur is HEAVIEST.
 
-3.  CLIP B            00:04.00 -> 00:14.00      ROTATE 90 DEGREES CLOCKWISE.
+3.  THE QUARTER TURN  00:04.75 -> 00:05.00      Clip A's last 6 frames only.
+                                                 Keyframe rotation 0 -> 90 degrees CW
+                                                 across those 6 frames, ease-in.
+                                                 DO NOT ask the model to do this. It
+                                                 overshoots and tumbles past 180. The
+                                                 model gives you a flat whip; the turn
+                                                 is yours, and 6 frames is all it takes
+                                                 because the frame is already a smear.
+
+4.  CLIP B            00:05.00 -> 00:15.00      ROTATE 90 DEGREES CLOCKWISE.
                                                  1920x1080 rotated = 1080x1920 exactly.
                                                  Zero letterboxing, no scaling, full bleed.
                                                  Trim the in-point to ITS heaviest blur
                                                  frame, then butt it straight against A.
 
-4.  OUT               00:14.00 -> 00:14.40      hard cut to black. No fade.
+5.  OUT               00:15.00 -> 00:15.40      hard cut to black. No fade.
 
-Total: ~14.4 s.
+Total: ~15.4 s.
 
-WHY THERE IS NOTHING ELSE TO DO. Both sides of the cut are heavy motion blur
-travelling in the same direction, so the eye cannot find the join and fills in the
-90-degree roll by itself. That is why clip A must END mid-swing and clip B must
-BEGIN mid-swing -- if either one settles, you lose the invisible cut and you are
-back to needing a flash and black frames to hide the seam.
+WHY THIS IS ALL THERE IS. Both sides of the cut are heavy motion blur travelling
+in the same direction, so the eye cannot find the join. That is why clip A must END
+mid-whip and clip B must BEGIN mid-whip -- if either one settles, you lose the
+invisible cut and you are back to needing a flash and black frames to hide a seam.
 
 The viewer turns the phone COUNTER-CLOCKWISE to see clip B upright, and does it
-without being told, because they just watched her turn her own phone.
+without being told, because the image demands it.
 
 TEST IT ON A REAL PHONE. Turn auto-rotate ON and confirm the player does NOT
 re-rotate your clip and kill the whole gag. Upload as a single flat 9:16 file --

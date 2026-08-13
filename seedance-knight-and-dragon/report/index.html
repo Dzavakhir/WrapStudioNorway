@@ -225,6 +225,24 @@ ol.cards--flaw > li::before { color:var(--steel); }
 }
 .pb-body code { font:inherit; color:inherit; }
 
+/* ---------- failure list ---------- */
+ol.cards--fail > li::before { color:var(--accent); }
+.f-obs { font-size:.955rem; color:var(--ink-2); }
+.f-why, .f-fix { font-size:.9rem; margin-top:.5rem; color:var(--ink-2); }
+.f-tag {
+  display:inline-block; font-family:var(--mono); font-size:.6rem; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--muted); border:1px solid var(--rule);
+  border-radius:2px; padding:.1rem .38rem; margin-right:.5rem;
+  vertical-align:.1em; white-space:nowrap;
+}
+.f-tag--fix { color:var(--accent); border-color:var(--accent-mark); }
+.goodlist { grid-column:wide; margin:.7rem 0 0; padding:0 0 0 1.1rem; list-style:none; }
+.goodlist li { position:relative; font-size:.93rem; color:var(--ink-2); padding:.22rem 0; }
+.goodlist li::before {
+  content:"+"; position:absolute; left:-1.1rem; color:var(--accent);
+  font-family:var(--mono); font-size:.85rem;
+}
+
 /* ---------- swap table ---------- */
 .tablewrap { grid-column:wide; overflow-x:auto; margin:.6rem 0 0; border:1px solid var(--rule); border-radius:3px; background:var(--surface); box-shadow:var(--shadow); }
 table { border-collapse:collapse; width:100%; min-width:640px; font-size:.9rem; }
@@ -442,25 +460,25 @@ footer {
     <span class="pb-meta">9:16 · 1080×1920 · 24 fps · 4 s</span>
     <button type="button" class="pb-copy" data-target="pA">Скопировать</button>
   </figcaption>
-  <pre id="pA" class="pb-body"><code>Vertical 9:16 handheld selfie video, front-facing phone camera held at arm's length, 24mm wide lens, mild barrel distortion. Every shot in this film is her own phone. There is no other camera.
+  <pre id="pA" class="pb-body"><code>VERTICAL 9:16 selfie video, 1080x1920, portrait orientation. Wide front-facing lens at arm's length, 24mm, mild barrel distortion. NO device is ever visible anywhere in this shot — the camera IS her point of view, nothing is held up to film with.
 
-SUBJECT — Take her face, skin tone and features from the supplied reference image and do not restyle them. Dark hair to just past the collarbone, loose and slightly windblown, fine strands lifting across her cheek. She wears full mirror-polished white steel plate armour: gorget, layered pauldrons, articulated rerebrace-couter-vambrace on the extended arm, gauntlet with segmented finger lames, breastplate engraved with fine fleur-de-lis and a cruciform motif, blackened chainmail voiders at the armpits, domed rivets. An ivory hooded cloak hangs behind her shoulders. No sword, no weapon, no scabbard.
+SUBJECT — Take her face, skin tone and features from the supplied reference image and do not restyle them. Dark hair to just past the collarbone, loose, lifting and crossing her cheek in the wind. She wears full mirror-polished white steel plate armour, bright and reflective like a mirror: gorget, layered pauldrons, articulated rerebrace-couter-vambrace on the near arm, gauntlet with segmented finger lames, breastplate engraved with fine fleur-de-lis and a cruciform motif, blackened chainmail voiders at the armpits, domed rivets. An ivory hooded cloak sits over her shoulders behind her neck. No sword, no weapon, no scabbard.
 
 ACTION, in strict order —
-(0-1.8 s) She sips iced black coffee through a white straw from a clear plastic to-go cup with a domed lid, ice cubes and condensation on the plastic, gauntleted fingers wrapped around it. Her gaze wanders off-lens to the right. She looks profoundly bored. She never looks into the camera.
-(1.8-2.3 s) Her eyes snap right. The straw leaves her lips.
-(2.3-2.8 s) Without looking, she flicks her wrist and throws the cup back over her right shoulder. It tumbles away behind her, the lid coming loose, dark coffee and ice arcing out.
-(2.8-4 s) IMMEDIATELY, with no pause, in one hard continuous motion, she swings the phone away from her face out to her right and past her shoulder until it points away from her into the fog. The frame sweeps right in heavy motion blur, her pauldron and cloak whipping past the lens, and the horizon rolls over as she turns the phone onto its side.
+(0-2 s) She sips iced black coffee through a white straw from a clear plastic to-go cup with a domed lid, ice cubes and condensation on the plastic, gauntleted fingers wrapped around it. Her gaze wanders off past the lens to the right, unfocused. She looks profoundly bored. She never makes eye contact with the lens.
+(2-2.4 s) Her eyes snap right. The straw leaves her lips.
+(2.4-3 s) Without looking, she flicks her wrist and throws the cup back over her right shoulder. Her hand is now EMPTY. It drops straight down and out of the bottom of the frame and does not come back up. She picks nothing up. She holds nothing. Both her hands are empty for the rest of the shot.
+(3-5 s) IMMEDIATELY, with no pause, the CAMERA ITSELF whips hard to the right, away from her face, past her shoulder, swinging out toward the shape lying in the fog. Violent horizontal motion blur, her pauldron and hair smearing across the lens. The camera stays LEVEL and UPRIGHT throughout — it does not roll, does not tip, does not tumble, does not turn upside down, does not spin. It is a fast flat pan to the right and nothing else. This movement must fill the entire final two seconds and must NOT be finished before the clip ends.
 
-END OF SHOT — The clip ENDS mid-swing, still heavily blurred, still moving. It does not settle, does not come to rest, does not slow down, does not fade.
+END OF SHOT — The clip ENDS while the camera is still travelling, still heavily blurred, still moving. It does not settle, does not slow down, does not arrive, does not fade.
 
-SCENE — A vast flat meadow of short green grass drowned in dense cold fog, visibility about twenty-five metres, no horizon line. Far behind her right shoulder, deeply out of focus, an enormous pale blue-grey mass lies in the grass. She never comments on it.
+SCENE — A vast flat meadow of short green grass drowned in dense cold fog, visibility about twenty-five metres, no horizon line. About thirty metres behind her right shoulder, mostly swallowed by fog and far out of focus, lies the flank of an ENORMOUS SLEEPING ANIMAL: a long low ridge of pale scaled hide, a row of bone-white spines running along its back, the curve of a huge jaw resting in the grass. It is a living creature, unmistakably organic, made of hide and bone. It is NOT a vehicle, NOT a machine, NOT a spacecraft, NOT a dome, NOT a tent, NOT a rock, NOT a building, and it has NO lights and NO windows. She never looks at it and never mentions it.
 
-LIGHT — Flat overcast daylight, fully diffuse, no shadows, no visible sun, cool blue-grey ambient, milky lifted blacks.
+LIGHT — Bright flat overcast daylight, high-key, luminous glowing white fog, fully diffuse, no shadows, no visible sun. Pale, airy and light. Cool blue-grey ambient with milky lifted blacks. NOT dark, NOT dusk, NOT moody, NOT low-key.
 
-CAMERA — Handheld selfie with small natural drift and micro-shake, no gimbal, no stabilisation. Her extended forearm and near pauldron loom huge in the lower foreground. Her head sits in the upper third.
+CAMERA — Handheld selfie framing with small natural drift and micro-shake, no gimbal, no stabilisation. Her near forearm and pauldron loom huge in the lower foreground, running out of frame toward the lens. Her head sits in the upper third.
 
-STYLE — Photoreal, shot on a modern smartphone, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine sensor noise. Candid social-media footage, deliberately not cinematic.</code></pre>
+STYLE — Photoreal, consumer-camera look, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine sensor noise. Candid social-media footage, deliberately not cinematic.</code></pre>
 </figure>
   <div class="note">
     <p><b>Единственное, что критично в этом промпте.</b> Клип обязан <b>закончиться в середине замаха</b> — в смазе, на движении. Не устояться, не притормозить, не доехать до дракона. Если модель докручивает движение до остановки — перегенерируйте. От этого зависит вся склейка: смаз с обеих сторон — единственное, что её прячет, и единственная причина, по которой не нужны ни вспышка, ни чёрные кадры, ни доворот ключами.</p>
@@ -472,23 +490,82 @@ STYLE — Photoreal, shot on a modern smartphone, slightly soft, low contrast, c
     <span class="pb-meta">вставить в поле negative prompt</span>
     <button type="button" class="pb-copy" data-target="nA">Скопировать</button>
   </figcaption>
-  <pre id="nA" class="pb-body"><code>tripod, static camera, locked-off, gimbal, smooth stabilised motion, dolly, crane, orbit; looking into the camera, smiling, posing, winking, talking to camera; still holding the cup at the end, throwing the cup at the camera, coffee splashing the lens, coffee on her face or armour; text, watermark, logo, subtitles, captions, UI overlay, timestamp; extra fingers, six fingers, malformed hands, warped gauntlet, melted armour plates, floating armour, plates clipping through the cup; duplicate limbs, two heads, distorted face, asymmetric eyes; cartoon, anime, illustration, 3D render, plastic skin, waxy skin, CGI sheen, beauty-filter smoothing, airbrushed skin; oversaturated, warm orange grade, golden hour, sunlight, hard shadows, lens flare, visible sun; blurry face, low resolution, upscaling artifacts, repeating chainmail pattern; fire, smoke, sparks; blood, gore</code></pre>
-</figure>
-<figure class="wide pb" data-tone="steel">
-  <figcaption class="pb-head">
-    <span class="pb-label">Не надо так</span>
-    <span class="pb-meta">вип из референса, для сравнения</span>
-    <button type="button" class="pb-copy" data-target="pAw">Скопировать</button>
-  </figcaption>
-  <pre id="pAw" class="pb-body"><code>NOT RECOMMENDED — the reference's original transition, kept here only for comparison:
-the phone whips upward into the blank white sky and the frame blows out to near-white, then
-whips down past her shoulder into the grass and goes black.
+  <pre id="nA" class="pb-body"><code>smartphone, phone, mobile phone, cell phone, iphone, holding a phone, a phone in her hand, phone appearing in her hand, black rectangle in her hand, screen, tablet, device, camera visible in frame, selfie stick, picking an object up, holding anything after the throw;
 
-It needs a white flash, four black frames and a rotation done by hand in the edit. The swing
-out of her own hand needs none of that: one straight cut on the blur and you are done.</code></pre>
+UFO, flying saucer, spacecraft, spaceship, alien ship, dome, glass dome, lit windows, glowing windows, landing legs, building, hangar, tent, vehicle, machine, boulder, rock formation;
+
+camera roll, rolling camera, camera tumbling, spinning camera, barrel roll, upside down, inverted frame, 180 degree rotation, full rotation, camera dropped, camera falling, dutch angle;
+
+horizontal frame, landscape orientation, 16:9, widescreen, black bars, letterbox;
+
+dark, underexposed, dusk, twilight, night, murky, gloomy, heavy shadows, low-key moody grade, crushed blacks;
+
+looking into the lens, eye contact with camera, smiling, posing, winking, talking to camera; tripod, static camera, locked-off, gimbal, smooth stabilised motion, dolly, crane, orbit; sword, weapon, blade, scabbard; coffee splashing the lens, coffee on her face; text, watermark, logo, subtitles, captions, UI overlay, timestamp; extra fingers, six fingers, malformed hands, warped gauntlet, melted armour plates, floating armour; duplicate limbs, two heads, distorted face, asymmetric eyes; cartoon, anime, illustration, 3D render, plastic costume armour, matte white plastic, waxy skin, CGI sheen, beauty-filter smoothing; oversaturated, warm orange grade, golden hour, sunlight, hard shadows, lens flare, visible sun; blurry face, low resolution, upscaling artifacts, repeating chainmail pattern; fire, smoke, sparks; blood, gore</code></pre>
 </figure>
 
-  <h2><span class="num">08</span>Промпт · Клип B</h2>
+  <h2><span class="num">08</span>Что сломалось в первой генерации</h2>
+  <p class="dek">Шесть отказов на первом прогоне клипа A. Три из них — прямые баги промпта, и все шесть уже закрыты в тексте выше.</p>
+
+  <figure class="fig">
+    <img src="data:image/jpeg;base64,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" alt="Слева: смартфон, возникший в латной рукавице. Справа: летающая тарелка с подсвеченными окнами вместо дракона в тумане.">
+    <figcaption>Два главных отказа. Слева: 3.6 s — в руке, которая только что выбросила стакан (кофе ещё виден в воздухе справа), возник современный смартфон. Справа: 1.0 s — вместо спящего существа в тумане стоит летающая тарелка с подсвеченными окнами и опорами.</figcaption>
+  </figure>
+
+  <ol class="cards cards--fail">
+<li>
+      <h3>В руке из ниоткуда возникает смартфон</h3>
+      <p class="f-obs">На 3.0 s рука пустая — стакан ещё летит в воздухе. На 3.5 s в той же руке уже чёрный смартфон.</p>
+      <p class="f-why"><span class="f-tag">причина</span>Промпт называл телефон предметом, который она держит и поворачивает. Модель честно его нарисовала.</p>
+      <p class="f-fix"><span class="f-tag f-tag--fix">фикс</span>Слово «phone» вычищено из действия во всех клипах. Осталась только камера как точка зрения. После броска рука <b>пустая</b>, уходит вниз из кадра и не возвращается, плюс прямые запреты: «She picks nothing up. She holds nothing.» И весь блок телефонов в самом начале negative.</p>
+    </li>
+<li>
+      <h3>Вместо дракона — летающая тарелка</h3>
+      <p class="f-obs">В тумане за её плечом висит диск с подсвеченными синими окнами и опорами.</p>
+      <p class="f-why"><span class="f-tag">причина</span>Промпт говорил только «enormous pale blue-grey mass lies in the grass». Модель добила пустое место самым частым большим объектом в тумане.</p>
+      <p class="f-fix"><span class="f-tag f-tag--fix">фикс</span>Теперь описана живая туша: гребень бледной чешуйчатой шкуры, ряд костяных шипов вдоль спины, изгиб челюсти в траве, плюс явное «NOT a vehicle, NOT a spacecraft, NOT a dome, no lights, no windows». В negative — UFO, flying saucer, dome, lit windows.</p>
+    </li>
+<li>
+      <h3>Кадр горизонтальный, 1920×1080</h3>
+      <p class="f-obs">Клип A сгенерирован в 16:9.</p>
+      <p class="f-why"><span class="f-tag">причина</span>Формат стоял в шапке промпта, но недостаточно жёстко, и мог быть просто не выставлен в интерфейсе.</p>
+      <p class="f-fix"><span class="f-tag f-tag--fix">фикс</span>Шапка начинается с «VERTICAL 9:16, 1080x1920, portrait orientation», а landscape / 16:9 / widescreen / letterbox добавлены в negative. Без вертикали весь трюк с разворотом телефона невозможен.</p>
+    </li>
+<li>
+      <h3>Камера кувыркается и уходит за 180°</h3>
+      <p class="f-obs">В последние 8 кадров камера переворачивается вверх ногами и продолжает вращаться.</p>
+      <p class="f-why"><span class="f-tag">причина</span>Я просил у модели крен ровно на 90°. Модель не удерживает четверть оборота — она либо не доворачивает, либо улетает дальше.</p>
+      <p class="f-fix"><span class="f-tag f-tag--fix">фикс</span>Крен убран из промпта совсем. Модель делает только <b>плоский вип вправо</b>, камера остаётся ровной («does not roll, does not tumble, does not spin»). Четверть оборота — шесть ключевых кадров в монтаже, шаг 3.</p>
+    </li>
+<li>
+      <h3>Темно, мутно, похоже на сумерки</h3>
+      <p class="f-obs">Общая яркость намного ниже референса, туман серый, доспех сел в тень.</p>
+      <p class="f-why"><span class="f-tag">причина</span>«Cool desaturated grade» без указания уровня яркости — модель прочитала это как low-key.</p>
+      <p class="f-fix"><span class="f-tag f-tag--fix">фикс</span>Явно: «Bright flat overcast daylight, high-key, luminous glowing white fog, pale and airy», и рядом «NOT dark, NOT dusk, NOT moody». В negative — dark, underexposed, dusk, murky, crushed blacks.</p>
+    </li>
+<li>
+      <h3>Вип втиснут в последние 0.3 s</h3>
+      <p class="f-obs">Первые 4.7 s она пьёт и держит телефон, а разворот успевает начаться только в самом конце.</p>
+      <p class="f-why"><span class="f-tag">причина</span>Промпт отдавал випу 1.2 s из пяти, и модель растянула всё, что было до него.</p>
+      <p class="f-fix"><span class="f-tag f-tag--fix">фикс</span>Випу отдана вся последняя треть с прямым требованием: «This movement must fill the entire final two seconds and must NOT be finished before the clip ends.»</p>
+    </li>
+  </ol>
+
+  <div class="note">
+    <p><b>Что при этом получилось хорошо</b> — менять не надо:</p>
+  </div>
+  <ul class="goodlist">
+<li>Доспех, лилии и чернёная кольчуга — попадание. Гравировка читается.</li>
+<li>Длина волос теперь правильная: ниже ключиц, пряди летят по лицу.</li>
+<li>Геометрия селфи верная: ближняя рука и наплечник уходят к линзе, голова в верхней трети.</li>
+<li>Бросок стакана есть, и рука действительно разжимается.</li>
+<li>Клип кончается в движении, в смазе — то есть под склейку. Это главное, и это сработало.</li>
+  </ul>
+
+  <div class="note">
+    <p><b>Отдельно про формат.</b> Если ваш интерфейс вообще не предлагает 9:16 — трюк в исходном виде собрать нельзя, вертикаль обязательна. Обходной путь: генерировать A в 16:9 и кропать в 1080×1920 в монтаже. Для селфи-крупняка центральный кроп переживается терпимо — потеряете края и часть тумана с существом, поэтому существо в промпте придётся сдвинуть ближе к центру, за её плечо. Но это компромисс, а не решение.</p>
+  </div>
+
+  <h2><span class="num">09</span>Промпт · Клип B</h2>
   <p class="dek">Всё, что дальше — <b>с её камеры</b>. Она за кадром, снимает одной рукой. Никакого киношного кадра со стороны, никакого штатива, никаких лишних приёмов.</p>
 <figure class="wide pb" data-tone="amber">
   <figcaption class="pb-head">
@@ -496,25 +573,25 @@ out of her own hand needs none of that: one straight cut on the blur and you are
     <span class="pb-meta">16:9 · 1920×1080 · 24 fps · 10 s</span>
     <button type="button" class="pb-copy" data-target="pB">Скопировать</button>
   </figcaption>
-  <pre id="pB" class="pb-body"><code>Horizontal 16:9 handheld phone video, shot on the same phone as the previous clip, now turned onto its side and pointing away from her. FIRST PERSON: she is behind the camera, filming with one hand. She is not in the shot. 24mm wide lens.
+  <pre id="pB" class="pb-body"><code>HORIZONTAL 16:9 video, 1920x1080, landscape orientation. Handheld first-person point of view, the same camera as the previous shot, now pointing away from her. She is BEHIND the camera and is never visible in the shot. NO device is visible anywhere in frame. 24mm wide lens.
 
 OPENING — The clip BEGINS mid-swing, heavily motion-blurred, sweeping in from the left, and settles over the first half-second onto what is ahead of her. Do not start from a still frame.
 
-FRAMING — Low, roughly chest height, handheld, never locked. In the lower right corner, close to the lens and slightly out of focus, the edge of her gauntleted hand and the rim of her polished pauldron stay visible — the only thing in frame that gives the creature its scale.
+FRAMING — Low, roughly chest height, handheld, never locked. At the very bottom right edge of frame, close to the lens and out of focus, the rim of her polished pauldron and a few strands of her windblown hair intrude into the shot — the only thing in frame that gives the creature its scale. Her breath drifts into the bottom of frame as faint vapour. No hand, no arm, no object.
 
 CREATURE — Ahead of her across open grass, a colossal dragon lies prone in the meadow, head resting on the ground and turned slightly toward her, eyes closed. At the start its head alone occupies the centre and right of the frame and stands about half the frame height; the body recedes away to the left and dissolves into fog. Pearl-white and ice-blue hide. A broad field of opalescent dichroic scales across the neck and shoulder throwing prismatic pink, cyan, mint and gold glints. A saw-tooth ridge of tall bone-white dorsal spines runs down the neck and back. A fan of long pale spines frames the cheeks and jaw like a frill. Two thick bone-white horns sweep back from the crown, banded near the base with dark bronze metal cuffs. Two whip-thin bronze tendrils arc from behind each eye over the brow. Fine pebbled scales on the muzzle, pink nostril slits, a pink-flushed nose. An enormous folded membranous wing, semi-translucent pale grey-pink with visible finger bones, lies beyond it. Slow faint plumes of breath vapour drift from the nostrils into the cold air.
 
 ACTION, in strict order —
 (0-0.8 s) The frame settles out of the blur onto the sleeping creature.
-(0.8-3 s) Nothing happens. The phone drifts with her breathing, small involuntary handheld shake, one tiny correction of the framing.
+(0.8-3 s) Nothing happens. The camera drifts with her breathing, small involuntary handheld shake, one tiny correction of the framing.
 (3-4.5 s) One vast amber eye opens — warm gold iris, vertical black slit pupil — and looks straight into the lens.
-(4.5-6.5 s) The head lifts off the ground, the grass beneath its jaw flattening and springing back, and turns to face the camera. Both eyes open. The phone tilts up to keep the head in frame and sags a few centimetres as her arm drops.
-(6.5-8 s) The head cranes down toward the phone until one amber eye alone fills half the frame. The frame jerks backward as she takes a step back, but she keeps filming.
-(8-10 s) The jaws split open into a roar directly into the lens — pale pink-lavender palate, rows of white conical teeth, long pink tongue. Hot breath vapour blasts across the glass and briefly fogs it. The grass lies flat in a radial wave. The phone shakes hard and tips, the frame swinging down toward the grass at her feet, where one polished greave and boot show for a moment, tiny against the creature above.
+(4.5-6.5 s) The head lifts off the ground, the grass beneath its jaw flattening and springing back, and turns to face the camera. Both eyes open. The camera tilts up to keep the head in frame, then sags a few centimetres as her arm drops.
+(6.5-8 s) The head cranes down toward the lens until one amber eye alone fills half the frame. The frame jerks backward as she takes a step back, but the camera keeps running.
+(8-10 s) The jaws split open into a roar directly into the lens — pale pink-lavender palate, rows of white conical teeth, long pink tongue. Hot breath vapour blasts across the lens and briefly fogs it. The grass lies flat in a radial wave. The camera shakes hard and tips, swinging down toward the grass at her feet, where one polished greave and boot show for a moment, tiny against the creature above.
 
-LIGHT — Flat overcast daylight, fully diffuse, no shadows, no visible sun, cool blue-grey. Dense low ground fog. Flat pale blue-white sky. Soft bloom on the white scales.
+LIGHT — Bright flat overcast daylight, high-key, luminous glowing white fog, fully diffuse, no shadows, no visible sun. Pale, airy and light. Dense low ground fog. Flat pale blue-white sky. Soft bloom on the white scales. NOT dark, NOT dusk, NOT moody, NOT low-key.
 
-STYLE — Photoreal, shot on a modern smartphone, handheld, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine sensor noise, mild rolling-shutter wobble on the fast moves. Found-footage realism. NOT cinematic, no film look, no tripod, no colour-graded blockbuster look.</code></pre>
+STYLE — Photoreal, consumer-camera look, handheld, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine sensor noise, mild rolling-shutter wobble on the fast moves. Found-footage realism. NOT cinematic, no film look, no tripod, no colour-graded blockbuster look.</code></pre>
 </figure>
   <div class="note">
     <p><b>Чем POV платит и чем берёт.</b> Платит он дорого: в референсе главный кадр — крошечная фигурка против головы размером с дом, и в POV её нет, потому что она за камерой. Масштаб приходится добирать иначе — и в промпте это уже сделано тремя способами: <b>край её латной рукавицы и наплечника в правом нижнем углу</b> (единственная мера размера в кадре), дрожь съёмки с руки против неподвижной туши, и финальный наклон телефона вниз, где на секунду видно её собственный наголенник в траве.</p>
@@ -538,23 +615,23 @@ STYLE — Photoreal, shot on a modern smartphone, handheld, slightly soft, low c
     <span class="pb-meta">16:9 · 6 s · только если 10 s недоступны</span>
     <button type="button" class="pb-copy" data-target="pB1">Скопировать</button>
   </figcaption>
-  <pre id="pB1" class="pb-body"><code>Horizontal 16:9 handheld phone video, shot on the same phone as the previous clip, now turned onto its side and pointing away from her. FIRST PERSON: she is behind the camera, filming with one hand. She is not in the shot. 24mm wide lens.
+  <pre id="pB1" class="pb-body"><code>HORIZONTAL 16:9 video, 1920x1080, landscape orientation. Handheld first-person point of view, the same camera as the previous shot, now pointing away from her. She is BEHIND the camera and is never visible in the shot. NO device is visible anywhere in frame. 24mm wide lens.
 
 OPENING — The clip BEGINS mid-swing, heavily motion-blurred, sweeping in from the left, and settles over the first half-second onto what is ahead of her. Do not start from a still frame.
 
-FRAMING — Low, roughly chest height, handheld, never locked. In the lower right corner, close to the lens and slightly out of focus, the edge of her gauntleted hand and the rim of her polished pauldron stay visible — the only thing in frame that gives the creature its scale.
+FRAMING — Low, roughly chest height, handheld, never locked. At the very bottom right edge of frame, close to the lens and out of focus, the rim of her polished pauldron and a few strands of her windblown hair intrude into the shot — the only thing in frame that gives the creature its scale. Her breath drifts into the bottom of frame as faint vapour. No hand, no arm, no object.
 
 CREATURE — Ahead of her across open grass, a colossal dragon lies prone in the meadow, head resting on the ground and turned slightly toward her, eyes closed. Its head alone occupies the centre and right of the frame and stands about half the frame height; the body recedes away to the left and dissolves into fog. Pearl-white and ice-blue hide. A broad field of opalescent dichroic scales across the neck and shoulder throwing prismatic pink, cyan, mint and gold glints. A saw-tooth ridge of tall bone-white dorsal spines runs down the neck and back. A fan of long pale spines frames the cheeks and jaw like a frill. Two thick bone-white horns sweep back from the crown, banded near the base with dark bronze metal cuffs. Two whip-thin bronze tendrils arc from behind each eye over the brow. Fine pebbled scales on the muzzle, pink nostril slits, a pink-flushed nose. An enormous folded membranous wing, semi-translucent pale grey-pink with visible finger bones, lies beyond it. Slow faint plumes of breath vapour drift from the nostrils into the cold air.
 
 ACTION, in strict order —
 (0-0.8 s) The frame settles out of the blur onto the sleeping creature.
-(0.8-2.5 s) Nothing happens. The phone drifts with her breathing, small involuntary handheld shake, one tiny correction of the framing.
+(0.8-2.5 s) Nothing happens. The camera drifts with her breathing, small involuntary handheld shake, one tiny correction of the framing.
 (2.5-4 s) One vast amber eye opens — warm gold iris, vertical black slit pupil — and looks straight into the lens.
-(4-6 s) The head lifts off the ground, the grass beneath its jaw flattening and springing back, and turns to face the camera. Both eyes open. The phone tilts up to keep the head in frame and sags a few centimetres as her arm drops. Hold there.
+(4-6 s) The head lifts off the ground, the grass beneath its jaw flattening and springing back, and turns to face the camera. Both eyes open. The camera tilts up to keep the head in frame, then sags a few centimetres as her arm drops. Hold there.
 
-LIGHT — Flat overcast daylight, fully diffuse, no shadows, no visible sun, cool blue-grey. Dense low ground fog. Flat pale blue-white sky. Soft bloom on the white scales.
+LIGHT — Bright flat overcast daylight, high-key, luminous glowing white fog, fully diffuse, no shadows, no visible sun. Pale, airy and light. Dense low ground fog. Flat pale blue-white sky. Soft bloom on the white scales. NOT dark, NOT dusk, NOT moody, NOT low-key.
 
-STYLE — Photoreal, shot on a modern smartphone, handheld, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine sensor noise, mild rolling-shutter wobble on the fast moves. Found-footage realism. NOT cinematic, no film look, no tripod, no colour-graded blockbuster look.</code></pre>
+STYLE — Photoreal, consumer-camera look, handheld, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine sensor noise, mild rolling-shutter wobble on the fast moves. Found-footage realism. NOT cinematic, no film look, no tripod, no colour-graded blockbuster look.</code></pre>
 </figure>
 <figure class="wide pb" data-tone="steel">
   <figcaption class="pb-head">
@@ -562,24 +639,24 @@ STYLE — Photoreal, shot on a modern smartphone, handheld, slightly soft, low c
     <span class="pb-meta">16:9 · 5 s · с последнего кадра B1</span>
     <button type="button" class="pb-copy" data-target="pB2">Скопировать</button>
   </figcaption>
-  <pre id="pB2" class="pb-body"><code>Horizontal 16:9 handheld phone video, continuing from the previous frame. FIRST PERSON: she is behind the camera, filming with one hand. She is not in the shot. 24mm wide lens, handheld, never locked.
+  <pre id="pB2" class="pb-body"><code>HORIZONTAL 16:9 video, 1920x1080, continuing from the previous frame. Handheld first-person point of view. She is BEHIND the camera and is never visible in the shot. NO device is visible anywhere in frame. 24mm wide lens, handheld, never locked.
 
-FRAMING — Low, roughly chest height. In the lower right corner, close to the lens and slightly out of focus, the edge of her gauntleted hand and the rim of her polished pauldron stay visible for scale.
+FRAMING — Low, roughly chest height. At the very bottom right edge of frame, out of focus, the rim of her polished pauldron and a few strands of her hair intrude into the shot for scale. Her breath drifts into the bottom of frame as faint vapour. No hand, no arm, no object.
 
 CREATURE — A colossal dragon, head already lifted clear of the grass and facing the camera, filling most of the frame. Pearl-white and ice-blue hide. A broad field of opalescent dichroic scales across the neck and shoulder throwing prismatic pink, cyan, mint and gold glints. A saw-tooth ridge of tall bone-white dorsal spines runs down the neck and back. A fan of long pale spines frames the cheeks and jaw like a frill. Two thick bone-white horns sweep back from the crown, banded near the base with dark bronze metal cuffs. Two whip-thin bronze tendrils arc from behind each eye over the brow. Fine pebbled scales on the muzzle, pink nostril slits, a pink-flushed nose. Both eyes open, warm amber gold, vertical black slit pupils, faintly glowing.
 
 ACTION, in strict order —
-(0-1.2 s) The head tilts a few degrees and the pupils flick down to the phone in her hand, then back up. One slow blink. Recognition, not hunger.
-(1.2-2.5 s) The head cranes down toward the phone until one amber eye alone fills half the frame. The frame jerks backward as she takes a step back, but she keeps filming.
+(0-1.2 s) The head tilts a few degrees and the pupils flick down toward the lens, then back up. One slow blink. Recognition, not hunger.
+(1.2-2.5 s) The head cranes down toward the lens until one amber eye alone fills half the frame. The frame jerks backward as she takes a step back, but the camera keeps running.
 (2.5-4.3 s) The jaws split open into a roar directly into the lens — pale pink-lavender palate, rows of white conical teeth, long pink tongue, thin strands of saliva. Hot breath vapour blasts across the glass and briefly fogs it. The grass lies flat in a radial wave.
-(4.3-5 s) The phone shakes hard and tips, the frame swinging down toward the grass at her feet, where one polished greave and boot show for a moment, tiny against the creature above.
+(4.3-5 s) The camera shakes hard and tips, swinging down toward the grass at her feet, where one polished greave and boot show for a moment, tiny against the creature above.
 
-LIGHT — Flat overcast daylight, fully diffuse, no shadows, no visible sun, cool blue-grey. Dense low ground fog. Flat pale blue-white sky. Soft bloom on the white scales.
+LIGHT — Bright flat overcast daylight, high-key, luminous glowing white fog, fully diffuse, no shadows, no visible sun. Pale, airy and light. Dense low ground fog. Flat pale blue-white sky. Soft bloom on the white scales. NOT dark, NOT dusk, NOT moody, NOT low-key.
 
-STYLE — Photoreal, shot on a modern smartphone, handheld, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine sensor noise, mild rolling-shutter wobble on the fast moves. Found-footage realism. NOT cinematic, no film look, no tripod, no colour-graded blockbuster look.</code></pre>
+STYLE — Photoreal, consumer-camera look, handheld, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine sensor noise, mild rolling-shutter wobble on the fast moves. Found-footage realism. NOT cinematic, no film look, no tripod, no colour-graded blockbuster look.</code></pre>
 </figure>
 
-  <h2><span class="num">09</span>Длительности и параметры</h2>
+  <h2><span class="num">10</span>Длительности и параметры</h2>
   <p class="dek">Две генерации, и это весь фильм. Ни замах, ни склейку генерировать не надо.</p>
   <div class="tablewrap">
     <table>
@@ -611,14 +688,14 @@ PER-BEAT PACING -- pace the prompt to these or the model rushes the payoff:
 A (4 s)     0.0-1.8   sipping, bored, gaze off-lens
             1.8-2.3   eyes snap right, straw leaves her lips
             2.3-2.8   throws the cup back over her shoulder
-            2.8-4.0   swings the phone straight onto the creature. ENDS MID-SWING.
+            2.8-4.0   camera whips flat right onto the creature. ENDS MID-WHIP.
 
 B (10 s)    0.0-0.8   settles out of the blur onto the sleeping creature
             0.8-3.0   nothing happens. breathing, handheld drift
             3.0-4.5   amber eye opens, looks into the lens
             4.5-6.5   head lifts off the ground, turns to the camera
             6.5-8.0   cranes down, one eye fills half the frame, she steps back
-            8.0-10    roar into the lens, breath fogs the glass, phone tips down
+            8.0-10    roar into the lens, breath fogs the lens, camera tips down
 
 IF 10 s IS NOT AVAILABLE, split B into two:
 CLIP B1  16:9  6 s   settle -&gt; eye opens -&gt; head lifts (use the B1 prompt)
@@ -636,7 +713,7 @@ you will only fight the image.</code></pre>
     <p><b>Честная оговорка.</b> Названия полей, доступные длительности и разрешения у Seedance 2.5 отличаются между интерфейсами — Dreamina / Jimeng, Volcano Engine, сторонние API. Промпты от интерфейса не зависят, но длительность и формат ставьте те, что реально доступны у вас.</p>
   </div>
 
-  <h2><span class="num">10</span>Сборка в монтаже</h2>
+  <h2><span class="num">11</span>Сборка в монтаже</h2>
   <p class="dek">Один срез. Ни вспышки, ни чёрных кадров, ни доворота ключами, ни плагина смаза, ни перехода вообще. В этом и смысл.</p>
 <figure class="wide pb" data-tone="steel">
   <figcaption class="pb-head">
@@ -644,41 +721,48 @@ you will only fight the image.</code></pre>
     <span class="pb-meta">таймлайн 1080×1920 · 24 fps</span>
     <button type="button" class="pb-copy" data-target="pAsm">Скопировать</button>
   </figcaption>
-  <pre id="pAsm" class="pb-body"><code>ONE CUT. No flash, no black frames, no rotation keyframes, no blur plugin,
-no transition of any kind. That is the point.
+  <pre id="pAsm" class="pb-body"><code>ONE CUT, plus a quarter turn on six frames. Nothing else. No flash, no black
+frames, no blur plugin, no transition of any kind.
 
 1.  Timeline: 1080 x 1920, 24 fps.
 
-2.  CLIP A            00:00.00 -&gt; 00:04.00      as generated, vertical, full bleed.
+2.  CLIP A            00:00.00 -&gt; 00:04.75      as generated, vertical, full bleed.
                                                  Trim the out-point to the frame where
-                                                 the swing blur is HEAVIEST -- usually
-                                                 2 or 3 frames before the clip ends.
+                                                 the whip blur is HEAVIEST.
 
-3.  CLIP B            00:04.00 -&gt; 00:14.00      ROTATE 90 DEGREES CLOCKWISE.
+3.  THE QUARTER TURN  00:04.75 -&gt; 00:05.00      Clip A's last 6 frames only.
+                                                 Keyframe rotation 0 -&gt; 90 degrees CW
+                                                 across those 6 frames, ease-in.
+                                                 DO NOT ask the model to do this. It
+                                                 overshoots and tumbles past 180. The
+                                                 model gives you a flat whip; the turn
+                                                 is yours, and 6 frames is all it takes
+                                                 because the frame is already a smear.
+
+4.  CLIP B            00:05.00 -&gt; 00:15.00      ROTATE 90 DEGREES CLOCKWISE.
                                                  1920x1080 rotated = 1080x1920 exactly.
                                                  Zero letterboxing, no scaling, full bleed.
                                                  Trim the in-point to ITS heaviest blur
                                                  frame, then butt it straight against A.
 
-4.  OUT               00:14.00 -&gt; 00:14.40      hard cut to black. No fade.
+5.  OUT               00:15.00 -&gt; 00:15.40      hard cut to black. No fade.
 
-Total: ~14.4 s.
+Total: ~15.4 s.
 
-WHY THERE IS NOTHING ELSE TO DO. Both sides of the cut are heavy motion blur
-travelling in the same direction, so the eye cannot find the join and fills in the
-90-degree roll by itself. That is why clip A must END mid-swing and clip B must
-BEGIN mid-swing -- if either one settles, you lose the invisible cut and you are
-back to needing a flash and black frames to hide the seam.
+WHY THIS IS ALL THERE IS. Both sides of the cut are heavy motion blur travelling
+in the same direction, so the eye cannot find the join. That is why clip A must END
+mid-whip and clip B must BEGIN mid-whip -- if either one settles, you lose the
+invisible cut and you are back to needing a flash and black frames to hide a seam.
 
 The viewer turns the phone COUNTER-CLOCKWISE to see clip B upright, and does it
-without being told, because they just watched her turn her own phone.
+without being told, because the image demands it.
 
 TEST IT ON A REAL PHONE. Turn auto-rotate ON and confirm the player does NOT
 re-rotate your clip and kill the whole gag. Upload as a single flat 9:16 file --
 never as a landscape file with a "turn your phone" caption.</code></pre>
 </figure>
 
-  <h2><span class="num">11</span>Звук</h2>
+  <h2><span class="num">12</span>Звук</h2>
   <p class="dek">Модель звук не сделает. Ни одной реплики нет — и не надо. Главное: <b>ветер должен идти непрерывно через склейку</b>, именно он и склеивает два клипа в один дубль.</p>
 <figure class="wide pb" data-tone="steel">
   <figcaption class="pb-head">
@@ -719,7 +803,7 @@ opening would give away that this is a film. NO dialogue, NO voice-over, ever.
 00:14.0 - 00:14.4   Hard cut to black, roar tail in reverb only.</code></pre>
 </figure>
 
-  <h2><span class="num">12</span>Как сделать это своим</h2>
+  <h2><span class="num">13</span>Как сделать это своим</h2>
   <p class="dek">Копировать содержание бессмысленно — рыцарь с айс-кофе уже занят. Копировать нужно конструкцию: бытовой регистр, посаженная улика, разворот телефона, финал без развязки. Всё остальное — переменные.</p>
   <div class="tablewrap">
     <table>
