@@ -452,7 +452,138 @@ footer {
   <p>Это <strong>две отдельные генерации</strong>, а не один непрерывный кадр. Доказательство: ориентация меняется ровно на чёрных кадрах, а детектор склеек находит всего две зоны смены за весь ролик. Клип B повёрнут на 90° уже в монтаже — 1920×1080, положенные на бок, дают ровно 1080×1920 без единого чёрного поля.</p>
   <p>Значит, и вам нужно три вещи: генерация A, генерация B, и монтаж, который их сшивает. Плюс одно референсное изображение персонажа, общее для обеих генераций — иначе половинки не сойдутся в одного человека.</p>
 
-  <h2><span class="num">07</span>Промпт · Клип A</h2>
+  <h2><span class="num">07</span>Один промпт на всё</h2>
+  <p class="dek">Весь фильм одной генерацией, 21 секунда, вертикаль от начала до конца. Если нужен только результат и не нужен монтаж — берите этот блок и больше ничего не читайте.</p>
+
+  <div class="note">
+    <p><b>Чего этот вариант не может, и почему.</b> Одна генерация — это одно соотношение сторон. Трюк с поворотом телефона требует вертикального и горизонтального кадра в одном файле, поэтому в один промпт он не влезает физически: либо вторая половина будет горизонтальной картинкой в чёрных полях внутри вертикали (а это убивает весь эффект), либо начало перестанет быть вертикальным селфи.</p>
+    <p>Поэтому здесь вертикаль все 21 секунду. Разворот камеры, посадка кадра, масштаб, пробуждение и рёв — всё на месте. Разворота телефона нет. Хотите его — минимум две генерации, разделы 08–09.</p>
+    <p>Вертикальная композиция во второй половине не хуже, а местами злее: голова и шея уходят вверх по кадру, она стоит в нижней трети, и пасть опускается на неё сверху. В горизонте так не поставить.</p>
+  </div>
+
+<figure class="wide pb" data-tone="amber">
+  <figcaption class="pb-head">
+    <span class="pb-label">Единый промпт · 21 s</span>
+    <span class="pb-meta">9:16 · 1080×1920 · 24 fps · одна генерация</span>
+    <button type="button" class="pb-copy" data-target="pONE">Скопировать</button>
+  </figcaption>
+  <pre id="pONE" class="pb-body"><code>VERTICAL 9:16 video, 1080x1920, portrait orientation for the entire film. One continuous 21-second take. NO device is ever visible anywhere — the camera is her point of view, nothing is held up to film with. No dialogue, no speech, no voice-over at any point.
+
+CHARACTER — Take her face, skin tone and features from the reference image and do not restyle them. Dark hair to just past the collarbone, loose, lifting across her cheek in the wind. Full mirror-polished white steel plate armour, bright and reflective like a mirror: gorget, layered pauldrons, articulated arm harness, gauntlets with segmented finger lames, breastplate engraved with fine fleur-de-lis and a cruciform motif, blackened chainmail voiders at the armpits, domed rivets. An ivory hooded cloak to mid-calf. A long straight sword in a plain scabbard on a wide brown leather belt at her hip.
+
+WORLD — A vast flat meadow of knee-high green grass drowned in dense cold fog, visibility about thirty metres, no horizon line. Bright flat overcast daylight, high-key, luminous glowing white fog, fully diffuse, no shadows, no visible sun. Pale, airy and light. NOT dark, NOT dusk, NOT moody, NOT low-key.
+
+THE CREATURE — A colossal dragon, pearl-white and ice-blue, lying prone and asleep in the meadow. Its head alone is five times a person's full height. Opalescent dichroic scales across the neck and shoulder throwing prismatic pink, cyan, mint and gold glints. A saw-tooth ridge of tall bone-white dorsal spines down the neck and back. A fan of long pale spines framing the cheeks and jaw like a frill. Two thick bone-white horns sweeping back from the crown, banded near the base with dark bronze metal cuffs. Two whip-thin bronze tendrils arcing from behind each eye over the brow. Fine pebbled scales on the muzzle, pink nostril slits, a pink-flushed nose. Enormous folded membranous wings, semi-translucent pale grey-pink with visible finger bones. Amber-gold eyes with vertical black slit pupils. Slow plumes of breath vapour drifting from the nostrils into the cold air. It is a living animal of hide and bone — NOT a vehicle, NOT a machine, NOT a spacecraft, NOT a dome, no lights, no windows.
+
+TIMELINE — follow exactly, in this order, and do not reorder or compress:
+
+00.0-02.5  SELFIE. Handheld at arm's length, 24mm wide, micro-shake, no stabilisation.
+           Her near forearm and pauldron loom huge in the lower foreground, running out
+           of frame toward the lens; her head sits in the upper third. She sips iced
+           black coffee through a white straw from a clear plastic to-go cup with a
+           domed lid, ice cubes and condensation, gauntleted fingers wrapped around it.
+           Her gaze wanders off past the lens to the right, unfocused. Profoundly bored.
+           She never makes eye contact with the lens. Far behind her right shoulder,
+           deep in the fog and far out of focus, the pale scaled flank and spine-ridge
+           of the sleeping creature. She never looks at it, never mentions it.
+
+02.5-03.0  Her eyes snap right. The straw leaves her lips.
+
+03.0-03.6  Without looking, she flicks her wrist and throws the cup back over her right
+           shoulder. Her hand is now EMPTY. It drops straight down and out of the bottom
+           of the frame and does not come back up. She picks nothing up. She holds
+           nothing.
+
+03.6-04.6  IMMEDIATELY, with no pause, the CAMERA ITSELF whips hard and flat to the
+           right, away from her face, past her shoulder, out toward the creature.
+           Violent horizontal motion blur. The camera stays LEVEL and UPRIGHT — it does
+           not roll, does not tip, does not tumble, does not spin, does not go upside
+           down.
+
+04.6-05.6  The blur dies out and the frame SETTLES into a wide shot at grass-top height,
+           roughly 40cm above the ground, and then LOCKS. From this moment the camera
+           NEVER MOVES AGAIN for the rest of the film: no pan, no tilt, no zoom, no
+           dolly, no shake, no drift. Only she, the creature and the grass move. A
+           single out-of-focus blade of grass rises through the lower-left corner.
+           SHE IS NOW SMALL — about one sixth of the frame height, standing in the lower
+           third, back three-quarters to camera, feet hidden among the stems, cloak
+           drifting. The creature's head and neck rise up the frame above and behind
+           her, filling the upper two-thirds. Her small size against it is the whole
+           point of the shot.
+
+05.6-08.5  Stillness. The creature sleeps. Nothing happens. Only the grass and her cloak
+           move in the wind.
+
+08.5-10.5  One vast amber eye opens — warm gold iris, vertical black slit pupil — and
+           finds her. The head does not move.
+
+10.5-11.8  She draws the sword and raises it slowly out to her side.
+
+11.8-14.5  The head lifts off the ground, the grass beneath its jaw flattening and
+           springing back, and rotates to face her front-on. Both eyes open, faintly
+           glowing.
+
+14.5-15.8  The pupils flick down to the sword in her hand, then back up to her face.
+           One slow blink. Recognition, not hunger.
+
+15.8-17.3  The head cranes forward and lowers toward her until it fills the upper frame,
+           breath fogging the cold air in slow pulses from the nostrils.
+
+17.3-20.0  The jaws split open into a roar — pale pink-lavender palate, rows of white
+           conical teeth, long pink tongue, thin strands of saliva — and a dense plume of
+           hot breath vapour blasts out into the cold air. The grass lies flat in a
+           radial wave rolling outward from the jaw. Her cloak snaps horizontal. She
+           drops into a braced stance, sword raised across her body, and does not
+           retreat.
+
+20.0-21.0  Hold on the open maw. Cut.
+
+STYLE — Photoreal live action. For the first 4.6 seconds: consumer-camera look, slightly
+soft, candid social-media footage, deliberately not cinematic. From 4.6 seconds onward:
+cinematic, heavy atmospheric perspective, subtle vignette. Throughout: cool desaturated
+grade, teal-cyan shadows, lifted milky blacks, low contrast, fine grain. Live action, not
+animated, not stylised.</code></pre>
+</figure>
+<figure class="wide pb" data-tone="steel">
+  <figcaption class="pb-head">
+    <span class="pb-label">Единый промпт · negative</span>
+    <span class="pb-meta">вставить в поле negative prompt</span>
+    <button type="button" class="pb-copy" data-target="nONE">Скопировать</button>
+  </figcaption>
+  <pre id="nONE" class="pb-body"><code>smartphone, phone, mobile phone, holding a phone, a phone in her hand, phone appearing in her hand, black rectangle in her hand, screen, tablet, device visible in frame, selfie stick, picking an object up, holding anything after the throw;
+
+UFO, flying saucer, spacecraft, spaceship, alien ship, dome, glass dome, lit windows, glowing windows, landing legs, building, hangar, tent, vehicle, machine, boulder;
+
+camera roll, rolling camera, camera tumbling, spinning camera, barrel roll, upside down, inverted frame, 180 degree rotation, camera dropped, dutch angle;
+
+camera pan after the whip, camera tilt after the whip, zoom, dolly in, dolly out, push in, pull back, handheld shake in the second half, camera drift, orbit, crane, drone shot, cinematic camera move after the settle;
+
+horizontal frame, landscape orientation, 16:9, widescreen, black bars, letterbox, aspect ratio change mid-shot;
+
+dark, underexposed, dusk, twilight, night, blue hour, murky, gloomy, heavy shadows, low-key moody grade, crushed blacks;
+
+the knight large in frame after the whip, close-up of the knight after the whip, her face visible after the whip, front view of the knight, knight floating above the grass, feet not touching the ground, knight sliding, knight walking away, knight running, knight retreating, knight falling over;
+
+looking into the lens, eye contact with camera, smiling, posing, winking, talking to camera, dialogue, speech, lip sync, singing;
+
+text, watermark, logo, subtitles, captions, UI overlay, timestamp;
+
+extra fingers, six fingers, malformed hands, warped gauntlet, melted armour plates, floating armour, duplicate limbs, two heads, two swords, distorted face, asymmetric eyes, repeating chainmail pattern; morphing scales, drifting horn geometry, changing horn count, inconsistent wing bones, wing membrane popping, extra limbs, two tails;
+
+cartoon, anime, illustration, 3D render, stylised, cel shading, video-game cutscene, plastic costume armour, matte white plastic, waxy skin, CGI sheen, beauty-filter smoothing;
+
+oversaturated, warm orange grade, golden hour, sunlight, hard shadows, lens flare, visible sun; fire breath, flames, lightning, magic glow, particle sparkles; blood, gore, being eaten, dying;
+
+low resolution, upscaling artifacts, frame stutter, slow motion, speed ramp</code></pre>
+</figure>
+
+  <div class="note">
+    <p><b>Если 21 секунда недоступна.</b> Промпт устоит и на 15, но резать надо в правильных местах, иначе модель скомкает финал. По приоритету: сначала выкидывайте паузу <code>05.6–08.5</code> (оставьте 1 секунду вместо трёх), потом бит с моргáнием <code>14.5–15.8</code> целиком, потом сокращайте глоток до 1.5 s. Рёв и посадку кадра не трогайте — это несущие биты. На 10 секундах этот подход уже не работает: делите на два клипа.</p>
+    <p><b>Самое хрупкое место — 04.6.</b> Именно там кадр должен сесть, запереться и сделать её маленькой. Модель охотно оставляет камеру в руке и держит героиню крупно; тогда масштаб пропадает и весь ролик рассыпается. Если после випа она осталась крупной или камера продолжает дышать — перегенерируйте, доводить это в монтаже нечем.</p>
+  </div>
+
+  <h2><span class="num">08</span>Промпт · Клип A</h2>
+  <p class="dek" style="color:var(--accent)">Разделы 08–12 — маршрут с разворотом телефона, две-три генерации плюс монтаж. Если вам хватило раздела 07, дальше можно не читать.</p>
   <p class="dek">Вертикальное селфи. Одна задача: чтобы зритель поверил, что это бытовое видео, и перестал ждать зрелища. Заканчивается тем, что она выбрасывает стакан и <b>тут же, без паузы</b>, одним движением уводит камеру на дракона. Телефона в кадре нет ни разу.</p>
 <figure class="wide pb" data-tone="amber">
   <figcaption class="pb-head">
@@ -503,7 +634,7 @@ dark, underexposed, dusk, twilight, night, murky, gloomy, heavy shadows, low-key
 looking into the lens, eye contact with camera, smiling, posing, winking, talking to camera; tripod, static camera, locked-off, gimbal, smooth stabilised motion, dolly, crane, orbit; drawing the sword, raised sword, sword in her hand; coffee splashing the lens, coffee on her face; text, watermark, logo, subtitles, captions, UI overlay, timestamp; extra fingers, six fingers, malformed hands, warped gauntlet, melted armour plates, floating armour; duplicate limbs, two heads, distorted face, asymmetric eyes; cartoon, anime, illustration, 3D render, plastic costume armour, matte white plastic, waxy skin, CGI sheen, beauty-filter smoothing; oversaturated, warm orange grade, golden hour, sunlight, hard shadows, lens flare, visible sun; blurry face, low resolution, upscaling artifacts, repeating chainmail pattern; fire, smoke, sparks; blood, gore</code></pre>
 </figure>
 
-  <h2><span class="num">08</span>Что сломалось в первой генерации</h2>
+  <h2><span class="num">09</span>Что сломалось в первой генерации</h2>
   <p class="dek">Шесть отказов на первом прогоне клипа A. Три из них — прямые баги промпта, и все шесть уже закрыты в тексте выше.</p>
 
   <figure class="fig">
@@ -565,7 +696,7 @@ looking into the lens, eye contact with camera, smiling, posing, winking, talkin
     <p><b>Отдельно про формат.</b> Если ваш интерфейс вообще не предлагает 9:16 — трюк в исходном виде собрать нельзя, вертикаль обязательна. Обходной путь: генерировать A в 16:9 и кропать в 1080×1920 в монтаже. Для селфи-крупняка центральный кроп переживается терпимо — потеряете края и часть тумана с существом, поэтому существо в промпте придётся сдвинуть ближе к центру, за её плечо. Но это компромисс, а не решение.</p>
   </div>
 
-  <h2><span class="num">09</span>Промпт · Клип B</h2>
+  <h2><span class="num">10</span>Промпт · Клип B</h2>
   <p class="dek">Тот самый кадр из референса: запертая камера у самой травы, крошечная фигурка со спины и колоссальная туша за ней. Ради него всё и делается.</p>
 <figure class="wide pb" data-tone="steel">
   <figcaption class="pb-head">
@@ -685,7 +816,7 @@ LIGHT — Bright flat overcast daylight, high-key, luminous glowing white fog, f
 STYLE — Photoreal cinematic, cool desaturated grade, teal-cyan shadows, lifted milky blacks, low contrast, heavy atmospheric perspective, fine grain, subtle vignette. Epic fantasy realism, live-action, not animated.</code></pre>
 </figure>
 
-  <h2><span class="num">10</span>Длительности и параметры</h2>
+  <h2><span class="num">11</span>Длительности и параметры</h2>
   <p class="dek">Три генерации. Ни замах, ни склейку, ни поворот генерировать не надо.</p>
   <div class="tablewrap">
     <table>
@@ -746,7 +877,7 @@ add facial description on top of the photo, you will only fight the image.</code
     <p><b>Честная оговорка.</b> Названия полей, доступные длительности и разрешения у Seedance 2.5 отличаются между интерфейсами — Dreamina / Jimeng, Volcano Engine, сторонние API. Промпты от интерфейса не зависят, но длительность и формат ставьте те, что реально доступны у вас.</p>
   </div>
 
-  <h2><span class="num">11</span>Сборка в монтаже</h2>
+  <h2><span class="num">12</span>Сборка в монтаже</h2>
   <p class="dek">Один срез. Ни вспышки, ни чёрных кадров, ни доворота ключами, ни плагина смаза, ни перехода вообще. В этом и смысл.</p>
 <figure class="wide pb" data-tone="steel">
   <figcaption class="pb-head">
@@ -800,7 +931,7 @@ re-rotate your clip and kill the whole gag. Upload as a single flat 9:16 file --
 never as a landscape file with a "turn your phone" caption.</code></pre>
 </figure>
 
-  <h2><span class="num">12</span>Звук</h2>
+  <h2><span class="num">13</span>Звук</h2>
   <p class="dek">Модель звук не сделает. Ни одной реплики нет — и не надо. Главное: <b>ветер должен идти непрерывно через склейку</b>, именно он и склеивает два клипа в один дубль.</p>
 <figure class="wide pb" data-tone="steel">
   <figcaption class="pb-head">
@@ -842,7 +973,7 @@ never as a landscape file with a "turn your phone" caption.</code></pre>
 00:20.0 - 00:20.4   Hard cut to black, roar tail in reverb only.</code></pre>
 </figure>
 
-  <h2><span class="num">13</span>Как сделать это своим</h2>
+  <h2><span class="num">14</span>Как сделать это своим</h2>
   <p class="dek">Копировать содержание бессмысленно — рыцарь с айс-кофе уже занят. Копировать нужно конструкцию: бытовой регистр, посаженная улика, разворот телефона, финал без развязки. Всё остальное — переменные.</p>
   <div class="tablewrap">
     <table>

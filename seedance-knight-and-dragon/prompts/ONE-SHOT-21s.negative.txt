@@ -1,0 +1,25 @@
+smartphone, phone, mobile phone, holding a phone, a phone in her hand, phone appearing in her hand, black rectangle in her hand, screen, tablet, device visible in frame, selfie stick, picking an object up, holding anything after the throw;
+
+UFO, flying saucer, spacecraft, spaceship, alien ship, dome, glass dome, lit windows, glowing windows, landing legs, building, hangar, tent, vehicle, machine, boulder;
+
+camera roll, rolling camera, camera tumbling, spinning camera, barrel roll, upside down, inverted frame, 180 degree rotation, camera dropped, dutch angle;
+
+camera pan after the whip, camera tilt after the whip, zoom, dolly in, dolly out, push in, pull back, handheld shake in the second half, camera drift, orbit, crane, drone shot, cinematic camera move after the settle;
+
+horizontal frame, landscape orientation, 16:9, widescreen, black bars, letterbox, aspect ratio change mid-shot;
+
+dark, underexposed, dusk, twilight, night, blue hour, murky, gloomy, heavy shadows, low-key moody grade, crushed blacks;
+
+the knight large in frame after the whip, close-up of the knight after the whip, her face visible after the whip, front view of the knight, knight floating above the grass, feet not touching the ground, knight sliding, knight walking away, knight running, knight retreating, knight falling over;
+
+looking into the lens, eye contact with camera, smiling, posing, winking, talking to camera, dialogue, speech, lip sync, singing;
+
+text, watermark, logo, subtitles, captions, UI overlay, timestamp;
+
+extra fingers, six fingers, malformed hands, warped gauntlet, melted armour plates, floating armour, duplicate limbs, two heads, two swords, distorted face, asymmetric eyes, repeating chainmail pattern; morphing scales, drifting horn geometry, changing horn count, inconsistent wing bones, wing membrane popping, extra limbs, two tails;
+
+cartoon, anime, illustration, 3D render, stylised, cel shading, video-game cutscene, plastic costume armour, matte white plastic, waxy skin, CGI sheen, beauty-filter smoothing;
+
+oversaturated, warm orange grade, golden hour, sunlight, hard shadows, lens flare, visible sun; fire breath, flames, lightning, magic glow, particle sparkles; blood, gore, being eaten, dying;
+
+low resolution, upscaling artifacts, frame stutter, slow motion, speed ramp
