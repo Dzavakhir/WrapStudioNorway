@@ -1,5 +1,5 @@
-ONE CUT, plus a quarter turn on six frames. Nothing else. No flash, no black
-frames, no blur plugin, no transition of any kind.
+ONE CUT into clip B, plus a quarter turn on six frames. Nothing else.
+No flash, no black frames, no blur plugin, no transition of any kind.
 
 1.  Timeline: 1080 x 1920, 24 fps.
 
@@ -10,26 +10,31 @@ frames, no blur plugin, no transition of any kind.
 3.  THE QUARTER TURN  00:04.75 -> 00:05.00      Clip A's last 6 frames only.
                                                  Keyframe rotation 0 -> 90 degrees CW
                                                  across those 6 frames, ease-in.
-                                                 DO NOT ask the model to do this. It
+                                                 DO NOT ask the model to do this -- it
                                                  overshoots and tumbles past 180. The
                                                  model gives you a flat whip; the turn
                                                  is yours, and 6 frames is all it takes
                                                  because the frame is already a smear.
 
-4.  CLIP B            00:05.00 -> 00:15.00      ROTATE 90 DEGREES CLOCKWISE.
+4.  CLIP B1           00:05.00 -> 00:15.00      ROTATE 90 DEGREES CLOCKWISE.
                                                  1920x1080 rotated = 1080x1920 exactly.
                                                  Zero letterboxing, no scaling, full bleed.
                                                  Trim the in-point to ITS heaviest blur
                                                  frame, then butt it straight against A.
 
-5.  OUT               00:15.00 -> 00:15.40      hard cut to black. No fade.
+5.  CLIP B2           00:15.00 -> 00:20.00      same rotation. Straight cut from B1, no
+                                                 transition -- the head position matches
+                                                 because B2 started from B1's last frame.
 
-Total: ~15.4 s.
+6.  OUT               00:20.00 -> 00:20.40      hard cut to black. No fade.
 
-WHY THIS IS ALL THERE IS. Both sides of the cut are heavy motion blur travelling
+Total: ~20.4 s.  (A + B1 only = ~15.4 s, and that is the tighter cut.)
+
+WHY THE CUT INTO B IS INVISIBLE. Both sides of it are heavy motion blur travelling
 in the same direction, so the eye cannot find the join. That is why clip A must END
-mid-whip and clip B must BEGIN mid-whip -- if either one settles, you lose the
-invisible cut and you are back to needing a flash and black frames to hide a seam.
+mid-whip and clip B1 must BEGIN mid-whip before settling -- if either one is already
+at rest, you lose the invisible cut and you are back to needing a flash and black
+frames to hide a seam.
 
 The viewer turns the phone COUNTER-CLOCKWISE to see clip B upright, and does it
 without being told, because the image demands it.

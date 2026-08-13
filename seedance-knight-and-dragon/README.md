@@ -117,8 +117,8 @@
 чёрных кадрах, а детектор склеек находит всего две зоны смены за весь ролик. Клип B повёрнут на 90°
 уже в монтаже — 1920×1080, положенные на бок, дают ровно 1080×1920 без единого чёрного поля.
 
-Значит, нужно три вещи: генерация A, генерация B и монтаж, который их сшивает. Плюс одно
-референсное изображение персонажа, общее для обеих генераций.
+Вам нужно то же: генерация A, генерация B и монтаж, который их сшивает. На практике B удобнее взять
+двумя кусками, так что генераций три. Плюс одно референсное изображение персонажа, общее для всех.
 
 ## 7. Промпт · Клип A
 
@@ -127,7 +127,7 @@
 ```text
 VERTICAL 9:16 selfie video, 1080x1920, portrait orientation. Wide front-facing lens at arm's length, 24mm, mild barrel distortion. NO device is ever visible anywhere in this shot — the camera IS her point of view, nothing is held up to film with.
 
-SUBJECT — Take her face, skin tone and features from the supplied reference image and do not restyle them. Dark hair to just past the collarbone, loose, lifting and crossing her cheek in the wind. She wears full mirror-polished white steel plate armour, bright and reflective like a mirror: gorget, layered pauldrons, articulated rerebrace-couter-vambrace on the near arm, gauntlet with segmented finger lames, breastplate engraved with fine fleur-de-lis and a cruciform motif, blackened chainmail voiders at the armpits, domed rivets. An ivory hooded cloak sits over her shoulders behind her neck. No sword, no weapon, no scabbard.
+SUBJECT — Take her face, skin tone and features from the supplied reference image and do not restyle them. Dark hair to just past the collarbone, loose, lifting and crossing her cheek in the wind. She wears full mirror-polished white steel plate armour, bright and reflective like a mirror: gorget, layered pauldrons, articulated rerebrace-couter-vambrace on the near arm, gauntlet with segmented finger lames, breastplate engraved with fine fleur-de-lis and a cruciform motif, blackened chainmail voiders at the armpits, domed rivets. An ivory hooded cloak sits over her shoulders behind her neck. A long straight sword in a plain scabbard rides on a wide brown leather belt at her hip, untouched throughout.
 
 ACTION, in strict order —
 (0-2 s) She sips iced black coffee through a white straw from a clear plastic to-go cup with a domed lid, ice cubes and condensation on the plastic, gauntleted fingers wrapped around it. Her gaze wanders off past the lens to the right, unfocused. She looks profoundly bored. She never makes eye contact with the lens.
@@ -165,7 +165,7 @@ horizontal frame, landscape orientation, 16:9, widescreen, black bars, letterbox
 
 dark, underexposed, dusk, twilight, night, murky, gloomy, heavy shadows, low-key moody grade, crushed blacks;
 
-looking into the lens, eye contact with camera, smiling, posing, winking, talking to camera; tripod, static camera, locked-off, gimbal, smooth stabilised motion, dolly, crane, orbit; sword, weapon, blade, scabbard; coffee splashing the lens, coffee on her face; text, watermark, logo, subtitles, captions, UI overlay, timestamp; extra fingers, six fingers, malformed hands, warped gauntlet, melted armour plates, floating armour; duplicate limbs, two heads, distorted face, asymmetric eyes; cartoon, anime, illustration, 3D render, plastic costume armour, matte white plastic, waxy skin, CGI sheen, beauty-filter smoothing; oversaturated, warm orange grade, golden hour, sunlight, hard shadows, lens flare, visible sun; blurry face, low resolution, upscaling artifacts, repeating chainmail pattern; fire, smoke, sparks; blood, gore
+looking into the lens, eye contact with camera, smiling, posing, winking, talking to camera; tripod, static camera, locked-off, gimbal, smooth stabilised motion, dolly, crane, orbit; drawing the sword, raised sword, sword in her hand; coffee splashing the lens, coffee on her face; text, watermark, logo, subtitles, captions, UI overlay, timestamp; extra fingers, six fingers, malformed hands, warped gauntlet, melted armour plates, floating armour; duplicate limbs, two heads, distorted face, asymmetric eyes; cartoon, anime, illustration, 3D render, plastic costume armour, matte white plastic, waxy skin, CGI sheen, beauty-filter smoothing; oversaturated, warm orange grade, golden hour, sunlight, hard shadows, lens flare, visible sun; blurry face, low resolution, upscaling artifacts, repeating chainmail pattern; fire, smoke, sparks; blood, gore
 ```
 
 ## 8. Что сломалось в первой генерации
@@ -199,88 +199,108 @@ looking into the lens, eye contact with camera, smiling, posing, winking, talkin
 
 `prompts/clip-b.txt` · `prompts/clip-b1-wake.txt` · `prompts/clip-b2-roar.txt` · `prompts/clip-b.negative.txt`
 
-Всё, что дальше — **с её камеры**. Она за кадром, снимает от первого лица и в кадре не появляется.
-Никакого киношного кадра со стороны, никакого штатива. Меча нет: одной рукой снимают, второй меч не
-поднять. Здесь же исправлены выдох в холодный воздух, приминание травы под челюстью и радиальная
-волна от рёва — всего этого в референсе нет.
+Тот самый кадр из референса: запертая камера у самой травы, крошечная фигурка со спины и
+колоссальная туша за ней. Ради него всё и делается.
+
+Клип начинается в смазе, доезжающем справа — это стык с клипом A, — и за первые 0.8 s движение
+гаснет, кадр встаёт в широкий план и **больше не двигается вообще**. Голова растёт в кадре потому,
+что дракон поднимается, а не потому, что камера наезжает.
+
+Здесь же исправлены выдох в холодный воздух, приминание травы под челюстью, радиальная волна от рёва
+и стойка вместо отшатывания — всего этого в референсе нет.
 
 ```text
-HORIZONTAL 16:9 video, 1920x1080, landscape orientation. Handheld first-person point of view, the same camera as the previous shot, now pointing away from her. She is BEHIND the camera and is never visible in the shot. NO device is visible anywhere in frame. 24mm wide lens.
+HORIZONTAL 16:9 video, 1920x1080, landscape orientation. 40mm lens.
 
-OPENING — The clip BEGINS mid-swing, heavily motion-blurred, sweeping in from the left, and settles over the first half-second onto what is ahead of her. Do not start from a still frame.
+OPENING — The clip BEGINS mid-swing, heavily motion-blurred, sweeping in from the left. Over the first half-second the movement dies out and the frame SETTLES into a wide shot and then LOCKS. Do not start from a still frame.
 
-FRAMING — Low, roughly chest height, handheld, never locked. At the very bottom right edge of frame, close to the lens and out of focus, the rim of her polished pauldron and a few strands of her windblown hair intrude into the shot — the only thing in frame that gives the creature its scale. Her breath drifts into the bottom of frame as faint vapour. No hand, no arm, no object.
+CAMERA — After it settles, the camera is completely LOCKED for the rest of the shot: no pan, no tilt, no zoom, no dolly, no shake, no drift. It sits low, at grass-top height, roughly 40cm above the ground. Only the woman, the creature and the grass move. NO device is visible anywhere in frame.
 
-CREATURE — Ahead of her across open grass, a colossal dragon lies prone in the meadow, head resting on the ground and turned slightly toward her, eyes closed. At the start its head alone occupies the centre and right of the frame and stands about half the frame height; the body recedes away to the left and dissolves into fog. Pearl-white and ice-blue hide. A broad field of opalescent dichroic scales across the neck and shoulder throwing prismatic pink, cyan, mint and gold glints. A saw-tooth ridge of tall bone-white dorsal spines runs down the neck and back. A fan of long pale spines frames the cheeks and jaw like a frill. Two thick bone-white horns sweep back from the crown, banded near the base with dark bronze metal cuffs. Two whip-thin bronze tendrils arc from behind each eye over the brow. Fine pebbled scales on the muzzle, pink nostril slits, a pink-flushed nose. An enormous folded membranous wing, semi-translucent pale grey-pink with visible finger bones, lies beyond it. Slow faint plumes of breath vapour drift from the nostrils into the cold air.
+FOREGROUND — A single out-of-focus blade of green grass rises through the lower-left corner as a soft bokeh element.
+
+SUBJECT — Dead centre, SMALL, about one sixth of the frame height: a woman knight stands with her back three-quarters to camera in knee-high wind-rippled green grass, her feet hidden among the stems. Ivory hooded cloak to mid-calf, drifting slowly to her left. Mirror-polished silver plate armour on arms and legs. Dark hair to just past the collarbone. A long straight silver sword hangs from her right hand, tip low. Her small size against the creature is the whole point of the shot.
+
+CREATURE — Filling the upper two-thirds of the frame behind her, a colossal dragon lies prone in the meadow, head resting on the ground, snout pointing right, eyes closed. Its head alone is five times her full height. Pearl-white and ice-blue hide. A broad field of opalescent dichroic scales across the neck and shoulder throwing prismatic pink, cyan, mint and gold glints. A saw-tooth ridge of tall bone-white dorsal spines runs down the neck and back. A fan of long pale spines frames the cheeks and jaw like a frill. Two thick bone-white horns sweep back from the crown, banded near the base with dark bronze metal cuffs. Two whip-thin bronze tendrils arc from behind each eye over the brow. Fine pebbled scales on the muzzle, pink nostril slits, a pink-flushed nose. An enormous folded membranous wing, semi-translucent pale grey-pink with visible finger bones, lies on the left. The far body dissolves into fog. Slow faint plumes of breath vapour drift from the nostrils into the cold air.
 
 ACTION, in strict order —
-(0-0.8 s) The frame settles out of the blur onto the sleeping creature.
-(0.8-3 s) Nothing happens. The camera drifts with her breathing, small involuntary handheld shake, one tiny correction of the framing.
-(3-4.5 s) One vast amber eye opens — warm gold iris, vertical black slit pupil — and looks straight into the lens.
-(4.5-6.5 s) The head lifts off the ground, the grass beneath its jaw flattening and springing back, and turns to face the camera. Both eyes open. The camera tilts up to keep the head in frame, then sags a few centimetres as her arm drops.
-(6.5-8 s) The head cranes down toward the lens until one amber eye alone fills half the frame. The frame jerks backward as she takes a step back, but the camera keeps running.
-(8-10 s) The jaws split open into a roar directly into the lens — pale pink-lavender palate, rows of white conical teeth, long pink tongue. Hot breath vapour blasts across the lens and briefly fogs it. The grass lies flat in a radial wave. The camera shakes hard and tips, swinging down toward the grass at her feet, where one polished greave and boot show for a moment, tiny against the creature above.
+(0-0.8 s) The blur dies out, the frame settles into the wide and locks.
+(0.8-3.5 s) Nothing happens. The dragon sleeps. Only the grass and her cloak move in the wind.
+(3.5-5.5 s) One vast amber eye opens — warm gold iris, vertical black slit pupil — and finds her. The head does not move.
+(5.5-6.5 s) She raises the sword slowly out to her side.
+(6.5-8.5 s) The head lifts off the ground, the grass beneath its jaw flattening and springing back, and rotates to face her front-on. Both eyes open, faintly glowing.
+(8.5-9.5 s) The pupils flick down to the sword in her hand, then back up to her face. One slow blink. Recognition, not hunger.
+(9.5-10 s) The head begins to crane forward and lower toward her.
 
 LIGHT — Bright flat overcast daylight, high-key, luminous glowing white fog, fully diffuse, no shadows, no visible sun. Pale, airy and light. Dense low ground fog. Flat pale blue-white sky. Soft bloom on the white scales. NOT dark, NOT dusk, NOT moody, NOT low-key.
 
-STYLE — Photoreal, consumer-camera look, handheld, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine sensor noise, mild rolling-shutter wobble on the fast moves. Found-footage realism. NOT cinematic, no film look, no tripod, no colour-graded blockbuster look.
+STYLE — Photoreal cinematic, cool desaturated grade, teal-cyan shadows, lifted milky blacks, low contrast, heavy atmospheric perspective, fine grain, subtle vignette. Epic fantasy realism, live-action, not animated.
 ```
 
-Масштаб в POV добирается тремя способами, все уже в промпте: край наплечника и прядь волос у
-самого нижнего края кадра, дрожь съёмки с руки против неподвижной туши, и финальный наклон вниз, где
-на секунду видно её собственный наголенник в траве.
+**Она должна быть маленькой** — одна шестая высоты кадра, не больше. Это самое хрупкое место
+промпта: модель любит подтащить героиню ближе. Если вышла крупной — перегенерируйте, кадр без этого
+не работает.
 
-Если десяти секунд нет — разбейте на `clip-b1-wake.txt` (6 s) и `clip-b2-roar.txt` (5 s), второй
-запускайте с последнего кадра первого. В B2 добавлен бит, которого в референсе нет: зверь смотрит
-в объектив, потом медленно моргает. Узнавание вместо голода.
+Рабочая схема — два куска: `clip-b1-wake.txt` (10 s, до поднятой головы) и `clip-b2-roar.txt`
+(5 s, моргание, наклон, рёв), второй с последнего кадра первого. `clip-b.txt` — то же одной
+генерацией на 10 s, но заканчивается на начале наклона, без рёва.
 
-Negative (обратите внимание: теперь запрещён штатив, а не движение):
+В B2 добавлен бит, которого в референсе нет: зрачки опускаются на её меч, потом возвращаются к лицу,
+и одно медленное моргание. Узнавание вместо голода.
+
+Negative (первые две строки — самые важные):
 
 ```text
-tripod, locked-off camera, static camera, gimbal, steadicam, smooth stabilised motion, dolly, crane, drone shot, orbit, cinematic camera move;
+camera pan, camera tilt, zoom, dolly in, dolly out, push in, pull back, handheld shake, camera drift, orbit, crane, drone shot, cinematic camera move after the opening settle;
 
-third-person shot, the woman visible in frame, her face, her full body, seeing her from behind, over-the-shoulder shot, reverse angle;
+smartphone, phone, mobile phone, holding a phone, a phone in her hand, phone in frame, black rectangle, screen, tablet, device visible in frame, selfie stick;
 
-smartphone, phone, mobile phone, holding a phone, a phone in frame, hand holding a phone, black rectangle, screen, tablet, device visible in frame, hand in frame, arm in frame, selfie stick;
+UFO, flying saucer, spacecraft, dome, glass dome, lit windows, glowing windows, building, hangar, tent, vehicle, machine;
 
 dark, underexposed, dusk, twilight, night, blue hour, murky, gloomy, heavy shadows, low-key moody grade, crushed blacks;
 
-sword, weapon, blade, scabbard, raised sword; film look, anamorphic, letterbox bars, black bars, 35mm grain, colour-graded blockbuster look, shallow cinema depth of field; text, watermark, logo, subtitles, captions, UI overlay, phone recording indicator, phone interface, timestamp; morphing scales, drifting horn geometry, changing horn count, inconsistent wing bones, wing membrane popping, extra limbs, extra heads, two tails; cartoon, anime, illustration, stylised, cel shading, video-game cutscene, plastic CGI sheen, rubbery skin; oversaturated, warm orange grade, golden hour, sunlight, hard shadows, lens flare, visible sun; fire breath, flames, lightning, magic glow, particle sparkles; blood, gore, being eaten, dying; low resolution, upscaling artifacts, frame stutter, slow motion, speed ramp
+the knight large in frame, close-up of the knight, the knight filling the frame, her face visible, front view of the knight, the knight floating above the grass, feet not touching the ground, knight sliding, knight walking away, knight running, knight retreating, knight falling over;
+
+first-person point of view, POV shot, found footage, phone footage look;
+
+text, watermark, logo, subtitles, captions, UI overlay, timestamp; morphing scales, drifting horn geometry, changing horn count, inconsistent wing bones, wing membrane popping, extra limbs, extra heads, two tails, two swords; cartoon, anime, illustration, stylised, cel shading, video-game cutscene, plastic CGI sheen, rubbery skin; oversaturated, warm orange grade, golden hour, sunlight, hard shadows, lens flare, visible sun; fire breath, flames, lightning, magic glow, particle sparkles; blood, gore, being eaten, dying; low resolution, upscaling artifacts, frame stutter, slow motion, speed ramp
 ```
 
 ## 10. Длительности, параметры и консистентность персонажа
 
 ```text
-TWO GENERATIONS. That is the whole film.
+THREE GENERATIONS.
 
-CLIP A   aspect 9:16   1080x1920   24 fps   4 s (5 s if 4 is not offered)
-CLIP B   aspect 16:9   1920x1080   24 fps   10 s
-         reference image = your own photo of her, same file in both clips
+CLIP A    aspect 9:16   1080x1920   24 fps   5 s
+CLIP B1   aspect 16:9   1920x1080   24 fps   10 s
+CLIP B2   aspect 16:9   1920x1080   24 fps   5 s
+                                             start image = B1's last frame
+
+          reference image = your own photo of her, the SAME file in all three
 
 PER-BEAT PACING -- pace the prompt to these or the model rushes the payoff:
 
-A (4 s)     0.0-1.8   sipping, bored, gaze off-lens
-            1.8-2.3   eyes snap right, straw leaves her lips
-            2.3-2.8   throws the cup back over her shoulder
-            2.8-4.0   camera whips flat right onto the creature. ENDS MID-WHIP.
+A (5 s)     0.0-2.4   sipping, bored, gaze off past the lens
+            2.4-2.9   eyes snap right, straw leaves her lips
+            2.9-3.4   throws the cup back over her shoulder, hand empties
+            3.4-5.0   camera whips flat right onto the creature. ENDS MID-WHIP.
 
-B (10 s)    0.0-0.8   settles out of the blur onto the sleeping creature
-            0.8-3.0   nothing happens. breathing, handheld drift
-            3.0-4.5   amber eye opens, looks into the lens
-            4.5-6.5   head lifts off the ground, turns to the camera
-            6.5-8.0   cranes down, one eye fills half the frame, she steps back
-            8.0-10    roar into the lens, breath fogs the lens, camera tips down
+B1 (10 s)   0.0-0.8   blur dies out, frame settles into the wide and LOCKS
+            0.8-3.5   nothing happens. dragon asleep. wind only
+            3.5-5.5   amber eye opens, finds her. head does not move
+            5.5-6.5   she raises the sword
+            6.5-10    head lifts off the ground, rotates front-on, holds
 
-IF 10 s IS NOT AVAILABLE, split B into two:
-CLIP B1  16:9  6 s   settle -> eye opens -> head lifts (use the B1 prompt)
-CLIP B2  16:9  5 s   blink -> crane down -> roar (use the B2 prompt,
-                     start image = B1's last frame)
+B2 (5 s)    0.0-1.0   pupils drop to her sword, back up, one slow blink
+            1.0-2.3   cranes forward and down until the head fills the frame
+            2.3-4.3   roar, breath plume, radial grass wave, she braces
+            4.3-5.0   hold on the open maw
+
+IF YOU ONLY WANT A 15 s CUT: run A + B1 only and end on the lifted head.
+It is a tighter edit than the full 20 s and loses nothing structural.
 
 CHARACTER: her face comes from YOUR reference photo, not from the prompt.
-Feed the same file to both clips. The prompt only fixes the hair length,
-the armour and what she does -- everything about her face, skin and build
-should come from the photo. Do not add facial description on top of it,
-you will only fight the image.
+The prompt only fixes the hair length, the armour and what she does. Do not
+add facial description on top of the photo, you will only fight the image.
 ```
 
 **Честная оговорка.** Конкретные названия полей, доступные длительности и разрешения у Seedance 2.5
@@ -295,8 +315,8 @@ you will only fight the image.
 ## 11. Сборка в монтаже
 
 ```text
-ONE CUT, plus a quarter turn on six frames. Nothing else. No flash, no black
-frames, no blur plugin, no transition of any kind.
+ONE CUT into clip B, plus a quarter turn on six frames. Nothing else.
+No flash, no black frames, no blur plugin, no transition of any kind.
 
 1.  Timeline: 1080 x 1920, 24 fps.
 
@@ -307,26 +327,31 @@ frames, no blur plugin, no transition of any kind.
 3.  THE QUARTER TURN  00:04.75 -> 00:05.00      Clip A's last 6 frames only.
                                                  Keyframe rotation 0 -> 90 degrees CW
                                                  across those 6 frames, ease-in.
-                                                 DO NOT ask the model to do this. It
+                                                 DO NOT ask the model to do this -- it
                                                  overshoots and tumbles past 180. The
                                                  model gives you a flat whip; the turn
                                                  is yours, and 6 frames is all it takes
                                                  because the frame is already a smear.
 
-4.  CLIP B            00:05.00 -> 00:15.00      ROTATE 90 DEGREES CLOCKWISE.
+4.  CLIP B1           00:05.00 -> 00:15.00      ROTATE 90 DEGREES CLOCKWISE.
                                                  1920x1080 rotated = 1080x1920 exactly.
                                                  Zero letterboxing, no scaling, full bleed.
                                                  Trim the in-point to ITS heaviest blur
                                                  frame, then butt it straight against A.
 
-5.  OUT               00:15.00 -> 00:15.40      hard cut to black. No fade.
+5.  CLIP B2           00:15.00 -> 00:20.00      same rotation. Straight cut from B1, no
+                                                 transition -- the head position matches
+                                                 because B2 started from B1's last frame.
 
-Total: ~15.4 s.
+6.  OUT               00:20.00 -> 00:20.40      hard cut to black. No fade.
 
-WHY THIS IS ALL THERE IS. Both sides of the cut are heavy motion blur travelling
+Total: ~20.4 s.  (A + B1 only = ~15.4 s, and that is the tighter cut.)
+
+WHY THE CUT INTO B IS INVISIBLE. Both sides of it are heavy motion blur travelling
 in the same direction, so the eye cannot find the join. That is why clip A must END
-mid-whip and clip B must BEGIN mid-whip -- if either one settles, you lose the
-invisible cut and you are back to needing a flash and black frames to hide a seam.
+mid-whip and clip B1 must BEGIN mid-whip before settling -- if either one is already
+at rest, you lose the invisible cut and you are back to needing a flash and black
+frames to hide a seam.
 
 The viewer turns the phone COUNTER-CLOCKWISE to see clip B upright, and does it
 without being told, because the image demands it.
@@ -343,37 +368,38 @@ never as a landscape file with a "turn your phone" caption.
 чего в референсе нет.
 
 ```text
-Everything here is phone-mic sound. No score until the very end -- a scored
-opening would give away that this is a film. NO dialogue, NO voice-over, ever.
+NO dialogue, NO voice-over, ever.
 
-00:00.0 - 00:01.8   Wind across the phone mic, broadband, slightly clipping in the
-                     gusts. Faint straw and ice. Nothing else. No music.
+00:00.0 - 00:02.4   Wind across the mic, broadband, slightly clipping in the gusts.
+                     Faint straw and ice. Nothing else. No music yet.
 
-00:01.8 - 00:02.3   Wind drops for half a second, the way it does when someone
-                     stops moving. This is your only warning cue.
+00:02.4 - 00:02.9   Wind drops for half a second, the way it does when someone stops
+                     moving. This is your only warning cue.
 
-00:02.3 - 00:02.8   The cup toss. Plastic clatter and a wet splash landing in grass,
+00:02.9 - 00:03.4   The cup toss. Plastic clatter and a wet splash landing in grass,
                      panned hard right and behind. Small and dry -- a punctuation
                      mark, not an event.
 
-00:02.8 - 00:04.0   Armour and cloth rustle, air roaring across the mic as she
-                     swings the phone. Loud, ugly, real.
+00:03.4 - 00:05.0   Armour and cloth rustle, air roaring across the mic as the camera
+                     whips. Loud, ugly, real.
 
-00:04.0 - 00:07.0   The swing lands. Wind bed continues unbroken ACROSS THE CUT --
-                     do not dip the audio at the join, the continuous sound is what
-                     sells the two clips as one take. Her breathing, close on the mic.
+00:05.0 - 00:08.5   The whip lands. Wind bed continues UNBROKEN ACROSS THE CUT -- do
+                     not dip the audio at the join, the continuous sound is what sells
+                     the two clips as one take. A low sustained drone fades in
+                     underneath, around 200-600 Hz, strings or wordless choir.
 
-00:07.0 - 00:08.5   A very low sub-bass bed fades in under the wind as the head
-                     lifts. Almost inaudible. No melody, no strings yet.
+00:08.5             One low impact sting on the eye opening. Single hit.
 
-00:09.5 - 00:09.8   DROP TO NEAR SILENCE for 0.3 s before the roar. Wind out,
-                     bass out, breath only. This is the whole punch.
+00:08.5 - 00:14.5   Build: the drone widens, a sub-bass bed enters, a slow ticking
+                     pulse. Still no percussion hits.
 
-00:09.8 - 00:14.0   Roar: layered sub-bass growl 40-80 Hz, mid-range rasp,
-                     broadband breath noise, phone mic overloading and distorting.
-                     Bring the score in HERE and only here if you want it.
+00:17.0 - 00:17.3   DROP TO NEAR SILENCE for 0.3 s before the roar. Wind out, bass
+                     out. This is the whole punch, and the reference does not do it.
 
-00:14.0 - 00:14.4   Hard cut to black, roar tail in reverb only.
+00:17.3 - 00:20.0   Roar: layered sub-bass growl 40-80 Hz, mid-range rasp, broadband
+                     breath noise, brass and choir crescendo over the top.
+
+00:20.0 - 00:20.4   Hard cut to black, roar tail in reverb only.
 ```
 
 ## 13. Как сделать это своим
@@ -395,10 +421,9 @@ opening would give away that this is a film. NO dialogue, NO voice-over, ever.
 середине випа: на этом держится невидимая склейка. Подписи «поверни телефон» быть не должно. И финал
 без развязки: ни победы, ни смерти, ни объяснения.
 
-**Про запертую камеру.** В разборе референса выше она названа главным техническим решением — и это
-правда для референса. Ваша версия сознательно от неё отказывается: камера в руке, съёмка дрожит,
-потому что снимает человек. Это осмысленный обмен, а не ошибка. Обратно к запертой камере есть смысл
-возвращаться только если вам нужен меч в кадре.
+**И запертая камера во второй половине.** Она названа главным техническим решением в разделе 1, и
+это измерено, а не на глаз: рост фигуры на экране держится в пределах ±5% с 7 по 17 секунду. Стоит
+дать камере наезд — и масштаб рассыпается.
 
 ---
 
