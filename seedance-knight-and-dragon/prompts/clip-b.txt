@@ -1,19 +1,19 @@
-Horizontal 16:9 cinematic wide shot. LOCKED-OFF STATIC CAMERA on a tripod at grass-top height, roughly 40cm above the ground, 40mm lens. The camera never moves: no pan, no tilt, no zoom, no dolly, no shake, for the entire shot. Only the creature and the grass move.
+Horizontal 16:9 handheld phone video, shot on the same phone as the previous clip, now turned onto its side and pointing away from her. FIRST PERSON: she is behind the camera, filming with one hand. She is not in the shot. 24mm wide lens.
 
-FOREGROUND — A single out-of-focus blade of green grass rises through the lower-left corner as a soft bokeh element.
+OPENING — The clip BEGINS mid-swing, heavily motion-blurred, sweeping in from the left, and settles over the first half-second onto what is ahead of her. Do not start from a still frame.
 
-SUBJECT — Dead centre, small, about one sixth of the frame height: a woman knight stands with her back three-quarters to camera in knee-high wind-rippled green grass. Ivory hooded cloak to mid-calf, drifting slowly to her left. Mirror-polished silver plate armour on arms and legs. Chin-length black bob. A long straight silver sword hangs from her right hand, tip low.
+FRAMING — Low, roughly chest height, handheld, never locked. In the lower right corner, close to the lens and slightly out of focus, the edge of her gauntleted hand and the rim of her polished pauldron stay visible — the only thing in frame that gives the creature its scale.
 
-CREATURE — Filling the upper two-thirds of the frame behind her, a colossal dragon lies prone in the meadow, head resting on the ground, snout pointing right, eyes closed. Its head alone is five times her full height. Pearl-white and ice-blue hide. A broad field of opalescent dichroic scales across the neck and shoulder throwing prismatic pink, cyan, mint and gold glints. A saw-tooth ridge of tall bone-white dorsal spines runs down the neck and back. A fan of long pale spines frames the cheeks and jaw like a frill. Two thick bone-white horns sweep back from the crown, banded near the base with dark bronze metal cuffs. Two whip-thin bronze tendrils arc from behind each eye over the brow. Fine pebbled scales on the muzzle, pink nostril slits, a pink-flushed nose. An enormous folded membranous wing, semi-translucent pale grey-pink with visible finger bones, lies on the left. The far body dissolves into fog.
+CREATURE — Ahead of her across open grass, a colossal dragon lies prone in the meadow, head resting on the ground and turned slightly toward her, eyes closed. At the start its head alone occupies the centre and right of the frame and stands about half the frame height; the body recedes away to the left and dissolves into fog. Pearl-white and ice-blue hide. A broad field of opalescent dichroic scales across the neck and shoulder throwing prismatic pink, cyan, mint and gold glints. A saw-tooth ridge of tall bone-white dorsal spines runs down the neck and back. A fan of long pale spines frames the cheeks and jaw like a frill. Two thick bone-white horns sweep back from the crown, banded near the base with dark bronze metal cuffs. Two whip-thin bronze tendrils arc from behind each eye over the brow. Fine pebbled scales on the muzzle, pink nostril slits, a pink-flushed nose. An enormous folded membranous wing, semi-translucent pale grey-pink with visible finger bones, lies beyond it. Slow faint plumes of breath vapour drift from the nostrils into the cold air.
 
 ACTION, in strict order —
-1. Stillness. The dragon sleeps. Only the grass and her cloak move in the wind.
-2. One vast amber eye opens — warm gold iris, vertical black slit pupil — and finds her.
-3. She raises the sword slowly out to her side.
-4. The head lifts off the ground, the grass beneath its jaw flattening and springing back, and rotates to face her front-on. Both eyes open, faintly glowing.
-5. The head cranes forward and lowers toward her until it fills the frame.
-6. The jaws split open into a roar — pale pink-lavender palate, rows of white conical teeth, long pink tongue — and a dense plume of hot breath vapour blasts out into the cold air. The grass lies flat in a radial wave. Her cloak snaps horizontal. She drops into a braced stance, sword raised across her body, and does not retreat.
+(0-0.8 s) The frame settles out of the blur onto the sleeping creature.
+(0.8-3 s) Nothing happens. The phone drifts with her breathing, small involuntary handheld shake, one tiny correction of the framing.
+(3-4.5 s) One vast amber eye opens — warm gold iris, vertical black slit pupil — and looks straight into the lens.
+(4.5-6.5 s) The head lifts off the ground, the grass beneath its jaw flattening and springing back, and turns to face the camera. Both eyes open. The phone tilts up to keep the head in frame and sags a few centimetres as her arm drops.
+(6.5-8 s) The head cranes down toward the phone until one amber eye alone fills half the frame. The frame jerks backward as she takes a step back, but she keeps filming.
+(8-10 s) The jaws split open into a roar directly into the lens — pale pink-lavender palate, rows of white conical teeth, long pink tongue. Hot breath vapour blasts across the glass and briefly fogs it. The grass lies flat in a radial wave. The phone shakes hard and tips, the frame swinging down toward the grass at her feet, where one polished greave and boot show for a moment, tiny against the creature above.
 
 LIGHT — Flat overcast daylight, fully diffuse, no shadows, no visible sun, cool blue-grey. Dense low ground fog. Flat pale blue-white sky. Soft bloom on the white scales.
 
-STYLE — Photoreal cinematic, cool desaturated grade, teal-cyan shadows, lifted milky blacks, low contrast, heavy atmospheric perspective, fine 35mm grain, subtle vignette. Epic fantasy realism, live-action, not animated.
+STYLE — Photoreal, shot on a modern smartphone, handheld, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine sensor noise, mild rolling-shutter wobble on the fast moves. Found-footage realism. NOT cinematic, no film look, no tripod, no colour-graded blockbuster look.

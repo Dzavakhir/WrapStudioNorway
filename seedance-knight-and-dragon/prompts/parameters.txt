@@ -1,27 +1,30 @@
-CLIP A    aspect 9:16   1080x1920   24 fps   5 s (6 s if offered)   seed: lock it
-CLIP B1   aspect 16:9   1920x1080   24 fps   10 s                   seed: lock it
-CLIP B2   aspect 16:9   1920x1080   24 fps   5 s                    seed: lock it
-                                                    start image = B1's last frame
+TWO GENERATIONS. That is the whole film.
+
+CLIP A   aspect 9:16   1080x1920   24 fps   4 s (5 s if 4 is not offered)
+CLIP B   aspect 16:9   1920x1080   24 fps   10 s
+         reference image = your own photo of her, same file in both clips
 
 PER-BEAT PACING -- pace the prompt to these or the model rushes the payoff:
 
-A  (5 s)    0.0-2.0   sipping, bored, gaze off-lens
-            2.0-2.6   eyes flick right, straw leaves her lips
-            2.6-3.4   tosses the cup back over her shoulder
-            3.4-5.0   swings the phone around onto the dragon, rolls it on its side
+A (4 s)     0.0-1.8   sipping, bored, gaze off-lens
+            1.8-2.3   eyes snap right, straw leaves her lips
+            2.3-2.8   throws the cup back over her shoulder
+            2.8-4.0   swings the phone straight onto the creature. ENDS MID-SWING.
 
-B1 (10 s)   0.0-1.5   she walks away from the lens, the pale mass resolves
-            1.5-4.0   nothing happens. dragon asleep. wind only
-            4.0-5.8   amber eye opens
-            5.8-7.0   she raises the sword
-            7.0-10    head lifts off the ground, starts to turn
+B (10 s)    0.0-0.8   settles out of the blur onto the sleeping creature
+            0.8-3.0   nothing happens. breathing, handheld drift
+            3.0-4.5   amber eye opens, looks into the lens
+            4.5-6.5   head lifts off the ground, turns to the camera
+            6.5-8.0   cranes down, one eye fills half the frame, she steps back
+            8.0-10    roar into the lens, breath fogs the glass, phone tips down
 
-B2 (5 s)    0.0-1.5   turns front-on, looks at her sword, slow blink
-            1.5-2.8   cranes forward and down
-            2.8-4.3   jaws open, roar, breath plume, grass wave, she braces
-            4.3-5.0   hold on the open maw
+IF 10 s IS NOT AVAILABLE, split B into two:
+CLIP B1  16:9  6 s   settle -> eye opens -> head lifts (use the B1 prompt)
+CLIP B2  16:9  5 s   blink -> crane down -> roar (use the B2 prompt,
+                     start image = B1's last frame)
 
-Reference image: feed the SAME character still to every clip.
-Generate her once as a still (front 3/4, armour, ivory cloak, black bob,
-flat overcast light, fog) and reuse that one file everywhere.
-Without it the halves will not read as the same person.
+CHARACTER: her face comes from YOUR reference photo, not from the prompt.
+Feed the same file to both clips. The prompt only fixes the hair length,
+the armour and what she does -- everything about her face, skin and build
+should come from the photo. Do not add facial description on top of it,
+you will only fight the image.

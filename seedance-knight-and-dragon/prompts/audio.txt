@@ -1,32 +1,31 @@
-00:00.0 - 00:02.6   Wind bed, broadband, no music event. One sustained low drone
-                     around 200-600 Hz (strings or wordless choir). Faint straw
-                     and ice sounds. NO dialogue, NO voice-over, ever.
+Everything here is phone-mic sound. No score until the very end -- a scored
+opening would give away that this is a film. NO dialogue, NO voice-over, ever.
 
-00:02.6 - 00:03.0   The cup toss. Plastic clatter and a wet splash landing in grass,
-                     panned hard right and slightly behind. Keep it small and dry --
-                     it is a punctuation mark, not an event.
+00:00.0 - 00:01.8   Wind across the phone mic, broadband, slightly clipping in the
+                     gusts. Faint straw and ice. Nothing else. No music.
 
-00:03.4 - 00:04.7   Cloth-and-armour rustle as she swings the phone. Air moving
-                     across the mic, filter sweeping up. Let the wind bed swell.
+00:01.8 - 00:02.3   Wind drops for half a second, the way it does when someone
+                     stops moving. This is your only warning cue.
 
-00:04.7 - 00:05.0   The roll. One short rising whoosh, cut off hard.
+00:02.3 - 00:02.8   The cup toss. Plastic clatter and a wet splash landing in grass,
+                     panned hard right and behind. Small and dry -- a punctuation
+                     mark, not an event.
 
-00:05.0 - 00:05.12  NEAR SILENCE over the 3 black frames. This is the whole trick.
+00:02.8 - 00:04.0   Armour and cloth rustle, air roaring across the mic as she
+                     swings the phone. Loud, ugly, real.
 
-00:05.12 - 00:11.0  The drone returns, wider and lower. Add a sub-bass bed.
-                     Her footsteps in grass for the first 1.5 s, then nothing.
-                     Slow strings enter underneath.
+00:04.0 - 00:07.0   The swing lands. Wind bed continues unbroken ACROSS THE CUT --
+                     do not dip the audio at the join, the continuous sound is what
+                     sells the two clips as one take. Her breathing, close on the mic.
 
-00:09.2             One low impact sting on the eye opening. Single hit,
-                     no reverb tail into the mix.
+00:07.0 - 00:08.5   A very low sub-bass bed fades in under the wind as the head
+                     lifts. Almost inaudible. No melody, no strings yet.
 
-00:11.0 - 00:15.0   Build: rising strings, a ticking pulse. Still no percussion hits.
+00:09.5 - 00:09.8   DROP TO NEAR SILENCE for 0.3 s before the roar. Wind out,
+                     bass out, breath only. This is the whole punch.
 
-00:15.0 - 00:15.3   DROP TO NEAR SILENCE for 0.3 s. The reference does not do this
-                     and it costs it the whole punch. Do it.
+00:09.8 - 00:14.0   Roar: layered sub-bass growl 40-80 Hz, mid-range rasp,
+                     broadband breath noise, phone mic overloading and distorting.
+                     Bring the score in HERE and only here if you want it.
 
-00:15.3 - 00:20.1   The turn, the blink, then the roar: layered sub-bass growl
-                     40-80 Hz, mid-range rasp, broadband breath noise, brass and
-                     choir crescendo over the top.
-
-00:20.1 - 00:20.5   Hard cut to black, roar tail in reverb only.
+00:14.0 - 00:14.4   Hard cut to black, roar tail in reverb only.

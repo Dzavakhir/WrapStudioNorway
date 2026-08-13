@@ -1,27 +1,29 @@
-Vertical 9:16 handheld selfie video, front-facing phone camera held at arm's length, 24mm wide lens, mild barrel distortion.
+Vertical 9:16 handheld selfie video, front-facing phone camera held at arm's length, 24mm wide lens, mild barrel distortion. Every shot in this film is her own phone. There is no other camera.
 
-SUBJECT — A woman in her early twenties, East Asian features, chin-length glossy black bob, fine strands blowing across her cheek, bare skin with visible pores, natural brows, glossy coral-nude lips, one small silver drop earring. She wears full mirror-polished white steel plate armour: gorget, layered pauldrons, articulated rerebrace-couter-vambrace on the extended arm, gauntlet with segmented finger lames, breastplate engraved with fine fleur-de-lis and a cruciform motif, blackened chainmail voiders at the armpits, domed rivets. An ivory hooded cloak hangs behind her shoulders. A cruciform sword with a black leather grip rides on a wide brown leather belt at her hip.
+SUBJECT — Take her face, skin tone and features from the supplied reference image and do not restyle them. Dark hair to just past the collarbone, loose and slightly windblown, fine strands lifting across her cheek. She wears full mirror-polished white steel plate armour: gorget, layered pauldrons, articulated rerebrace-couter-vambrace on the extended arm, gauntlet with segmented finger lames, breastplate engraved with fine fleur-de-lis and a cruciform motif, blackened chainmail voiders at the armpits, domed rivets. An ivory hooded cloak hangs behind her shoulders. No sword, no weapon, no scabbard.
 
 ACTION, in strict order —
-(0-2 s) She sips iced black coffee through a white straw from a clear plastic to-go cup with a domed lid, ice cubes and condensation on the plastic, gauntleted fingers wrapped around it. Her gaze wanders off-lens to the right. She looks profoundly bored. She never looks into the camera.
-(2-2.6 s) Her eyes flick right. The straw leaves her lips. She has heard something.
-(2.6-3.4 s) Without looking, she flicks her wrist and tosses the cup back over her right shoulder. It tumbles away behind her, the lid coming loose, dark coffee and ice arcing out, and drops into the grass out of focus. Casual, dismissive, finished.
-(3.4-5 s) She turns her wrist and swings the phone away from her face, out to her right and past her shoulder, until it points away from her at the pale mass in the fog. The frame sweeps right in heavy motion blur, her pauldron and cloak whipping past the lens, and the horizon rolls over as she turns the phone onto its side. The last frames are green blur and a vast pale shape resolving ahead.
+(0-1.8 s) She sips iced black coffee through a white straw from a clear plastic to-go cup with a domed lid, ice cubes and condensation on the plastic, gauntleted fingers wrapped around it. Her gaze wanders off-lens to the right. She looks profoundly bored. She never looks into the camera.
+(1.8-2.3 s) Her eyes snap right. The straw leaves her lips.
+(2.3-2.8 s) Without looking, she flicks her wrist and throws the cup back over her right shoulder. It tumbles away behind her, the lid coming loose, dark coffee and ice arcing out.
+(2.8-4 s) IMMEDIATELY, with no pause, in one hard continuous motion, she swings the phone away from her face out to her right and past her shoulder until it points away from her into the fog. The frame sweeps right in heavy motion blur, her pauldron and cloak whipping past the lens, and the horizon rolls over as she turns the phone onto its side.
+
+END OF SHOT — The clip ENDS mid-swing, still heavily blurred, still moving. It does not settle, does not come to rest, does not slow down, does not fade.
 
 SCENE — A vast flat meadow of short green grass drowned in dense cold fog, visibility about twenty-five metres, no horizon line. Far behind her right shoulder, deeply out of focus, an enormous pale blue-grey mass lies in the grass. She never comments on it.
 
 LIGHT — Flat overcast daylight, fully diffuse, no shadows, no visible sun, cool blue-grey ambient, milky lifted blacks.
 
-CAMERA — Handheld selfie with small natural drift and micro-shake, no gimbal, no stabilisation. Her extended forearm and near pauldron loom huge in the lower foreground. Her head sits in the upper third. In the final beat the camera swings hard right and rolls onto its side.
+CAMERA — Handheld selfie with small natural drift and micro-shake, no gimbal, no stabilisation. Her extended forearm and near pauldron loom huge in the lower foreground. Her head sits in the upper third.
 
-STYLE — Photoreal, shot on a modern smartphone, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine grain. Candid social-media footage, deliberately not cinematic.
+STYLE — Photoreal, shot on a modern smartphone, slightly soft, low contrast, cool desaturated grade, teal-cyan shadows, fine sensor noise. Candid social-media footage, deliberately not cinematic.
 
 ----------------------------------------------------------------------
 OPTIONAL TAIL (only if you generate the whip in-model):
 
-ALTERNATIVE FINAL BEAT — instead of the swing, if you want the reference's original
-transition: the phone whips violently upward into the blank white sky and the frame blows out
-to near-white, then whips down past her shoulder into the grass at her feet, smearing into
-dark green motion blur, and goes black.
+NOT RECOMMENDED — the reference's original transition, kept here only for comparison:
+the phone whips upward into the blank white sky and the frame blows out to near-white, then
+whips down past her shoulder into the grass and goes black.
 
-Weaker choice. The swing is motivated by her, the whip is motivated by nothing.
+It needs a white flash, four black frames and a rotation done by hand in the edit. The swing
+out of her own hand needs none of that: one straight cut on the blur and you are done.

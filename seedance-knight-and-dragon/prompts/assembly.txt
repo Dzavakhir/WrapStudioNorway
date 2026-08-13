@@ -1,40 +1,31 @@
+ONE CUT. No flash, no black frames, no rotation keyframes, no blur plugin,
+no transition of any kind. That is the point.
+
 1.  Timeline: 1080 x 1920, 24 fps.
 
-2.  CLIP A            00:00.00 -> 00:04.67      as generated, vertical, full bleed.
-                                                 Frames 0-112. Cup tossed at ~2.6 s,
-                                                 phone starts swinging at ~3.4 s.
+2.  CLIP A            00:00.00 -> 00:04.00      as generated, vertical, full bleed.
+                                                 Trim the out-point to the frame where
+                                                 the swing blur is HEAVIEST -- usually
+                                                 2 or 3 frames before the clip ends.
 
-3.  THE ROLL          00:04.67 -> 00:05.00      Clip A's last 8 frames only.
-                                                 Keyframe rotation 0 -> 90 degrees CW
-                                                 across those 8 frames, ease-in.
-                                                 Add directional blur ramping 0 -> 140 px
-                                                 along the swing axis.
-                                                 The model already gave you the sweep;
-                                                 you are only finishing the roll, because
-                                                 a generated 90-degree roll is unreliable.
-
-4.  MASKED CUT        00:05.00 -> 00:05.12      3 frames of pure black. Scale and
-                                                 framing change here.
-                                                 Do not cross-dissolve. Do not lengthen
-                                                 past 4 frames -- the swing already did
-                                                 the work the reference needed 4 frames for.
-
-5.  CLIP B1           00:05.12 -> 00:15.12      ROTATE 90 DEGREES CLOCKWISE.
+3.  CLIP B            00:04.00 -> 00:14.00      ROTATE 90 DEGREES CLOCKWISE.
                                                  1920x1080 rotated = 1080x1920 exactly.
                                                  Zero letterboxing, no scaling, full bleed.
+                                                 Trim the in-point to ITS heaviest blur
+                                                 frame, then butt it straight against A.
 
-6.  CLIP B2           00:15.12 -> 00:20.12      same rotation. Straight cut from B1,
-                                                 no transition -- the head position matches
-                                                 because B2 started from B1's last frame.
+4.  OUT               00:14.00 -> 00:14.40      hard cut to black. No fade.
 
-7.  OUT               00:20.12 -> 00:20.50      hard cut to black. No fade.
+Total: ~14.4 s.
 
-Total: 20.5 s.
+WHY THERE IS NOTHING ELSE TO DO. Both sides of the cut are heavy motion blur
+travelling in the same direction, so the eye cannot find the join and fills in the
+90-degree roll by itself. That is why clip A must END mid-swing and clip B must
+BEGIN mid-swing -- if either one settles, you lose the invisible cut and you are
+back to needing a flash and black frames to hide the seam.
 
-The viewer turns the phone COUNTER-CLOCKWISE to see clip B upright. Because she
-visibly turns her own phone onto its side at the end of clip A, the viewer copies
-the gesture almost reflexively -- that is the whole reason this version beats the
-reference, which rolls the camera for no stated reason.
+The viewer turns the phone COUNTER-CLOCKWISE to see clip B upright, and does it
+without being told, because they just watched her turn her own phone.
 
 TEST IT ON A REAL PHONE. Turn auto-rotate ON and confirm the player does NOT
 re-rotate your clip and kill the whole gag. Upload as a single flat 9:16 file --
