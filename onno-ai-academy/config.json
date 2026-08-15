@@ -1,0 +1,33 @@
+{
+  "_comment": "Runtime switches for the unattended 04:00 run. RUNBOOK.md §6 is the only consumer. Edit this file, commit, push — no other file changes when the policy changes.",
+
+  "billing": {
+    "prefer_unlim": true,
+    "_prefer_unlim": "Every run asks the server whether seedance_2_5 carries an unlim allowance RIGHT NOW (models_explore action=get). If it does, the generation is submitted with use_unlim:true and costs nothing. This is the intended path and the one the owner asked for.",
+
+    "credit_spend_authorized": false,
+    "_credit_spend_authorized": "What happens on a day when unlim is NOT available. false = do not spend, log NO_UNLIM_NOT_AUTHORIZED, exit 0 without generating. true = fall back to credits (use_unlim:false) within every limit in RUNBOOK.md §6. Set to true ONLY on the account owner's explicit instruction — it authorises a recurring real-money charge of ~90 credits per day, every day, unattended. As of 2026-08-15 seedance_2_5 carries no unlim support and the account allowance reads {available:false}, so with this flag false the run reports instead of producing a video.",
+
+    "balance_floor_credits": 200,
+    "per_job_ceiling_credits": 95,
+    "per_day_ceiling_credits": 190,
+    "max_generations_per_day": 2
+  },
+
+  "model": {
+    "id": "seedance_2_5",
+    "_id": "Locked by the owner. Not substituted for an unlim-eligible model without an explicit instruction — seedance_2_0 / seedance_2_0_mini / kling3_0 / gemini_omni / wan2_7 are the unlim-eligible ones, and switching would change the look of the channel."
+  },
+
+  "schedule": {
+    "timezone": "Asia/Tashkent",
+    "local_time": "04:00",
+    "utc_cron": "0 23 * * *"
+  },
+
+  "git": {
+    "branch": "claude/onno-ai-academy-video-gen-48gzn8",
+    "push_is_fatal": false,
+    "_push_is_fatal": "A failed push never aborts a run that already produced a video. Log GIT_PUSH_FAILED and exit 0; the video and its metadata stay on disk."
+  }
+}
