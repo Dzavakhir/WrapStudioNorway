@@ -1,0 +1,94 @@
+FILL RULES — DELETE THIS BLOCK BEFORE SUBMITTING; the prompt begins at "HORIZONTAL 16:9". Copy today's ten slot strings out of TOPICS.md byte for byte, and copy every other character of this file byte for byte: this session authors nothing, paraphrases nothing, renumbers nothing and substitutes no topic. The full fill law, the forbidden parameter keys and the hard two-generation budget are in acceptance_checks — run PRE-SUBMIT PROMPT ASSERT before spending anything.
+———
+
+HORIZONTAL 16:9 video, 1920x1080, landscape orientation for the entire film. ONE continuous 15-second take, ONE locked camera, ONE room. No cuts, no dissolves, no scene change, no second angle. The frame never changes shape and never changes size.
+
+CHARACTER — <<<abd99f1e-d482-4cf5-92a4-2ce3aea26018>>> is the only person in this film. His face, skin tone, hairline and features come from the reference images and are not restyled, beautified, slimmed or de-aged. No other person appears at any point, in any frame, in any reflection. He never speaks and never opens his mouth; his mouth stays closed for the entire fifteen seconds.
+
+HAIR — his hair is short, cropped close at the sides and back and worn the same way in every frame and in every film: the same length, the same parting and the same hairline as the reference images, never longer, never restyled, never wet, never slicked, never tousled. His facial hair is the same short trimmed state in every frame and in every film — never a full beard, never clean-shaven, never a moustache alone, never changing between beats or between films.
+
+WARDROBE — plain charcoal matte long-sleeve crew-neck knit, sleeves pushed to the forearm. No print, no logo, no pattern, no jacket, no apron, no hat, no glasses, no jewellery. The same garment for the entire film; his clothing never changes, not for a single frame.
+
+THE ROOM — the same room in every film. A quiet daylit workroom. The back wall is matte warm grey-taupe plaster, unbroken: no posters, no shelves, no plants, no whiteboard, no signage, no doorway, no window. A wide pale-ash workbench crosses the bottom quarter of frame. One warm amber practical lamp burns behind him on the LEFT-HAND SIDE OF FRAME AS THE VIEWER SEES IT, its bulb centred 25% of the frame width in from the left edge and 20% of the frame height down from the top edge, its shade and the plaster around it glowing warm amber, bright but never clipping out to plain white, visible in every single frame of the film. It is never on the right-hand side of frame, never behind his other shoulder, never moves between films. Nothing else is added to the space. NOT a studio, NOT a green screen, NOT a stage, no crew, no lights on stands, no cameras, no other furniture, no other people.
+
+CAMERA — one locked-off tripod shot, 35 mm, chest height 1.35 m, dead level, absolutely static for the entire fifteen seconds. No pan, no tilt, no zoom, no dolly, no drift, no shake, no rack focus, no speed ramp. Only he and the apparatus move inside the fixed frame.
+
+STAGING — he stands close behind the bench, body centred at 40% of frame width, framed from mid-chest up so the face is always large: the top of his head sits just inside the top edge of frame and his head is never smaller than one quarter of the frame height. This is a medium close shot, not a waist-up wide, and the framing is identical in every film. He never leaves frame, never turns his back, never sits down. He acts with the hand nearer the apparatus — the hand on the screen-right side of his body — the same hand in every beat and in every one of the thirty films; his other hand rests flat on the bench on the screen-left side and never lifts. He never reaches across his own body, never rotates his shoulders away from camera and never swaps hands mid-film. Two hands in frame at any moment, total. He holds nothing but {{TOOL}}. His head is up and turned toward the lens whenever he is not actively working. He is never head-down for more than three seconds at a stretch, his face is toward camera and fully lit for at least a third of the film, and both eyes are visible except while he looks down at his own hands. He never presents full profile and never lowers his face out of the window light.
+
+THE APPARATUS — {{APPARATUS}}. It stands on the bench at the 62% frame-width mark, no taller than one third of frame height. Until 08.4 it is the only object on the bench. From 08.4 the bench carries exactly three things and never a fourth: the corrected object at the 62% mark, the wreckage at the near edge, and — from 13.8 — the tool laid down flat. Nothing else is ever added to the bench at any point. One material, at most twelve parts, unlabelled and untexted. With the amber lamp it is the only saturated thing in frame.
+
+TIMELINE — follow exactly, in this order, and do not reorder, compress or skip any beat. Each beat must occupy its full stated span.
+
+00.0-02.6  He is motionless mid-work as the film opens — one hand already resting on
+           {{APPARATUS}}, the other flat on the bench, eyes down on the work, mouth
+           closed. This is live action and not a freeze frame; he breathes, and nothing
+           else in the room moves. The film opens INSIDE the mistake; no runtime is
+           spent arriving at it. Then, with one hand only, he {{WRONG_ACTION}} —
+           deliberate, unhurried, plainly laborious.
+
+02.6-05.2  He {{WRONG_ACTION}} a second time, the same way, with the same hand. As a
+           direct result of that effort {{APPARATUS}} gets visibly worse:
+           {{DEGRADATION}}. Cause and damage are visible in the same frame. More work
+           in, more damage out.
+
+05.2-06.8  THE COST — {{COST_EVENT}}. One single mechanical event, never a montage,
+           never repeated. He stops. Both hands come to rest flat on the bench and stay
+           there, unmoving, until the beat ends. He lifts his head and looks straight
+           into the lens, mouth closed, his face square to camera, unobstructed and
+           fully lit, and holds it there to the end of the beat.
+
+06.8-08.4  THE REVERSAL — in one continuous motion, with one hand, he {{REVERSAL_ACT}}.
+           It is a removal, not an addition: nothing is built, assembled or
+           added. Nothing else in frame moves while he does it.
+
+08.4-10.5  THE DELTA — {{STATE_B}} now stands at the same 62% frame-width mark on the
+           bench, at the same size, in the same light, that {{APPARATUS}} occupied.
+           {{WRECKAGE}} lies where it fell at the near edge of the bench, in shot, and
+           is never cleared away, tidied or moved out of frame for the rest of the
+           film.
+
+10.5-15.0  THE PROOF — he {{PROOF_ACTION}}, unhurried, and it holds. This beat must fill
+           the entire final 4.5 seconds and must NOT be finished before the clip ends.
+           For the last 1.2 seconds his hands leave frame completely, downward and out
+           of the bottom of frame; he himself stays exactly where he is, chest-up at 40%
+           of frame width, head up and face toward the lens, mouth closed, and the shot
+           holds absolutely still on him and {{STATE_B}} together, with {{WRECKAGE}}
+           still in shot at the bench edge and the amber lamp burning behind. He does
+           not step back, does not turn away, does not crouch and does not leave frame.
+           Hard cut.
+
+LIGHT — one large soft daylight window off camera-left, out of frame, fully diffuse. No visible sun, no hard shadows. Bright, even, high-key, clean neutral white balance. The amber lamp is the warmest thing in the room and holds its amber colour throughout; it glows rather than clips. NOT dark, NOT dusk, NOT night, NOT moody, NOT low-key, NOT teal-and-orange.
+
+STYLE — photoreal live action, warm-neutral grade, gently desaturated, lifted milky blacks, low contrast, fine 35 mm grain, subtle vignette. Exactly two saturated things exist in frame: the amber lamp and the day's apparatus. Everything else is muted. Live action, not animated, not stylised, not a render.
+
+AUDIO — NO speech, NO dialogue, NO voice-over, NO singing, NO music of any kind at any point. Native sound only: a small dry wooden room tone from frame one and the sounds his one hand makes.
+00.0-01.0  Room tone alone, a faint hum from the amber lamp. Near silence.
+01.0-05.2  The dry working sound of his hand on the apparatus, close and unsweetened,
+           the same sound twice, the second one beat slower. A low sustained tone fades in
+           from 02.6, barely audible, never a chord.
+05.2-06.3  THE COST — one single hard mechanical event. One hit, no reverb tail.
+06.3-06.8  NEAR SILENCE for half a second. Low tone out. Only room tone.
+06.8-08.4  THE REVERSAL — one continuous sound across the whole beat: a single cut,
+           sweep or pull. No chopping, no repeats, ending clean with no tail.
+08.4-10.5  Room tone alone. Nothing moves and nothing sounds.
+10.5-13.8  THE PROOF — the quiet repeated sound of the test, steady and unremarkable.
+13.8-14.4  One soft knock of {{TOOL}} set down on wood. Dry, small, never resonant.
+14.4-15.0  Room tone alone to the hard cut. No fade, no swell.
+
+NEGATIVE —
+FORMAT: vertical video; portrait orientation; 9:16; square; 21:9; black bars; letterbox; pillarbox; aspect ratio change mid-shot; split screen; picture in picture;
+CAMERA: camera pan; camera tilt; zoom; dolly; tracking shot; drone shot; handheld shake; camera drift; micro-shake; rack focus; speed ramp; slow motion; time lapse;
+EDIT: internal cut; cut mid-shot; dissolve; fade; wipe; scene change; second angle; montage; looping repeated motion;
+TEXT: on-screen text; subtitles; captions; watermark; logo; UI overlay; numbers on screen; legible writing on any object; label; packaging text;
+SOUND: speech; dialogue; voice-over; lip sync; talking to camera; singing; humming; music; stinger; second speaker; silent clip; no audio track;
+FACE AND IDENTITY: beauty-filter smoothing; waxy plastic skin; airbrushed skin; face slimming; changed face shape; different man; face drifting between beats; de-aged face; CGI sheen; face swap; mask;
+HAIR: longer hair; grown-out hair; restyled hair; different parting; wet hair; slicked hair; shaved head; full beard; clean-shaven; moustache alone; facial hair changing between beats;
+WARDROBE: changing clothes; different outfit between beats; added jacket; added hat; added glasses; rolled-down sleeves; visible brand logo on clothing; printed pattern; stripes;
+FRAMING AND PEOPLE: back of head; full profile only; sustained head-down; face never lifted to camera; extreme wide shot; tiny distant figure; second person; assistant; hands belonging to someone else; duplicate of the same man; twin; portrait on the wall;
+ANATOMY: extra fingers; six fingers; malformed hands; duplicated limbs; both hands acting at once; mirror; reflection; reflective surface showing him;
+DEVICES: smartphone; phone in hand; camera visible in frame; monitor; laptop; screen; light stand; power tool; cable;
+LIGHT AND GRADE: dark; dusk; night; crushed blacks; low-key; moody; teal-orange grade; visible sun; hard shadow; lens flare; strobing; flicker; colour shift mid-shot; oversaturated; lamp on the right-hand side of frame; lamp clipping to plain white;
+SET: studio; green screen; crew; shelves; window in shot; more than one tool; unrelated objects on the bench; props appearing on the bench; a fourth object on the bench;
+OBJECT AND GEOMETRY: morphing objects; objects changing count; objects changing size; object sliding on its own; object teleporting across the bench; more than twelve parts; a second apparatus; the apparatus rebuilt; the apparatus repaired by adding; new parts appearing;
+STRUCTURE: wreckage cleared away; tidied bench; removed part vanishing; the payoff finished early; the final beat cut short; the corrected state shown before 08.4; the reversal skipped; the failure never happening; nothing changing for fifteen seconds;
+TOPIC: {{TOPIC_NEGATIVES}}
