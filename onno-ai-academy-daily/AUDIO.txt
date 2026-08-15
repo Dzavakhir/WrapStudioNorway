@@ -1,0 +1,49 @@
+NO speech, NO dialogue, NO voice-over, NO singing, NO music of any kind, ever. Native audio only.
+This sheet is byte-identical in all thirty films, derived from the beats, never rewritten.
+
+00:00.0 - 00:01.0   Room tone alone: a small dry wooden room, a faint electrical hum from
+                    the amber lamp, nothing else. The picture's stillness must be audible
+                    as well as visible. This near-silent second is the opening
+                    signature, identical on day 1 and day 30.
+
+00:01.0 - 00:02.6   The first wrong move. One dry working sound from his hand on the
+                    apparatus, close-miked, no reverb, no sweetening. Small and
+                    unremarkable — this is labour, not an event.
+
+00:02.6 - 00:05.2   The same sound again, identical, one beat slower. Underneath it a low
+                    sustained tone fades in, roughly 120-300 Hz, barely audible, holding
+                    until 06.3. It is the only music-adjacent element in the film: never
+                    a chord, never a melody, never resolving. It sits in the male speech
+                    fundamental band ON PURPOSE and is not a defect — see NO SPEECH,
+                    never run with an energy-gated VAD.
+
+00:05.2 - 00:06.3   THE COST. One single hard mechanical event — a collapse, a snap, a
+                    clatter of parts onto the bench. ONE hit. Never a montage, never
+                    repeated, no reverb tail, no sting layered underneath.
+
+00:06.3 - 00:06.8   DROP TO NEAR SILENCE for half a second. Low tone out, hands still,
+                    only room tone. This is the whole punch of the film and it costs
+                    nothing. Do not fill it.
+
+00:06.8 - 00:08.4   THE REVERSAL. One continuous sound across the full 1.6 seconds — a
+                    single cut, sweep or pull, unhurried. No chopping, no repeats, and
+                    no tail.
+
+00:08.4 - 00:10.5   Room tone alone. Nothing moves and nothing sounds. This second
+                    silence is what makes the corrected object read as a result, not a
+                    coincidence.
+
+00:10.5 - 00:13.8   THE PROOF. The quiet repeated sound of the test — the sound the
+                    wrong state made when it failed, now steady, clean and boring.
+                    Boring is the point; do not build it.
+
+00:13.8 - 00:14.4   One soft knock of the tool set down on wood. THE AUDIO LOGO. Same
+                    sound, same place, every film. Dry and small — never resonant, never
+                    reverbed, never doubled.
+
+00:14.4 - 00:15.0   Room tone alone to the hard cut. No fade, no swell, no outro sting.
+
+MIX — no compression pumping, no ducking, no stereo widening. The two silences (06.3 and
+08.4) must measure genuinely quieter than the beats either side. A monotonically rising
+loudness curve has no punch — failure #10 in the house README. Those silences are the
+format: a gate scoring them as dead air is misconfigured, not the film.

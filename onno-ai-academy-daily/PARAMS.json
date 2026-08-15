@@ -1,0 +1,15 @@
+{
+  "model": "seedance_2_5",
+  "mode": "omni_reference",
+  "duration": 15,
+  "resolution": "1080p",
+  "aspect_ratio": "16:9",
+  "generate_audio": true,
+  "bitrate_mode": "high",
+  "medias": [
+    {
+      "value": "ad0b5be0-a0a9-4f8e-9489-caa98219b1a4",
+      "role": "image_references"
+    }
+  ]
+}
