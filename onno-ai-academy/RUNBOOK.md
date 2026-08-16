@@ -35,8 +35,21 @@ The run is not started until all four are done. None of them is a runtime step.
 |---|---|
 | Fire time | **04:00 Asia/Tashkent (UTC+5)**, daily |
 | UTC cron | `0 23 * * *` — note this fires on the **previous** UTC day |
+| Routine id | `trig_01DyMPumrvLe69VLyCSAVjbD`, created 2026-08-16, fresh session per fire, push notification on |
 | Wall-clock budget | 30 minutes; past that, step 7's timeout has already fired |
 | Concurrency | one run at a time. If a run is already in flight, exit 0 immediately. |
+
+Tashkent does not observe daylight saving, so `0 23 * * *` stays correct all year. No seasonal fix
+is needed — unlike a Europe-based schedule, which would drift by an hour twice a year.
+
+> **The fired sessions carry no MCP connector tools.** The `connectors` parameter is not available
+> for this organisation, so the Routine stores no connector grant and each fired session starts
+> without `mcp__*` tools. **This is fine for `prompt_only`, which needs only git and python and
+> touches no platform tool at all.** It does mean `delivery.mode: generate` **will not work from the
+> Routine** — a fired session cannot reach the platform to submit anything. Switching to `generate`
+> therefore also requires recreating the Routine from the claude.ai Routines UI (or from a session
+> that can pass the grant) so it carries the connector. Recorded here so a future run does not read
+> the missing tools as an outage and log `TOOLS_UNAVAILABLE` every morning.
 
 ---
 

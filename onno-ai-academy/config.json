@@ -28,7 +28,10 @@
   "schedule": {
     "timezone": "Asia/Tashkent",
     "local_time": "04:00",
-    "utc_cron": "0 23 * * *"
+    "utc_cron": "0 23 * * *",
+    "trigger_id": "trig_01DyMPumrvLe69VLyCSAVjbD",
+    "_dst": "Tashkent has no daylight saving, so this cron stays correct year-round.",
+    "_connectors": "The Routine stores no MCP connector grant — the connectors parameter is unavailable for this organisation. Fired sessions therefore have no mcp__* tools, which is fine for prompt_only and fatal for generate. Switching to generate means recreating the Routine from the claude.ai Routines UI so it carries the platform connector."
   },
 
   "git": {
