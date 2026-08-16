@@ -42,18 +42,37 @@ The run is not started until all four are done. None of them is a runtime step.
 
 ## 2. Load the tools
 
-`mcp__ONNO__*` tools are deferred in this environment: their schemas are not loaded and calling one
+The platform's tools are deferred in this environment: their schemas are not loaded and calling one
 without fetching it first fails with `InputValidationError`. **First action of every run:**
 
 ```
 ToolSearch(query="select:mcp__ONNO__generate_video,mcp__ONNO__jobs_wait,mcp__ONNO__show_generation_by_ids,mcp__ONNO__balance,mcp__ONNO__models_explore,mcp__ONNO__select_workspace", max_results=8)
 ```
 
-`models_explore` is in that list because §6.1 needs it to read today's unlim availability. Without it
+**The server prefix is not stable — do not trust `mcp__ONNO__`.** The same connector surfaces
+sometimes as `mcp__ONNO__*` and sometimes as `mcp__<uuid>__*` (e.g.
+`mcp__86f48f70-8e2a-412f-8a4b-4a12ccb6f077__generate_video`), and it can flip *within one session*
+when the server reconnects. Both spellings were observed on 2026-08-15. A `select:` query naming the
+wrong prefix returns **no matches**, not an error.
+
+So if the call above returns nothing, **do not conclude the platform is down.** Search by keyword
+instead and use whatever prefix comes back:
+
+```
+ToolSearch(query="generate_video seedance video generation", max_results=10)
+```
+
+Take the server prefix from the result and re-issue the `select:` query with that prefix for the
+other five tools. Only after *both* the name query and the keyword query come back empty: log
+`TOOLS_UNAVAILABLE`, exit 0.
+
+`models_explore` is in the list because §6.1 needs it to read today's unlim availability. Without it
 loaded the run cannot answer the one question the owner cares about most.
 
-Then `mcp__ONNO__select_workspace` for workspace **Javokhir** if the tool reports a different active
-workspace. If `ToolSearch` returns nothing for `generate_video`: log `TOOLS_UNAVAILABLE`, exit 0.
+Then `select_workspace` for workspace **Javokhir** if the tool reports a different active workspace.
+
+> Everywhere below, `mcp__ONNO__X` means "tool `X` on whichever prefix step 2 resolved". The names
+> after the last `__` are stable; the prefix is not.
 
 ---
 
