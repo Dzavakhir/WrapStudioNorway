@@ -1,5 +1,11 @@
 {
-  "_comment": "Runtime switches for the unattended 04:00 run. RUNBOOK.md §6 is the only consumer. Edit this file, commit, push — no other file changes when the policy changes.",
+  "_comment": "Runtime switches for the unattended 04:00 run. RUNBOOK.md is the only consumer. Edit this file, commit, push — no other file changes when the policy changes.",
+
+  "delivery": {
+    "mode": "prompt_only",
+    "_mode": "prompt_only = the run does everything except pressing the button: resolves the day's topic, assembles the prompt, runs every preflight, writes out/<date>/ and pushes it, then reports. The owner pastes the prompt into the ONNO web UI in unlimited mode. Costs nothing, needs no credentials, and is the only mode that actually reaches unlimited — see RUNBOOK §6.0. generate = the run submits to the API itself, which bills credits and is gated by billing.credit_spend_authorized below.",
+    "_why_default": "Unlimited mode is a web-UI feature and is not exposed over the API: models_explore reports {available:false} for seedance_2_5 and the account owner confirmed unlimited does not work over MCP. Browser automation cannot substitute from this environment either — the egress policy answers 403 to CONNECT for onno.ai, app.onno.ai and higgsfield.ai (verified 2026-08-16). So the button is a human's, and everything up to the button is automated."
+  },
 
   "billing": {
     "prefer_unlim": true,

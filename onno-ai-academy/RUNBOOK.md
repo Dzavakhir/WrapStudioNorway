@@ -154,10 +154,34 @@ defined in `TEMPLATE.md` §5 and is the only transform applied to the negative f
 
 ---
 
-## 6. Money — unlim first, and the hard limits
+## 6. Delivery mode, unlim, and the hard limits
 
-Read `config.json` → `billing` at the start of this step. That file is the only place the policy
-lives; nothing below is hard-coded anywhere else.
+Read `config.json` → `delivery` and `billing` at the start of this step. That file is the only place
+the policy lives; nothing below is hard-coded anywhere else.
+
+### 6.0 Which mode is this run in?
+
+| `delivery.mode` | What the run does |
+|---|---|
+| `prompt_only` **(current)** | Everything except pressing the button. Skip §6.1–§6.3 and §7–§8 entirely, jump to **§7A**. Nothing is submitted, nothing is spent, no API call that costs anything is made. |
+| `generate` | Submit through the API. Continue to §6.1. |
+
+**Why `prompt_only` is the default, recorded so nobody "fixes" it later.** The owner asked for
+Seedance 2.5 *on unlimited*. Unlimited is a web-UI entitlement and is **not reachable from here**:
+
+- Over the API, `models_explore(action="get", model_id="seedance_2_5")` reports
+  `unlim: {available:false, remaining:null}` and the model carries no `supports_unlim` flag. The
+  owner confirmed independently that unlimited does not work over MCP.
+- Driving the web UI from this container is not an alternative. The egress policy answers **403 to
+  CONNECT** for `onno.ai`, `app.onno.ai` and `higgsfield.ai` (verified 2026-08-16). Chromium is
+  installed and Playwright is configured, and it makes no difference — there is nowhere to go.
+  Do not attempt to disable TLS verification or bypass the proxy to get around this.
+
+So the only path to a genuinely unlimited generation is a human pasting the prompt into the web UI.
+`prompt_only` automates the other 95% of the work and hands over a finished, validated prompt.
+Switching to `generate` does not unlock unlimited — it only spends credits.
+
+### 6.1 Ask whether unlim is available today — always, before anything else
 
 ### 6.1 Ask whether unlim is available today — always, before anything else
 
@@ -246,6 +270,42 @@ Then poll with `mcp__ONNO__jobs_wait`, and `mcp__ONNO__show_generation_by_ids` f
 | Rejected for `mode` | log `MODE_REJECTED`, exit 0. **Do not retry in `t2v`** — see §0.2. |
 | Rejected by content moderation / filtered | log `MODERATION` with the exact server message, exit 0. This is a distinct outcome, not a generic error: it involves a real face and needs a human. **Do not retry.** |
 | Any other error | log `JOB_ERROR`; retry once only if the generation cap in §6 allows, otherwise exit 0 |
+
+---
+
+## 7A. Deliver the prompt (mode `prompt_only`)
+
+This is the whole run in the default mode. No platform tools are needed beyond step 2's bootstrap,
+and if that bootstrap failed it does not matter — **this mode does not touch the platform at all.**
+
+Write four files to `out/<YYYY-MM-DD>/`:
+
+| File | Contents |
+|---|---|
+| `prompt.txt` | stdout of `python3 tools/assemble.py` — the full assembled prompt, preflight-clean. Nothing else in the file, no header, no fences, so it is one clean select-all-and-copy. |
+| `settings.md` | the web-UI settings below, filled in with today's numbers |
+| `caption.txt` | the Russian caption from step 10 |
+| `meta.json` | stdout of `python3 tools/assemble.py --json` |
+
+`settings.md` is written from this table every day — the values are locked and come from
+`TEMPLATE.md` §7:
+
+| Field in the ONNO web UI | Value |
+|---|---|
+| Model | **Seedance 2.5** |
+| Mode | **Unlimited** — this is the entire reason this mode exists. If the UI does not offer it for this model, stop and tell the owner rather than silently generating on credits. |
+| Reference / character | element **Javokhir**. The prompt already carries `<<<abd99f1e-…>>>`; if the UI resolves the token itself, change nothing. If it does not, attach the element by name and delete the token from the pasted text. |
+| Aspect ratio | **9:16** |
+| Resolution | **1080p** |
+| Duration | **10 s** |
+| Audio | **on** |
+| Bitrate | **high**, if exposed |
+
+Then commit and push per §13, and report per step 15 with the topic, the hook, and the path to
+`prompt.txt`. Outcome for the log is `PROMPT_READY`.
+
+**A run in this mode has no failure mode that costs anything.** If assembly fails, log
+`PREFLIGHT_FAILED` and exit 0; if the push fails, log it and exit 0 — the files are still on disk.
 
 ---
 
@@ -346,7 +406,7 @@ only thing a human reads in the morning.
 Columns: `date · topic_no · lane · verb_ru · outcome · credits · job_id · failed tests · note`.
 
 Outcome is exactly one of: `OK` · `QC_FAIL` · `TIMEOUT` · `MODERATION` · `MODE_REJECTED` ·
-`JOB_ERROR` · `COST_CEILING` · `BALANCE_FLOOR` · `NO_UNLIM_NOT_AUTHORIZED` · `PREFLIGHT_FAILED` ·
+`JOB_ERROR` · `PROMPT_READY` · `COST_CEILING` · `BALANCE_FLOOR` · `NO_UNLIM_NOT_AUTHORIZED` · `PREFLIGHT_FAILED` ·
 `DATE_CHECK_FAILED` · `DOWNLOAD_FAILED` · `TOOLS_UNAVAILABLE` · `TESTS_SKIPPED` · `NEEDS_SPEC`.
 
 The `credits` column records `0 (unlim)` on the unlim path, the quoted number on the credit path, and
@@ -388,6 +448,7 @@ items from the log, publish or discard.
 | Outcome | What happened | What to do |
 |---|---|---|
 | `OK` | Video produced and passed the tests | Review the two vision items, publish |
+| `PROMPT_READY` | Mode `prompt_only`: the day's prompt is assembled, validated and pushed | Paste `out/<date>/prompt.txt` into the ONNO web UI with `settings.md`, generate on unlimited |
 | `QC_FAIL` | Two renders, both failed tests | Look at which test. A repeated T4 or T7 failure means the prompt needs work — that is a daylight job, not a 04:00 job |
 | `TIMEOUT` | Job never came back inside 20 min | Check the job id; it may have completed. Credits were spent |
 | `MODERATION` | The job was filtered | Real-face content policy. Needs a human before the next run |

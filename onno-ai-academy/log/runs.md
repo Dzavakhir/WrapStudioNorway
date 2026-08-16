@@ -4,7 +4,7 @@
 Формат и словарь исходов заданы в `RUNBOOK.md` §12. Новые строки дописываются снизу.
 
 Исходы: `OK` · `QC_FAIL` · `TIMEOUT` · `MODERATION` · `MODE_REJECTED` · `JOB_ERROR` ·
-`COST_CEILING` · `BALANCE_FLOOR` · `PREFLIGHT_FAILED` · `DATE_CHECK_FAILED` · `DOWNLOAD_FAILED` ·
+`PROMPT_READY` · `COST_CEILING` · `BALANCE_FLOOR` · `NO_UNLIM_NOT_AUTHORIZED` · `PREFLIGHT_FAILED` · `DATE_CHECK_FAILED` · `DOWNLOAD_FAILED` ·
 `TOOLS_UNAVAILABLE` · `TESTS_SKIPPED` · `NEEDS_SPEC`.
 
 Для `OK` в примечании обязательны два пункта утреннего просмотра: **рот закрыт?** и **лицо читается
@@ -12,7 +12,8 @@
 
 | Дата | Тема | Полоса | verb_ru | Исход | Кредиты | job_id | Провалившиеся тесты | Примечание |
 |---|---|---|---|---|---|---|---|---|
-| — | — | — | — | — | 0 | — | — | Журнал создан 2026-08-15. Первый запуск — после четырёх пунктов `RUNBOOK.md` §0. |
+| — | — | — | — | — | 0 | — | — | Журнал создан 2026-08-15. |
+| 2026-08-16 | 108 | АГЕНТЫ | раздваивается | `PROMPT_READY` | 0 | — | — | Режим `prompt_only`. Промпт 15 301 знак, все preflight пройдены. `out/2026-08-16/`. Ручной прогон при настройке задачи. |
 
 ---
 
