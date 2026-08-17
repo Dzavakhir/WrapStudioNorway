@@ -1,0 +1,193 @@
+# negative.txt — «Один предмет» · Онно AI Academy · v2.0
+# THE house negative list. Single source of truth. Nobody retypes this anywhere.
+#
+# HOW IT IS USED
+#   seedance_2_5 on ONNO exposes no negative_prompt field, so this list rides as a
+#   trailing block inside params.prompt. TEMPLATE.md §5 defines the transform:
+#     1. drop every line whose first non-space character is '#'
+#     2. drop empty lines
+#     3. join the rest with a single space
+#     4. collapse whitespace, strip the ends
+#   The result fills the {{NEGATIVE}} slot after "NEGATIVE — ". The day's optional
+#   {{NEGATIVE_TODAY}} is appended after it, from the topic block, already ending in ';'.
+#   The '#' labels below never reach the model; the ';' category terminators do.
+#
+# HOW IT IS ORDERED AND HOW LONG IT MAY BE
+#   By threat, not by theme. Category 01 is the failure that would most damage the
+#   brand; category 12 is cosmetic. Earlier categories carry more weight, and the whole
+#   list sits at the tail of a long prompt where attention is weakest — so length is a
+#   real cost, not a free safety margin. BUDGET: 780-820 words flattened (v2.0 measures
+#   798 words / 5668 chars), about a third of the assembled prompt. v2.0 cut ~460 words
+#   that protected nothing current or that fought the positive prompt. If a new token is
+#   added, an old one comes out.
+#
+# HOW IT IS MAINTAINED
+#   Every token here must be traceable to a positive clause in TEMPLATE.md §2 that it
+#   protects, or to a failure that actually occurred. A token protecting nothing
+#   current gets deleted. Prompt text, timeline, this file and the parameter block are
+#   ONE versioned unit: change one, re-derive all four.
+#
+#   Never ban something the format asks for. The hover, the volumetric beam, the dust
+#   in it, the grain, the deep blacks, the chiaroscuro, the stone-room tone and the
+#   shallow focus are WANTED and are deliberately absent from every category below.
+#
+# Items inside a category are paraphrase clusters, named both semantically and
+# geometrically ("mouth opening" AND "lips parting"), and include wrong OUTCOMES of
+# actions we did ask for, not only forbidden objects.
+
+
+# 01  SPEECH AND THE MOUTH
+#     Highest threat. generate_audio is true and the model's prior with a human face
+#     on screen is to make him talk. Russian lip-sync is a documented weak spot and
+#     there is nobody awake at 04:00 to catch it. Protects the header's NO-speech
+#     clause, SUBJECT ("never opens his mouth"), and every "mouth closed" beat.
+speech, dialogue, talking, speaking, saying words, addressing the camera, mouth opening,
+mouth moving, mouth ajar, lips parting, lip movement, lip sync, mouthing words, silent
+speech, whispering, singing, humming, voice, human voice, voice-over, narration, teeth
+visible, tongue visible, open mouth, jaw dropping, gasping, laughter;
+
+# 02  ON-SCREEN TEXT, LETTERING AND OVERLAYS
+#     The channel bakes no text, ever — words live in the post caption. Cyrillic in
+#     particular renders as garbage. Protects the header's NO-text clause and the
+#     "no text-bearing objects" authoring rule for {{OBJECT}}.
+text, lettering, letters, words, numbers, digits, cyrillic text, russian text, handwriting,
+title card, lower third, caption, subtitles, watermark, logo, brand mark, timestamp, UI
+overlay, on-screen graphics, sticker, a label on the object, writing on the table, engraved
+text, gibberish text, illegible glyphs;
+
+# 03  SCREENS, DEVICES AND SCI-FI ICONOGRAPHY
+#     This is an AI channel, so the model's prior is holograms and blue glow. Screens
+#     are also where generative video breaks hardest, and a 2026 interface dates a
+#     365-video library by 2027. Protects the header device clause and the ROOM block.
+screen, monitor, display, laptop, computer, phone, smartphone, tablet, keyboard, television,
+projector, a camera visible in frame, film equipment in the room; hologram, floating UI,
+glowing interface, HUD, dashboard, diagram, schematic, circuit board, matrix code, falling
+green code, glowing lines, neon, cyan glow, blue glow, energy field, robot, android,
+mechanical arm, sci-fi, futuristic;
+
+# 04  CAMERA MOTION — the negative half of the CAMERA lock
+#     The single most-overridden instruction in the format. "Static camera" alone does
+#     not hold; the moves are enumerated one by one, including the polite ones the
+#     model adds on its own initiative ("subtle movement", "breathing camera"). Scale
+#     and weight read by parallax in a fixed frame; any move kills it.
+camera pan, camera tilt, zoom, zoom in, zoom out, slow zoom, dolly, push in, pull back,
+crane, orbit, parallax move, drone shot, handheld, camera shake, micro-shake, wobble, sway,
+drift, floating camera, breathing camera, subtle movement, natural movement, gentle motion,
+imperceptible drift, rack focus, focus pull, focus hunting, reframing, dutch angle,
+perspective shift, second camera angle;
+
+# 05  CUTS, TRANSITIONS, FORMAT AND ASPECT DRIFT
+#     One continuous take, 9:16, 1080x1920, for the entire film. The format is stated
+#     in three places at once: the header text, this category, and the API parameter.
+#     The tail-frame bans exist because the hard cut to black is an EDIT step in the
+#     runbook; a generation that bakes it in fails the no-fade acceptance test.
+cut, jump cut, montage, multiple shots, shot change, scene change, transition, dissolve,
+fade, flash, black frames mid-shot, split screen; fade to black at the end, darkening tail,
+black frames at the end, the shot resolving before ten seconds; horizontal frame, landscape
+orientation, 16:9, widescreen, square frame, black bars, letterbox, aspect ratio change
+mid-shot; slow motion, speed ramp;
+
+# 06  IDENTITY DRIFT
+#     The reference element is the entire channel. The prompt carries no facial
+#     description on purpose, so this category does the defending. The hair tokens
+#     defend against change WITHIN one clip, which needs no stated value. Wardrobe is
+#     the continuity anchor across 365 renders, so it is banned from changing too.
+a different man, a different person, changing face, face morphing, face drifting between
+frames, averaged generic face, beautified face, model-like face, younger face, older face,
+changed hair, hair changing length between frames, hair changing colour, beard appearing,
+beard disappearing, glasses, jewellery, hat, hood, visible shirt collar, patterned sweater,
+logo on clothing, coloured sweater, jacket, wardrobe changing mid-shot, a second person, a
+figure in the background;
+
+# 07  HANDS AND ANATOMY
+#     One hand acts, one arm is parked and named as motionless — an unassigned hand
+#     grows a third arm. Protects SUBJECT's hand allocation and the 02.6-04.2 beats.
+extra fingers, six fingers, fused fingers, splayed fingers, backward-bending fingers,
+malformed hand, rubber hand, warped wrist, floating hand, a hand with no arm, two right
+hands, both hands acting, the left hand rising, the left hand entering the shaft, a hand
+entering from above, a hand entering from the side, a third arm, extra limb, arm growing
+longer, fingers changing count between frames, duplicate face, distorted face, asymmetric
+eyes;
+
+# 08  PERFORMANCE AND FOURTH-WALL BETRAYAL
+#     Deadpan is the format's tone and it is what keeps the channel from ageing. One
+#     smile destroys it. Protects SUBJECT ("neutral and unimpressed", "never reacts")
+#     and the two eye-raise beats, which are looks, not performances.
+smiling, half-smile, grinning, laughing, nodding, shrugging, eyebrow raise, wincing,
+surprise, wonder, any visible emotional reaction, presenter energy, pitching to camera,
+explaining, demonstrating, gesturing with both hands, pointing, hands on the table, leaning
+into the lens, stepping forward, walking, sitting down, turning away, turning his head,
+looking around, chest heaving, posing;
+
+# 09  OBJECT, TABLE AND TIMELINE VIOLATIONS
+#     One entry per plausible wrong outcome of the actions we did ask for. The hover,
+#     the 0.4 s freeze, the single transformation and the landing at 07.0-08.9 are the
+#     film; these are the ways each of them fails. The table bans are here because a
+#     transformation that damages the set breaks the 365-render continuity.
+the object resting on the table at the start, the object not hovering, the object touching
+the table before seven seconds, the object falling early, the object bouncing, the object
+rolling, the object sliding, the object rolling off the table, the object leaving the shaft,
+the object disappearing, nothing left on the table at the end, the object still hovering at
+the end, a second object appearing, another object entering the shaft, objects entering frame
+from outside, a tool entering frame, the hand touching the object, the object being picked
+up, the hand still in frame during the change, the change finishing before seven seconds, the
+change still going at ten seconds, nothing changing at all; the tabletop being pierced, cut,
+notched, burned or damaged, the table moving, clutter on the table;
+
+# 10  LIGHT, EXPOSURE AND GRADE
+#     One hard shaft in a dark room. Amber lives INSIDE the shaft and nowhere else, so
+#     the warm-grade ban is scoped to the global grade. NOTE: the volumetric beam and
+#     the dust in it are WANTED — the haze and glow bans below are scoped so they do
+#     not suppress the format's own signature.
+flat lighting, evenly lit, bright room, ambient fill, overcast, daylight interior, window
+light filling the room, softbox, ring light, studio lighting, three-point lighting, second
+light source, candlelight, firelight, flame, ember, a glowing object, lens flare, visible
+sun, haze outside the shaft, fog filling the room, bloom around the highlights, glowing skin,
+lifted blacks, milky blacks, washed out, low contrast, grey wash, warm golden-hour wash
+across the frame, orange grade, teal and orange grade, blue cast, oversaturated;
+
+# 11  MEDIUM BETRAYAL AND PLASTIC SKIN
+#     The format is photoreal live action with real pores. Film grain, chiaroscuro,
+#     deep blacks and shallow depth of field are WANTED here and are deliberately
+#     absent from this list — this is a cinematic-register format, not a UGC one.
+#     "Weightless objects" was removed in v2.0: it banned the format's own hover.
+cartoon, anime, illustration, cel shading, 3D render, CGI, CGI sheen, game cinematic,
+video-game cutscene, claymation, puppet, doll, mannequin, plastic skin, waxy skin, poreless
+skin, airbrushed skin, skin smoothing, beauty-filter smoothing, flawless skin, retouched, HDR
+glow, oversharpened, dead eyes, plastic props, fake-looking materials, an object with no
+contact shadow, an object drifting like a balloon, an object with no inertia when it lands;
+
+# 12  IMAGE DEGRADATION
+#     bitrate_mode is high specifically because a dark frame with grain and dust in a
+#     beam is what standard bitrate destroys. Encoder-level artefacts (macroblocking,
+#     rolling shutter, moire, chromatic aberration) were cut in v2.0: they are not
+#     prompt-controllable and the real fix is the bitrate parameter.
+banding, colour banding, posterisation, blocky shadows, low resolution, soft blurry image,
+upscaling artifacts, smeared detail, frame stutter, temporal flicker, flickering light,
+warped background geometry, walls bending, the table warping, perspective drifting;
+
+# 13  AUDIO
+#     Own sound design is an asset; a rented trending track is an expense that dates the
+#     video. Protects the AUDIO block, and above all the 0.4 s silence at 04.2-04.6 —
+#     the model's instinct is to fill it and to fade rather than cut. The room tone of
+#     a large stone room is WANTED, so only excess reverb is banned.
+music, background music, score, soundtrack, beat, drums, percussion, melody, synth pad,
+ambient music bed, trending audio, pop song, lyrics, vocals, crowd noise, applause, birdsong,
+traffic, footsteps, clock ticking, whoosh transitions, impact stinger, cathedral reverb, long
+echo tail, reverb tail after the cut, audio fading out, audio continuing after ten seconds,
+sound filling the silence, the silence being shortened, the silence fading instead of
+cutting;
+
+# 14  SITUATIONAL — the {{NEGATIVE_TODAY}} slot, NOT part of this file
+#     This category is documentation only and contributes no tokens: every line here
+#     starts with '#' and is dropped by flatten(). Per-day tokens live in the topic
+#     block's `negative_today` field and are appended by the assembler AFTER the
+#     flattened standing list, so this file stays byte-stable and never accumulates
+#     yesterday's leftovers. Two standing authoring rules for that field:
+#       - every countable feature the day's object has (three legs, nine facets) needs a
+#         "changing count / drifting geometry" entry;
+#       - every plausible wrong reading of the day's object needs its own cluster, named
+#         both semantically and geometrically (what it is, and what shape it looks like).
+#     Most days it is the empty string. Example, for a clay-to-brass-gear day:
+#       misshapen gear, uneven teeth, changing tooth count, gold instead of brass,
+#       plastic gear, the clay staying clay;
