@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="base.css">
+<style>
+  .stage { width: 1080px; height: 1080px; }
+
+  .bg-glow { left: 480px; right: -40px; top: 240px; height: 760px; }
+  .bg-grid { background-size: 100% 46px; }
+
+  .brand-mark { width: 52px; height: 52px; font-size: 19px; letter-spacing: -0.03em; }
+  .brand-name { font-size: 30px; }
+  .brand-sub { font-size: 13px; margin-top: 7px; letter-spacing: 0.3em; }
+
+  header { position: absolute; z-index: 4; left: 64px; right: 64px; top: 58px;
+           display: flex; align-items: center; justify-content: space-between; }
+  .pill { font-size: 14px; padding: 11px 20px; letter-spacing: 0.22em; }
+
+  .top-rule { position: absolute; z-index: 3; left: 64px; right: 64px; top: 152px; }
+
+  .head-block { position: absolute; z-index: 4; left: 64px; width: 560px; top: 196px; }
+  .kicker { font-size: 16px; letter-spacing: 0.2em; line-height: 1.6; }
+  .title { font-size: 82px; margin-top: 18px; color: #E4C6B8; }
+  .accent { width: 96px; height: 5px; margin-top: 22px;
+            background: linear-gradient(90deg, var(--ember-hi), rgba(226,72,26,0)); }
+
+  .quote { position: absolute; z-index: 4; left: 64px; width: 468px; top: 452px;
+           font-size: 26px; line-height: 1.38; letter-spacing: -0.005em; }
+
+  .ghost { font-size: 96px; left: 512px; top: 232px;
+           -webkit-text-stroke: 2px rgba(255, 138, 90, 0.16); }
+
+  .crew { left: 0; right: 0; top: 250px; height: 762px; }
+  .crew .pair { width: 586px; left: 494px; }
+  .shadow { position: absolute; z-index: 1; height: 32px; bottom: -9px; border-radius: 50%;
+            left: 512px; width: 548px;
+            background: radial-gradient(closest-side, rgba(10,1,3,0.7), rgba(10,1,3,0)); }
+  .floor { position: absolute; z-index: 3; left: 64px; right: 64px; top: 1012px; }
+
+  .ticket { position: absolute; z-index: 4; left: 64px; width: 424px; top: 682px; padding: 24px 26px 26px; }
+  .ticket .lead { font-size: 16px; font-weight: 700; letter-spacing: 0.18em;
+                  text-transform: uppercase; color: var(--ember-hi); }
+  .name-field { margin-top: 20px; }
+  .name-field .field-line { height: 40px; }
+  .field-label { font-size: 13px; margin-top: 9px; letter-spacing: 0.2em; }
+  .boxes { display: flex; gap: 16px; margin-top: 20px; }
+  .box { flex: 1; height: 70px; padding: 0 18px; }
+  .box .k { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+  .box .v { margin-top: 9px; height: 1px; background: rgba(255,168,136,0.34); }
+
+  .speakers { position: absolute; z-index: 4; right: 64px; bottom: 30px; text-align: right; }
+  .speakers .s { font-size: 19px; font-weight: 700; color: #EBCFC4; line-height: 1.5; }
+  .speakers .s em { font-style: normal; color: var(--ember-hi); }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="bg bg-base"></div>
+  <div class="bg bg-grid"></div>
+  <div class="bg bg-glow"></div>
+
+  <div class="ghost">SUPER AI</div>
+
+  <header>
+    <div class="brand">
+      <div class="brand-mark">AI</div>
+      <div>
+        <div class="brand-name">SUPER AI</div>
+        <div class="brand-sub">Jonli seminar</div>
+      </div>
+    </div>
+    <div class="pill"><span class="dot"></span>Taklifnoma</div>
+  </header>
+
+  <div class="rule top-rule"></div>
+
+  <div class="head-block">
+    <div class="kicker">Javohir Mamatqulov &nbsp;×&nbsp; Zilola Saidqulovadan</div>
+    <div class="title">Jonli<br><em>Seminar</em></div>
+    <div class="accent"></div>
+  </div>
+
+  <div class="quote">
+    Sun'iy intellekt sizni<br>boshqarmasidan oldin —<br>
+    <b>siz uni boshqarishni o'rganing!</b>
+  </div>
+
+  <div class="crew">
+    <div class="shadow"></div>
+    <img class="pair" src="assets/crew_pair.png" alt="Javohir Mamatqulov va Zilola Saidqulova">
+  </div>
+
+  <div class="rule floor"></div>
+
+  <div class="ticket">
+    <div class="lead">Seminarda sizni kutamiz!</div>
+    <div class="name-field">
+      <div class="field-line"></div>
+      <div class="field-label">Ism, familiya</div>
+    </div>
+    <div class="boxes">
+      <div class="box"><div class="k">O'rindiq raqami</div><div class="v"></div></div>
+      <div class="box"><div class="k">Qator</div><div class="v"></div></div>
+    </div>
+  </div>
+
+  <div class="speakers">
+    <div class="s">Javohir Mamatqulov <em>·</em> Zilola Saidqulova</div>
+  </div>
+
+  <div class="bg bg-vignette" style="z-index:5"></div>
+  <svg class="grain" xmlns="http://www.w3.org/2000/svg">
+    <filter id="n2"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/></filter>
+    <rect width="100%" height="100%" filter="url(#n2)"/>
+  </svg>
+</div>
+</body>
+</html>

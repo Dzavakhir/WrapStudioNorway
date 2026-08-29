@@ -1,0 +1,116 @@
+@import url('fonts/local.css');
+
+:root {
+  --paper: #FFFFFF;
+  --soft: #FBF0EB;          /* iliq blush panel */
+  --ink: #2A100C;           /* asosiy matn */
+  --brand: #8E1105;         /* to'q qizil */
+  --brand-deep: #5E0A03;
+  --flame: #E2481A;         /* to'q olovrang */
+  --muted: #9C7B73;
+  --line: rgba(142, 17, 5, 0.18);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { background: #E9E2DF; }
+
+.stage {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  isolation: isolate;
+}
+
+/* ——— fon qatlamlari ——— */
+.bg { position: absolute; inset: 0; z-index: 0; }
+.bg-base {
+  background:
+    radial-gradient(85% 55% at 50% 0%, #FFF6F2 0%, rgba(255, 246, 242, 0) 60%),
+    radial-gradient(90% 45% at 50% 100%, #FDF1EC 0%, rgba(253, 241, 236, 0) 62%),
+    var(--paper);
+}
+.bg-grid {
+  background-image: linear-gradient(rgba(142, 17, 5, 0.05) 1px, transparent 1px);
+  mask-image: radial-gradient(70% 60% at 50% 45%, #000 0%, transparent 80%);
+}
+
+/* figuralar ortidagi yumshoq panel */
+.panel { position: absolute; z-index: 1; background: var(--soft); border-radius: 999px 999px 34px 34px; }
+
+/* ——— brend ——— */
+.brand { display: flex; align-items: center; gap: 18px; }
+.brand-mark {
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(150deg, var(--flame), var(--brand-deep));
+  color: #FFF3EC;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+}
+.brand-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  background: linear-gradient(100deg, #6E0C02 0%, #B21A06 55%, #E2481A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.brand-sub { font-weight: 600; letter-spacing: 0.34em; color: var(--muted); text-transform: uppercase; }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--brand);
+  font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase;
+  background: rgba(226, 72, 26, 0.05);
+}
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--flame); }
+
+.kicker { font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); }
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+}
+.title em { font-style: normal; color: var(--flame); }
+
+.quote { font-weight: 500; color: #48211B; }
+.quote b { font-weight: 800; color: var(--brand); }
+
+.rule { height: 1px; background: linear-gradient(90deg, transparent, var(--line) 10%, var(--line) 90%, transparent); }
+
+/* ——— ghost yozuv ——— */
+.ghost {
+  position: absolute;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(142, 17, 5, 0.13);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* ——— spikerlar ——— */
+.crew { position: absolute; z-index: 3; }
+.crew img { position: absolute; bottom: 0; }
+.shadow { position: absolute; z-index: 2; border-radius: 50%;
+          background: radial-gradient(closest-side, rgba(94, 10, 3, 0.20), rgba(94, 10, 3, 0)); }
+
+/* ——— taklifnoma maydonlari ——— */
+.ticket { position: relative; border: 1px solid var(--line); background: rgba(251, 240, 235, 0.75); }
+.field-label { font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); }
+.field-line { border-bottom: 1px dashed rgba(142, 17, 5, 0.42); }
+.box { border: 1px solid var(--line); display: flex; flex-direction: column; justify-content: center;
+       background: rgba(255, 255, 255, 0.7); }
