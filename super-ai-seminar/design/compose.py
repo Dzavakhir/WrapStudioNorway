@@ -2,16 +2,39 @@
 
 - bosh o'lchamlari tenglashtiriladi (bir xil razmer)
 - yelkalar bir chiziqda turadi
-- ayol spiker belidan pastda kesiladi
-- ortiqcha bo'sh joy kesilib, ikkalasi bir-biriga yaqinlashtiriladi
+- ortiqcha bo'sh joy kesilib, ikkalasi yonma-yon yaqinlashtiriladi
+- kerak bo'lsa, o'ngdagi spiker belidan pastda kesiladi
+
+Ishlatilishi:  python3 compose.py [dark|light|both]
 """
+import sys
 from PIL import Image
 import numpy as np
-from grade import apply_grade
+from grade import apply_grade, apply_light_grade
 
-HEAD = 320          # bir "bosh" birligi, piksel
-GAP = -74           # figuralar orasidagi masofa (manfiy = yengil ustma-ust)
-WOMAN_CUT = 1060    # ayol spiker uchun bel chizig'i (asl piksel)
+HEAD = 320    # bir "bosh" birligi, piksel
+GAP = -74     # figuralar orasidagi masofa (manfiy = yengil ustma-ust)
+
+PROFILES = {
+    # qora-qizil fonli variant
+    'dark': dict(
+        out='assets/crew_pair.png',
+        man=dict(src='assets/sp1_cut.png', cut=None, grade=apply_grade,
+                 kw=dict(mix=0.85, contrast=1.16, brightness=0.96, high=(232, 182, 152))),
+        woman=dict(src='assets/sp2_cut.png', cut=1060, grade=apply_grade,
+                   kw=dict(mix=0.97, contrast=1.20, brightness=0.84, high=(196, 140, 116))),
+    ),
+    # oq fonli variant: rang harorati tenglashtiriladi, teri rangi tabiiy qoladi
+    'light': dict(
+        out='assets/crew_pair_light.png',
+        man=dict(src='assets/w1_cut.png', cut=None, grade=apply_light_grade,
+                 kw=dict(gains=(1.025, 1.0, 0.985), brightness=1.06, contrast=1.08,
+                         saturation=1.0)),
+        woman=dict(src='assets/w2_cut.png', cut=None, grade=apply_light_grade,
+                   kw=dict(gains=(1.02, 0.995, 0.97), brightness=0.98, contrast=1.05,
+                           saturation=0.94)),
+    ),
+}
 
 
 def landmarks(im):
@@ -23,53 +46,42 @@ def landmarks(im):
     return top, shoulder, bot
 
 
-def prepare(path, grade_kw, cut=None):
-    im = Image.open(path)
+def prepare(spec):
+    im = Image.open(spec['src'])
     top, shoulder, bot = landmarks(im)
-    if cut:
-        im = im.crop((0, 0, im.width, cut))
-        bot = min(bot, cut - 1)
-    im = apply_grade(im, **grade_kw)
+    if spec['cut']:
+        im = im.crop((0, 0, im.width, spec['cut']))
+    im = spec['grade'](im, **spec['kw'])
 
     scale = HEAD / (shoulder - top)
-    w, h = round(im.width * scale), round(im.height * scale)
-    im = im.resize((w, h), Image.LANCZOS)
-    sh, tp, bt = shoulder * scale, top * scale, bot * scale
+    im = im.resize((round(im.width * scale), round(im.height * scale)), Image.LANCZOS)
+    tp, sh = top * scale, shoulder * scale
 
-    # gorizontal ortiqcha joyni kesish
+    # gorizontal ortiqcha joyni kesish + yuqoridagi bo'shliqni olib tashlash
     bbox = im.getbbox()
-    im = im.crop((bbox[0], 0, bbox[2], im.height))
-    return im, sh - tp, bt - tp, tp
+    im = im.crop((bbox[0], round(tp), bbox[2], im.height))
+    return im, sh - tp
 
 
-def main():
-    man, man_sh, man_bot, man_tp = prepare(
-        'assets/sp1_cut.png',
-        dict(mix=0.85, contrast=1.16, brightness=0.96, high=(232, 182, 152)))
-    woman, wom_sh, wom_bot, wom_tp = prepare(
-        'assets/sp2_cut.png',
-        dict(mix=0.97, contrast=1.20, brightness=0.84, high=(196, 140, 116)),
-        cut=WOMAN_CUT)
-
-    # yuqoridagi bo'sh joyni kesib, boshdan boshlaymiz
-    man = man.crop((0, round(man_tp), man.width, man.height))
-    woman = woman.crop((0, round(wom_tp), woman.width, woman.height))
+def build(profile):
+    p = PROFILES[profile]
+    man, man_sh = prepare(p['man'])
+    woman, wom_sh = prepare(p['woman'])
 
     # yelkalarni bir chiziqqa qo'yish
     shoulder_y = round(max(man_sh, wom_sh))
-    man_y = shoulder_y - round(man_sh)
-    wom_y = shoulder_y - round(wom_sh)
+    man_y, wom_y = shoulder_y - round(man_sh), shoulder_y - round(wom_sh)
 
-    height = max(man_y + man.height, wom_y + woman.height)
-    width = man.width + woman.width + GAP
-    canvas = Image.new('RGBA', (width, height), (0, 0, 0, 0))
+    canvas = Image.new('RGBA', (man.width + woman.width + GAP,
+                                max(man_y + man.height, wom_y + woman.height)), (0, 0, 0, 0))
     canvas.alpha_composite(man, (0, man_y))
     canvas.alpha_composite(woman, (man.width + GAP, wom_y))
     canvas = canvas.crop(canvas.getbbox())
-    canvas.save('assets/crew_pair.png')
-    print('crew_pair', canvas.size, 'shoulder_y', shoulder_y,
-          'man h', man.height, 'woman h', woman.height)
+    canvas.save(p['out'])
+    print(profile, p['out'], canvas.size, 'man', man.size, 'woman', woman.size)
 
 
 if __name__ == '__main__':
-    main()
+    which = sys.argv[1] if len(sys.argv) > 1 else 'both'
+    for name in (PROFILES if which == 'both' else [which]):
+        build(name)

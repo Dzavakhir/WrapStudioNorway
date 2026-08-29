@@ -5,6 +5,8 @@ const path = require('path');
   const jobs = [
     { file: 'story.html', out: '../out/story_1080x1920.png', w: 1080, h: 1920 },
     { file: 'post.html', out: '../out/post_1080x1080.png', w: 1080, h: 1080 },
+    { file: 'story-light.html', out: '../out/story_1080x1920_white.png', w: 1080, h: 1920 },
+    { file: 'post-light.html', out: '../out/post_1080x1080_white.png', w: 1080, h: 1080 },
   ].filter(j => require('fs').existsSync(path.join(__dirname, j.file)));
 
   const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
