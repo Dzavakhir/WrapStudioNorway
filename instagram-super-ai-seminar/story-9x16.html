@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="utf-8" />
+    <title>SUPER AI — Instagram Stories 9:16</title>
+    <link rel="stylesheet" href="assets/poster.css" />
+    <style>
+      .board {
+        --w: 1080px;
+        --h: 1920px;
+        --bloom-y: 42%;
+        --bloom-size: 132%;
+        /* Stories chrome: profile row eats the top ~250px, the reply bar and
+           home indicator the bottom ~300px. Nothing that must be read or
+           written on may cross either line. */
+        padding: 210px 84px 300px;
+      }
+
+      .masthead {
+        position: relative;
+        z-index: 3;
+        margin-top: 46px;
+      }
+      .hero {
+        font-size: 190px;
+      }
+
+      .stage {
+        position: relative;
+        z-index: 3;
+        margin: 48px -84px 0;
+      }
+      .duo {
+        --name-size: 36px;
+        --name-bottom: 34px;
+        --crop-y: 32%;
+        height: 540px;
+      }
+
+      .kicker {
+        position: relative;
+        z-index: 3;
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .pitch {
+        position: relative;
+        z-index: 3;
+        margin-top: 30px;
+        font-size: 44px;
+        font-weight: 500;
+        line-height: 1.18;
+        letter-spacing: -0.02em;
+        color: var(--cream);
+      }
+      .pitch em {
+        font-style: normal;
+        font-weight: 700;
+        color: var(--clay-lift);
+      }
+
+      .invite {
+        --pad-x: 40px;
+        position: relative;
+        z-index: 3;
+        margin-top: 36px;
+        padding: 32px var(--pad-x) 34px;
+      }
+      .invite .welcome {
+        font-size: 33px;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+        color: var(--cream);
+      }
+      .field-label {
+        display: block;
+      }
+      .name-field {
+        margin-top: 26px;
+      }
+      .name-field .write-line {
+        height: 44px;
+        margin-top: 10px;
+      }
+      .stub {
+        display: flex;
+        gap: 56px;
+      }
+      .stub .field-label {
+        margin-bottom: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="board">
+      <div class="bloom"></div>
+
+      <header class="masthead">
+        <h1 class="hero">
+          Super
+          <span class="ai"><span class="ai-tag">Nazoratda</span>AI</span>
+        </h1>
+      </header>
+
+      <div class="stage">
+        <div class="duo">
+          <figure class="frame frame--dark">
+            <img src="assets/speakers/javohir-panel.jpg" alt="Javohir Mamatqulov" />
+            <img class="original" src="assets/speakers/javohir-panel.jpg" alt="" />
+            <figcaption class="name">Javohir Mamatqulov va</figcaption>
+          </figure>
+          <figure class="frame frame--bright">
+            <img src="assets/speakers/zilola-panel.jpg" alt="Zilola Saidqulova" />
+            <img class="original" src="assets/speakers/zilola-panel.jpg" alt="" />
+            <figcaption class="name">Zilola Saidqulovadan</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="kicker eyebrow"><span class="live-dot"></span>Jonli seminar</div>
+
+      <p class="pitch">
+        Sunʼiy intellekt sizni boshqarmasidan oldin<br />
+        <em>siz uni boshqarishni oʻrganing!</em>
+      </p>
+
+      <!-- Event facts (sana / vaqt / manzil) are not in the brief yet. When the
+           organiser supplies them, uncomment this row — the ticket is sized
+           with room for it.
+      <div class="facts">12-oktabr &middot; 15:00 &middot; Toshkent</div>
+      -->
+
+      <section class="invite ticket">
+        <div class="welcome">Seminarda sizni kutamiz!</div>
+
+        <!-- ===== FILL PER GUEST ===== -->
+        <div class="name-field">
+          <span class="field-label">Ism va familiya</span>
+          <div class="write-line"></div>
+        </div>
+
+        <div class="perf"></div>
+
+        <div class="stub">
+          <div>
+            <span class="field-label">Oʻrindiq raqami</span>
+            <div class="slots"><i class="slot"></i><i class="slot"></i></div>
+          </div>
+          <div>
+            <span class="field-label">Qator</span>
+            <div class="slots"><i class="slot"></i><i class="slot"></i></div>
+          </div>
+        </div>
+        <!-- ===== /FILL PER GUEST ===== -->
+      </section>
+
+      <svg class="grain" xmlns="http://www.w3.org/2000/svg">
+        <filter id="grainFilter">
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#grainFilter)" />
+      </svg>
+    </div>
+
+    <!-- Duotone. The luma row is weighted toward red so facial modelling
+         survives on skin, and the ramp holds clay hue (~17-21 deg) all the way
+         up instead of drifting to tan. #duotone-hi compresses the top end for
+         the panel whose studio wall is brighter than the speaker's face. -->
+    <svg width="0" height="0" style="position: absolute">
+      <filter id="duotone" color-interpolation-filters="sRGB">
+        <feColorMatrix
+          type="matrix"
+          values="0.34 0.50 0.16 0 0
+                  0.34 0.50 0.16 0 0
+                  0.34 0.50 0.16 0 0
+                  0    0    0    1 0"
+        />
+        <feComponentTransfer>
+          <feFuncR type="table" tableValues="0.035 0.126 0.240 0.390 0.560 0.723 0.840 0.907 0.941" />
+          <feFuncG type="table" tableValues="0.035 0.060 0.106 0.184 0.300 0.430 0.579 0.749 0.933" />
+          <feFuncB type="table" tableValues="0.031 0.046 0.076 0.129 0.215 0.318 0.455 0.657 0.902" />
+        </feComponentTransfer>
+      </filter>
+      <filter id="duotone-hi" color-interpolation-filters="sRGB">
+        <feColorMatrix
+          type="matrix"
+          values="0.34 0.50 0.16 0 0
+                  0.34 0.50 0.16 0 0
+                  0.34 0.50 0.16 0 0
+                  0    0    0    1 0"
+        />
+        <feComponentTransfer>
+          <feFuncR type="table" tableValues="0.035 0.126 0.240 0.386 0.496 0.580 0.640 0.684 0.712" />
+          <feFuncG type="table" tableValues="0.035 0.060 0.106 0.182 0.264 0.332 0.386 0.428 0.458" />
+          <feFuncB type="table" tableValues="0.031 0.046 0.076 0.127 0.188 0.242 0.288 0.324 0.350" />
+        </feComponentTransfer>
+      </filter>
+    </svg>
+  </body>
+</html>
