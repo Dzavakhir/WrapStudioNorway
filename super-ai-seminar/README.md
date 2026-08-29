@@ -26,21 +26,27 @@ Ikkalasida ham taklifnoma maydonlari bor: **ism, familiya** uchun chiziq,
 
 ## Spikerlar rasmi
 
-Ikkala rasm bir-biriga moslashtirilgan, ya'ni bitta jamoa bo'lib ko'rinadi:
+Ikkala rasm bir-biriga moslashtirilib, bitta jamoa kadriga birlashtirilgan:
 
 1. Fon `rembg` (birefnet-portrait modeli) yordamida olib tashlangan →
    `design/assets/sp1_cut.png`, `sp2_cut.png`.
-2. `design/grade.py` ikkala kesimga bir xil iliq burgundi duoton grading beradi,
-   alfa kanalini tozalaydi va yorug'lik darajasini tenglashtiradi →
-   `sp1_g.png`, `sp2_g2.png`.
-3. Kompozitsiyada bosh o'lchamlari tenglashtirilib, ikkalasi bitta "pol"
-   chizig'iga qo'yilgan.
+2. `design/compose.py` alfa maskasidan bosh va yelka chiziqlarini o'lchaydi,
+   so'ng:
+   - bosh o'lchamlarini tenglashtiradi (ikkalasi bir xil razmerda),
+   - yelkalarni bitta gorizontal chiziqqa qo'yadi,
+   - ayol spikerni belidan pastda kesadi,
+   - ortiqcha bo'sh joyni kesib, ikkalasini bir-biriga yaqinlashtiradi
+     (yengil ustma-ust).
+3. `design/grade.py` ikkalasiga bir xil iliq burgundi duoton grading beradi va
+   alfa kanalini tozalaydi.
+
+Natija — bitta fayl: `design/assets/crew_pair.png`.
 
 ## Qayta render qilish
 
 ```bash
 cd design
-python3 grade.py                 # rasmlarni qayta gradinglash (ixtiyoriy)
+python3 compose.py               # spikerlar juftligini qayta yig'ish
 node shot.js                     # HTML → PNG (playwright kerak)
 ```
 
