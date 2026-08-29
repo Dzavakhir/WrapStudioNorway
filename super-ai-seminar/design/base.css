@@ -1,0 +1,127 @@
+@import url('fonts/local.css');
+
+:root {
+  --ink: #1B0407;
+  --bg-1: #2B060B;
+  --bg-2: #470B13;
+  --ember: #E2481A;
+  --ember-hi: #FF7A3C;
+  --cream: #F2DED4;
+  --muted: #C58C7E;
+  --line: rgba(255, 178, 150, 0.16);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { background: var(--ink); }
+
+.stage {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  font-family: 'Inter', sans-serif;
+  color: var(--cream);
+  isolation: isolate;
+}
+
+/* ——— fon qatlamlari ——— */
+.bg { position: absolute; inset: 0; z-index: 0; }
+.bg-base {
+  background:
+    radial-gradient(120% 80% at 50% 108%, #6B1010 0%, rgba(107,16,16,0) 58%),
+    radial-gradient(90% 60% at 50% 4%, #570D14 0%, rgba(87,13,20,0) 62%),
+    linear-gradient(180deg, #2C060C 0%, #1C0407 55%, #240509 100%);
+}
+.bg-glow {
+  background: radial-gradient(closest-side, rgba(226, 72, 26, 0.42), rgba(226, 72, 26, 0) 72%);
+  filter: blur(2px);
+}
+.bg-grid {
+  background-image: linear-gradient(rgba(255, 170, 140, 0.05) 1px, transparent 1px);
+  mask-image: radial-gradient(70% 60% at 50% 40%, #000 0%, transparent 78%);
+}
+.bg-vignette {
+  background: radial-gradient(120% 90% at 50% 45%, rgba(0,0,0,0) 40%, rgba(12,2,4,0.75) 100%);
+}
+.grain { position: absolute; inset: 0; z-index: 6; opacity: 0.26; mix-blend-mode: overlay; pointer-events: none; }
+
+/* ——— brend ——— */
+.brand { display: flex; align-items: center; gap: 18px; }
+.brand-mark {
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(150deg, var(--ember-hi), #A81C08);
+  color: #2B060B;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  box-shadow: 0 0 40px rgba(226, 72, 26, 0.55);
+}
+.brand-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  background: linear-gradient(100deg, #FFD9C2 0%, #FF8348 45%, #E2481A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.brand-sub {
+  font-weight: 600; letter-spacing: 0.34em; color: var(--muted);
+  text-transform: uppercase;
+}
+
+.pill {
+  display: inline-flex; align-items: center; gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase;
+  background: rgba(255, 120, 70, 0.05);
+}
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--ember-hi); box-shadow: 0 0 14px var(--ember-hi); }
+
+.kicker { font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); }
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+.title em { font-style: normal; color: var(--ember-hi); }
+
+.quote { font-weight: 500; color: #EBCFC4; }
+.quote b { font-weight: 800; color: #FFB08A; }
+
+.rule { height: 1px; background: linear-gradient(90deg, transparent, var(--line) 12%, var(--line) 88%, transparent); }
+
+/* ——— ghost yozuv ——— */
+.ghost {
+  position: absolute;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 138, 90, 0.20);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+/* ——— spikerlar ——— */
+.crew { position: absolute; z-index: 2; }
+.crew img { position: absolute; bottom: 0;
+            -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 94%, rgba(0,0,0,0) 100%); }
+
+/* ——— taklifnoma maydonlari ——— */
+.ticket {
+  position: relative;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 118, 66, 0.07), rgba(255, 118, 66, 0.02));
+  backdrop-filter: blur(2px);
+}
+.field-label { font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); }
+.field-line { border-bottom: 1px dashed rgba(255, 168, 136, 0.38); }
+.box { border: 1px solid var(--line); display: flex; flex-direction: column; justify-content: center; }
