@@ -1,19 +1,17 @@
-/* SUPER AI — jonli seminar taklifnomasi. Umumiy stil (minimalistik, oq fon + qora qizil). */
+/* SUPER AI — jonli seminar taklifnomasi. Umumiy stil: oq fon, qora qizil urg'u. */
 @import url('fonts.css');
 
 :root {
   --paper: #ffffff;
-  --ink: #171110;
+  --ink: #14100F;
   --red: #8E1116;          /* qora qizil — asosiy */
-  --red-deep: #6B0D11;     /* eng to'q */
-  --ember: #C2401B;        /* to'q olovrang — urg'u */
-  --tint: #F7E9E6;         /* juda och qizg'ish fon */
+  --red-deep: #690C10;
+  --ember: #C2401B;        /* to'q olovrang */
   --muted: #7A6E6A;
-  --rule: #E8DEDA;
+  --rule: #E6DEDB;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html, body { background: var(--paper); }
 
 body {
@@ -23,37 +21,22 @@ body {
   text-rendering: geometricPrecision;
 }
 
-.canvas {
-  position: relative;
-  overflow: hidden;
-  background: var(--paper);
-  display: flex;
-  flex-direction: column;
-}
+.canvas { position: relative; overflow: hidden; background: var(--paper); }
 
-/* --- takrorlanuvchi elementlar --- */
-
-.eyebrow {
-  font-weight: 600;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.rule { height: 1px; background: var(--rule); width: 100%; }
+/* --- sarlavha qatori --- */
 
 .wordmark {
   font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-weight: 700;
-  color: var(--ink);
   display: flex;
   align-items: center;
   line-height: 1;
+  white-space: nowrap;
 }
 .wordmark .ai { color: var(--red); }
-
 .mark {
   border-radius: 50%;
-  background: radial-gradient(circle at 32% 28%, var(--ember), var(--red) 55%, var(--red-deep));
+  background: radial-gradient(circle at 32% 28%, var(--ember), var(--red) 58%, var(--red-deep));
   flex: none;
 }
 
@@ -69,45 +52,41 @@ body {
 }
 .pill .dot { border-radius: 50%; background: var(--red); flex: none; }
 
+.rule { height: 1px; background: var(--rule); }
+
+.eyebrow { font-weight: 600; text-transform: uppercase; color: var(--muted); }
+
+/* --- sarlavha va matn --- */
+
 .title {
   font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-weight: 700;
-  line-height: 0.88;
-  letter-spacing: -0.035em;
+  line-height: 0.86;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
 }
 .title .accent { color: var(--red); }
 
-/* --- spikerlar --- */
-
-.stage { position: relative; display: flex; justify-content: center; }
-.arch {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(180deg, var(--tint) 0%, #ffffff 100%);
-  border-radius: 999px 999px 26px 26px;
-}
-.stage img { position: relative; display: block; width: 100%; height: auto; }
-
-.names { display: flex; }
-.name { font-weight: 700; letter-spacing: -0.01em; }
-.role { color: var(--muted); font-weight: 500; }
-
-/* --- shior --- */
-
 .claim { font-weight: 600; letter-spacing: -0.02em; }
 .claim b { color: var(--red); font-weight: 700; }
 
-/* --- taklifnoma bloki --- */
+.invite { font-weight: 700; color: var(--red); letter-spacing: -0.01em; }
 
-.ticket { border: 1.5px solid var(--red); position: relative; background: #fff; }
-.ticket .label {
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--red);
+/* --- spikerlar: ramkasiz, to'g'ridan-to'g'ri oq fonda --- */
+
+.figures { position: absolute; bottom: 0; display: block; }
+
+/* --- pastki qizil lenta: ishtirokchi ma'lumotlari --- */
+
+.band {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  background: linear-gradient(100deg, var(--red-deep), var(--red) 58%, #A0161A);
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
 }
-.blank { border-bottom: 1.5px solid var(--ink); }
-.seat { border: 1.5px solid var(--rule); border-radius: 10px; text-align: center; }
-.seat .cap { text-transform: uppercase; font-weight: 600; color: var(--muted); }
-.seat .box { border-bottom: 1.5px solid var(--ink); margin: 0 auto; }
+.band .field { display: flex; flex-direction: column; }
+.band .field.grow { flex: 1; }
+.band .label { text-transform: uppercase; font-weight: 600; color: rgba(255,255,255,.72); }
+.band .line { border-bottom: 2px solid rgba(255,255,255,.6); }

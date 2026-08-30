@@ -5,6 +5,9 @@ ikkita post: Instagram Stories (9:16) va lenta uchun kvadrat post (1:1).
 
 Uslub: minimalistik zamonaviy — oq fon, qora qizil (`#8E1116`) va toʻq
 olovrang (`#C2401B`) urgʻu ranglari, Space Grotesk + Inter shriftlari.
+Spikerlar hech qanday ramkasiz, toʻgʻridan-toʻgʻri oq fonda turadi; pastdagi
+qora qizil lenta ishtirokchi maʼlumotlarini oʻz ichiga oladi va figuralarni
+tagidan kesib turadi.
 
 ## Natijalar
 
@@ -38,12 +41,14 @@ olingan. Ular bitta jamoadek koʻrinishi uchun:
 1. `rembg` (isnet-general-use, alpha matting) bilan fon olib tashlangan;
 2. `build_pair.py` boshlar kengligini bir xil qilib, koʻz chizigʻi boʻyicha
    tekislaydi;
-3. yelkalar orasidagi boʻshliq har bir qator boʻyicha hisoblanib, ikkalasi
-   yonma-yon qoʻyiladi;
-4. pastki qirrasi shaffoflikka silliq oʻtadi, shunda oq fonga qorishib ketadi.
+3. boshlar markazlari `HEAD_GAP` masofada turadi — yelkalar tegib, ikkalasi
+   bitta jamoa surati kabi koʻrinadi;
+4. chetlari va pastki qismi tik kesiladi: maketda figuralar kadr chetidan va
+   qizil lenta tagidan chiqib turadi.
 
 Rasm yoki oʻlchamlar oʻzgarsa, `build_pair.py` ichidagi `SPEAKERS` roʻyxatidagi
-koʻz chizigʻi va bosh kengligi qiymatlarini yangilash kerak.
+koʻz chizigʻi va bosh kengligi qiymatlarini yangilash kerak. Ikkovi orasidagi
+zichlikni `HEAD_GAP`, chetdagi joyni `SIDE` boshqaradi.
 
 ## Qayta chiqarish
 
