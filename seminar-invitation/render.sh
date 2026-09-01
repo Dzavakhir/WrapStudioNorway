@@ -17,8 +17,9 @@ render() { # $1=html $2=kenglik $3=balandlik $4=natija
 from PIL import Image
 s, w, h = $SCALE, $2, $3
 im = Image.open('/tmp/_render.png').convert('RGB').crop((0, 0, w * s, h * s))
+im.save('${4%.png}@2x.png')                       # to'liq 2x — chop etish / retina uchun
 im.resize((w, h), Image.LANCZOS).save('$4')
-print('$4', (w, h))"
+print('$4', (w, h), '+ @2x', im.size)"
 }
 
 mkdir -p out

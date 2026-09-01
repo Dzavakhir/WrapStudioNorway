@@ -33,12 +33,8 @@ body {
   line-height: 1;
   white-space: nowrap;
 }
-.wordmark .ai { color: var(--red); margin-left: 0.2em; }
-.mark {
-  border-radius: 50%;
-  background: radial-gradient(circle at 32% 28%, var(--ember), var(--red) 58%, var(--red-deep));
-  flex: none;
-}
+.wordmark .ai { color: var(--red); margin-left: 0.34em; }
+.mark { border-radius: 50%; background: var(--red); flex: none; }
 
 .pill {
   display: inline-flex;
@@ -71,7 +67,7 @@ body {
 .claim { font-weight: 600; letter-spacing: -0.02em; }
 .claim b { color: var(--red); font-weight: 700; }
 
-.invite { font-weight: 700; color: var(--red); letter-spacing: -0.01em; }
+.invite { font-weight: 600; color: var(--ember); letter-spacing: -0.01em; }
 
 /* --- spikerlar: ramkasiz, to'g'ridan-to'g'ri oq fonda --- */
 
@@ -85,7 +81,7 @@ body {
   background: linear-gradient(100deg, var(--red-deep), var(--red) 58%, #A0161A);
   color: #fff;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 }
 .band .field { display: flex; flex-direction: column; }
 .band .field.grow { flex: 1; }
