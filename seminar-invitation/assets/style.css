@@ -1,0 +1,89 @@
+/* SUPER AI — jonli seminar taklifnomasi. Umumiy stil: oq fon, qora qizil urg'u. */
+@import url('fonts.css');
+
+:root {
+  --paper: #ffffff;
+  --ink: #14100F;
+  --red: #8E1116;          /* qora qizil — asosiy */
+  --red-deep: #690C10;
+  --ember: #C2401B;        /* to'q olovrang */
+  --muted: #7A6E6A;
+  --rule: #E6DEDB;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--paper); }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+.canvas { position: relative; overflow: hidden; background: var(--paper); }
+
+/* --- sarlavha qatori --- */
+
+.wordmark {
+  font-family: 'Inter Tight', 'Inter', sans-serif;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  white-space: nowrap;
+}
+.wordmark .ai { color: var(--red); margin-left: 0.34em; }
+.mark { border-radius: 50%; background: var(--red); flex: none; }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--red);
+  color: var(--red);
+  border-radius: 999px;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.pill .dot { border-radius: 50%; background: var(--red); flex: none; }
+
+.rule { height: 1px; background: var(--rule); }
+
+.eyebrow { font-weight: 600; text-transform: uppercase; color: var(--muted); }
+
+/* --- sarlavha va matn --- */
+
+.title {
+  font-family: 'Inter Tight', 'Inter', sans-serif;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  font-feature-settings: 'ss01', 'cv11';   /* Inter: alternate digits & single-storey a not used in caps, kept for safety */
+}
+.title .accent { color: var(--red); }
+
+.claim { font-weight: 600; letter-spacing: -0.02em; }
+.claim b { color: var(--red); font-weight: 700; }
+
+.invite { font-weight: 600; color: var(--ember); letter-spacing: -0.01em; }
+
+/* --- spikerlar: ramkasiz, to'g'ridan-to'g'ri oq fonda --- */
+
+.figures { position: absolute; bottom: 0; display: block; }
+
+/* --- pastki qizil lenta: ishtirokchi ma'lumotlari --- */
+
+.band {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  background: linear-gradient(100deg, var(--red-deep), var(--red) 58%, #A0161A);
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.band .field { display: flex; flex-direction: column; }
+.band .field.grow { flex: 1; }
+.band .label { text-transform: uppercase; font-weight: 600; color: rgba(255,255,255,.72); }
+.band .line { border-bottom: 2px solid rgba(255,255,255,.6); }
