@@ -26,14 +26,14 @@ body {
 /* --- sarlavha qatori --- */
 
 .wordmark {
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
-  font-weight: 700;
+  font-family: 'Inter Tight', 'Inter', sans-serif;
+  font-weight: 800;
   display: flex;
   align-items: center;
   line-height: 1;
   white-space: nowrap;
 }
-.wordmark .ai { color: var(--red); }
+.wordmark .ai { color: var(--red); margin-left: 0.2em; }
 .mark {
   border-radius: 50%;
   background: radial-gradient(circle at 32% 28%, var(--ember), var(--red) 58%, var(--red-deep));
@@ -59,11 +59,12 @@ body {
 /* --- sarlavha va matn --- */
 
 .title {
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
-  font-weight: 700;
-  line-height: 0.86;
-  letter-spacing: -0.04em;
+  font-family: 'Inter Tight', 'Inter', sans-serif;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
   text-transform: uppercase;
+  font-feature-settings: 'ss01', 'cv11';   /* Inter: alternate digits & single-storey a not used in caps, kept for safety */
 }
 .title .accent { color: var(--red); }
 
