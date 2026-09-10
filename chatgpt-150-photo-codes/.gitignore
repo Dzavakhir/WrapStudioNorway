@@ -1,0 +1,4 @@
+previews/
+__pycache__/
+*.pyc
+tools/debug_masks.jpg
