@@ -1,4 +1,10 @@
+# generated outputs (reproducible with `python3 render.py all` and `python3 book/build.py`)
+renders/
 previews/
+book/img/
+book/index.html
+dist/draft.pdf
+dist/*.zip
 __pycache__/
 *.pyc
 tools/debug_masks.jpg
