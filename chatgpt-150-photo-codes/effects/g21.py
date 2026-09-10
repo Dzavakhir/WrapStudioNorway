@@ -51,6 +51,25 @@ def _soft_shadow(canvas_img, alpha_pil, xy, opacity, blur_px):
     return from_pil(Image.alpha_composite(out, sh))
 
 
+def _rotated_text(img, text, center, font_, color_, angle=90.0, tracking=0.0, opacity=1.0):
+    """Text on its own layer, rotated `angle` degrees (CCW) and centred at `center` - safe next to the canvas edge."""
+    tw = int(text_width(text, font_, tracking)) + 8
+    asc, desc = font_.getmetrics()
+    layer = Image.new('RGBA', (tw, asc + desc + 8), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    fill = color255(color_) + (int(255 * opacity),)
+    x = 4.0
+    for ch in text:
+        d.text((x, 4), ch, font=font_, fill=fill, anchor='la')
+        x += font_.getlength(ch) + tracking
+    if angle:
+        layer = layer.rotate(angle, resample=Image.BICUBIC, expand=True)
+    base_pil = to_pil(img).convert('RGBA')
+    top = Image.new('RGBA', base_pil.size, (0, 0, 0, 0))
+    top.paste(layer, (int(round(center[0] - layer.width / 2)), int(round(center[1] - layer.height / 2))), layer)
+    return from_pil(Image.alpha_composite(base_pil, top))
+
+
 def _fit_font(name, text, target_w, tracking=0.0, start=150):
     """Font of `name` sized so that `text` (with tracking) is `target_w` px wide."""
     f = font(name, start)
@@ -156,11 +175,9 @@ def film_strip(img):
     f_num = font('lato-bold', 28)
     lx, rx = 107, W - 107
     for yy in (330, 1130):
-        strip = draw_text(strip, 'ISO 400  ·  35 MM  ·  COLOUR', (lx, yy), f_edge, amber, anchor='mm', tracking=3, rotate_=90, opacity=0.92)
-    strip = draw_text(strip, '24', (rx, 300), f_num, amber, anchor='mm', tracking=2, rotate_=90, opacity=0.92)
-    strip = draw_text(strip, '24A', (rx, 1180), f_num, amber, anchor='mm', tracking=2, rotate_=90, opacity=0.92)
-    strip = draw_text(strip, '23A', (rx, 70), f_num, amber, anchor='mm', tracking=2, rotate_=90, opacity=0.92)
-    strip = draw_text(strip, '25', (rx, 1372), f_num, amber, anchor='mm', tracking=2, rotate_=90, opacity=0.92)
+        strip = _rotated_text(strip, 'ISO 400  ·  35 MM  ·  COLOUR', (lx, yy), f_edge, amber, 90, tracking=3, opacity=0.92)
+    for label, yy in (('24', 300), ('24A', 1180), ('23A', 70), ('25', 1372)):
+        strip = _rotated_text(strip, label, (rx, yy), f_num, amber, 90, tracking=2, opacity=0.92)
 
     # DX-style barcode ticks on the left lane + small frame-marker triangles on the right lane
     r = rng(22)
