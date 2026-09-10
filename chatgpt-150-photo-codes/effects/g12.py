@@ -75,27 +75,43 @@ def _flourishes(d, inset_=30, size=150, col=None):
 
 @effect('pearl')
 def pearl(img):
-    """Pearly, luminous skin: refined texture, lifted soft highlights, cool-white nacre sheen on the high points."""
-    skin = _skin_mask(5)
-    # refined texture (frequency-separation smoothing; pores and freckles stay)
-    out = skin_smooth(img, strength=0.45, mask_=skin, radius=14, keep_texture=0.45)
-    # brighten the skin: gentle lifting curve, modelling preserved
-    lifted = curve(out, [(0, 0), (0.25, 0.262), (0.5, 0.528), (0.8, 0.85), (1, 1)])
-    out = apply_mask(out, lifted, skin)
-    # nacre sheen only on the high points (forehead, nose bridge, cheekbones, chin): soft cool-white glow
-    l = blur(luminance(out), 3)
-    hi = blur(smoothstep(0.58, 0.85, l) * skin, 10) * skin
-    hi_top = blur(smoothstep(0.72, 0.94, l) * skin, 5) * skin
-    out = blend(out, hi[..., None] * color('#eef2fc'), 'screen', 0.6)
-    out = blend(out, hi_top[..., None] * color('#e6efff'), 'screen', 0.5)
-    # pearl split tone on skin: cool-white highlights, shadows kept neutral-rose so the skin never goes grey
-    toned = split_tone(out, shadows='#5c4c55', highlights='#f4f6ff', balance=0.05, strength=0.28)
-    out = apply_mask(out, toned, skin)
-    # overall luminosity: bloom, calmer colour, surroundings a touch darker so the skin glows
-    out = glow(out, sigma=35, strength=0.3, threshold=0.6)
-    out = saturation(out, 0.93)
-    out = temperature(out, -0.03)
-    out = vignette(out, strength=0.24, radius=1.0, softness=0.8, center=face_center())
+    """Dewy pearl skin on a softly lit portrait: refined texture, natural warm tone kept, a luminous nacre
+    sheen only on the natural highlight zones (forehead, nose bridge, cheekbones, chin), gentle overall glow."""
+    down, across, el, er = _face_axes()
+    ang = math.degrees(math.atan2(across[1], across[0]))
+    ec = (el + er) / 2
+    m = meta()
+    nose, chin = np.array(m['nose'], np.float32), np.array(m['chin'], np.float32)
+    # feathered masks: no visible edge anywhere; the (small) lift fades out well before the face oval
+    skin = _skin_mask(10)
+    skin_core = feather(cv2.erode(mask('face_skin'), np.ones((41, 41), np.uint8)), 18)
+    # 1. refined texture (pores and freckles stay)
+    out = skin_smooth(img, strength=0.4, mask_=skin, radius=14, keep_texture=0.5)
+    # 2. gentle lift (about +0.02 luminance), warm skin colour untouched
+    lifted = curve(out, [(0, 0), (0.25, 0.258), (0.5, 0.518), (0.8, 0.82), (1, 1)])
+    out = apply_mask(out, lifted, skin_core)
+    # 3. nacre sheen on the natural highlight zones, gated by the real skin shading
+    bridge_top = ec + 8 * down
+    bridge = nose - bridge_top
+    bridge_len = float(np.linalg.norm(bridge))
+    bridge_ang = math.degrees(math.atan2(bridge[1], bridge[0]))
+    zones = (_blob(ec - 135 * down + 35 * across, 92, 55, ang) * 1.0            # forehead centre
+             + _blob(bridge_top + bridge * 0.5, bridge_len * 0.5, 20, bridge_ang) * 0.9   # nose bridge
+             + _blob(nose + np.array([-6, -4], np.float32), 24, 20, ang) * 0.6   # nose tip
+             + _blob(er + 70 * down + 60 * across, 85, 42, ang) * 0.9            # cheekbone (viewer's right)
+             + _blob(el + 75 * down - 45 * across, 62, 36, ang) * 0.7            # cheekbone (viewer's left)
+             + _blob(chin - 45 * down, 55, 34, ang) * 0.7)                       # chin
+    zones = np.clip(zones, 0, 1) * skin
+    l = luminance(out)
+    sheen = blur(zones * smoothstep(0.42, 0.78, blur(l, 3)), 12) * skin
+    dew = blur(zones * smoothstep(0.6, 0.86, blur(l, 1.5)), 4) * skin
+    out = blend(out, sheen[..., None] * color('#f3f1fa'), 'screen', 0.72)
+    out = blend(out, dew[..., None] * color('#eef2ff'), 'screen', 0.42)
+    # 4. a lit portrait: soft key light on the face, gentle bloom, quieter surroundings
+    key = radial(center=face_center(), radius=0.55, softness=0.9)
+    out = blend(out, '#fff4ea', 'screen', 0.12, mask_=key)
+    out = glow(out, sigma=40, strength=0.42, threshold=0.55)
+    out = vignette(out, strength=0.2, radius=1.0, softness=0.8, center=face_center())
     return out
 
 

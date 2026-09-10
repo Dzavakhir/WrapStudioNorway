@@ -119,13 +119,13 @@ def clarity_fx(img):
 @effect('sharpen')
 def sharpen_fx(img):
     skin = _skin_mask(img, 4)
-    eyes = feather(mask('eyes', grow=12), 6)
-    w = np.clip(1 - 0.55 * skin + 0.45 * eyes, 0, 1.45)
-    out = _lum_sharpen(img, 1.2, 1.15, 0.006, limit=0.16, mask_=w)       # fine detail
-    out = _lum_sharpen(out, 2.8, 0.5, 0.004, limit=0.16, mask_=w)        # slightly coarser edges
-    out = _lum_sharpen(out, 6.0, 0.22, 0.004, limit=0.12, mask_=1 - 0.6 * skin)   # edge acutance visible even when small
+    person = feather(mask('person'), 4)
+    w = 1 - 0.6 * skin                                                   # skin sharpened gently, eyes/brows/lips fully
+    out = _lum_sharpen(img, 1.8, 0.8, 0.006, limit=0.1, mask_=w)         # fine detail (radius matches the source's 2x upscale)
+    out = _lum_sharpen(out, 4.0, 0.3, 0.004, limit=0.1, mask_=w)         # edge definition
+    out = _lum_sharpen(out, 8.0, 0.15, 0.004, limit=0.08, mask_=w)       # acutance that still reads when small
     de = detail_enhance(out, 10, 0.15)
-    out = lerp(out, de, 0.3 * (1 - 0.7 * skin))
+    out = lerp(out, de, 0.3 * (1 - person))                              # micro-texture only on the foliage
     return out
 
 
@@ -169,7 +169,7 @@ def glow_skin(img):
 @effect('matte_skin')
 def matte_skin(img):
     skin = _skin_mask(img, 3)
-    out = skin_smooth(img, 0.55, mask_=skin, radius=14, keep_texture=0.35)
+    out = skin_smooth(img, 0.55, mask_=skin, radius=14, keep_texture=0.4)
     out = _even_tone(out, skin, 0.5)
     l = luminance(out)
     # kill specular shine: bright local bumps are pulled back to the local skin level

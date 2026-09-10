@@ -250,10 +250,11 @@ def window_light(img):
     from_left = 1 - linear(0, 0.05, 1.0)                                              # 1 at the left edge -> 0 right
 
     # base: a touch brighter than the original, warm, gentle contrast, open shadows
-    img = exposure(img, 0.12)
+    img = exposure(img, 0.10)
     img = temperature(img, 0.14)
-    img = contrast(img, 0.94, pivot=0.5)
+    img = contrast(img, 0.96, pivot=0.5)
     img = curve(img, [(0, 0.04), (0.3, 0.34), (0.7, 0.73), (1, 0.985)])
+    lum_w = 0.45 + 0.55 * smoothstep(0.08, 0.4, luminance(img))                     # sunny wash lands on skin/background, keeps the navy clean
 
     # blind bands: wide, soft, horizontal-ish; the pattern jumps at the subject outline (she is closer to the
     # blind) and bends over the face so it reads as light on a 3-D form rather than an overlay
@@ -261,22 +262,22 @@ def window_light(img):
     a = math.radians(-6)
     t = x * math.sin(a) + y * math.cos(a) + 60
     t = t + p * (40 + 60 * bulge)
-    period, duty = 215, 0.42
+    period, duty = 240, 0.42
     u = t % period
-    soft_bg, soft_p = 36.0, 24.0
+    soft_bg, soft_p = 44.0, 30.0
     band_bg = smoothstep(0, soft_bg, u) * (1 - smoothstep(period * duty - soft_bg, period * duty, u))
     band_p = smoothstep(0, soft_p, u) * (1 - smoothstep(period * duty - soft_p, period * duty, u))
     bands = band_bg * (1 - p) + band_p * p                                            # 1 = shade band
     reach = 0.6 + 0.4 * from_left                                                     # bands fade away from the window
-    region = (1 - p) * 1.0 + p * (1 - face) * 0.8 + p * face * 0.55                   # bg 100% / body 80% / face 55%
+    region = (1 - p) * 1.0 + p * (1 - face) * 0.6 + p * face * 0.5                    # bg 100% / body 60% / face 50%
     shade_w = bands * reach * region
-    img = lerp(img, img * as_layer('#c8ccd6'), shade_w)                               # <= ~21% darkening on the background, ~12% on the face
+    img = lerp(img, img * as_layer('#cfd2da'), shade_w)                               # <= ~18% darkening on the background, ~9% on the face
     lit = (1 - bands) * reach
-    img = blend(img, '#ffe6b8', 'screen', 0.26, mask_=lit)                            # the lit bands are the warm, sunny part
+    img = blend(img, '#ffe6b8', 'screen', 0.22, mask_=lit * lum_w)                    # the lit bands are the warm, sunny part
 
     # the window: warm soft daylight sweeping in from the left, soft fall-off to the right
-    img = blend(img, '#fff0d0', 'screen', 0.30, mask_=from_left ** 1.2)
-    img = blend(img, '#fff2d8', 'screen', 0.30, mask_=radial(center=(-W * 0.1, H * 0.35), radius=0.9, softness=1.0))
+    img = blend(img, '#fff0d0', 'screen', 0.26, mask_=from_left ** 1.2 * lum_w)
+    img = blend(img, '#fff2d8', 'screen', 0.24, mask_=radial(center=(-W * 0.1, H * 0.35), radius=0.9, softness=1.0) * lum_w)
     img = clip(img * (1 - 0.06 * linear(0, 0.4, 1.0))[..., None])
 
     # gentle fill on the face, small bloom, natural skin

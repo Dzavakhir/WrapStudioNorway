@@ -76,10 +76,10 @@ def polaroid_frame(img):
 
     # beige table: paper texture + window light from the top-left
     table = canvas(BEIGE, paper(seed=3, strength=0.16))
-    table = blend(table, '#ffffff', 'soft_light', 0.4, radial(center=(280, 220), radius=1.5, softness=0.95))
-    table = vignette(table, 0.22, radius=1.05, softness=0.8, color_='#5a4638')
+    table = blend(table, '#fff4e2', 'soft_light', 0.45, radial(center=(280, 220), radius=1.5, softness=0.95))
+    table = vignette(table, 0.2, radius=1.05, softness=0.8, color_='#6a5240')
 
-    size, brd, bb, ang = (760, 950), 44, 200, 4.0
+    size, brd, bb, ang = (720, 900), 42, 188, 4.0
     card_w, card_h = size[0] + 2 * brd, size[1] + brd + bb
     ccx, ccy = W / 2 + 6, H / 2 - 14
 
@@ -99,7 +99,7 @@ def polaroid_frame(img):
     tw = text_width(text, f)
     hs, gap = 34, 20
     total = tw + gap + hs * 1.1
-    dy_border = (brd + size[1] + card_h / 2) / 2 - card_h / 2 - 4   # centre of the bottom border, relative to card centre
+    dy_border = (brd + size[1] + card_h) / 2 - card_h / 2 - 6   # centre of the bottom border, relative to the card centre
     dx0 = -total / 2
     tx, ty = _rot(dx0, dy_border, ang)
     out = draw_text(out, text, (ccx + tx, ccy + ty), f, ink, anchor='lm', rotate_=ang, opacity=0.92)
@@ -206,8 +206,8 @@ def rounded_card(img):
     x0, y0 = (W - size[0]) // 2, (H - size[1]) // 2 - 6
     # tight contact shadow + soft ambient shadow (layered, app-style)
     alpha = Image.fromarray((rounded_mask(size[0], size[1], rad) * 255).astype(np.uint8))
-    bg = _soft_shadow(bg, alpha, (x0, y0 + 6), 0.14, 10)
-    return paste(bg, photo, size, center=(W / 2, H / 2 - 6), radius=rad, shadow=(0.30, 42, (0, 26)))
+    bg = _soft_shadow(bg, alpha, (x0, y0 + 8), 0.18, 12)
+    return paste(bg, photo, size, center=(W / 2, H / 2 - 6), radius=rad, shadow=(0.42, 46, (0, 32)))
 
 
 # ----------------------------------------------------------------------------- 105 magazine cover
@@ -227,8 +227,8 @@ def magazine(img):
 
     # masthead, partly behind the head
     title = 'ÉLÉGANCE'
-    f_mast, _ = _fit_font('playfair-bold', title, W - 2 * 84, tracking=12)
-    with_title = draw_text(g, title, (W / 2, 172), f_mast, CREAM, anchor='ms', tracking=12, shadow=(0, 6, 16, INK, 0.45))
+    f_mast, _ = _fit_font('playfair-bold', title, W - 2 * 94, tracking=12)
+    with_title = draw_text(g, title, (W / 2, 178), f_mast, CREAM, anchor='ms', tracking=12, shadow=(0, 6, 16, INK, 0.45))
     out = apply_mask(with_title, g, person)
 
     cream, gold = CREAM, GOLD
