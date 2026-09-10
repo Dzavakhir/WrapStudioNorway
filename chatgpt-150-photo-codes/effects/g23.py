@@ -297,7 +297,7 @@ def reflection(img):
     """Water reflection: the portrait keeps its full width; below the waterline the image is mirrored with
     growing sinusoidal ripples, softened, darkened and cooled, fading into deep blue water at the bottom."""
     r = rng(2314)
-    yw = 1004                                         # waterline
+    yw = 1096                                         # waterline (below the chin and neck)
     depth = H - yw
     out = img.copy()
     xx, ry = np.meshgrid(np.arange(W, dtype=np.float32), np.arange(depth, dtype=np.float32))
@@ -320,8 +320,8 @@ def reflection(img):
     slope = np.gradient(dx, axis=0) / (np.abs(np.gradient(dx, axis=0)).max() + 1e-6)
     refl = clip(refl * (1 + 0.10 * slope[..., None]))
     # darken, cool, and fade into deep water
-    refl = refl * np.array([0.72, 0.78, 0.9], np.float32)
-    refl = clip(lerp(refl, color('#0d1b2a'), 0.25 + 0.72 * smoothstep(0.2, 1.0, t)))
+    refl = refl * np.array([0.82, 0.86, 0.96], np.float32)
+    refl = clip(lerp(refl, color('#12263a'), 0.16 + 0.62 * smoothstep(0.15, 1.0, t)))
     # specular sparkle: short bright dashes drifting on the surface
     for _ in range(26):
         yy0 = int(r.integers(20, depth - 3)); x0 = int(r.integers(0, W)); L = int(r.integers(15, 110))

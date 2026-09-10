@@ -255,13 +255,13 @@ def frost(img):
     img = vignette(img, strength=0.32, radius=1.0, softness=0.75, color_='#0f2545')
 
     d = _ellip_dist()
-    band = smoothstep(0.50, 1.02, d)                                     # 0 centre -> 1 at the frame edge
+    band = smoothstep(0.74, 1.16, d)                                     # 0 centre -> 1 at the frame edge
     corner = smoothstep(0.90, 1.40, d)
     face_zone = mask('face', feather=50, grow=50)
 
     # milky frost body with an irregular growth front, crystalline veins and ice grain inside
     front = fbm(5, seed=13, scale=1.6)
-    body = smoothstep(0.30, 0.62, band * (0.45 + 1.0 * front) + 0.3 * corner)
+    body = smoothstep(0.34, 0.72, band * (0.45 + 1.0 * front) + 0.24 * corner)
     v1 = smoothstep(0.62, 0.96, 1 - np.abs(2 * fbm(6, seed=3, scale=3.0) - 1))
     v2 = smoothstep(0.70, 0.98, 1 - np.abs(2 * fbm(6, seed=17, scale=6.0) - 1))
     grain_ = smoothstep(0.55, 0.95, noise(seed=9, sigma=1.2))
@@ -269,9 +269,10 @@ def frost(img):
     tex = milk + 0.5 * v1 + 0.35 * v2 + 0.2 * grain_
     frost_body = np.clip(body * tex, 0, 1)
     # feathery dendrites reaching past the front toward the centre
-    ferns = _frost_ferns(r) * smoothstep(0.30, 0.75, d)
+    ferns = _frost_ferns(r) * smoothstep(0.58, 0.98, d)
     layer = np.clip(frost_body + ferns * 0.95 + blur(ferns, 8) * 0.5 * band, 0, 1) * (1 - face_zone)
-    img = blend(img, '#e8f4ff', 'screen', 0.92, mask_=layer)
+    layer = layer * (1 - 0.55 * mask('person', feather=6))   # the subject only lightly frosted
+    img = blend(img, '#e8f4ff', 'screen', 0.88, mask_=layer)
 
     # glints and sparkles where the frost is thick
     specks = dust(count=450, seed=28, size=(0.8, 2.0)) * np.clip(body + ferns, 0, 1)
