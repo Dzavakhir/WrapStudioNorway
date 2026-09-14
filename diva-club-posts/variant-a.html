@@ -7,262 +7,377 @@
 <script src="lib.js"></script>
 <style>
 /* =======================================================================
-   VARIANT A — "Romantik klassik"
-   Deep maroon ground, gold double frame, two gold-ringed portraits,
-   Playfair display type. Formal, ceremonial, invitation-like.
+   VARIANT A — "Modern maroon"
+   Deep maroon field, two women placed large and frameless (soft photographic
+   dissolve, no rings / no cut-out rectangle), contemporary centred type grid.
+   Decoration budget: one gold hairline + one gold rule. Nothing else.
    ======================================================================= */
 
 .canvas {
-  background:
-    radial-gradient(120% 80% at 50% 8%, #9b0a24 0%, #7a0519 42%, #4d0311 100%);
+  background: #5d0416;
   color: var(--cream);
   font-family: var(--serif);
-  --u: 1;            /* type scale */
-  --photo: 318px;    /* portrait diameter */
-  --gapy: 1;         /* vertical rhythm multiplier */
-}
-html[data-r="9x16"] .canvas { --u: 1.06; --photo: 356px; --gapy: 1.75; }
-html[data-r="4x5"]  .canvas { --u: 0.93; --photo: 292px; --gapy: 0.72; }
-html[data-r="1x1"]  .canvas { --u: 0.84; --photo: 240px; --gapy: 0.34; }
 
-/* ---------- atmosphere ---------- */
-.glow {
+  /* --- geometry (overridden per ratio) --- */
+  --padX: 78px;
+  --gTop: 74px;
+  --gBot: 74px;
+
+  --logoW: 144px;
+
+  --figW: 538px;
+  --figH: 880px;
+  --figOv: 152px;      /* horizontal overlap between the two boxes */
+  --stageTop: 370px;
+  --maskX: 15%;        /* side dissolve */
+  --maskT: 11%;        /* top dissolve */
+  --maskB: 26%;        /* bottom dissolve */
+
+  --namesTop: 958px;
+  --capW: 432px;
+  --scrimTop: 840px;
+
+  /* --- type --- */
+  --fsTitle: 76px;
+  --lhTitle: 1.0;
+  --fsHost: 40px;
+  --fsTag: 15px;
+  --fsName: 34px;
+  --fsRole: 25px;
+  --fsLbl: 16px;
+  --fsTopic: 44px;
+  --fsTopic2: 31px;
+  --fsDate: 46px;
+  --fsCity: 21px;
+}
+
+/* ------------------------------------------------------------------ ground */
+.ground {
+  background:
+    radial-gradient(58% 34% at 50% 40%, rgba(226, 178, 168, .13), transparent 72%),
+    radial-gradient(112% 62% at 50% -6%, #9c1430 0%, #850b22 30%, rgba(133, 11, 34, 0) 70%),
+    linear-gradient(180deg, #7d0a1e 0%, #6c0519 30%, #560314 60%, #3e0210 84%, #2f020c 100%);
+}
+
+/* scrim that swallows the lower half of the figures */
+.scrim {
   position: absolute;
-  width: 140%; height: 60%;
-  left: -20%; top: -22%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 214, 170, 0.20), transparent 70%);
+  left: 0; right: 0; bottom: 0;
+  top: var(--scrimTop);
+  background: linear-gradient(180deg,
+    rgba(58, 3, 15, 0) 0%,
+    rgba(56, 3, 14, .42) 24%,
+    rgba(51, 2, 13, .86) 50%,
+    rgba(45, 2, 12, .98) 70%,
+    #2f020c 100%);
+  pointer-events: none;
 }
-.vign {
-  position: absolute; inset: 0;
-  background: radial-gradient(105% 78% at 50% 44%, transparent 45%, rgba(30, 1, 8, 0.72) 100%);
-}
-.orn-corner {
+
+/* ------------------------------------------------------------------- stage */
+.stage {
   position: absolute;
-  width: calc(196px * var(--u)); height: calc(196px * var(--u));
-  -webkit-mask: url("assets/orn/corner.svg") center/contain no-repeat;
-  background: var(--gold);
-  opacity: 0.4;
-}
-.orn-corner.tl { top: calc(54px * var(--u)); left: calc(54px * var(--u)); }
-.orn-corner.br { bottom: calc(54px * var(--u)); right: calc(54px * var(--u)); transform: rotate(180deg); }
-
-/* ---------- frame ---------- */
-.frame {
-  position: absolute;
-  inset: calc(38px * var(--u));
-  border: 1px solid rgba(201, 162, 91, 0.75);
-}
-.frame::after {
-  content: "";
-  position: absolute;
-  inset: calc(9px * var(--u));
-  border: 2px solid rgba(201, 162, 91, 0.32);
-}
-
-/* ---------- content column ---------- */
-.content {
-  position: absolute;
-  inset: calc(38px * var(--u) + 26px) var(--pad) calc(38px * var(--u) + 22px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-}
-
-.logo-lockup {
-  width: calc(238px * var(--u));
-  margin-bottom: calc(30px * var(--gapy) + 16px);
-  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.25));
-}
-
-.kicker {
-  font-family: var(--sans);
-  font-size: calc(17px * var(--u));
-  font-weight: 400;
-  letter-spacing: 0.42em;
-  text-transform: uppercase;
-  color: var(--gold-soft);
-  margin-bottom: calc(16px * var(--u));
-  text-indent: 0.42em;
-}
-
-.title {
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: calc(80px * var(--u));
-  line-height: 1.02;
-  letter-spacing: -0.012em;
-  margin: 0;
-  color: #fdf6ec;
-}
-
-.with {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: calc(46px * var(--u));
-  color: var(--gold-soft);
-  margin-top: calc(10px * var(--u));
-  letter-spacing: 0.005em;
-}
-
-.flourish {
-  width: calc(430px * var(--u));
-  height: calc(44px * var(--u));
-  -webkit-mask: url("assets/orn/flourish.svg") center/contain no-repeat;
-  background: linear-gradient(90deg, rgba(201,162,91,0.2), var(--gold) 30%, var(--gold-soft) 50%, var(--gold) 70%, rgba(201,162,91,0.2));
-  margin: calc(16px * var(--gapy) + 14px) 0 calc(18px * var(--gapy) + 16px);
-}
-
-/* ---------- portraits ---------- */
-.people {
+  left: 0; right: 0;
+  top: var(--stageTop);
+  height: var(--figH);
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: calc(54px * var(--u));
+  gap: calc(var(--figOv) * -1);
 }
-.person { width: var(--photo); }
-.pic {
+.fig {
   position: relative;
-  width: var(--photo);
-  height: var(--photo);
-  border-radius: 50%;
+  flex: 0 0 auto;
+  width: var(--figW);
+  height: var(--figH);
+  /* vertical dissolve */
+  -webkit-mask-image: linear-gradient(180deg,
+      rgba(0,0,0,0) 0%, #000 var(--maskT),
+      #000 calc(100% - var(--maskB)), rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(180deg,
+      rgba(0,0,0,0) 0%, #000 var(--maskT),
+      #000 calc(100% - var(--maskB)), rgba(0,0,0,0) 100%);
+}
+.fig-in {
+  position: absolute;
+  inset: 0;
   overflow: hidden;
-  border: 2px solid var(--gold);
-  box-shadow:
-    0 0 0 calc(9px * var(--u)) rgba(201, 162, 91, 0.13),
-    0 26px 48px rgba(28, 1, 7, 0.5);
+  /* horizontal dissolve */
+  -webkit-mask-image: linear-gradient(90deg,
+      rgba(0,0,0,0) 0%, #000 var(--maskX),
+      #000 calc(100% - var(--maskX)), rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(90deg,
+      rgba(0,0,0,0) 0%, #000 var(--maskX),
+      #000 calc(100% - var(--maskX)), rgba(0,0,0,0) 100%);
 }
-.pic img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.pic::after {
+.fig-in img { filter: saturate(.96) contrast(1.03) brightness(1.02); }
+
+/* maroon grade that pulls each frame's own background into the ground
+   before the mask fades it out — no halo, no visible photo edge. */
+.tone {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(56% 46% at 50% 31%,
+      rgba(96, 6, 24, 0) 26%,
+      rgba(88, 5, 21, .34) 52%,
+      rgba(72, 4, 18, .80) 76%,
+      rgba(58, 3, 14, .96) 100%);
+}
+.tone::after {
   content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(147, 6, 31, 0.05), rgba(77, 3, 17, 0.35));
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(58,3,14,0) 46%, rgba(52,2,13,.62) 78%, rgba(47,2,12,.92) 100%);
 }
-.cap { margin-top: calc(22px * var(--u)); }
-.cap-role-top {
-  font-family: var(--sans);
-  font-size: calc(15px * var(--u));
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: calc(7px * var(--u));
-  text-indent: 0.3em;
+.fig--s .tone {
+  background:
+    radial-gradient(52% 42% at 48% 28%,
+      rgba(104, 8, 26, 0) 20%,
+      rgba(96, 6, 23, .40) 46%,
+      rgba(78, 4, 19, .86) 72%,
+      rgba(58, 3, 14, .98) 100%);
 }
-.cap-name {
+
+/* -------------------------------------------------------------------- head */
+.head {
+  position: absolute;
+  top: var(--gTop);
+  left: var(--padX);
+  right: var(--padX);
+  text-align: center;
+}
+.logo {
+  width: var(--logoW);
+  margin: 0 auto;
+  opacity: .95;
+}
+.title {
   font-family: var(--display);
   font-weight: 500;
-  font-size: calc(31px * var(--u));
-  line-height: 1.15;
-  color: #fdf6ec;
+  font-size: var(--fsTitle);
+  line-height: var(--lhTitle);
+  letter-spacing: -.018em;
+  color: #fdf7ee;
+  margin: var(--gapLogo, 28px) 0 0;
 }
-.cap-role {
+.host {
   font-family: var(--serif);
   font-style: italic;
-  font-size: calc(26px * var(--u));
-  line-height: 1.25;
-  color: #e6bfc0;
-  margin-top: calc(4px * var(--u));
+  font-weight: 400;
+  font-size: var(--fsHost);
+  line-height: 1.2;
+  color: var(--gold-soft);
+  margin: var(--gapHost, 14px) 0 0;
 }
 
-/* ---------- theme ---------- */
-.theme { margin-top: calc(26px * var(--gapy) + 20px); max-width: calc(860px * var(--u)); }
-.theme-label {
-  font-family: var(--sans);
-  font-size: calc(16px * var(--u));
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  color: var(--gold);
-  text-indent: 0.34em;
+/* ------------------------------------------------------------------- names */
+.names {
+  position: absolute;
+  top: var(--namesTop);
+  left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--figW) - var(--figOv) - var(--capW));
+  text-align: center;
 }
-.theme-text {
+.cap { width: var(--capW); }
+.tag {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: var(--fsTag);
+  letter-spacing: .3em;
+  text-indent: .3em;
+  text-transform: uppercase;
+  color: rgba(251, 244, 234, .66);
+  height: calc(var(--fsTag) * 1.2);
+  line-height: 1.2;
+}
+.nm {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: var(--fsName);
+  line-height: 1.16;
+  color: #fdf7ee;
+  margin: calc(var(--fsTag) * .42) 0 0;
+  white-space: nowrap;
+}
+.role {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fsRole);
+  line-height: 1.24;
+  color: rgba(244, 227, 221, .82);
+  margin: calc(var(--fsRole) * .2) 0 0;
+}
+
+/* -------------------------------------------------------------------- foot */
+.foot {
+  position: absolute;
+  bottom: var(--gBot);
+  left: var(--padX);
+  right: var(--padX);
+  text-align: center;
+}
+.lbl {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: var(--fsLbl);
+  letter-spacing: .34em;
+  text-indent: .34em;
+  text-transform: uppercase;
+  color: rgba(251, 244, 234, .6);
+  margin: 0;
+}
+.topic {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: calc(42px * var(--u));
-  line-height: 1.24;
-  color: #fdf6ec;
-  margin-top: calc(12px * var(--u));
+  font-size: var(--fsTopic);
+  line-height: 1.12;
+  letter-spacing: .002em;
+  color: #fdf7ee;
+  margin: calc(var(--fsLbl) * .8) 0 0;
 }
-
-/* ---------- date bar ---------- */
+.topic2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: var(--fsTopic2);
+  line-height: 1.26;
+  color: rgba(251, 244, 234, .88);
+  margin: calc(var(--fsTopic2) * .18) 0 0;
+}
+.hair {
+  width: var(--hairW, 168px);
+  height: 1px;
+  margin: var(--gapHair, 30px) auto 0;
+  background: linear-gradient(90deg, rgba(201,162,91,0), var(--gold) 26%, var(--gold) 74%, rgba(201,162,91,0));
+}
 .when {
-  margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: calc(22px * var(--u));
-  padding: calc(16px * var(--u)) calc(38px * var(--u));
-  border: 1px solid rgba(201, 162, 91, 0.6);
-  background: rgba(45, 2, 11, 0.32);
+  gap: var(--whenGap, 30px);
+  margin-top: var(--gapWhen, 26px);
 }
-.when-date {
+.d {
   font-family: var(--display);
   font-weight: 500;
-  font-size: calc(38px * var(--u));
-  color: #fdf6ec;
-  letter-spacing: 0.01em;
+  font-size: var(--fsDate);
+  line-height: 1.1;
+  letter-spacing: .004em;
+  color: #fdf7ee;
 }
-.when-sep { width: calc(7px * var(--u)); height: calc(7px * var(--u)); transform: rotate(45deg); background: var(--gold); }
-.when-meta {
+.v {
+  width: 1px;
+  height: calc(var(--fsDate) * .74);
+  background: rgba(201, 162, 91, .78);
+  display: block;
+  flex: 0 0 auto;
+}
+.city {
   font-family: var(--sans);
-  font-size: calc(24px * var(--u));
   font-weight: 300;
-  letter-spacing: 0.16em;
+  font-size: var(--fsCity);
+  letter-spacing: .26em;
+  text-indent: .26em;
   text-transform: uppercase;
-  color: var(--gold-soft);
+  color: rgba(251, 244, 234, .84);
 }
-.when-wrap { margin-top: auto; padding-bottom: calc(6px * var(--u)); }
+
+/* ===================================================================== 9:16 */
+html[data-r="9x16"] .canvas {
+  --padX: 88px;  --gTop: 104px; --gBot: 100px;
+  --logoW: 178px; --gapLogo: 42px; --gapHost: 16px;
+  --figW: 538px; --figH: 1010px; --figOv: 140px;
+  --stageTop: 524px; --maskX: 15%; --maskT: 9%; --maskB: 24%;
+  --namesTop: 1372px; --capW: 440px; --scrimTop: 1180px;
+  --fsTitle: 96px; --lhTitle: 1.0; --fsHost: 47px;
+  --fsTag: 17px; --fsName: 40px; --fsRole: 28px;
+  --fsLbl: 19px; --fsTopic: 55px; --fsTopic2: 39px;
+  --fsDate: 56px; --fsCity: 25px;
+  --hairW: 200px; --gapHair: 40px; --gapWhen: 34px; --whenGap: 38px;
+}
+
+/* ====================================================================== 4:5 */
+html[data-r="4x5"] .canvas {
+  --padX: 78px;  --gTop: 74px;  --gBot: 74px;
+  --logoW: 146px; --gapLogo: 28px; --gapHost: 12px;
+  --figW: 538px; --figH: 880px; --figOv: 152px;
+  --stageTop: 372px; --maskX: 15%; --maskT: 11%; --maskB: 27%;
+  --namesTop: 952px; --capW: 434px; --scrimTop: 856px;
+  --fsTitle: 76px; --lhTitle: 1.0; --fsHost: 40px;
+  --fsTag: 15px; --fsName: 34px; --fsRole: 25px;
+  --fsLbl: 16px; --fsTopic: 45px; --fsTopic2: 32px;
+  --fsDate: 47px; --fsCity: 21px;
+  --hairW: 168px; --gapHair: 28px; --gapWhen: 24px; --whenGap: 30px;
+}
+
+/* ====================================================================== 1:1 */
+html[data-r="1x1"] .canvas {
+  --padX: 72px;  --gTop: 68px;  --gBot: 68px;
+  --logoW: 122px; --gapLogo: 20px; --gapHost: 8px;
+  --figW: 534px; --figH: 520px; --figOv: 140px;
+  --stageTop: 344px; --maskX: 15%; --maskT: 9%; --maskB: 24%;
+  --namesTop: 706px; --capW: 420px; --scrimTop: 630px;
+  --fsTitle: 60px; --lhTitle: 1.0; --fsHost: 33px;
+  --fsTag: 14px; --fsName: 30px; --fsRole: 22px;
+  --fsLbl: 15px; --fsTopic: 38px; --fsTopic2: 27px;
+  --fsDate: 41px; --fsCity: 19px;
+  --hairW: 140px; --gapHair: 22px; --gapWhen: 20px; --whenGap: 26px;
+}
 </style>
 </head>
 <body>
 <div class="canvas grain">
-  <div class="layer glow"></div>
-  <div class="layer vign"></div>
-  <div class="frame"></div>
-  <div class="orn-corner tl"></div>
-  <div class="orn-corner br"></div>
+  <div class="layer ground"></div>
 
-  <div class="content">
-    <img class="logo-lockup" src="assets/logo-cream-trim.png" alt="Diva Women Networking Club">
+  <div class="stage">
+    <figure class="fig fig--m">
+      <span class="fig-in">
+        <img class="ph ph--mohinur" src="assets/derived/mohinur-warm.jpg" alt="Mohinur Abdullayeva">
+        <span class="tone"></span>
+      </span>
+    </figure>
+    <figure class="fig fig--s">
+      <span class="fig-in">
+        <img class="ph ph--sarvinoz" src="assets/derived/sarvinoz-warm.jpg" alt="Sarvinoz Alisherovna">
+        <span class="tone"></span>
+      </span>
+    </figure>
+  </div>
 
+  <div class="scrim"></div>
+
+  <header class="head">
+    <img class="logo" src="assets/logo-cream-trim.png" alt="Diva Women Networking Club">
     <h1 class="title">Diva klubi<br>uchrashuvi</h1>
-    <div class="with">Mohinur Abdullayeva bilan</div>
+    <p class="host">Mohinur Abdullayeva bilan</p>
+  </header>
 
-    <div class="flourish"></div>
-
-    <div class="people">
-      <div class="person">
-        <div class="pic"><img class="ph ph--mohinur" src="assets/mohinur.jpg" alt="Mohinur Abdullayeva"></div>
-        <div class="cap">
-          <div class="cap-name">Mohinur<br>Abdullayeva</div>
-        </div>
-      </div>
-      <div class="person">
-        <div class="pic"><img class="ph ph--sarvinoz" src="assets/sarvinoz.jpg" alt="Sarvinoz Alisherovna"></div>
-        <div class="cap">
-          <div class="cap-role-top">Mehmon spiker</div>
-          <div class="cap-name">Sarvinoz<br>Alisherovna</div>
-          <div class="cap-role">psixolog, vrach psixoterapevt</div>
-        </div>
-      </div>
+  <div class="names">
+    <div class="cap">
+      <div class="tag"></div>
+      <div class="nm">Mohinur Abdullayeva</div>
     </div>
-
-    <div class="theme">
-      <div class="theme-label">Uchrashuv mavzusi</div>
-      <div class="theme-text">Shukronalik hissi.<br>1 ta katta maqsad uchun ongni tayyorlash</div>
-    </div>
-
-    <div class="when-wrap">
-      <div class="when">
-        <span class="when-date num">16-sentabr</span>
-        <span class="when-sep"></span>
-        <span class="when-date num">11:00</span>
-        <span class="when-sep"></span>
-        <span class="when-meta">Toshkent sh.</span>
-      </div>
+    <div class="cap">
+      <div class="tag">Mehmon spiker</div>
+      <div class="nm">Sarvinoz Alisherovna</div>
+      <div class="role">psixolog, vrach psixoterapevt</div>
     </div>
   </div>
+
+  <footer class="foot">
+    <p class="lbl">Uchrashuv mavzusi</p>
+    <p class="topic">Shukronalik hissi.</p>
+    <p class="topic2">1 ta katta maqsad uchun ongni tayyorlash</p>
+    <div class="hair"></div>
+    <div class="when">
+      <span class="d num">16-sentabr</span>
+      <i class="v"></i>
+      <span class="d num">11:00</span>
+      <i class="v"></i>
+      <span class="city">Toshkent sh.</span>
+    </div>
+  </footer>
 </div>
 </body>
 </html>
