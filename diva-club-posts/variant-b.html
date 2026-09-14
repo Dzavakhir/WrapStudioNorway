@@ -43,7 +43,7 @@
 html[data-r="9x16"] .canvas {
   --m: 96px;
   --ttl: 138px; --host: 66px; --lbl: 18px; --topic: 50px;
-  --name: 48px; --role: 34px; --date: 74px; --logo: 168px;
+  --name: 48px; --role: 34px; --date: 70px; --logo: 168px;
   --horizon: 1206px;
   --fw1: 720px; --fx1: -126px; --fy1: 1258px;
   --fw2: 650px; --fx2: 586px; --fy2: 1296px;
@@ -52,12 +52,12 @@ html[data-r="9x16"] .canvas {
 
 html[data-r="1x1"] .canvas {
   --m: 76px;
-  --ttl: 70px; --host: 38px; --lbl: 13px; --topic: 29px;
-  --name: 26px; --role: 22px; --date: 42px; --logo: 106px;
-  --horizon: 583px;
-  --fw1: 580px; --fx1: 6px;   --fy1: 596px;
-  --fw2: 520px; --fx2: 557px; --fy2: 622px;
-  --g-host: 14px; --g-rule: 36px; --g-block: 20px; --g-cols: 26px;
+  --ttl: 67px; --host: 36px; --lbl: 13px; --topic: 28px;
+  --name: 25px; --role: 21px; --date: 41px; --logo: 104px;
+  --horizon: 544px;
+  --fw1: 620px; --fx1: -32px; --fy1: 552px;
+  --fw2: 555px; --fx2: 561px; --fy2: 578px;
+  --g-host: 13px; --g-rule: 30px; --g-block: 18px; --g-cols: 22px;
   --colgap: 44px;
 }
 
@@ -181,6 +181,8 @@ html[data-r="9x16"] .col-guest { max-width: none; }
   margin-top: calc(var(--g-block) * 0.9);
 }
 .w-date {
+  flex: 0 0 auto;
+  white-space: nowrap;
   font-family: var(--display);
   font-weight: 500;
   font-size: var(--date);
@@ -188,6 +190,8 @@ html[data-r="9x16"] .col-guest { max-width: none; }
   color: var(--maroon-rich);
 }
 .w-place {
+  flex: 0 0 auto;
+  white-space: nowrap;
   margin-left: auto;
   margin-right: -0.24em;
   font-family: var(--sans);
