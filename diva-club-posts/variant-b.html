@@ -23,16 +23,20 @@
   --mt: var(--m);     /* top inset of the type block (9:16 clears the Story UI) */
   --ttl: 90px;        /* display size */
   --host: 47px;
-  --lbl: 15px;
+  --lbl: 19px;
   --topic: 34px;
   --name: 30px;
   --role: 25px;
   --date: 48px;
+  --place: 23px;      /* venue: its own floor, not a fraction of --date */
   --logo: 128px;
 
   --horizon: 698px;   /* y of the blush field edge */
-  --fw1: 680px; --fx1: -84px; --fy1: 706px;   /* Mohinur  */
-  --fw2: 600px; --fx2: 605px; --fy2: 738px;   /* Sarvinoz */
+  /* Both women are scaled about their OWN bleed edge (the source column that
+     lands on the canvas edge is held constant), so each keeps exactly the edge
+     crop she had while the empty blush column between them closes. */
+  --fw1: 748px; --fx1: -92px; --fy1: 706px;   /* Mohinur  */
+  --fw2: 660px; --fx2: 558px; --fy2: 742px;   /* Sarvinoz */
 
   --g-host: 18px;     /* title -> host */
   --g-rule: 48px;     /* host  -> rule */
@@ -40,7 +44,8 @@
   --g-cols: 36px;     /* block -> rule */
   --g-when: calc(var(--g-block) * 0.9);  /* gold rule -> date row */
   --colgap: 56px;
-  --rule-h: 9px;      /* gold rule: integer height keeps the mask raster exact */
+  --rule-h: 9px;      /* box the gold hairline sits in — holds the block rhythm */
+  --rule-w: 36%;      /* gold rule length, as a fraction of the measure */
 }
 
 /* 9:16 is read as a Story: platform chrome eats roughly the top 140px and the
@@ -51,24 +56,37 @@
 html[data-r="9x16"] .canvas {
   --m: 96px; --mt: 150px;
   --ttl: 126px; --host: 60px; --lbl: 17px; --topic: 44px;
-  --name: 42px; --role: 30px; --date: 64px; --logo: 156px;
+  --name: 42px; --role: 30px; --date: 64px; --place: 26px; --logo: 156px;
   --horizon: 1035px;
-  --fw1: 870px; --fx1: -285px; --fy1: 1025px;
-  --fw2: 800px; --fx2: 583px;  --fy2: 1054px;
+  /* The 9:16 used to be cut at 68.6% down Mohinur's frame — below the
+     collarbone, straight across the décolletage, leaving the last ~220px of a
+     Story as bare shoulder and empty blush. Scaling her about the left edge
+     (same edge crop, 12% larger) walks the canvas cut back up her body to the
+     shoulder line: source row 1766 -> 1578, i.e. the crop line moves ~107px up
+     her at the new scale. Sarvinoz is scaled the same way and re-seated so the
+     two eye-lines stay on one line. */
+  --fw1: 974px; --fx1: -319px; --fy1: 1025px;
+  --fw2: 896px; --fx2: 523px;  --fy2: 1057px;
   --g-host: 22px; --g-rule: 40px; --g-block: 36px; --g-cols: 36px;
   --g-when: 23px; --rule-h: 12px;
 }
 
 html[data-r="1x1"] .canvas {
   --m: 76px;
-  --ttl: 67px; --host: 36px; --lbl: 13px; --topic: 28px;
-  --name: 25px; --role: 21px; --date: 41px; --logo: 104px;
+  /* Square carries the smallest type in the set, so the sub-head levels are on
+     their own legibility floor rather than on a strict ratio down from --topic:
+     at feed scale (x0.37) a 1080px post is read at ~400px, and below ~10px a
+     line stops reading as words. topic/name/role/label are sized from that
+     floor up, which compresses the hierarchy here on purpose. */
+  --ttl: 67px; --host: 36px; --lbl: 17px; --topic: 30px;
+  --name: 28px; --role: 24px; --date: 41px; --place: 20px; --logo: 104px;
   --horizon: 562px;
   /* Square: at this scale both women only just missed the side edges (20px and
      18px of blush) — a tangent that reads as an accident. Nudged outward so each
-     is genuinely cropped by her own edge, as they are in 4:5 and 9:16. */
-  --fw1: 620px; --fx1: -72px; --fy1: 570px;
-  --fw2: 555px; --fx2: 585px; --fy2: 596px;
+     is genuinely cropped by her own edge, as they are in 4:5 and 9:16, then
+     scaled about that same edge so the crop is unchanged and the pair closes up. */
+  --fw1: 682px; --fx1: -79px; --fy1: 570px;
+  --fw2: 610px; --fx2: 536px; --fy2: 599px;
   --g-host: 13px; --g-rule: 30px; --g-block: 18px; --g-cols: 22px;
   --colgap: 44px;
   --rule-h: 8px;
@@ -183,23 +201,22 @@ html[data-r="9x16"] .cols { flex-direction: column; align-items: stretch; gap: 3
   color: rgba(147, 6, 31, 0.9);
 }
 
-/* The post's single ornament: a hairline rule with one anchor dot, in gold.
-   Geometry is pinned to an integer --rule-h (so the mask rasterises on whole
-   device pixels and the drawn line keeps the same hairline weight in every
-   ratio); the width then follows the SVG's own 600:16 box, and mask-size
-   100% 100% fills it exactly instead of letting `contain` round the raster
-   down and float the artwork inside the element.
-   The artwork's line starts 23.25/600 in from its own left edge, so the
-   element is pulled left by that much: without it the only ornament in the
-   post sits 10-23px inside the margin and breaks the left column. */
-.dot-rule {
+/* The post's single ornament: one gold hairline above the date.
+   It used to be mark-rule-dot.svg, drawn as a mask — a short rule carrying a
+   dot. Two things were wrong with that. The dot was the last vintage-invitation
+   gesture in an otherwise modern block, and it was anchored to nothing in the
+   layout. And the SVG draws its line at 1.5/16 of the element height, so the
+   same "hairline" rendered at 1.125px on 9:16, 0.84px on 4:5 and 0.75px on 1:1
+   — one rule, three weights, none of them matching the 1px .hair above it.
+   Drawn in CSS instead: a true 1px line, vertically centred in a --rule-h box
+   so the block's vertical rhythm is byte-for-byte what it was, starting exactly
+   on the margin (the mask needed a -1.45em nudge to fake that), and --rule-w
+   makes its length the same fraction of the measure in all three ratios. */
+.rule-when {
   margin-top: var(--g-cols);
-  margin-left: calc(var(--rule-h) * -1.453);
-  width: calc(var(--rule-h) * 37.5);
+  width: var(--rule-w);
   height: var(--rule-h);
-  -webkit-mask: url("assets/orn/mark-rule-dot.svg") left center/100% 100% no-repeat;
-  mask: url("assets/orn/mark-rule-dot.svg") left center/100% 100% no-repeat;
-  background: var(--gold-deep);
+  background: linear-gradient(var(--gold-deep), var(--gold-deep)) left center / 100% 1px no-repeat;
 }
 
 /* ---------------------------- date row ---------------------------- */
@@ -225,7 +242,7 @@ html[data-r="9x16"] .cols { flex-direction: column; align-items: stretch; gap: 3
   margin-right: -0.24em;
   font-family: var(--sans);
   font-weight: 400;
-  font-size: calc(var(--date) * 0.4);
+  font-size: var(--place);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--maroon);
@@ -263,7 +280,7 @@ html[data-r="9x16"] .cols { flex-direction: column; align-items: stretch; gap: 3
       </div>
     </div>
 
-    <div class="dot-rule"></div>
+    <div class="rule-when"></div>
 
     <div class="when">
       <span class="w-date num">16-sentabr</span>
