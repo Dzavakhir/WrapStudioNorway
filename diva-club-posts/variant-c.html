@@ -179,8 +179,18 @@
   margin-top: 4px;
 }
 
-/* guest portrait — frameless hard-cut crop, warm-graded into the palette */
-.sarv, .duo { position: relative; overflow: hidden; background: #d8b8b0; }
+/* guest portrait — background-removed cutout standing directly on the maroon.
+   No box: the only edges are her own silhouette, and a radial mask dissolves
+   the extremes of her hair back into the ground. The tint layer is masked by
+   the same cutout so it grades HER, never the ground behind her. */
+.sarv, .duo {
+  position: relative;
+  -webkit-mask-image: radial-gradient(var(--dr) var(--drv) at var(--dcx) var(--dcy),
+                        #000 var(--d0), rgba(0,0,0,0) var(--d1));
+          mask-image: radial-gradient(var(--dr) var(--drv) at var(--dcx) var(--dcy),
+                        #000 var(--d0), rgba(0,0,0,0) var(--d1));
+  --dr: 60%; --drv: 56%; --dcx: 52%; --dcy: 39%; --d0: 88%; --d1: 132%;
+}
 .sarv { flex: 0 0 auto; width: var(--sw); height: var(--sh); }
 .sarv > img, .duo > img {
   position: absolute;
@@ -189,13 +199,22 @@
   left: var(--sx);
   top: var(--sy);
   display: block;
-  filter: saturate(0.9) contrast(1.02) brightness(0.97);
+  filter: saturate(0.95) contrast(1.03) brightness(0.84);
 }
+/* warm density so she is lit for the same post as the maroon-washed hero */
 .sarv::after, .duo::after {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(200deg, rgba(228,198,182,0.28), rgba(194,132,124,0.44));
+  background: linear-gradient(200deg, rgba(216,154,148,0.30), rgba(190,116,116,0.44));
   mix-blend-mode: multiply;
+  -webkit-mask-image: url("assets/cutout/sarvinoz-cut-soft.png");
+          mask-image: url("assets/cutout/sarvinoz-cut-soft.png");
+  -webkit-mask-size: auto var(--sz);
+          mask-size: auto var(--sz);
+  -webkit-mask-position: var(--sx) var(--sy);
+          mask-position: var(--sx) var(--sy);
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
 }
 .duo { display: none; }
 
@@ -249,7 +268,7 @@ html[data-r="1x1"] .canvas {
   --band: 548px;
   --seam: 660px;
   --hz: 230%; --hx: -91px; --hy: -104px;
-  --sz: 235%; --sx: -189px; --sy: -133px;
+  --sz: 212%; --sx: -180px; --sy: 10px;
   --t-title: 62px; --t-with: 32px; --t-label: 13px; --t-theme: 28px;
   --t-name: 28px; --t-role: 22px; --t-date: 36px; --t-city: 16px;
   --gutter: 48px;
@@ -263,8 +282,9 @@ html[data-r="1x1"] .mark { width: 150px; top: 62px; left: 62px; }
 html[data-r="1x1"] .duo {
   display: block;
   position: absolute;
-  top: 0; left: var(--seam); right: 0;
-  height: var(--band);
+  top: 0; left: 600px; right: 0;
+  height: 640px;
+  --dr: 58%; --drv: 54%; --dcx: 52%; --dcy: 40%; --d0: 86%; --d1: 130%;
 }
 html[data-r="1x1"] .sarv { display: none; }
 html[data-r="1x1"] .r1 { margin-top: 26px; }
@@ -285,7 +305,7 @@ html[data-r="1x1"] .when { margin-top: 22px; }
     <div class="scrim"></div>
   </div>
 
-  <div class="duo"><img src="assets/derived/sarvinoz-warm.jpg" alt="Sarvinoz Alisherovna"></div>
+  <div class="duo"><img src="assets/cutout/sarvinoz-cut-soft.png" alt="Sarvinoz Alisherovna"></div>
 
   <div class="layer grain"></div>
 
@@ -311,7 +331,7 @@ html[data-r="1x1"] .when { margin-top: 22px; }
         </div>
       </div>
 
-      <div class="sarv"><img src="assets/derived/sarvinoz-warm.jpg" alt="Sarvinoz Alisherovna"></div>
+      <div class="sarv"><img src="assets/cutout/sarvinoz-cut-soft.png" alt="Sarvinoz Alisherovna"></div>
     </div>
 
     <div class="rule r2"></div>

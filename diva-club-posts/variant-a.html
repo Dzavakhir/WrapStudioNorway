@@ -29,16 +29,19 @@
   --gapHost: 12px;
 
   --figW: 560px;            /* photo box width  — drives the figure scale  */
-  --figH: 640px;            /* photo box height — drives the crop          */
+  --figH: 656px;            /* photo box height — drives the crop          */
   --figOv: 196px;           /* how far the two boxes overlap               */
-  --stageTop: 400px;
-  --fadeA: 46%;             /* body fully opaque until here                */
-  --fadeB: 84%;             /* body fully dissolved from here              */
+  --stageTop: 452px;
+  --stageShift: 17px;       /* centres the pair on the two FACES, not boxes */
+  --fadeA: 48%;             /* body fully opaque until here                */
+  --fadeB: 82%;             /* body fully dissolved from here              */
+  --sinkA: 26%;             /* maroon starts drinking the body here        */
+  --sinkM: 58%;
 
-  --namesTop: 862px;
+  --namesTop: 866px;
   --capW: 420px;
-  --capOff: calc((var(--figW) - var(--figOv)) / 2);
-  --scrimTop: 660px;
+  --capOff: 154px;
+  --scrimTop: 690px;
 
   /* ---------------- type ---------------- */
   --fsTitle: 78px;  --lhTitle: 1.0;
@@ -82,6 +85,7 @@ figure { margin: 0; }
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  transform: translateX(var(--stageShift));
 }
 .fig {
   position: relative;
@@ -94,7 +98,31 @@ figure { margin: 0; }
 }
 .fig--s { margin-left: calc(var(--figOv) * -1); }
 .fig--m img { filter: brightness(1.05) contrast(1.02); }
-.fig--s img { filter: brightness(.98) contrast(1.03) saturate(.90); }
+.fig--s img { filter: brightness(.97) contrast(1.03) saturate(.88); }
+
+/* the maroon the body is drunk by — clipped to each silhouette (same crop as
+   the photo) so the shoulders sink into shadow instead of ghosting out */
+.sink {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(60, 3, 16, 0)   var(--sinkA),
+    rgba(56, 3, 14, .52) var(--sinkM),
+    rgba(50, 2, 13, .93) var(--fadeB),
+    rgba(48, 2, 12, 1)  100%);
+  -webkit-mask-size: cover;         mask-size: cover;
+  -webkit-mask-repeat: no-repeat;   mask-repeat: no-repeat;
+}
+.fig--m .sink {
+  -webkit-mask-image: url("assets/cutout/mohinur-cut-soft.png");
+          mask-image: url("assets/cutout/mohinur-cut-soft.png");
+  -webkit-mask-position: 50% 16%;   mask-position: 50% 16%;
+}
+.fig--s .sink {
+  -webkit-mask-image: url("assets/cutout/sarvinoz-cut-soft.png");
+          mask-image: url("assets/cutout/sarvinoz-cut-soft.png");
+  -webkit-mask-position: 46% 14%;   mask-position: 46% 14%;
+}
 
 /* -------------------------------------------------------------------- head */
 .head {
@@ -243,11 +271,12 @@ figure { margin: 0; }
 /* ===================================================================== 9:16 */
 html[data-r="9x16"] .canvas {
   --padX: 88px; --gTop: 100px; --gBot: 96px;
-  --logoW: 178px; --gapLogo: 44px; --gapHost: 16px;
-  --figW: 551px; --figH: 820px; --figOv: 198px;
-  --stageTop: 546px; --fadeA: 62%; --fadeB: 96%;
-  --namesTop: 1252px; --capW: 430px; --scrimTop: 1010px;
-  --fsTitle: 96px; --fsHost: 47px;
+  --logoW: 190px; --gapLogo: 44px; --gapHost: 16px;
+  --figW: 562px; --figH: 830px; --figOv: 220px;
+  --stageTop: 566px; --stageShift: 17px;
+  --fadeA: 64%; --fadeB: 92%; --sinkA: 36%; --sinkM: 68%;
+  --namesTop: 1300px; --capW: 420px; --capOff: 143px; --scrimTop: 1040px;
+  --fsTitle: 102px; --fsHost: 47px;
   --fsTag: 17px; --fsName: 40px; --fsRole: 28px;
   --fsLbl: 19px; --fsTopic: 56px; --fsTopic2: 39px;
   --fsDate: 57px; --fsCity: 25px;
@@ -257,24 +286,26 @@ html[data-r="9x16"] .canvas {
 /* ====================================================================== 4:5 */
 html[data-r="4x5"] .canvas {
   --padX: 78px; --gTop: 74px; --gBot: 70px;
-  --logoW: 146px; --gapLogo: 30px; --gapHost: 12px;
-  --figW: 560px; --figH: 640px; --figOv: 196px;
-  --stageTop: 400px; --fadeA: 46%; --fadeB: 84%;
-  --namesTop: 860px; --capW: 420px; --scrimTop: 650px;
+  --logoW: 152px; --gapLogo: 30px; --gapHost: 12px;
+  --figW: 560px; --figH: 656px; --figOv: 196px;
+  --stageTop: 452px; --stageShift: 17px;
+  --fadeA: 48%; --fadeB: 82%; --sinkA: 26%; --sinkM: 58%;
+  --namesTop: 866px; --capW: 420px; --capOff: 154px; --scrimTop: 690px;
   --fsTitle: 78px; --fsHost: 40px;
   --fsTag: 15px; --fsName: 32px; --fsRole: 24px;
   --fsLbl: 16px; --fsTopic: 45px; --fsTopic2: 32px;
   --fsDate: 47px; --fsCity: 21px;
-  --markW: 240px; --gapMark: 28px; --gapWhen: 24px; --whenGap: 30px;
+  --markW: 240px; --gapMark: 24px; --gapWhen: 22px; --whenGap: 30px;
 }
 
 /* ====================================================================== 1:1 */
 html[data-r="1x1"] .canvas {
   --padX: 72px; --gTop: 62px; --gBot: 60px;
-  --logoW: 118px; --gapLogo: 20px; --gapHost: 8px;
-  --figW: 567px; --figH: 640px; --figOv: 198px;
-  --stageTop: 340px; --fadeA: 30%; --fadeB: 62%;
-  --namesTop: 662px; --capW: 400px; --scrimTop: 520px;
+  --logoW: 124px; --gapLogo: 20px; --gapHost: 8px;
+  --figW: 567px; --figH: 660px; --figOv: 198px;
+  --stageTop: 358px; --stageShift: 17px;
+  --fadeA: 32%; --fadeB: 66%; --sinkA: 14%; --sinkM: 44%;
+  --namesTop: 656px; --capW: 400px; --capOff: 156px; --scrimTop: 520px;
   --fsTitle: 60px; --fsHost: 33px;
   --fsTag: 14px; --fsName: 29px; --fsRole: 22px;
   --fsLbl: 15px; --fsTopic: 38px; --fsTopic2: 27px;
@@ -290,9 +321,11 @@ html[data-r="1x1"] .canvas {
   <div class="stage">
     <figure class="fig fig--m">
       <img class="ph ph--mohinur" src="assets/cutout/mohinur-cut-soft.png" alt="Mohinur Abdullayeva">
+      <span class="sink"></span>
     </figure>
     <figure class="fig fig--s">
       <img class="ph ph--sarvinoz" src="assets/cutout/sarvinoz-cut-soft.png" alt="Sarvinoz Alisherovna">
+      <span class="sink"></span>
     </figure>
   </div>
 
