@@ -36,13 +36,19 @@
   --maskX: 6%;              /* softener where a silhouette runs out of frame */
   --fadeA: 48%;             /* body fully opaque until here                */
   --fadeB: 82%;             /* body fully dissolved from here              */
-  --sinkA: 26%;             /* maroon starts drinking the body here        */
-  --sinkM: 58%;
+  /* The dissolve must never reach a face. Measured against the cutouts:
+     Mohinur's chin sits at 48.2% of the figure box, Sarvinoz's at 40.0%
+     (they are cropped to the same eye-line, so this holds in every ratio).
+     --sinkA is therefore always set BELOW 48.2%, and --scrimTop below the
+     absolute y of that same chin. */
+  --sinkA: 52%;             /* maroon starts drinking the body here        */
+  --sinkM: 66%;
 
   --namesTop: 866px;
   --capW: 420px;
   --capOff: 154px;
-  --scrimTop: 690px;
+  --scrimTop: 800px;
+  --gapCity: 12px;
 
   /* ---------------- type ---------------- */
   --fsTitle: 78px;  --lhTitle: 1.0;
@@ -63,16 +69,18 @@ figure { margin: 0; }
     linear-gradient(180deg, #7f0d20 0%, #6d0518 26%, #560314 56%, #3c0210 82%, #2c0210 100%);
 }
 
-/* the maroon the lower bodies sink into */
+/* The maroon the lower bodies sink into. It starts below the lower of the two
+   chins (see --scrimTop) and then rises quickly, so the caption band always
+   has a dark bed without any shadow ever reaching a face. */
 .scrim {
   position: absolute;
   left: 0; right: 0; bottom: 0;
   top: var(--scrimTop);
   background: linear-gradient(180deg,
     rgba(58, 3, 15, 0) 0%,
-    rgba(55, 3, 14, .34) 28%,
-    rgba(50, 2, 13, .78) 54%,
-    rgba(44, 2, 12, .95) 74%,
+    rgba(56, 3, 14, .38) 15%,
+    rgba(50, 2, 13, .80) 45%,
+    rgba(44, 2, 12, .95) 70%,
     #2c0210 100%);
   pointer-events: none;
 }
@@ -294,19 +302,25 @@ figure { margin: 0; }
   color: rgba(251, 244, 234, .86);
 }
 
-/* ===================================================================== 9:16 */
+/* ===================================================================== 9:16
+   A 9:16 post is read as a Story, where the platform paints its own UI over
+   roughly the top 140px and the bottom 250px of the 1080x1920 frame. So the
+   whole composition is built inside y 140..1670: the logo starts at 146, the
+   venue line ends at 1666, and the dark foot of the ground below it is left
+   deliberately empty. Standalone it reads as a poster with a deep bottom
+   margin; in a Story nothing that matters is ever covered.                */
 html[data-r="9x16"] .canvas {
-  --padX: 88px; --gTop: 96px; --gBot: 92px;
-  --logoW: 178px; --gapLogo: 38px; --gapHost: 14px;
+  --padX: 88px; --gTop: 146px; --gBot: 254px;
+  --logoW: 168px; --gapLogo: 32px; --gapHost: 12px;
   --figW: 690px; --figH: 885px; --figOv: 296px;
-  --stageTop: 548px; --stageShift: 12px; --maskX: 9%;
-  --fadeA: 58%; --fadeB: 77%; --sinkA: 46%; --sinkM: 60%;
-  --namesTop: 1262px; --capW: 420px; --capOff: 162px; --scrimTop: 1060px;
-  --fsTitle: 96px; --fsHost: 47px;
+  --stageTop: 568px; --stageShift: 12px; --maskX: 9%;
+  --fadeA: 55%; --fadeB: 73%; --sinkA: 49%; --sinkM: 61%;
+  --namesTop: 1126px; --capW: 420px; --capOff: 162px; --scrimTop: 1000px;
+  --fsTitle: 90px; --fsHost: 45px;
   --fsTag: 18px; --fsName: 42px; --fsRole: 29px;
   --fsLbl: 19px; --fsTopic: 58px; --fsTopic2: 39px;
   --fsDate: 58px; --fsCity: 25px;
-  --markW: 300px; --gapMark: 36px; --gapWhen: 28px; --whenGap: 40px; --gapCity: 14px;
+  --markW: 300px; --gapMark: 24px; --gapWhen: 20px; --whenGap: 40px; --gapCity: 13px;
 }
 
 /* ====================================================================== 4:5 */
@@ -315,8 +329,8 @@ html[data-r="4x5"] .canvas {
   --logoW: 152px; --gapLogo: 30px; --gapHost: 12px;
   --figW: 560px; --figH: 656px; --figOv: 196px;
   --stageTop: 452px; --stageShift: 17px; --maskX: 6%;
-  --fadeA: 52%; --fadeB: 84%; --sinkA: 26%; --sinkM: 56%;
-  --namesTop: 858px; --capW: 420px; --capOff: 154px; --scrimTop: 690px;
+  --fadeA: 52%; --fadeB: 84%; --sinkA: 52%; --sinkM: 64%;
+  --namesTop: 858px; --capW: 420px; --capOff: 154px; --scrimTop: 800px;
   --fsTitle: 78px; --fsHost: 40px;
   --fsTag: 15px; --fsName: 32px; --fsRole: 24px;
   --fsLbl: 16px; --fsTopic: 45px; --fsTopic2: 32px;
@@ -330,8 +344,8 @@ html[data-r="1x1"] .canvas {
   --logoW: 108px; --gapLogo: 12px; --gapHost: 4px;
   --figW: 537px; --figH: 690px; --figOv: 138px;
   --stageTop: 308px; --stageShift: 16px; --maskX: 6%;
-  --fadeA: 48%; --fadeB: 66%; --sinkA: 30%; --sinkM: 52%;
-  --namesTop: 698px; --capW: 400px; --capOff: 173px; --scrimTop: 560px;
+  --fadeA: 48%; --fadeB: 66%; --sinkA: 47%; --sinkM: 58%;
+  --namesTop: 698px; --capW: 400px; --capOff: 173px; --scrimTop: 652px;
   --fsTitle: 54px; --fsHost: 30px;
   --fsTag: 13px; --fsName: 27px; --fsRole: 21px;
   --fsLbl: 14px; --fsTopic: 34px; --fsTopic2: 24px;
