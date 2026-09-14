@@ -28,7 +28,8 @@
   --gapLogo: 30px;
   --gapHost: 12px;
 
-  --figW: 560px;            /* photo box width  — drives the figure scale  */
+  --figW: 560px;            /* Mohinur's box width — drives the figure scale */
+  --figWs: 560px;           /* Sarvinoz's box width — narrower crops her hair */
   --figH: 656px;            /* photo box height — drives the crop          */
   --figOv: 196px;           /* how far the two boxes overlap               */
   --stageTop: 452px;
@@ -36,18 +37,25 @@
   --maskX: 6%;              /* softener where a silhouette runs out of frame */
   --fadeA: 48%;             /* body fully opaque until here                */
   --fadeB: 82%;             /* body fully dissolved from here              */
-  /* The dissolve must never reach a face. Measured against the cutouts:
-     Mohinur's chin sits at 48.2% of the figure box, Sarvinoz's at 40.0%
-     (they are cropped to the same eye-line, so this holds in every ratio).
-     --sinkA is therefore always set BELOW 48.2%, and --scrimTop below the
-     absolute y of that same chin. */
+  /* The dissolve must never reach a face. Chins measured off the renders and
+     carried back to the source frame: Mohinur's chin is at source y≈1060 of
+     2576, Sarvinoz's at y≈1003 (she rests it on her hand, so her fingers run
+     lower still). Both --sinkA/--sinkAs and --scrimTop are always set BELOW
+     the rendered y of those chins — see each ratio block for the arithmetic. */
   --sinkA: 52%;             /* maroon starts drinking the body here        */
   --sinkM: 66%;
+  --sinkE: 82%;             /* body essentially all maroon from here       */
+  /* Sarvinoz wears white: her blouse needs the maroon earlier and harder than
+     Mohinur's dark gown, or the caption band under her sits on a blotchy tail. */
+  --sinkAs: var(--sinkA);
+  --sinkMs: var(--sinkM);
+  --sinkEs: var(--sinkE);
 
   --namesTop: 866px;
   --capW: 420px;
   --capOff: 154px;
   --scrimTop: 800px;
+  --scrimOp: 1;
   --gapCity: 12px;
 
   /* ---------------- type ---------------- */
@@ -55,7 +63,7 @@
   --fsHost: 40px;
   --fsTag: 15px;  --fsName: 32px;  --fsRole: 24px;
   --fsLbl: 16px;  --fsTopic: 45px; --fsTopic2: 32px;
-  --fsDate: 47px; --fsCity: 21px;
+  --fsDate: 47px; --fwDate: 600; --fsCity: 21px;
   --markW: 240px; --gapMark: 28px; --gapWhen: 24px; --whenGap: 30px;
 }
 
@@ -76,12 +84,13 @@ figure { margin: 0; }
   position: absolute;
   left: 0; right: 0; bottom: 0;
   top: var(--scrimTop);
+  opacity: var(--scrimOp);
   background: linear-gradient(180deg,
     rgba(58, 3, 15, 0) 0%,
-    rgba(56, 3, 14, .38) 15%,
-    rgba(50, 2, 13, .80) 45%,
-    rgba(44, 2, 12, .95) 70%,
-    #2c0210 100%);
+    rgba(56, 3, 14, .36) 15%,
+    rgba(50, 2, 13, .76) 45%,
+    rgba(44, 2, 12, .88) 70%,
+    rgba(40, 2, 11, .92) 100%);
   pointer-events: none;
 }
 
@@ -111,7 +120,7 @@ figure { margin: 0; }
   -webkit-mask-image: linear-gradient(180deg, #000 var(--fadeA), rgba(0,0,0,0) var(--fadeB));
           mask-image: linear-gradient(180deg, #000 var(--fadeA), rgba(0,0,0,0) var(--fadeB));
 }
-.fig--s { margin-left: calc(var(--figOv) * -1); }
+.fig--s { width: var(--figWs); margin-left: calc(var(--figOv) * -1); }
 /* softens the one place a silhouette runs out of its own frame (the hem of
    Mohinur's gown) so no straight cut ever shows against the ground */
 .fig-in {
@@ -133,17 +142,17 @@ figure { margin: 0; }
   background: linear-gradient(180deg,
     rgba(60, 3, 16, 0)   var(--sinkA),
     rgba(57, 3, 15, .62) var(--sinkM),
-    rgba(50, 2, 13, .93) var(--fadeB),
-    rgba(48, 2, 12, 1)  100%);
+    rgba(50, 2, 13, .93) var(--sinkE),
+    rgba(48, 2, 12, .96) 100%);
   -webkit-mask-size: cover;         mask-size: cover;
   -webkit-mask-repeat: no-repeat;   mask-repeat: no-repeat;
 }
 .fig--s .sink {
   background: linear-gradient(180deg,
-    rgba(60, 3, 16, 0)   var(--sinkA),
-    rgba(57, 3, 15, .76) var(--sinkM),
-    rgba(50, 2, 13, .97) var(--fadeB),
-    rgba(48, 2, 12, 1)  100%);
+    rgba(60, 3, 16, 0)   var(--sinkAs),
+    rgba(57, 3, 15, .80) var(--sinkMs),
+    rgba(50, 2, 13, .97) var(--sinkEs),
+    rgba(48, 2, 12, .99) 100%);
 }
 .fig--m .sink {
   -webkit-mask-image: url("assets/cutout/mohinur-cut-soft.png");
@@ -268,16 +277,24 @@ figure { margin: 0; }
           mask: url("assets/orn/mark-rule-dot.svg") center/contain no-repeat;
   background: var(--gold);
 }
+/* 4:5 and 1:1 stack the venue under the date; 9:16 sets the whole thing as one
+   band (see that block) so the Story's strongest bottom line is a single row. */
+.whenwrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--gapWhen);
+}
 .when {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--whenGap);
-  margin-top: var(--gapWhen);
 }
+.v--city { display: none; }
 .d {
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: var(--fwDate);
   font-size: var(--fsDate);
   line-height: 1.1;
   letter-spacing: .004em;
@@ -304,24 +321,46 @@ figure { margin: 0; }
 
 /* ===================================================================== 9:16
    A 9:16 post is read as a Story, where the platform paints its own UI over
-   roughly the top 140px and the bottom 250px of the 1080x1920 frame. So the
-   whole composition is built inside y 140..1670: the logo starts at 146, the
-   venue line ends at 1666, and the dark foot of the ground below it is left
-   deliberately empty. Standalone it reads as a poster with a deep bottom
-   margin; in a Story nothing that matters is ever covered.                */
+   roughly the top 140px and the bottom 250px of the 1080x1920 frame. The date
+   and the venue therefore stay above y1670 — but the PICTURE does not have to.
+   So the pair is scaled up until it spans the full width (Mohinur dissolving
+   into the left edge, Sarvinoz's hair into the right) and its crop runs on
+   past the type, the bodies sinking into the maroon all the way down. That
+   fills the strip the type has to leave alone, instead of leaving it blank.
+
+   Geometry, all measured rather than guessed (source frame 1717x2576):
+     figH 1262 > 1.5 x figW, so COVER is height-driven: scale k = 1262/2576
+     = 0.4899 (the old pair ran at 0.4018 — faces are 22% larger).
+     Mohinur's box 700 wide, Sarvinoz's 620: the narrower box crops the outer
+     6% of her hair sweep, which is what used to force the pair to stay small.
+     pair = 700 + 620 - 231 = 1089 wide, centred then nudged -5 -> her box
+     right lands exactly on x1080, so the hair dissolves into the edge.
+     hair top 554 | Mohinur chin 1022 | Sarvinoz chin 995 | stage foot 1765  */
 html[data-r="9x16"] .canvas {
-  --padX: 88px; --gTop: 146px; --gBot: 254px;
-  --logoW: 168px; --gapLogo: 32px; --gapHost: 12px;
-  --figW: 690px; --figH: 885px; --figOv: 296px;
-  --stageTop: 568px; --stageShift: 12px; --maskX: 9%;
-  --fadeA: 55%; --fadeB: 73%; --sinkA: 49%; --sinkM: 61%;
-  --namesTop: 1126px; --capW: 420px; --capOff: 162px; --scrimTop: 1000px;
-  --fsTitle: 90px; --fsHost: 45px;
-  --fsTag: 18px; --fsName: 42px; --fsRole: 29px;
-  --fsLbl: 19px; --fsTopic: 58px; --fsTopic2: 39px;
-  --fsDate: 58px; --fsCity: 25px;
-  --markW: 300px; --gapMark: 24px; --gapWhen: 20px; --whenGap: 40px; --gapCity: 13px;
+  --padX: 88px; --gTop: 232px; --gBot: 248px;
+  --logoW: 132px; --gapLogo: 22px; --gapHost: 8px;
+  --figW: 700px; --figWs: 620px; --figH: 1262px; --figOv: 231px;
+  --stageTop: 557px; --stageShift: -5px; --maskX: 9%;
+  /* Chins measured on the render: Mohinur y1116 = 44.3% of the box, Sarvinoz
+     (chin on her hand) y1084 = 41.8%. Every sink stop starts ~34px under its
+     own chin. The bodies then stay at full alpha, just sunk, so the caption
+     band has one even ground instead of a half-dissolved blouse; only the
+     last 14% of the box tapers, carrying the pair to the canvas foot. */
+  --fadeA: 86%; --fadeB: 100%;
+  --sinkA: 47%; --sinkM: 53%; --sinkE: 59%;
+  --sinkAs: 44.5%; --sinkMs: 48.5%; --sinkEs: 52%;
+  --namesTop: 1215px; --capW: 420px; --capOff: 168px;
+  --scrimTop: 1130px; --scrimOp: .62;
+  --fsTitle: 84px; --fsHost: 42px;
+  --fsTag: 21px; --fsName: 34px; --fsRole: 26px;
+  --fsLbl: 22px; --fsTopic: 56px; --fsTopic2: 36px;
+  --fsDate: 68px; --fsCity: 25px;
+  --markW: 300px; --gapMark: 12px; --gapWhen: 12px; --whenGap: 34px;
 }
+/* one band: 16-sentabr | 11:00 | TOSHKENT SH. */
+html[data-r="9x16"] .whenwrap { flex-direction: row; justify-content: center; gap: var(--whenGap); }
+html[data-r="9x16"] .v--city { display: block; }
+html[data-r="9x16"] .city { margin: 0; }
 
 /* ====================================================================== 4:5 */
 html[data-r="4x5"] .canvas {
@@ -402,12 +441,15 @@ html[data-r="1x1"] .nm { white-space: nowrap; }
     <p class="topic">Shukronalik hissi.</p>
     <p class="topic2">1 ta katta maqsad uchun ongni tayyorlash</p>
     <div class="mark"></div>
-    <div class="when">
-      <span class="d num">16-sentabr</span>
-      <i class="v"></i>
-      <span class="d num">11:00</span>
+    <div class="whenwrap">
+      <div class="when">
+        <span class="d num">16-sentabr</span>
+        <i class="v"></i>
+        <span class="d num">11:00</span>
+      </div>
+      <i class="v v--city"></i>
+      <p class="city">Toshkent sh.</p>
     </div>
-    <p class="city">Toshkent sh.</p>
   </footer>
 </div>
 </body>

@@ -11,7 +11,8 @@
    Cream ground, maroon ink, one flat blush field. The two women are
    background-removed cutouts placed at full editorial scale, frameless,
    cropped only by the canvas edge. Clean grid, wide margins, crisp modern
-   type setting, one small gold accent and nothing else.
+   type setting, two hairlines on the same measure (one maroon, one gold) that
+   bracket the info block, and nothing else.
    ======================================================================= */
 
 .canvas {
@@ -45,7 +46,6 @@
   --g-when: calc(var(--g-block) * 0.9);  /* gold rule -> date row */
   --colgap: 56px;
   --rule-h: 9px;      /* box the gold hairline sits in — holds the block rhythm */
-  --rule-w: 36%;      /* gold rule length, as a fraction of the measure */
 }
 
 /* 9:16 is read as a Story: platform chrome eats roughly the top 140px and the
@@ -84,8 +84,13 @@ html[data-r="1x1"] .canvas {
   /* Square: at this scale both women only just missed the side edges (20px and
      18px of blush) — a tangent that reads as an accident. Nudged outward so each
      is genuinely cropped by her own edge, as they are in 4:5 and 9:16, then
-     scaled about that same edge so the crop is unchanged and the pair closes up. */
-  --fw1: 682px; --fx1: -79px; --fy1: 570px;
+     scaled about that same edge so the pair closes up.
+     Mohinur carries an extra -12px here on top of the scale: the square is the
+     only ratio short enough that growing her lifts the canvas cut above the
+     widest part of her hair, and holding the source column alone would have
+     dropped her bite on the left edge from 19px to 7px — straight back into the
+     tangent. -12px restores it to 19px over 43 rows. */
+  --fw1: 682px; --fx1: -91px; --fy1: 570px;
   --fw2: 610px; --fx2: 536px; --fy2: 599px;
   --g-host: 13px; --g-rule: 30px; --g-block: 18px; --g-cols: 22px;
   --colgap: 44px;
@@ -201,20 +206,25 @@ html[data-r="9x16"] .cols { flex-direction: column; align-items: stretch; gap: 3
   color: rgba(147, 6, 31, 0.9);
 }
 
-/* The post's single ornament: one gold hairline above the date.
-   It used to be mark-rule-dot.svg, drawn as a mask — a short rule carrying a
-   dot. Two things were wrong with that. The dot was the last vintage-invitation
-   gesture in an otherwise modern block, and it was anchored to nothing in the
-   layout. And the SVG draws its line at 1.5/16 of the element height, so the
-   same "hairline" rendered at 1.125px on 9:16, 0.84px on 4:5 and 0.75px on 1:1
-   — one rule, three weights, none of them matching the 1px .hair above it.
-   Drawn in CSS instead: a true 1px line, vertically centred in a --rule-h box
-   so the block's vertical rhythm is byte-for-byte what it was, starting exactly
-   on the margin (the mask needed a -1.45em nudge to fake that), and --rule-w
-   makes its length the same fraction of the measure in all three ratios. */
+/* One gold hairline above the date, running the full measure — the same span as
+   the maroon .hair above the block, so the two rules read as one system that
+   brackets the info block instead of a divider plus a dangling stub.
+   It used to be mark-rule-dot.svg, drawn as a mask: a ~30-47% stub (the length
+   varied per ratio because it was derived from --rule-h) carrying an off-centre
+   dot. At the full measure the artwork cannot come along — stretching a 600x16
+   box to 888x12 turns its round dot into an ellipse — and the dot had nothing to
+   sit on anyway: the 9:16 info block is stacked, so there is no column boundary
+   to anchor it to in all three ratios. It was also the one vintage-invitation
+   gesture left in an otherwise modern block, so it goes.
+   Drawn in CSS instead of masked, which fixes a second inconsistency: the SVG
+   strokes its line at 1.5/16 of the element height, so the same "hairline" came
+   out 1.125px on 9:16, 0.84px on 4:5 and 0.75px on 1:1 — one rule, three
+   weights, none of them matching the 1px .hair. This is a true 1px line
+   centred in a --rule-h box, so the block's vertical rhythm is unchanged to the
+   pixel, and it starts exactly on the margin (the mask needed a -1.45em nudge
+   to fake that). */
 .rule-when {
   margin-top: var(--g-cols);
-  width: var(--rule-w);
   height: var(--rule-h);
   background: linear-gradient(var(--gold-deep), var(--gold-deep)) left center / 100% 1px no-repeat;
 }
