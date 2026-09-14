@@ -20,6 +20,7 @@
   font-family: var(--serif);
 
   --m: 84px;          /* content margin */
+  --mt: var(--m);     /* top inset of the type block (9:16 clears the Story UI) */
   --ttl: 90px;        /* display size */
   --host: 47px;
   --lbl: 15px;
@@ -37,34 +38,46 @@
   --g-rule: 48px;     /* host  -> rule */
   --g-block: 26px;    /* rule  -> block */
   --g-cols: 36px;     /* block -> rule */
+  --g-when: calc(var(--g-block) * 0.9);  /* gold rule -> date row */
   --colgap: 56px;
+  --rule-h: 9px;      /* gold rule: integer height keeps the mask raster exact */
 }
 
+/* 9:16 is read as a Story: platform chrome eats roughly the top 140px and the
+   bottom 250px of the 1080x1920 frame. The type block therefore starts at 150px
+   (title cap-line lands at 164) and the whole cream field is a touch deeper, so
+   nothing that carries information sits under the UI. Both faces finish well
+   above y=1670. */
 html[data-r="9x16"] .canvas {
-  --m: 96px;
+  --m: 96px; --mt: 150px;
   --ttl: 126px; --host: 60px; --lbl: 17px; --topic: 44px;
   --name: 42px; --role: 30px; --date: 64px; --logo: 156px;
-  --horizon: 1015px;
-  --fw1: 870px; --fx1: -285px; --fy1: 1005px;
-  --fw2: 800px; --fx2: 583px;  --fy2: 1034px;
-  --g-host: 22px; --g-rule: 50px; --g-block: 36px; --g-cols: 44px;
+  --horizon: 1035px;
+  --fw1: 870px; --fx1: -285px; --fy1: 1025px;
+  --fw2: 800px; --fx2: 583px;  --fy2: 1054px;
+  --g-host: 22px; --g-rule: 40px; --g-block: 36px; --g-cols: 36px;
+  --g-when: 23px; --rule-h: 12px;
 }
 
 html[data-r="1x1"] .canvas {
   --m: 76px;
   --ttl: 67px; --host: 36px; --lbl: 13px; --topic: 28px;
   --name: 25px; --role: 21px; --date: 41px; --logo: 104px;
-  --horizon: 544px;
-  --fw1: 620px; --fx1: -32px; --fy1: 552px;
-  --fw2: 555px; --fx2: 561px; --fy2: 578px;
+  --horizon: 562px;
+  /* Square: at this scale both women only just missed the side edges (20px and
+     18px of blush) — a tangent that reads as an accident. Nudged outward so each
+     is genuinely cropped by her own edge, as they are in 4:5 and 9:16. */
+  --fw1: 620px; --fx1: -72px; --fy1: 570px;
+  --fw2: 555px; --fx2: 585px; --fy2: 596px;
   --g-host: 13px; --g-rule: 30px; --g-block: 18px; --g-cols: 22px;
   --colgap: 44px;
+  --rule-h: 8px;
 }
 
 /* 9:16 has the height for a stacked info block: the topic runs the full
    column width and the guest credit sits under it, flush right, pointing at
    the figure on the right. 4:5 and 1:1 run the same two items as columns. */
-html[data-r="9x16"] .cols { flex-direction: column; align-items: stretch; gap: 38px; }
+html[data-r="9x16"] .cols { flex-direction: column; align-items: stretch; gap: 30px; }
 
 /* ---------------------------- ground ---------------------------- */
 .horizon {
@@ -88,7 +101,7 @@ html[data-r="9x16"] .cols { flex-direction: column; align-items: stretch; gap: 3
 /* ---------------------------- type ---------------------------- */
 .head {
   position: absolute;
-  left: var(--m); right: var(--m); top: var(--m);
+  left: var(--m); right: var(--m); top: var(--mt);
   z-index: 2;
 }
 
@@ -101,6 +114,10 @@ html[data-r="9x16"] .cols { flex-direction: column; align-items: stretch; gap: 3
   font-size: var(--ttl);
   line-height: 0.98;
   letter-spacing: -0.02em;
+  /* optical margin: Playfair's cap D carries ~0.025em of side bearing, so the
+     first line would otherwise sit 3px inside the stem of "uchrashuvi" below it.
+     text-indent only touches the first line, which is exactly the one that needs it. */
+  text-indent: -0.025em;
   color: var(--maroon-rich);
 }
 
@@ -166,13 +183,22 @@ html[data-r="9x16"] .cols { flex-direction: column; align-items: stretch; gap: 3
   color: rgba(147, 6, 31, 0.9);
 }
 
-/* the post's single ornament: a hairline rule with one anchor dot, in gold */
+/* The post's single ornament: a hairline rule with one anchor dot, in gold.
+   Geometry is pinned to an integer --rule-h (so the mask rasterises on whole
+   device pixels and the drawn line keeps the same hairline weight in every
+   ratio); the width then follows the SVG's own 600:16 box, and mask-size
+   100% 100% fills it exactly instead of letting `contain` round the raster
+   down and float the artwork inside the element.
+   The artwork's line starts 23.25/600 in from its own left edge, so the
+   element is pulled left by that much: without it the only ornament in the
+   post sits 10-23px inside the margin and breaks the left column. */
 .dot-rule {
   margin-top: var(--g-cols);
-  width: calc(var(--date) * 7.2);
-  height: calc(var(--date) * 7.2 * 16 / 600);
-  -webkit-mask: url("assets/orn/mark-rule-dot.svg") left center/contain no-repeat;
-  mask: url("assets/orn/mark-rule-dot.svg") left center/contain no-repeat;
+  margin-left: calc(var(--rule-h) * -1.453);
+  width: calc(var(--rule-h) * 37.5);
+  height: var(--rule-h);
+  -webkit-mask: url("assets/orn/mark-rule-dot.svg") left center/100% 100% no-repeat;
+  mask: url("assets/orn/mark-rule-dot.svg") left center/100% 100% no-repeat;
   background: var(--gold-deep);
 }
 
@@ -181,7 +207,7 @@ html[data-r="9x16"] .cols { flex-direction: column; align-items: stretch; gap: 3
   display: flex;
   align-items: baseline;
   gap: calc(var(--date) * 0.6);
-  margin-top: calc(var(--g-block) * 0.9);
+  margin-top: var(--g-when);
 }
 .w-date {
   flex: 0 0 auto;

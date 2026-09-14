@@ -106,7 +106,13 @@
 .sarv::after {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(200deg, rgba(208,140,134,0.34), rgba(174,98,100,0.52));
+  /* bottom-weighted so the white blouse is pulled into the maroon family while
+     her face keeps the same warmth and modelling as the hero */
+  background: linear-gradient(198deg,
+      rgba(210,144,136,0.32) 0%,
+      rgba(198,126,120,0.40) 48%,
+      rgba(164,84,86,0.60) 74%,
+      rgba(132,52,60,0.78) 100%);
   mix-blend-mode: multiply;
   -webkit-mask-image: url("assets/cutout/sarvinoz-cut-soft.png");
           mask-image: url("assets/cutout/sarvinoz-cut-soft.png");
@@ -238,7 +244,7 @@
    information stack is lifted clear of the second. The portrait rides up with
    it so the type still lands below her chin, on a dark field. */
 html[data-r="9x16"] .canvas {
-  --hz: 118%; --hx: -57px; --hy: -312px;
+  --hz: 118%; --hx: -57px; --hy: -268px;
   --sz: 165%; --sx: 7px; --sy: 10px;
   --t-title: 116px; --t-with: 46px; --t-theme: 44px; --t-name: 38px;
   --t-role: 29px; --t-date: 48px; --t-city: 23px;
@@ -254,11 +260,11 @@ html[data-r="9x16"] .hero > .scrim {
       rgba(34,1,8,0.50) 0%,
       rgba(34,1,8,0.12) 7%,
       rgba(34,1,8,0.00) 18%,
-      rgba(34,1,8,0.00) 33.6%,
-      rgba(34,1,8,0.24) 36.2%,
-      rgba(34,1,8,0.64) 38.4%,
-      rgba(34,1,8,0.90) 40.4%,
-      #34020c 42.6%,
+      rgba(34,1,8,0.00) 35.9%,
+      rgba(40,1,10,0.24) 38.0%,
+      rgba(45,2,11,0.62) 39.8%,
+      rgba(50,2,12,0.90) 41.7%,
+      #34020c 43.8%,
       #34020c 100%);
 }
 html[data-r="9x16"] .title { line-height: 0.94; }
@@ -304,37 +310,51 @@ html[data-r="1x1"] .canvas {
   --t-name: 28px; --t-role: 22px; --t-date: 36px; --t-city: 16px;
   --col: 100%;
 }
-html[data-r="1x1"] .hero { inset: 0 auto auto 0; width: var(--seam); height: var(--band); }
-/* bottom edge -> ground */
+/* Both free edges are dissolved with a real alpha mask rather than a painted
+   ramp: the ground shows through itself, so there is nothing to colour-match
+   and the grain stays continuous across the transition. */
+html[data-r="1x1"] .hero {
+  inset: 0 auto auto 0;
+  width: var(--seam);
+  height: var(--band);
+  -webkit-mask-image:
+    linear-gradient(180deg, #000 410px, rgba(0,0,0,0.88) 466px,
+      rgba(0,0,0,0.60) 516px, rgba(0,0,0,0.30) 566px,
+      rgba(0,0,0,0.10) 610px, rgba(0,0,0,0) 658px),
+    linear-gradient(90deg, #000 392px, rgba(0,0,0,0.80) 444px,
+      rgba(0,0,0,0.46) 486px, rgba(0,0,0,0.18) 522px, rgba(0,0,0,0) 558px);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(180deg, #000 410px, rgba(0,0,0,0.88) 466px,
+      rgba(0,0,0,0.60) 516px, rgba(0,0,0,0.30) 566px,
+      rgba(0,0,0,0.10) 610px, rgba(0,0,0,0) 658px),
+    linear-gradient(90deg, #000 392px, rgba(0,0,0,0.80) 444px,
+      rgba(0,0,0,0.46) 486px, rgba(0,0,0,0.18) 522px, rgba(0,0,0,0) 558px);
+  mask-composite: intersect;
+}
+/* only the masthead vignette survives here — the edges are the mask's job */
 html[data-r="1x1"] .hero > .scrim {
-  background: linear-gradient(180deg,
-      rgba(34,1,8,0.34) 0px,
-      rgba(34,1,8,0.00) 96px,
-      rgba(34,1,8,0.00) 424px,
-      rgba(34,1,8,0.16) 478px,
-      rgba(34,1,8,0.46) 524px,
-      rgba(34,1,8,0.76) 568px,
-      rgba(34,1,8,0.93) 608px,
-      #34020c 650px);
+  background: linear-gradient(180deg, rgba(20,0,5,0.40) 0%, rgba(20,0,5,0) 20%);
 }
-/* left edge quieted for the masthead, right edge -> ground */
-html[data-r="1x1"] .hero > .side {
-  background: linear-gradient(90deg,
-      rgba(34,1,8,0.26) 0px,
-      rgba(34,1,8,0.00) 150px,
-      rgba(34,1,8,0.00) 396px,
-      rgba(34,1,8,0.26) 452px,
-      rgba(34,1,8,0.62) 498px,
-      rgba(34,1,8,0.90) 536px,
-      #34020c 558px);
-}
-html[data-r="1x1"] .mark { width: 150px; top: 62px; left: 62px; }
+html[data-r="1x1"] .hero > .side { background: linear-gradient(90deg, rgba(20,0,5,0.30) 0%, rgba(20,0,5,0) 26%); }
+/* +8px so the lockup's own transparent margin lands its ink on the type column */
+html[data-r="1x1"] .mark { width: 150px; top: 70px; left: 70px; }
 /* she stands past the photo block's baseline and dissolves before the type */
 html[data-r="1x1"] .sarv {
   top: 0; bottom: auto; right: 0; left: 540px;
   width: auto; height: 760px;
   -webkit-mask-image: linear-gradient(180deg, #000 72%, rgba(0,0,0,0) 97%);
           mask-image: linear-gradient(180deg, #000 72%, rgba(0,0,0,0) 97%);
+}
+/* the blouse is a much larger share of this frame — pull it down harder */
+html[data-r="1x1"] .sarv > img { filter: saturate(0.95) contrast(1.08) brightness(0.74); }
+html[data-r="1x1"] .sarv::after {
+  background: linear-gradient(197deg,
+      rgba(206,138,130,0.34) 0%,
+      rgba(192,118,112,0.44) 44%,
+      rgba(154,74,78,0.62) 64%,
+      rgba(122,44,54,0.80) 84%,
+      rgba(110,36,48,0.86) 100%);
 }
 html[data-r="1x1"] .r1 { margin-top: 26px; }
 html[data-r="1x1"] .r2 { margin-top: 24px; }
