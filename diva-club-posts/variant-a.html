@@ -8,10 +8,10 @@
 <style>
 /* =======================================================================
    VARIANT A — "Modern maroon"
-   A deep maroon field, the two women placed large and frameless (a soft
-   photographic dissolve — no ring, no window, no cut-out rectangle), and a
-   contemporary centred type grid. Decoration budget: one gold hairline,
-   two gold tick rules in the date row. Nothing else.
+   A deep maroon field; the two women stand large and frameless (background
+   removed, the body dissolving into the ground — no ring, no window, no
+   photo rectangle); a contemporary centred type grid above and below.
+   Ornament budget: one gold hairline mark above the date. Nothing else.
    ======================================================================= */
 
 .canvas {
@@ -19,7 +19,7 @@
   color: var(--cream);
   font-family: var(--serif);
 
-  /* ---- geometry (all overridden per ratio) ---- */
+  /* ---------------- geometry (all set per ratio below) ---------------- */
   --padX: 78px;
   --gTop: 74px;
   --gBot: 70px;
@@ -28,26 +28,25 @@
   --gapLogo: 30px;
   --gapHost: 12px;
 
-  --figW: 522px;
-  --figH: 640px;
-  --figOv: 120px;            /* horizontal overlap of the two photo boxes */
+  --figW: 560px;            /* photo box width  — drives the figure scale  */
+  --figH: 640px;            /* photo box height — drives the crop          */
+  --figOv: 196px;           /* how far the two boxes overlap               */
   --stageTop: 400px;
-  --maskX: 15%;              /* side dissolve   */
-  --maskT: 6%;               /* top dissolve    */
-  --maskB: 26%;              /* bottom dissolve */
+  --fadeA: 46%;             /* body fully opaque until here                */
+  --fadeB: 84%;             /* body fully dissolved from here              */
 
-  --namesTop: 860px;
-  --capW: 430px;
+  --namesTop: 862px;
+  --capW: 420px;
   --capOff: calc((var(--figW) - var(--figOv)) / 2);
-  --scrimTop: 760px;
+  --scrimTop: 660px;
 
-  /* ---- type ---- */
+  /* ---------------- type ---------------- */
   --fsTitle: 78px;  --lhTitle: 1.0;
   --fsHost: 40px;
-  --fsTag: 15px;  --fsName: 34px;  --fsRole: 25px;
+  --fsTag: 15px;  --fsName: 32px;  --fsRole: 24px;
   --fsLbl: 16px;  --fsTopic: 45px; --fsTopic2: 32px;
   --fsDate: 47px; --fsCity: 21px;
-  --hairW: 168px; --gapHair: 28px; --gapWhen: 24px; --whenGap: 30px;
+  --markW: 240px; --gapMark: 28px; --gapWhen: 24px; --whenGap: 30px;
 }
 
 figure { margin: 0; }
@@ -55,22 +54,22 @@ figure { margin: 0; }
 /* ------------------------------------------------------------------ ground */
 .ground {
   background:
-    radial-gradient(56% 32% at 50% 40%, rgba(228, 182, 172, .12), transparent 74%),
-    radial-gradient(116% 60% at 50% -8%, #9d1631 0%, #860c23 32%, rgba(134, 12, 35, 0) 72%),
-    linear-gradient(180deg, #7e0b1f 0%, #6d0519 28%, #57 0314 0%, #560314 58%, #3f0210 84%, #300210 100%);
+    radial-gradient(46% 28% at 50% 40%, rgba(234, 198, 186, .15), rgba(234, 198, 186, 0) 72%),
+    radial-gradient(118% 62% at 50% -10%, #a01834 0%, #8a0d25 34%, rgba(138, 13, 37, 0) 74%),
+    linear-gradient(180deg, #7f0d20 0%, #6d0518 26%, #560314 56%, #3c0210 82%, #2c0210 100%);
 }
 
-/* the maroon that swallows the lower half of the figures */
+/* the maroon the lower bodies sink into */
 .scrim {
   position: absolute;
   left: 0; right: 0; bottom: 0;
   top: var(--scrimTop);
   background: linear-gradient(180deg,
     rgba(58, 3, 15, 0) 0%,
-    rgba(56, 3, 14, .40) 26%,
-    rgba(51, 2, 13, .84) 52%,
-    rgba(45, 2, 12, .97) 72%,
-    #300210 100%);
+    rgba(55, 3, 14, .34) 28%,
+    rgba(50, 2, 13, .78) 54%,
+    rgba(44, 2, 12, .95) 74%,
+    #2c0210 100%);
   pointer-events: none;
 }
 
@@ -89,58 +88,13 @@ figure { margin: 0; }
   flex: 0 0 auto;
   width: var(--figW);
   height: var(--figH);
-  -webkit-mask-image: linear-gradient(180deg,
-      rgba(0,0,0,0) 0%, #000 var(--maskT),
-      #000 calc(100% - var(--maskB)), rgba(0,0,0,0) 100%);
-          mask-image: linear-gradient(180deg,
-      rgba(0,0,0,0) 0%, #000 var(--maskT),
-      #000 calc(100% - var(--maskB)), rgba(0,0,0,0) 100%);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, #000 var(--fadeA), rgba(0,0,0,0) var(--fadeB));
+          mask-image: linear-gradient(180deg, #000 var(--fadeA), rgba(0,0,0,0) var(--fadeB));
 }
 .fig--s { margin-left: calc(var(--figOv) * -1); }
-
-.fig-in {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg,
-      rgba(0,0,0,0) 0%, #000 var(--maskX),
-      #000 calc(100% - var(--maskX)), rgba(0,0,0,0) 100%);
-          mask-image: linear-gradient(90deg,
-      rgba(0,0,0,0) 0%, #000 var(--maskX),
-      #000 calc(100% - var(--maskX)), rgba(0,0,0,0) 100%);
-}
-.fig--m .fig-in img { filter: brightness(1.07) contrast(1.02) saturate(.99); }
-.fig--s .fig-in img { filter: brightness(.99) contrast(1.05) saturate(.80); }
-
-/* Each source frame carries its own studio ground — Mohinur's is near-black,
-   Sarvinoz's is beige. These two graded washes pull both of them into the
-   same maroon before the mask dissolves the edge, so neither leaves a halo. */
-.tone { position: absolute; inset: 0; }
-.fig--m .tone {
-  background: radial-gradient(58% 48% at 50% 30%,
-    rgba(112, 8, 28, 0)   24%,
-    rgba(104, 7, 25, .38) 52%,
-    rgba(86, 5, 20, .82)  78%,
-    rgba(66, 4, 16, .97) 100%);
-}
-.fig--s .tone {
-  mix-blend-mode: multiply;
-  background: radial-gradient(56% 46% at 49% 29%,
-    rgba(255,255,255,0)   0%,
-    rgba(255,255,255,0)   25%,
-    rgba(206, 98, 116,.58) 46%,
-    rgba(158, 20, 48, .94) 70%,
-    rgba(126, 10, 32, 1)  86%,
-    rgba(118, 9, 30, 1)  100%);
-}
-/* top + bottom edge wash so the dissolve always ends in maroon, never in a
-   bright rim of studio backdrop */
-.veil {
-  position: absolute; inset: 0;
-  background:
-    linear-gradient(180deg, rgba(58,3,14,.96) 0%, rgba(58,3,14,.62) 6%, rgba(58,3,14,0) 19%),
-    linear-gradient(0deg,   rgba(50,2,13,1)   0%, rgba(50,2,13,.66) 12%, rgba(50,2,13,0) 36%);
-}
+.fig--m img { filter: brightness(1.05) contrast(1.02); }
+.fig--s img { filter: brightness(.98) contrast(1.03) saturate(.90); }
 
 /* -------------------------------------------------------------------- head */
 .head {
@@ -188,7 +142,7 @@ figure { margin: 0; }
   letter-spacing: .3em;
   text-indent: .3em;
   text-transform: uppercase;
-  color: rgba(251, 244, 234, .68);
+  color: rgba(251, 244, 234, .7);
   height: calc(var(--fsTag) * 1.25);
   line-height: 1.25;
 }
@@ -196,18 +150,18 @@ figure { margin: 0; }
   font-family: var(--display);
   font-weight: 500;
   font-size: var(--fsName);
-  line-height: 1.16;
+  line-height: 1.14;
+  letter-spacing: -.004em;
   color: #fdf7ee;
-  margin: calc(var(--fsTag) * .46) 0 0;
-  white-space: nowrap;
+  margin: calc(var(--fsTag) * .8) 0 0;
 }
 .role {
   font-family: var(--serif);
   font-style: italic;
   font-size: var(--fsRole);
   line-height: 1.24;
-  color: rgba(245, 228, 222, .84);
-  margin: calc(var(--fsRole) * .22) 0 0;
+  color: rgba(245, 228, 222, .86);
+  margin: calc(var(--fsRole) * .3) 0 0;
   white-space: nowrap;
 }
 
@@ -245,11 +199,14 @@ figure { margin: 0; }
   color: rgba(251, 244, 234, .88);
   margin: calc(var(--fsTopic2) * .2) 0 0;
 }
-.hair {
-  width: var(--hairW);
-  height: 1px;
-  margin: var(--gapHair) auto 0;
-  background: linear-gradient(90deg, rgba(201,162,91,0), var(--gold) 26%, var(--gold) 74%, rgba(201,162,91,0));
+/* the post's single ornament */
+.mark {
+  width: var(--markW);
+  height: calc(var(--markW) * 16 / 600);
+  margin: var(--gapMark) auto 0;
+  -webkit-mask: url("assets/orn/mark-rule-dot.svg") center/contain no-repeat;
+          mask: url("assets/orn/mark-rule-dot.svg") center/contain no-repeat;
+  background: var(--gold);
 }
 .when {
   display: flex;
@@ -268,7 +225,7 @@ figure { margin: 0; }
 }
 .v {
   width: 1px;
-  height: calc(var(--fsDate) * .72);
+  height: calc(var(--fsDate) * .7);
   background: rgba(201, 162, 91, .8);
   display: block;
   flex: 0 0 auto;
@@ -287,42 +244,42 @@ figure { margin: 0; }
 html[data-r="9x16"] .canvas {
   --padX: 88px; --gTop: 100px; --gBot: 96px;
   --logoW: 178px; --gapLogo: 44px; --gapHost: 16px;
-  --figW: 527px; --figH: 980px; --figOv: 150px;
-  --stageTop: 566px; --maskX: 15%; --maskT: 5%; --maskB: 24%;
-  --namesTop: 1336px; --capW: 440px; --scrimTop: 1150px;
+  --figW: 551px; --figH: 820px; --figOv: 198px;
+  --stageTop: 546px; --fadeA: 62%; --fadeB: 96%;
+  --namesTop: 1252px; --capW: 430px; --scrimTop: 1010px;
   --fsTitle: 96px; --fsHost: 47px;
   --fsTag: 17px; --fsName: 40px; --fsRole: 28px;
   --fsLbl: 19px; --fsTopic: 56px; --fsTopic2: 39px;
   --fsDate: 57px; --fsCity: 25px;
-  --hairW: 204px; --gapHair: 40px; --gapWhen: 34px; --whenGap: 38px;
+  --markW: 300px; --gapMark: 40px; --gapWhen: 34px; --whenGap: 38px;
 }
 
 /* ====================================================================== 4:5 */
 html[data-r="4x5"] .canvas {
   --padX: 78px; --gTop: 74px; --gBot: 70px;
   --logoW: 146px; --gapLogo: 30px; --gapHost: 12px;
-  --figW: 522px; --figH: 640px; --figOv: 120px;
-  --stageTop: 400px; --maskX: 15%; --maskT: 6%; --maskB: 26%;
-  --namesTop: 858px; --capW: 434px; --scrimTop: 758px;
+  --figW: 560px; --figH: 640px; --figOv: 196px;
+  --stageTop: 400px; --fadeA: 46%; --fadeB: 84%;
+  --namesTop: 860px; --capW: 420px; --scrimTop: 650px;
   --fsTitle: 78px; --fsHost: 40px;
-  --fsTag: 15px; --fsName: 34px; --fsRole: 25px;
+  --fsTag: 15px; --fsName: 32px; --fsRole: 24px;
   --fsLbl: 16px; --fsTopic: 45px; --fsTopic2: 32px;
   --fsDate: 47px; --fsCity: 21px;
-  --hairW: 168px; --gapHair: 28px; --gapWhen: 24px; --whenGap: 30px;
+  --markW: 240px; --gapMark: 28px; --gapWhen: 24px; --whenGap: 30px;
 }
 
 /* ====================================================================== 1:1 */
 html[data-r="1x1"] .canvas {
-  --padX: 72px; --gTop: 66px; --gBot: 66px;
-  --logoW: 124px; --gapLogo: 22px; --gapHost: 10px;
-  --figW: 543px; --figH: 470px; --figOv: 150px;
-  --stageTop: 352px; --maskX: 15%; --maskT: 6%; --maskB: 24%;
-  --namesTop: 690px; --capW: 420px; --scrimTop: 596px;
+  --padX: 72px; --gTop: 62px; --gBot: 60px;
+  --logoW: 118px; --gapLogo: 20px; --gapHost: 8px;
+  --figW: 567px; --figH: 640px; --figOv: 198px;
+  --stageTop: 340px; --fadeA: 30%; --fadeB: 62%;
+  --namesTop: 662px; --capW: 400px; --scrimTop: 520px;
   --fsTitle: 60px; --fsHost: 33px;
-  --fsTag: 14px; --fsName: 30px; --fsRole: 22px;
+  --fsTag: 14px; --fsName: 29px; --fsRole: 22px;
   --fsLbl: 15px; --fsTopic: 38px; --fsTopic2: 27px;
   --fsDate: 41px; --fsCity: 19px;
-  --hairW: 140px; --gapHair: 22px; --gapWhen: 20px; --whenGap: 26px;
+  --markW: 190px; --gapMark: 22px; --gapWhen: 20px; --whenGap: 26px;
 }
 </style>
 </head>
@@ -332,18 +289,10 @@ html[data-r="1x1"] .canvas {
 
   <div class="stage">
     <figure class="fig fig--m">
-      <span class="fig-in">
-        <img class="ph ph--mohinur" src="assets/derived/mohinur-warm.jpg" alt="Mohinur Abdullayeva">
-        <span class="tone"></span>
-        <span class="veil"></span>
-      </span>
+      <img class="ph ph--mohinur" src="assets/cutout/mohinur-cut-soft.png" alt="Mohinur Abdullayeva">
     </figure>
     <figure class="fig fig--s">
-      <span class="fig-in">
-        <img class="ph ph--sarvinoz" src="assets/derived/sarvinoz-warm.jpg" alt="Sarvinoz Alisherovna">
-        <span class="tone"></span>
-        <span class="veil"></span>
-      </span>
+      <img class="ph ph--sarvinoz" src="assets/cutout/sarvinoz-cut-soft.png" alt="Sarvinoz Alisherovna">
     </figure>
   </div>
 
@@ -358,11 +307,11 @@ html[data-r="1x1"] .canvas {
   <div class="names">
     <div class="cap cap--l">
       <div class="tag"></div>
-      <div class="nm">Mohinur Abdullayeva</div>
+      <div class="nm">Mohinur<br>Abdullayeva</div>
     </div>
     <div class="cap cap--r">
       <div class="tag">Mehmon spiker</div>
-      <div class="nm">Sarvinoz Alisherovna</div>
+      <div class="nm">Sarvinoz<br>Alisherovna</div>
       <div class="role">psixolog, vrach psixoterapevt</div>
     </div>
   </div>
@@ -371,7 +320,7 @@ html[data-r="1x1"] .canvas {
     <p class="lbl">Uchrashuv mavzusi</p>
     <p class="topic">Shukronalik hissi.</p>
     <p class="topic2">1 ta katta maqsad uchun ongni tayyorlash</p>
-    <div class="hair"></div>
+    <div class="mark"></div>
     <div class="when">
       <span class="d num">16-sentabr</span>
       <i class="v"></i>
