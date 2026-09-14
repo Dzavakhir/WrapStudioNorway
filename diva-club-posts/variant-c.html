@@ -9,9 +9,10 @@
 /* =======================================================================
    VARIANT C — "Editorial"
    Photography leads. Mohinur full-bleed and enormous, her near-black studio
-   ground dissolved into deep maroon. A modern fashion-magazine grid:
-   two hairline gold rules, small-caps Jost labels, oversized Playfair.
-   No frames, no circles, no ornament.
+   ground dissolved into deep maroon. Sarvinoz is a background-removed cutout
+   standing directly on that maroon, cropped only by the canvas edges — the
+   same bleed Mohinur gets. No boxes, no frames, no circles, no ornament.
+   Structure is two gold hairlines and a modern Jost/Playfair grid.
    ======================================================================= */
 
 .canvas {
@@ -25,9 +26,9 @@
   --hy: -215px;
 
   /* guest framing, same technique */
-  --sz: 196%;
-  --sx: -78px;
-  --sy: 6px;
+  --sz: 178%;
+  --sx: -93px;
+  --sy: 76px;
 
   /* type scale */
   --t-title: 116px;
@@ -39,10 +40,7 @@
   --t-date: 48px;
   --t-city: 23px;
 
-  /* layout */
-  --gutter: 56px;
-  --sw: 430px;
-  --sh: 540px;
+  --col: 500px;   /* width of the type column */
 }
 
 /* ---------------------------------------------------------------- hero -- */
@@ -82,6 +80,43 @@
 
 /* quiet horizontal falloff so the left margin never competes with her */
 .side { background: linear-gradient(90deg, rgba(34,1,8,0.46) 0%, rgba(34,1,8,0) 30%); }
+
+/* --------------------------------------------------------------- guest -- */
+/* A cutout on the maroon: its only silhouette cuts are the canvas edges.
+   The tint layer is masked by the same cutout so it grades HER, not the
+   ground, and brings her warmth and density in line with the hero. */
+.sarv {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 480px;
+  height: 760px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.sarv > img {
+  position: absolute;
+  height: var(--sz);
+  width: auto;
+  left: var(--sx);
+  top: var(--sy);
+  display: block;
+  filter: saturate(0.93) contrast(1.05) brightness(0.77);
+}
+.sarv::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(200deg, rgba(208,140,134,0.34), rgba(174,98,100,0.52));
+  mix-blend-mode: multiply;
+  -webkit-mask-image: url("assets/cutout/sarvinoz-cut-soft.png");
+          mask-image: url("assets/cutout/sarvinoz-cut-soft.png");
+  -webkit-mask-size: auto var(--sz);
+          mask-size: auto var(--sz);
+  -webkit-mask-position: var(--sx) var(--sy);
+          mask-position: var(--sx) var(--sy);
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+}
 
 /* ------------------------------------------------------------- masthead -- */
 .mark {
@@ -125,24 +160,13 @@
   margin-top: 14px;
 }
 
-.rule { height: 1px; background: rgba(201,162,91,0.5); flex: 0 0 auto; }
+.rule { height: 1px; background: rgba(201,162,91,0.5); flex: 0 0 auto; max-width: var(--col); }
 .r1 { margin-top: 42px; }
 .r2 { margin-top: 38px; }
 
-/* information row: text column + guest portrait, both bounded by the rules */
-.row {
-  display: flex;
-  align-items: stretch;
-  gap: var(--gutter);
-  margin-top: 38px;
-}
-.col {
-  flex: 1 1 auto;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+/* information column — kept clear of the standing figure */
+.row { margin-top: 38px; max-width: var(--col); }
+.spk { margin-top: 44px; }
 
 .label {
   font-family: var(--sans);
@@ -179,47 +203,15 @@
   margin-top: 4px;
 }
 
-/* guest portrait — background-removed cutout standing directly on the maroon.
-   No box: the only edges are her own silhouette, and a radial mask dissolves
-   the extremes of her hair back into the ground. The tint layer is masked by
-   the same cutout so it grades HER, never the ground behind her. */
-.sarv, .duo {
-  position: relative;
-  -webkit-mask-image: radial-gradient(var(--dr) var(--drv) at var(--dcx) var(--dcy),
-                        #000 var(--d0), rgba(0,0,0,0) var(--d1));
-          mask-image: radial-gradient(var(--dr) var(--drv) at var(--dcx) var(--dcy),
-                        #000 var(--d0), rgba(0,0,0,0) var(--d1));
-  --dr: 60%; --drv: 56%; --dcx: 52%; --dcy: 39%; --d0: 88%; --d1: 132%;
-}
-.sarv { flex: 0 0 auto; width: var(--sw); height: var(--sh); }
-.sarv > img, .duo > img {
-  position: absolute;
-  height: var(--sz);
-  width: auto;
-  left: var(--sx);
-  top: var(--sy);
-  display: block;
-  filter: saturate(0.95) contrast(1.03) brightness(0.84);
-}
-/* warm density so she is lit for the same post as the maroon-washed hero */
-.sarv::after, .duo::after {
-  content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(200deg, rgba(216,154,148,0.30), rgba(190,116,116,0.44));
-  mix-blend-mode: multiply;
-  -webkit-mask-image: url("assets/cutout/sarvinoz-cut-soft.png");
-          mask-image: url("assets/cutout/sarvinoz-cut-soft.png");
-  -webkit-mask-size: auto var(--sz);
-          mask-size: auto var(--sz);
-  -webkit-mask-position: var(--sx) var(--sy);
-          mask-position: var(--sx) var(--sy);
-  -webkit-mask-repeat: no-repeat;
-          mask-repeat: no-repeat;
-}
-.duo { display: none; }
-
 /* ----------------------------------------------------------------- when -- */
-.when { display: flex; align-items: baseline; gap: 26px; margin-top: 30px; }
+.when {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 26px;
+  margin-top: 30px;
+  max-width: var(--col);
+}
 .date {
   font-family: var(--display);
   font-weight: 500;
@@ -234,44 +226,48 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gold-soft);
-  margin-left: auto;
-  margin-right: -0.22em;
+  flex: 0 0 100%;
+  margin: 16px 0 0;
 }
 
 /* ======================================================= ratio overrides = */
 
-/* ---- 9:16 — full-height portrait, type stacked low ---- */
+/* ---- 9:16 — full-height portrait, type column left, figure bottom-right -- */
 html[data-r="9x16"] .canvas {
   --hz: 118%; --hx: -57px; --hy: -215px;
-  --sz: 268%; --sx: -203px; --sy: -154px;
+  --sz: 165%; --sx: -93px; --sy: 66px;
   --t-title: 116px; --t-with: 46px; --t-theme: 44px; --t-name: 38px;
   --t-role: 29px; --t-date: 48px; --t-city: 23px;
-  --sw: 434px; --sh: 506px; --gutter: 54px;
+  --col: 500px;
 }
+html[data-r="9x16"] .sarv { width: 480px; height: 820px; }
 
-/* ---- 4:5 — portrait dominates, guest block bottom-left ---- */
+/* ---- 4:5 — same logic, tighter: portrait dominates, figure bottom-right -- */
 html[data-r="4x5"] .canvas {
-  --hz: 132%; --hx: -50px; --hy: -205px;
-  --sz: 280%; --sx: -129px; --sy: -105px;
-  --t-title: 80px; --t-with: 36px; --t-label: 15px; --t-theme: 34px;
+  --hz: 126%; --hx: -30px; --hy: -200px;
+  --sz: 197%; --sx: -82px; --sy: 15px;
+  --t-title: 76px; --t-with: 35px; --t-label: 15px; --t-theme: 33px;
   --t-name: 30px; --t-role: 24px; --t-date: 40px; --t-city: 19px;
-  --sw: 360px; --sh: 356px; --gutter: 46px;
+  --col: 470px;
 }
 html[data-r="4x5"] .mark { width: 190px; }
-html[data-r="4x5"] .row { flex-direction: row-reverse; margin-top: 30px; }
+html[data-r="4x5"] .sarv { width: 500px; height: 600px; }
 html[data-r="4x5"] .r1 { margin-top: 32px; }
 html[data-r="4x5"] .r2 { margin-top: 30px; }
+html[data-r="4x5"] .row { margin-top: 30px; }
+html[data-r="4x5"] .spk { margin-top: 34px; }
 html[data-r="4x5"] .when { margin-top: 22px; }
+html[data-r="4x5"] .city { margin-top: 14px; }
 
-/* ---- 1:1 — double-portrait band over a full-width type band ---- */
+/* ---- 1:1 — photo block + standing figure over one full-width type band -- */
 html[data-r="1x1"] .canvas {
   --band: 548px;
-  --seam: 660px;
-  --hz: 230%; --hx: -91px; --hy: -104px;
-  --sz: 212%; --sx: -180px; --sy: 10px;
+  --seam: 560px;
+  --hz: 230%; --hx: -141px; --hy: -104px;
+  --sz: 168%; --sx: -11px; --sy: -5px;
   --t-title: 62px; --t-with: 32px; --t-label: 13px; --t-theme: 28px;
   --t-name: 28px; --t-role: 22px; --t-date: 36px; --t-city: 16px;
-  --gutter: 48px;
+  --col: 100%;
 }
 html[data-r="1x1"] .hero { inset: 0 auto auto 0; width: var(--seam); height: var(--band); }
 html[data-r="1x1"] .hero > .scrim {
@@ -279,21 +275,20 @@ html[data-r="1x1"] .hero > .scrim {
 }
 html[data-r="1x1"] .hero > .side { background: linear-gradient(90deg, rgba(34,1,8,0.26) 0%, rgba(34,1,8,0) 22%); }
 html[data-r="1x1"] .mark { width: 150px; top: 62px; left: 62px; }
-html[data-r="1x1"] .duo {
-  display: block;
-  position: absolute;
-  top: 0; left: 600px; right: 0;
-  height: 640px;
-  --dr: 58%; --drv: 54%; --dcx: 52%; --dcy: 40%; --d0: 86%; --d1: 130%;
+/* she stands past the photo block's baseline and dissolves before the type */
+html[data-r="1x1"] .sarv {
+  top: 0; bottom: auto; right: 0; left: 540px;
+  width: auto; height: 760px;
+  -webkit-mask-image: linear-gradient(180deg, #000 72%, rgba(0,0,0,0) 97%);
+          mask-image: linear-gradient(180deg, #000 72%, rgba(0,0,0,0) 97%);
 }
-html[data-r="1x1"] .sarv { display: none; }
 html[data-r="1x1"] .r1 { margin-top: 26px; }
 html[data-r="1x1"] .r2 { margin-top: 24px; }
-html[data-r="1x1"] .row { margin-top: 24px; }
-html[data-r="1x1"] .col { flex-direction: row; align-items: flex-start; gap: 48px; }
+html[data-r="1x1"] .row { margin-top: 24px; display: flex; align-items: flex-start; gap: 48px; }
 html[data-r="1x1"] .themeblock { flex: 1 1 56%; min-width: 0; }
-html[data-r="1x1"] .spk { flex: 1 1 44%; min-width: 0; }
-html[data-r="1x1"] .when { margin-top: 22px; }
+html[data-r="1x1"] .spk { flex: 1 1 44%; min-width: 0; margin-top: 0; }
+html[data-r="1x1"] .when { margin-top: 22px; flex-wrap: nowrap; }
+html[data-r="1x1"] .city { flex: 0 0 auto; margin: 0 0 0 auto; margin-right: -0.22em; }
 </style>
 </head>
 <body>
@@ -305,7 +300,7 @@ html[data-r="1x1"] .when { margin-top: 22px; }
     <div class="scrim"></div>
   </div>
 
-  <div class="duo"><img src="assets/cutout/sarvinoz-cut-soft.png" alt="Sarvinoz Alisherovna"></div>
+  <div class="sarv"><img src="assets/cutout/sarvinoz-cut-soft.png" alt="Sarvinoz Alisherovna"></div>
 
   <div class="layer grain"></div>
 
@@ -318,20 +313,16 @@ html[data-r="1x1"] .when { margin-top: 22px; }
     <div class="rule r1"></div>
 
     <div class="row">
-      <div class="col">
-        <div class="themeblock">
-          <div class="label">Uchrashuv mavzusi</div>
-          <div class="theme-text">Shukronalik hissi.<br>1 ta katta maqsad uchun ongni tayyorlash</div>
-        </div>
-
-        <div class="spk">
-          <div class="label">Mehmon spiker</div>
-          <div class="name">Sarvinoz Alisherovna</div>
-          <div class="role">psixolog, vrach psixoterapevt</div>
-        </div>
+      <div class="themeblock">
+        <div class="label">Uchrashuv mavzusi</div>
+        <div class="theme-text">Shukronalik hissi.<br>1 ta katta maqsad uchun ongni tayyorlash</div>
       </div>
 
-      <div class="sarv"><img src="assets/cutout/sarvinoz-cut-soft.png" alt="Sarvinoz Alisherovna"></div>
+      <div class="spk">
+        <div class="label">Mehmon spiker</div>
+        <div class="name">Sarvinoz Alisherovna</div>
+        <div class="role">psixolog, vrach psixoterapevt</div>
+      </div>
     </div>
 
     <div class="rule r2"></div>
