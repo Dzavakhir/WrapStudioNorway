@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 60" width="600" height="60">
+  <!-- Monochrome ornament, meant to be used as a CSS mask so any brand colour can drive it. -->
+  <g fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <path d="M300 30 C258 30 246 14 214 14 C186 14 176 30 150 30"/>
+    <path d="M300 30 C258 30 246 46 214 46 C186 46 176 30 150 30"/>
+    <path d="M150 30 H46"/>
+    <path d="M300 30 C342 30 354 14 386 14 C414 14 424 30 450 30"/>
+    <path d="M300 30 C342 30 354 46 386 46 C414 46 424 30 450 30"/>
+    <path d="M450 30 H554"/>
+  </g>
+  <g fill="#000">
+    <path d="M300 18 L308 30 L300 42 L292 30 Z"/>
+    <path d="M214 14 c9 -9 22 -9 28 -2 c-9 9 -22 9 -28 2z"/>
+    <path d="M214 46 c9 9 22 9 28 2 c-9 -9 -22 -9 -28 -2z"/>
+    <path d="M386 14 c-9 -9 -22 -9 -28 -2 c9 9 22 9 28 2z"/>
+    <path d="M386 46 c-9 9 -22 9 -28 2 c9 -9 22 -9 28 -2z"/>
+    <circle cx="46" cy="30" r="3.2"/>
+    <circle cx="554" cy="30" r="3.2"/>
+    <circle cx="150" cy="30" r="2.6"/>
+    <circle cx="450" cy="30" r="2.6"/>
+  </g>
+</svg>
