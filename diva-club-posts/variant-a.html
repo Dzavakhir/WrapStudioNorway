@@ -97,6 +97,16 @@ figure { margin: 0; }
           mask-image: linear-gradient(180deg, #000 var(--fadeA), rgba(0,0,0,0) var(--fadeB));
 }
 .fig--s { margin-left: calc(var(--figOv) * -1); }
+/* softens the one place a silhouette runs out of its own frame (the hem of
+   Mohinur's gown) so no straight cut ever shows against the ground */
+.fig-in {
+  position: absolute;
+  inset: 0;
+  -webkit-mask-image: linear-gradient(90deg,
+      rgba(0,0,0,0) 0%, #000 6%, #000 94%, rgba(0,0,0,0) 100%);
+          mask-image: linear-gradient(90deg,
+      rgba(0,0,0,0) 0%, #000 6%, #000 94%, rgba(0,0,0,0) 100%);
+}
 .fig--m img { filter: brightness(1.05) contrast(1.02); }
 .fig--s img { filter: brightness(.97) contrast(1.03) saturate(.88); }
 
@@ -107,7 +117,7 @@ figure { margin: 0; }
   inset: 0;
   background: linear-gradient(180deg,
     rgba(60, 3, 16, 0)   var(--sinkA),
-    rgba(56, 3, 14, .52) var(--sinkM),
+    rgba(57, 3, 15, .62) var(--sinkM),
     rgba(50, 2, 13, .93) var(--fadeB),
     rgba(48, 2, 12, 1)  100%);
   -webkit-mask-size: cover;         mask-size: cover;
@@ -274,7 +284,7 @@ html[data-r="9x16"] .canvas {
   --logoW: 190px; --gapLogo: 44px; --gapHost: 16px;
   --figW: 562px; --figH: 830px; --figOv: 220px;
   --stageTop: 566px; --stageShift: 17px;
-  --fadeA: 64%; --fadeB: 92%; --sinkA: 36%; --sinkM: 68%;
+  --fadeA: 64%; --fadeB: 92%; --sinkA: 34%; --sinkM: 66%;
   --namesTop: 1300px; --capW: 420px; --capOff: 143px; --scrimTop: 1040px;
   --fsTitle: 102px; --fsHost: 47px;
   --fsTag: 17px; --fsName: 40px; --fsRole: 28px;
@@ -289,7 +299,7 @@ html[data-r="4x5"] .canvas {
   --logoW: 152px; --gapLogo: 30px; --gapHost: 12px;
   --figW: 560px; --figH: 656px; --figOv: 196px;
   --stageTop: 452px; --stageShift: 17px;
-  --fadeA: 48%; --fadeB: 82%; --sinkA: 26%; --sinkM: 58%;
+  --fadeA: 52%; --fadeB: 84%; --sinkA: 28%; --sinkM: 60%;
   --namesTop: 866px; --capW: 420px; --capOff: 154px; --scrimTop: 690px;
   --fsTitle: 78px; --fsHost: 40px;
   --fsTag: 15px; --fsName: 32px; --fsRole: 24px;
@@ -300,18 +310,21 @@ html[data-r="4x5"] .canvas {
 
 /* ====================================================================== 1:1 */
 html[data-r="1x1"] .canvas {
-  --padX: 72px; --gTop: 62px; --gBot: 60px;
-  --logoW: 124px; --gapLogo: 20px; --gapHost: 8px;
-  --figW: 567px; --figH: 660px; --figOv: 198px;
-  --stageTop: 358px; --stageShift: 17px;
-  --fadeA: 32%; --fadeB: 66%; --sinkA: 14%; --sinkM: 44%;
-  --namesTop: 656px; --capW: 400px; --capOff: 156px; --scrimTop: 520px;
-  --fsTitle: 60px; --fsHost: 33px;
-  --fsTag: 14px; --fsName: 29px; --fsRole: 22px;
-  --fsLbl: 15px; --fsTopic: 38px; --fsTopic2: 27px;
-  --fsDate: 41px; --fsCity: 19px;
-  --markW: 190px; --gapMark: 22px; --gapWhen: 20px; --whenGap: 26px;
+  --padX: 72px; --gTop: 56px; --gBot: 58px;
+  --logoW: 106px; --gapLogo: 16px; --gapHost: 6px;
+  --figW: 537px; --figH: 690px; --figOv: 138px;
+  --stageTop: 316px; --stageShift: 16px;
+  --fadeA: 50%; --fadeB: 68%; --sinkA: 30%; --sinkM: 52%;
+  --namesTop: 730px; --capW: 400px; --capOff: 173px; --scrimTop: 560px;
+  --fsTitle: 54px; --fsHost: 30px;
+  --fsTag: 13px; --fsName: 27px; --fsRole: 21px;
+  --fsLbl: 14px; --fsTopic: 34px; --fsTopic2: 24px;
+  --fsDate: 38px; --fsCity: 17px;
+  --markW: 170px; --gapMark: 16px; --gapWhen: 15px; --whenGap: 24px;
 }
+/* 1:1 is the compact cut — single-line names keep the stack tight */
+html[data-r="1x1"] .nm br { display: none; }
+html[data-r="1x1"] .nm { white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -320,12 +333,16 @@ html[data-r="1x1"] .canvas {
 
   <div class="stage">
     <figure class="fig fig--m">
-      <img class="ph ph--mohinur" src="assets/cutout/mohinur-cut-soft.png" alt="Mohinur Abdullayeva">
-      <span class="sink"></span>
+      <span class="fig-in">
+        <img class="ph ph--mohinur" src="assets/cutout/mohinur-cut-soft.png" alt="Mohinur Abdullayeva">
+        <span class="sink"></span>
+      </span>
     </figure>
     <figure class="fig fig--s">
-      <img class="ph ph--sarvinoz" src="assets/cutout/sarvinoz-cut-soft.png" alt="Sarvinoz Alisherovna">
-      <span class="sink"></span>
+      <span class="fig-in">
+        <img class="ph ph--sarvinoz" src="assets/cutout/sarvinoz-cut-soft.png" alt="Sarvinoz Alisherovna">
+        <span class="sink"></span>
+      </span>
     </figure>
   </div>
 
