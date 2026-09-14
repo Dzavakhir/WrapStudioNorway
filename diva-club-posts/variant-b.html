@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<title>Diva klubi uchrashuvi — Variant B</title>
+<link rel="stylesheet" href="base.css">
+<script src="lib.js"></script>
+<style>
+/* =======================================================================
+   VARIANT B — "Ivory & blush"
+   Cream ground, maroon ink, one flat blush field. The two women are
+   background-removed cutouts placed at full editorial scale, frameless,
+   cropped only by the canvas edge. Clean grid, wide margins, crisp modern
+   type setting, one small gold accent and nothing else.
+   ======================================================================= */
+
+.canvas {
+  background: var(--cream);
+  color: var(--maroon-rich);
+  font-family: var(--serif);
+
+  --m: 84px;          /* content margin */
+  --ttl: 86px;        /* display size */
+  --host: 46px;
+  --lbl: 15px;
+  --topic: 34px;
+  --name: 30px;
+  --role: 25px;
+  --date: 46px;
+  --logo: 128px;
+
+  --horizon: 694px;   /* y of the blush field edge */
+  --fw1: 640px; --fx1: -40px; --fy1: 730px;   /* Mohinur  */
+  --fw2: 590px; --fx2: 560px; --fy2: 762px;   /* Sarvinoz */
+
+  --g-host: 18px;     /* title -> host */
+  --g-rule: 48px;     /* host  -> rule */
+  --g-block: 26px;    /* rule  -> block */
+  --g-cols: 36px;     /* block -> rule */
+  --colgap: 56px;
+}
+
+html[data-r="9x16"] .canvas {
+  --m: 96px;
+  --ttl: 122px; --host: 60px; --lbl: 18px; --topic: 46px;
+  --name: 38px; --role: 32px; --date: 62px; --logo: 156px;
+  --horizon: 1196px;
+  --fw1: 700px; --fx1: -50px; --fy1: 1268px;
+  --fw2: 640px; --fx2: 600px; --fy2: 1304px;
+  --g-host: 26px; --g-rule: 96px; --g-block: 40px; --g-cols: 66px;
+}
+
+html[data-r="1x1"] .canvas {
+  --m: 76px;
+  --ttl: 66px; --host: 37px; --lbl: 13px; --topic: 29px;
+  --name: 26px; --role: 22px; --date: 40px; --logo: 106px;
+  --horizon: 548px;
+  --fw1: 540px; --fx1: -16px; --fy1: 578px;
+  --fw2: 494px; --fx2: 528px; --fy2: 604px;
+  --g-host: 14px; --g-rule: 36px; --g-block: 20px; --g-cols: 26px;
+  --colgap: 44px;
+}
+
+/* ---------------------------- ground ---------------------------- */
+.horizon {
+  position: absolute;
+  left: 0; right: 0;
+  top: var(--horizon);
+  bottom: 0;
+  background: var(--blush);
+}
+
+/* ---------------------------- people ---------------------------- */
+.figs { position: absolute; inset: 0; overflow: hidden; }
+.fig { position: absolute; display: block; height: auto; }
+.fig--m { width: var(--fw1); left: var(--fx1); top: var(--fy1); }
+.fig--s { width: var(--fw2); left: var(--fx2); top: var(--fy2); }
+
+/* ---------------------------- type ---------------------------- */
+.head {
+  position: absolute;
+  left: var(--m); right: var(--m); top: var(--m);
+  z-index: 2;
+}
+
+.topbar { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; }
+
+.title {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: var(--ttl);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: var(--maroon-rich);
+}
+
+.mark { width: var(--logo); height: auto; margin-top: calc(var(--ttl) * 0.08); }
+
+.host {
+  margin: var(--g-host) 0 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--host);
+  line-height: 1.14;
+  color: var(--maroon);
+}
+
+.hair {
+  margin: var(--g-rule) 0 0;
+  height: 1px; border: 0;
+  background: rgba(147, 6, 31, 0.22);
+}
+
+.lbl {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: var(--lbl);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(147, 6, 31, 0.8);
+  display: block;
+}
+
+.cols {
+  display: flex;
+  gap: var(--colgap);
+  margin-top: var(--g-block);
+  align-items: flex-start;
+}
+.col-topic { flex: 1 1 auto; }
+.col-guest { flex: 0 0 auto; text-align: right; }
+
+.topic-t {
+  margin: 10px 0 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: var(--topic);
+  line-height: 1.2;
+  color: var(--maroon-rich);
+}
+.gname {
+  margin-top: 10px;
+  font-family: var(--roman);
+  font-size: var(--name);
+  line-height: 1.12;
+  color: var(--maroon-rich);
+}
+.grole {
+  margin-top: 5px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--role);
+  line-height: 1.18;
+  color: rgba(147, 6, 31, 0.9);
+}
+
+/* the post's single ornament: a hairline rule with one anchor dot, in gold */
+.dot-rule {
+  margin-top: var(--g-cols);
+  width: calc(var(--date) * 7.2);
+  height: calc(var(--date) * 7.2 * 16 / 600);
+  -webkit-mask: url("assets/orn/mark-rule-dot.svg") left center/contain no-repeat;
+  mask: url("assets/orn/mark-rule-dot.svg") left center/contain no-repeat;
+  background: var(--gold-deep);
+}
+
+/* ---------------------------- date row ---------------------------- */
+.when {
+  display: flex;
+  align-items: baseline;
+  gap: calc(var(--date) * 0.6);
+  margin-top: calc(var(--g-block) * 0.9);
+}
+.w-date {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: var(--date);
+  line-height: 1.1;
+  color: var(--maroon-rich);
+}
+.w-place {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: calc(var(--date) * 0.4);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--maroon);
+}
+</style>
+</head>
+<body>
+<div class="canvas grain">
+  <div class="horizon"></div>
+
+  <div class="figs">
+    <img class="fig fig--m" src="assets/cutout/mohinur-cut-soft.png" alt="Mohinur Abdullayeva">
+    <img class="fig fig--s" src="assets/cutout/sarvinoz-cut-soft.png" alt="Sarvinoz Alisherovna">
+  </div>
+
+  <div class="head">
+    <div class="topbar">
+      <h1 class="title">Diva klubi<br class="brk"> uchrashuvi</h1>
+      <img class="mark" src="assets/logo-trim.png" alt="Diva Women Networking Club">
+    </div>
+
+    <p class="host">Mohinur Abdullayeva bilan</p>
+
+    <hr class="hair">
+
+    <div class="cols">
+      <div class="col-topic">
+        <span class="lbl">Uchrashuv mavzusi</span>
+        <p class="topic-t">Shukronalik hissi.<br>1 ta katta maqsad uchun ongni tayyorlash</p>
+      </div>
+      <div class="col-guest">
+        <span class="lbl">Mehmon spiker</span>
+        <div class="gname">Sarvinoz Alisherovna</div>
+        <div class="grole">psixolog, vrach psixoterapevt</div>
+      </div>
+    </div>
+
+    <div class="dot-rule"></div>
+
+    <div class="when">
+      <span class="w-date num">16-sentabr</span>
+      <span class="w-date num">11:00</span>
+      <span class="w-place">Toshkent sh.</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

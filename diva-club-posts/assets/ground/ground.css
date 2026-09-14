@@ -1,0 +1,247 @@
+/* =========================================================================
+   DIVA WOMEN NETWORKING CLUB — assets/ground/ground.css
+   Reusable, self-contained GROUND classes: modern, frameless, calm backdrops
+   for large cutout/fade portraits + a type block on top (see BRIEF.md §0).
+
+   Owned by the background/light specialist. Every class below depends on
+   NOTHING outside this folder — CSS gradients + grain-fine.png + bloom.png,
+   all referenced by relative URL, so this file works exactly the same
+   whether it is @imported or its rules are copy-pasted straight into a
+   variant's own <style> block. Colours are hardcoded (not var(--token)) for
+   that same reason — this sheet must stand alone even without base.css.
+
+   Palette used below == BRIEF.md §3, spelled out here for reference:
+     maroon       #93061F  rgb(147,6,31)     cream       #FBF4EA rgb(251,244,234)
+     maroon-rich  #7A0519  rgb(122,5,25)     ivory       #FFFDF8 rgb(255,253,248)
+     maroon-deep  #5A0413  rgb(90,4,19)      blush       #F4E3DD rgb(244,227,221)
+     maroon-ink   #34020C  rgb(52,2,12)      blush-deep  #E8CDC6 rgb(232,205,198)
+     gold-soft    #E3CB99  rgb(227,203,153)  rose        #D9A8A4 rgb(217,168,164)
+
+   HOW TO USE
+   ----------
+   Apply one ground class to `.canvas` itself, or to a full-bleed `.layer`
+   div sitting behind your photo/type layers — both work, the class only
+   sets background-*. Every class already bakes in its own dither grain
+   (grain-fine.png, blended via background-blend-mode) so gradient banding
+   is killed by default — you do not have to add .tex-grain on top of a
+   .g-* class just to make it safe from banding. Reach for .tex-grain /
+   .tex-soft-noise / .tex-bloom when you want MORE texture than a .g-*
+   class already has, or want the same dither/bloom treatment on a custom
+   gradient of your own that isn't one of the five below.
+
+   All five .g-* classes render identically at every canvas size (9:16,
+   4:5, 1:1) because every gradient stop is written in %, not px — only the
+   grain tile itself stays a fixed 256px so grain density looks consistent
+   across ratios (canvas width is always 1080px per base.css; only height
+   changes).
+   ========================================================================= */
+
+
+/* ---------------------------------------------------------------------- *
+ * A — MAROON DIRECTION
+ * ---------------------------------------------------------------------- */
+
+/* .g-maroon-deep — rich, general-purpose dark ground.
+   A warm light source washes in from the upper-centre (as if the room's
+   key light sits above the frame); a soft depth vignette gathers at the
+   bottom edge and low-left corner so a headline up top gets more "light"
+   to sit on and a caption/date line down low gets a touch more hold.
+   No fixed figure position assumed — pair with a cutout, a -fade PNG, or
+   plain type. */
+.g-maroon-deep {
+  background-color: #5a0413;
+  background-image:
+    url("grain-fine.png"),
+    radial-gradient(115% 70% at 50% -6%, rgba(147, 6, 31, 0.62) 0%, rgba(147, 6, 31, 0) 58%),
+    radial-gradient(120% 60% at 50% 112%, rgba(52, 2, 12, 0.55) 0%, rgba(52, 2, 12, 0) 62%),
+    radial-gradient(95% 95% at 6% 102%, rgba(52, 2, 12, 0.32) 0%, rgba(52, 2, 12, 0) 55%);
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 256px 256px, 100% 100%, 100% 100%, 100% 100%;
+  background-position: top left, center, center, center;
+  background-blend-mode: overlay, normal, normal, normal;
+}
+
+/* .g-maroon-spot — maroon with a soft elliptical spotlight standing where a
+   figure will stand, so a frameless cutout/fade reads as lit from behind
+   rather than pasted on top. Base runs darker (maroon-ink) than
+   .g-maroon-deep so the spotlight has somewhere to fall FROM — the corners
+   recede, the centre glows.
+   Override --spot-x / --spot-y inline (style="--spot-y:52%") to slide the
+   light to match where your cutout actually stands; defaults sit slightly
+   below centre, where a standing figure's chest/shoulders usually fall. */
+.g-maroon-spot {
+  --spot-x: 50%;
+  --spot-y: 60%;
+  background-color: #34020c;
+  background-image:
+    url("grain-fine.png"),
+    radial-gradient(28% 20% at var(--spot-x) var(--spot-y), rgba(227, 203, 153, 0.22) 0%, rgba(227, 203, 153, 0) 72%),
+    radial-gradient(62% 52% at var(--spot-x) var(--spot-y), rgba(147, 6, 31, 0.88) 0%, rgba(147, 6, 31, 0) 68%),
+    radial-gradient(96% 86% at var(--spot-x) var(--spot-y), rgba(90, 4, 19, 0.55) 40%, rgba(52, 2, 12, 0) 80%);
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 256px 256px, 100% 100%, 100% 100%, 100% 100%;
+  background-position: top left, center, center, center;
+  background-blend-mode: overlay, normal, normal, normal;
+}
+
+
+/* ---------------------------------------------------------------------- *
+ * B — CREAM DIRECTION
+ * ---------------------------------------------------------------------- */
+
+/* .g-cream-soft — warm ivory/cream, airy and almost flat: a single barely-
+   there blush glow tucked in the upper-right corner, a faint ivory lift
+   opposite it so the field never reads as a single flat swatch. Modern
+   beauty-brand calm — this is the ground that gets out of the way. */
+.g-cream-soft {
+  background-color: #fbf4ea;
+  background-image:
+    url("grain-fine.png"),
+    radial-gradient(72% 62% at 86% 10%, rgba(232, 205, 198, 0.5) 0%, rgba(232, 205, 198, 0) 60%),
+    radial-gradient(92% 82% at 8% 102%, rgba(255, 253, 248, 0.55) 0%, rgba(255, 253, 248, 0) 60%);
+  background-repeat: repeat, no-repeat, no-repeat;
+  background-size: 256px 256px, 100% 100%, 100% 100%;
+  background-position: top left, center, center;
+  background-blend-mode: soft-light, normal, normal;
+}
+
+/* .g-cream-wash — cream with a soft blush wash sweeping in from one corner
+   across roughly half the frame, plus a quiet ivory lift on the opposite
+   side so the sweep reads as light drifting through the frame, not a flat
+   diagonal banner. More movement than .g-cream-soft; still calm. */
+.g-cream-wash {
+  background-color: #fbf4ea;
+  background-image:
+    url("grain-fine.png"),
+    linear-gradient(128deg, rgba(232, 205, 198, 0.85) 0%, rgba(244, 227, 221, 0.5) 34%, rgba(251, 244, 234, 0) 64%),
+    radial-gradient(85% 72% at 80% 84%, rgba(255, 253, 248, 0.5) 0%, rgba(255, 253, 248, 0) 55%);
+  background-repeat: repeat, no-repeat, no-repeat;
+  background-size: 256px 256px, 100% 100%, 100% 100%;
+  background-position: top left, center, center;
+  background-blend-mode: soft-light, normal, normal;
+}
+
+
+/* ---------------------------------------------------------------------- *
+ * C — DUO / SPLIT (photographic-leaning — works for direction C's editorial
+ *     asymmetry, or anywhere a figure needs to stand across a seam)
+ * ---------------------------------------------------------------------- */
+
+/* .g-duo-split — two clean fields, cream + maroon, on one straight seam —
+   for a layout that plants a figure across the join. The seam itself stays
+   a genuinely clean line (no rule, no hairline, no gold edge — §0 is
+   frameless) with just enough soft-edge (~0.8% of the canvas, a handful of
+   px) to keep the renderer's antialiasing from looking chalky; it will
+   never read as decorated.
+
+   Vertical / cream-left / maroon-right is the default. Add a second class
+   to change it — they combine freely:
+     .is-flip         swap which field is which colour (maroon left / cream right)
+     .is-horizontal   split top/bottom instead of left/right
+   (.is-horizontal.is-flip together = maroon top / cream bottom.)
+
+   --duo-pos (default 50%) slides the seam off-centre; --duo-a1x/--duo-a1y
+   and --duo-a2x/--duo-a2y (defaults near the top-left / bottom-right
+   corners, so they land inside the correct field at any --duo-pos or
+   orientation) reposition the two accent glows if a figure needs the corner
+   clear. */
+.g-duo-split {
+  --duo-angle: 90deg;
+  --duo-pos: 50%;
+  --duo-c1: #fbf4ea;                     /* field holding the top-left corner */
+  --duo-c2: #5a0413;                     /* field holding the bottom-right corner */
+  --duo-a1: rgba(255, 253, 248, 0.55);   /* soft lift accent, inside field 1 */
+  --duo-a2: rgba(147, 6, 31, 0.6);       /* warm glow accent, inside field 2 */
+  --duo-a1x: 18%;
+  --duo-a1y: 16%;
+  --duo-a2x: 82%;
+  --duo-a2y: 86%;
+
+  background-color: var(--duo-c1);
+  background-image:
+    url("grain-fine.png"),
+    radial-gradient(55% 50% at var(--duo-a1x) var(--duo-a1y), var(--duo-a1) 0%, rgba(255, 253, 248, 0) 62%),
+    radial-gradient(60% 55% at var(--duo-a2x) var(--duo-a2y), var(--duo-a2) 0%, rgba(147, 6, 31, 0) 62%),
+    linear-gradient(
+      var(--duo-angle),
+      var(--duo-c1) 0%,
+      var(--duo-c1) calc(var(--duo-pos) - 0.4%),
+      var(--duo-c2) calc(var(--duo-pos) + 0.4%),
+      var(--duo-c2) 100%
+    );
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 256px 256px, 100% 100%, 100% 100%, 100% 100%;
+  background-position: top left, center, center, center;
+  background-blend-mode: soft-light, normal, normal, normal;
+}
+.g-duo-split.is-flip {
+  --duo-c1: #5a0413;
+  --duo-c2: #fbf4ea;
+  --duo-a1: rgba(147, 6, 31, 0.6);
+  --duo-a2: rgba(255, 253, 248, 0.55);
+}
+.g-duo-split.is-horizontal {
+  --duo-angle: 180deg;
+}
+
+
+/* ---------------------------------------------------------------------- *
+ * OPTIONAL OVERLAYS — layer on top of a .g-* class (for extra texture) or
+ * on top of a custom gradient/photo panel of your own. Each is a single
+ * ::after, so use one per element; stack a second .layer div if you need
+ * two of these on the same spot (e.g. grain AND bloom together).
+ * Prerequisite: apply to an element that already has position:relative or
+ * position:absolute (.canvas and .layer both already do) — these classes
+ * deliberately do not set `position` themselves so they never fight a
+ * host's own positioning (e.g. .layer's position:absolute).
+ * ---------------------------------------------------------------------- */
+
+/* .tex-grain — crisp fine dither. This is the same file/scale the .g-*
+   classes bake in, exposed standalone for a custom gradient that isn't one
+   of the five above. Default opacity assumes it's the ONLY grain on that
+   element — halve it (inline style="opacity:.35" on the element, or target
+   ::after) if you're stacking it over a .g-* class that already has its own. */
+.tex-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("grain-fine.png");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  mix-blend-mode: overlay;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* .tex-soft-noise — the same grain field at a larger tile (softer, lower-
+   frequency dither) through soft-light instead of overlay: gentler, paper-
+   like, the safer pick over cream/blush so nothing muddies. */
+.tex-soft-noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("grain-fine.png");
+  background-repeat: repeat;
+  background-size: 480px 480px;
+  mix-blend-mode: soft-light;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* .tex-bloom — bonus: bloom.png dropped in with mix-blend-mode: screen, for
+   a warm light kiss behind a figure's head/shoulder or in a corner.
+   Position/scale/strength via custom properties, e.g.
+   style="--bloom-x:38%; --bloom-y:30%; --bloom-size:85%" to tuck it behind
+   a specific cutout. */
+.tex-bloom::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("bloom.png");
+  background-repeat: no-repeat;
+  background-position: var(--bloom-x, 50%) var(--bloom-y, 42%);
+  background-size: var(--bloom-size, 120%) auto;
+  mix-blend-mode: screen;
+  opacity: var(--bloom-opacity, 0.85);
+  pointer-events: none;
+}
