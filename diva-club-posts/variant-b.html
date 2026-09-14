@@ -20,18 +20,18 @@
   font-family: var(--serif);
 
   --m: 84px;          /* content margin */
-  --ttl: 86px;        /* display size */
-  --host: 46px;
+  --ttl: 90px;        /* display size */
+  --host: 47px;
   --lbl: 15px;
   --topic: 34px;
   --name: 30px;
   --role: 25px;
-  --date: 46px;
+  --date: 48px;
   --logo: 128px;
 
-  --horizon: 694px;   /* y of the blush field edge */
-  --fw1: 640px; --fx1: -40px; --fy1: 730px;   /* Mohinur  */
-  --fw2: 590px; --fx2: 560px; --fy2: 762px;   /* Sarvinoz */
+  --horizon: 698px;   /* y of the blush field edge */
+  --fw1: 680px; --fx1: -84px; --fy1: 706px;   /* Mohinur  */
+  --fw2: 600px; --fx2: 605px; --fy2: 738px;   /* Sarvinoz */
 
   --g-host: 18px;     /* title -> host */
   --g-rule: 48px;     /* host  -> rule */
@@ -42,24 +42,30 @@
 
 html[data-r="9x16"] .canvas {
   --m: 96px;
-  --ttl: 122px; --host: 60px; --lbl: 18px; --topic: 46px;
-  --name: 38px; --role: 32px; --date: 62px; --logo: 156px;
-  --horizon: 1196px;
-  --fw1: 700px; --fx1: -50px; --fy1: 1268px;
-  --fw2: 640px; --fx2: 600px; --fy2: 1304px;
-  --g-host: 26px; --g-rule: 96px; --g-block: 40px; --g-cols: 66px;
+  --ttl: 138px; --host: 66px; --lbl: 18px; --topic: 50px;
+  --name: 48px; --role: 34px; --date: 74px; --logo: 168px;
+  --horizon: 1206px;
+  --fw1: 720px; --fx1: -126px; --fy1: 1258px;
+  --fw2: 650px; --fx2: 586px; --fy2: 1296px;
+  --g-host: 26px; --g-rule: 86px; --g-block: 44px; --g-cols: 70px;
 }
 
 html[data-r="1x1"] .canvas {
   --m: 76px;
-  --ttl: 66px; --host: 37px; --lbl: 13px; --topic: 29px;
-  --name: 26px; --role: 22px; --date: 40px; --logo: 106px;
-  --horizon: 548px;
-  --fw1: 540px; --fx1: -16px; --fy1: 578px;
-  --fw2: 494px; --fx2: 528px; --fy2: 604px;
+  --ttl: 70px; --host: 38px; --lbl: 13px; --topic: 29px;
+  --name: 26px; --role: 22px; --date: 42px; --logo: 106px;
+  --horizon: 583px;
+  --fw1: 580px; --fx1: 6px;   --fy1: 596px;
+  --fw2: 520px; --fx2: 557px; --fy2: 622px;
   --g-host: 14px; --g-rule: 36px; --g-block: 20px; --g-cols: 26px;
   --colgap: 44px;
 }
+
+/* 9:16 has the height for a stacked info block: the topic runs the full
+   column width and the guest credit sits under it, flush right, pointing at
+   the figure on the right. 4:5 and 1:1 run the same two items as columns. */
+html[data-r="9x16"] .cols { flex-direction: column; align-items: stretch; gap: 52px; }
+html[data-r="9x16"] .col-guest { max-width: none; }
 
 /* ---------------------------- ground ---------------------------- */
 .horizon {
@@ -67,7 +73,7 @@ html[data-r="1x1"] .canvas {
   left: 0; right: 0;
   top: var(--horizon);
   bottom: 0;
-  background: var(--blush);
+  background: linear-gradient(180deg, #f6e8e2 0%, var(--blush) 46%, #eedbd4 100%);
 }
 
 /* ---------------------------- people ---------------------------- */
@@ -131,6 +137,7 @@ html[data-r="1x1"] .canvas {
 }
 .col-topic { flex: 1 1 auto; }
 .col-guest { flex: 0 0 auto; text-align: right; }
+.col-guest .lbl { margin-right: -0.3em; }
 
 .topic-t {
   margin: 10px 0 0;
@@ -181,6 +188,8 @@ html[data-r="1x1"] .canvas {
   color: var(--maroon-rich);
 }
 .w-place {
+  margin-left: auto;
+  margin-right: -0.24em;
   font-family: var(--sans);
   font-weight: 400;
   font-size: calc(var(--date) * 0.4);

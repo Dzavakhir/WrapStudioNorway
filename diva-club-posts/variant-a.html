@@ -8,9 +8,10 @@
 <style>
 /* =======================================================================
    VARIANT A — "Modern maroon"
-   Deep maroon field, two women placed large and frameless (soft photographic
-   dissolve, no rings / no cut-out rectangle), contemporary centred type grid.
-   Decoration budget: one gold hairline + one gold rule. Nothing else.
+   A deep maroon field, the two women placed large and frameless (a soft
+   photographic dissolve — no ring, no window, no cut-out rectangle), and a
+   contemporary centred type grid. Decoration budget: one gold hairline,
+   two gold tick rules in the date row. Nothing else.
    ======================================================================= */
 
 .canvas {
@@ -18,58 +19,58 @@
   color: var(--cream);
   font-family: var(--serif);
 
-  /* --- geometry (overridden per ratio) --- */
+  /* ---- geometry (all overridden per ratio) ---- */
   --padX: 78px;
   --gTop: 74px;
-  --gBot: 74px;
+  --gBot: 70px;
 
-  --logoW: 144px;
+  --logoW: 146px;
+  --gapLogo: 30px;
+  --gapHost: 12px;
 
-  --figW: 538px;
-  --figH: 880px;
-  --figOv: 152px;      /* horizontal overlap between the two boxes */
-  --stageTop: 370px;
-  --maskX: 15%;        /* side dissolve */
-  --maskT: 11%;        /* top dissolve */
-  --maskB: 26%;        /* bottom dissolve */
+  --figW: 522px;
+  --figH: 640px;
+  --figOv: 120px;            /* horizontal overlap of the two photo boxes */
+  --stageTop: 400px;
+  --maskX: 15%;              /* side dissolve   */
+  --maskT: 6%;               /* top dissolve    */
+  --maskB: 26%;              /* bottom dissolve */
 
-  --namesTop: 958px;
-  --capW: 432px;
-  --scrimTop: 840px;
+  --namesTop: 860px;
+  --capW: 430px;
+  --capOff: calc((var(--figW) - var(--figOv)) / 2);
+  --scrimTop: 760px;
 
-  /* --- type --- */
-  --fsTitle: 76px;
-  --lhTitle: 1.0;
+  /* ---- type ---- */
+  --fsTitle: 78px;  --lhTitle: 1.0;
   --fsHost: 40px;
-  --fsTag: 15px;
-  --fsName: 34px;
-  --fsRole: 25px;
-  --fsLbl: 16px;
-  --fsTopic: 44px;
-  --fsTopic2: 31px;
-  --fsDate: 46px;
-  --fsCity: 21px;
+  --fsTag: 15px;  --fsName: 34px;  --fsRole: 25px;
+  --fsLbl: 16px;  --fsTopic: 45px; --fsTopic2: 32px;
+  --fsDate: 47px; --fsCity: 21px;
+  --hairW: 168px; --gapHair: 28px; --gapWhen: 24px; --whenGap: 30px;
 }
+
+figure { margin: 0; }
 
 /* ------------------------------------------------------------------ ground */
 .ground {
   background:
-    radial-gradient(58% 34% at 50% 40%, rgba(226, 178, 168, .13), transparent 72%),
-    radial-gradient(112% 62% at 50% -6%, #9c1430 0%, #850b22 30%, rgba(133, 11, 34, 0) 70%),
-    linear-gradient(180deg, #7d0a1e 0%, #6c0519 30%, #560314 60%, #3e0210 84%, #2f020c 100%);
+    radial-gradient(56% 32% at 50% 40%, rgba(228, 182, 172, .12), transparent 74%),
+    radial-gradient(116% 60% at 50% -8%, #9d1631 0%, #860c23 32%, rgba(134, 12, 35, 0) 72%),
+    linear-gradient(180deg, #7e0b1f 0%, #6d0519 28%, #57 0314 0%, #560314 58%, #3f0210 84%, #300210 100%);
 }
 
-/* scrim that swallows the lower half of the figures */
+/* the maroon that swallows the lower half of the figures */
 .scrim {
   position: absolute;
   left: 0; right: 0; bottom: 0;
   top: var(--scrimTop);
   background: linear-gradient(180deg,
     rgba(58, 3, 15, 0) 0%,
-    rgba(56, 3, 14, .42) 24%,
-    rgba(51, 2, 13, .86) 50%,
-    rgba(45, 2, 12, .98) 70%,
-    #2f020c 100%);
+    rgba(56, 3, 14, .40) 26%,
+    rgba(51, 2, 13, .84) 52%,
+    rgba(45, 2, 12, .97) 72%,
+    #300210 100%);
   pointer-events: none;
 }
 
@@ -82,60 +83,63 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: calc(var(--figOv) * -1);
 }
 .fig {
   position: relative;
   flex: 0 0 auto;
   width: var(--figW);
   height: var(--figH);
-  /* vertical dissolve */
   -webkit-mask-image: linear-gradient(180deg,
       rgba(0,0,0,0) 0%, #000 var(--maskT),
       #000 calc(100% - var(--maskB)), rgba(0,0,0,0) 100%);
-  mask-image: linear-gradient(180deg,
+          mask-image: linear-gradient(180deg,
       rgba(0,0,0,0) 0%, #000 var(--maskT),
       #000 calc(100% - var(--maskB)), rgba(0,0,0,0) 100%);
 }
+.fig--s { margin-left: calc(var(--figOv) * -1); }
+
 .fig-in {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  /* horizontal dissolve */
   -webkit-mask-image: linear-gradient(90deg,
       rgba(0,0,0,0) 0%, #000 var(--maskX),
       #000 calc(100% - var(--maskX)), rgba(0,0,0,0) 100%);
-  mask-image: linear-gradient(90deg,
+          mask-image: linear-gradient(90deg,
       rgba(0,0,0,0) 0%, #000 var(--maskX),
       #000 calc(100% - var(--maskX)), rgba(0,0,0,0) 100%);
 }
-.fig-in img { filter: saturate(.96) contrast(1.03) brightness(1.02); }
+.fig--m .fig-in img { filter: brightness(1.07) contrast(1.02) saturate(.99); }
+.fig--s .fig-in img { filter: brightness(.99) contrast(1.05) saturate(.80); }
 
-/* maroon grade that pulls each frame's own background into the ground
-   before the mask fades it out — no halo, no visible photo edge. */
-.tone {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(56% 46% at 50% 31%,
-      rgba(96, 6, 24, 0) 26%,
-      rgba(88, 5, 21, .34) 52%,
-      rgba(72, 4, 18, .80) 76%,
-      rgba(58, 3, 14, .96) 100%);
-}
-.tone::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(58,3,14,0) 46%, rgba(52,2,13,.62) 78%, rgba(47,2,12,.92) 100%);
+/* Each source frame carries its own studio ground — Mohinur's is near-black,
+   Sarvinoz's is beige. These two graded washes pull both of them into the
+   same maroon before the mask dissolves the edge, so neither leaves a halo. */
+.tone { position: absolute; inset: 0; }
+.fig--m .tone {
+  background: radial-gradient(58% 48% at 50% 30%,
+    rgba(112, 8, 28, 0)   24%,
+    rgba(104, 7, 25, .38) 52%,
+    rgba(86, 5, 20, .82)  78%,
+    rgba(66, 4, 16, .97) 100%);
 }
 .fig--s .tone {
+  mix-blend-mode: multiply;
+  background: radial-gradient(56% 46% at 49% 29%,
+    rgba(255,255,255,0)   0%,
+    rgba(255,255,255,0)   25%,
+    rgba(206, 98, 116,.58) 46%,
+    rgba(158, 20, 48, .94) 70%,
+    rgba(126, 10, 32, 1)  86%,
+    rgba(118, 9, 30, 1)  100%);
+}
+/* top + bottom edge wash so the dissolve always ends in maroon, never in a
+   bright rim of studio backdrop */
+.veil {
+  position: absolute; inset: 0;
   background:
-    radial-gradient(52% 42% at 48% 28%,
-      rgba(104, 8, 26, 0) 20%,
-      rgba(96, 6, 23, .40) 46%,
-      rgba(78, 4, 19, .86) 72%,
-      rgba(58, 3, 14, .98) 100%);
+    linear-gradient(180deg, rgba(58,3,14,.96) 0%, rgba(58,3,14,.62) 6%, rgba(58,3,14,0) 19%),
+    linear-gradient(0deg,   rgba(50,2,13,1)   0%, rgba(50,2,13,.66) 12%, rgba(50,2,13,0) 36%);
 }
 
 /* -------------------------------------------------------------------- head */
@@ -146,11 +150,7 @@
   right: var(--padX);
   text-align: center;
 }
-.logo {
-  width: var(--logoW);
-  margin: 0 auto;
-  opacity: .95;
-}
+.logo { width: var(--logoW); margin: 0 auto; opacity: .95; }
 .title {
   font-family: var(--display);
   font-weight: 500;
@@ -158,7 +158,7 @@
   line-height: var(--lhTitle);
   letter-spacing: -.018em;
   color: #fdf7ee;
-  margin: var(--gapLogo, 28px) 0 0;
+  margin: var(--gapLogo) 0 0;
 }
 .host {
   font-family: var(--serif);
@@ -167,20 +167,20 @@
   font-size: var(--fsHost);
   line-height: 1.2;
   color: var(--gold-soft);
-  margin: var(--gapHost, 14px) 0 0;
+  margin: var(--gapHost) 0 0;
 }
 
 /* ------------------------------------------------------------------- names */
-.names {
+.names { position: absolute; top: var(--namesTop); left: 0; right: 0; height: 0; }
+.cap {
   position: absolute;
-  top: var(--namesTop);
-  left: 0; right: 0;
-  display: flex;
-  justify-content: center;
-  gap: calc(var(--figW) - var(--figOv) - var(--capW));
+  top: 0;
+  width: var(--capW);
+  transform: translateX(-50%);
   text-align: center;
 }
-.cap { width: var(--capW); }
+.cap--l { left: calc(50% - var(--capOff)); }
+.cap--r { left: calc(50% + var(--capOff)); }
 .tag {
   font-family: var(--sans);
   font-weight: 400;
@@ -188,9 +188,9 @@
   letter-spacing: .3em;
   text-indent: .3em;
   text-transform: uppercase;
-  color: rgba(251, 244, 234, .66);
-  height: calc(var(--fsTag) * 1.2);
-  line-height: 1.2;
+  color: rgba(251, 244, 234, .68);
+  height: calc(var(--fsTag) * 1.25);
+  line-height: 1.25;
 }
 .nm {
   font-family: var(--display);
@@ -198,7 +198,7 @@
   font-size: var(--fsName);
   line-height: 1.16;
   color: #fdf7ee;
-  margin: calc(var(--fsTag) * .42) 0 0;
+  margin: calc(var(--fsTag) * .46) 0 0;
   white-space: nowrap;
 }
 .role {
@@ -206,8 +206,9 @@
   font-style: italic;
   font-size: var(--fsRole);
   line-height: 1.24;
-  color: rgba(244, 227, 221, .82);
-  margin: calc(var(--fsRole) * .2) 0 0;
+  color: rgba(245, 228, 222, .84);
+  margin: calc(var(--fsRole) * .22) 0 0;
+  white-space: nowrap;
 }
 
 /* -------------------------------------------------------------------- foot */
@@ -225,7 +226,7 @@
   letter-spacing: .34em;
   text-indent: .34em;
   text-transform: uppercase;
-  color: rgba(251, 244, 234, .6);
+  color: rgba(251, 244, 234, .62);
   margin: 0;
 }
 .topic {
@@ -233,9 +234,8 @@
   font-weight: 500;
   font-size: var(--fsTopic);
   line-height: 1.12;
-  letter-spacing: .002em;
   color: #fdf7ee;
-  margin: calc(var(--fsLbl) * .8) 0 0;
+  margin: calc(var(--fsLbl) * .85) 0 0;
 }
 .topic2 {
   font-family: var(--serif);
@@ -243,20 +243,20 @@
   font-size: var(--fsTopic2);
   line-height: 1.26;
   color: rgba(251, 244, 234, .88);
-  margin: calc(var(--fsTopic2) * .18) 0 0;
+  margin: calc(var(--fsTopic2) * .2) 0 0;
 }
 .hair {
-  width: var(--hairW, 168px);
+  width: var(--hairW);
   height: 1px;
-  margin: var(--gapHair, 30px) auto 0;
+  margin: var(--gapHair) auto 0;
   background: linear-gradient(90deg, rgba(201,162,91,0), var(--gold) 26%, var(--gold) 74%, rgba(201,162,91,0));
 }
 .when {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--whenGap, 30px);
-  margin-top: var(--gapWhen, 26px);
+  gap: var(--whenGap);
+  margin-top: var(--gapWhen);
 }
 .d {
   font-family: var(--display);
@@ -268,8 +268,8 @@
 }
 .v {
   width: 1px;
-  height: calc(var(--fsDate) * .74);
-  background: rgba(201, 162, 91, .78);
+  height: calc(var(--fsDate) * .72);
+  background: rgba(201, 162, 91, .8);
   display: block;
   flex: 0 0 auto;
 }
@@ -280,31 +280,31 @@
   letter-spacing: .26em;
   text-indent: .26em;
   text-transform: uppercase;
-  color: rgba(251, 244, 234, .84);
+  color: rgba(251, 244, 234, .86);
 }
 
 /* ===================================================================== 9:16 */
 html[data-r="9x16"] .canvas {
-  --padX: 88px;  --gTop: 104px; --gBot: 100px;
-  --logoW: 178px; --gapLogo: 42px; --gapHost: 16px;
-  --figW: 538px; --figH: 1010px; --figOv: 140px;
-  --stageTop: 524px; --maskX: 15%; --maskT: 9%; --maskB: 24%;
-  --namesTop: 1372px; --capW: 440px; --scrimTop: 1180px;
-  --fsTitle: 96px; --lhTitle: 1.0; --fsHost: 47px;
+  --padX: 88px; --gTop: 100px; --gBot: 96px;
+  --logoW: 178px; --gapLogo: 44px; --gapHost: 16px;
+  --figW: 527px; --figH: 980px; --figOv: 150px;
+  --stageTop: 566px; --maskX: 15%; --maskT: 5%; --maskB: 24%;
+  --namesTop: 1336px; --capW: 440px; --scrimTop: 1150px;
+  --fsTitle: 96px; --fsHost: 47px;
   --fsTag: 17px; --fsName: 40px; --fsRole: 28px;
-  --fsLbl: 19px; --fsTopic: 55px; --fsTopic2: 39px;
-  --fsDate: 56px; --fsCity: 25px;
-  --hairW: 200px; --gapHair: 40px; --gapWhen: 34px; --whenGap: 38px;
+  --fsLbl: 19px; --fsTopic: 56px; --fsTopic2: 39px;
+  --fsDate: 57px; --fsCity: 25px;
+  --hairW: 204px; --gapHair: 40px; --gapWhen: 34px; --whenGap: 38px;
 }
 
 /* ====================================================================== 4:5 */
 html[data-r="4x5"] .canvas {
-  --padX: 78px;  --gTop: 74px;  --gBot: 74px;
-  --logoW: 146px; --gapLogo: 28px; --gapHost: 12px;
-  --figW: 538px; --figH: 880px; --figOv: 152px;
-  --stageTop: 372px; --maskX: 15%; --maskT: 11%; --maskB: 27%;
-  --namesTop: 952px; --capW: 434px; --scrimTop: 856px;
-  --fsTitle: 76px; --lhTitle: 1.0; --fsHost: 40px;
+  --padX: 78px; --gTop: 74px; --gBot: 70px;
+  --logoW: 146px; --gapLogo: 30px; --gapHost: 12px;
+  --figW: 522px; --figH: 640px; --figOv: 120px;
+  --stageTop: 400px; --maskX: 15%; --maskT: 6%; --maskB: 26%;
+  --namesTop: 858px; --capW: 434px; --scrimTop: 758px;
+  --fsTitle: 78px; --fsHost: 40px;
   --fsTag: 15px; --fsName: 34px; --fsRole: 25px;
   --fsLbl: 16px; --fsTopic: 45px; --fsTopic2: 32px;
   --fsDate: 47px; --fsCity: 21px;
@@ -313,12 +313,12 @@ html[data-r="4x5"] .canvas {
 
 /* ====================================================================== 1:1 */
 html[data-r="1x1"] .canvas {
-  --padX: 72px;  --gTop: 68px;  --gBot: 68px;
-  --logoW: 122px; --gapLogo: 20px; --gapHost: 8px;
-  --figW: 534px; --figH: 520px; --figOv: 140px;
-  --stageTop: 344px; --maskX: 15%; --maskT: 9%; --maskB: 24%;
-  --namesTop: 706px; --capW: 420px; --scrimTop: 630px;
-  --fsTitle: 60px; --lhTitle: 1.0; --fsHost: 33px;
+  --padX: 72px; --gTop: 66px; --gBot: 66px;
+  --logoW: 124px; --gapLogo: 22px; --gapHost: 10px;
+  --figW: 543px; --figH: 470px; --figOv: 150px;
+  --stageTop: 352px; --maskX: 15%; --maskT: 6%; --maskB: 24%;
+  --namesTop: 690px; --capW: 420px; --scrimTop: 596px;
+  --fsTitle: 60px; --fsHost: 33px;
   --fsTag: 14px; --fsName: 30px; --fsRole: 22px;
   --fsLbl: 15px; --fsTopic: 38px; --fsTopic2: 27px;
   --fsDate: 41px; --fsCity: 19px;
@@ -335,12 +335,14 @@ html[data-r="1x1"] .canvas {
       <span class="fig-in">
         <img class="ph ph--mohinur" src="assets/derived/mohinur-warm.jpg" alt="Mohinur Abdullayeva">
         <span class="tone"></span>
+        <span class="veil"></span>
       </span>
     </figure>
     <figure class="fig fig--s">
       <span class="fig-in">
         <img class="ph ph--sarvinoz" src="assets/derived/sarvinoz-warm.jpg" alt="Sarvinoz Alisherovna">
         <span class="tone"></span>
+        <span class="veil"></span>
       </span>
     </figure>
   </div>
@@ -354,11 +356,11 @@ html[data-r="1x1"] .canvas {
   </header>
 
   <div class="names">
-    <div class="cap">
+    <div class="cap cap--l">
       <div class="tag"></div>
       <div class="nm">Mohinur Abdullayeva</div>
     </div>
-    <div class="cap">
+    <div class="cap cap--r">
       <div class="tag">Mehmon spiker</div>
       <div class="nm">Sarvinoz Alisherovna</div>
       <div class="role">psixolog, vrach psixoterapevt</div>

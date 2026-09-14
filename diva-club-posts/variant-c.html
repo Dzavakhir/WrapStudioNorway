@@ -10,7 +10,7 @@
    VARIANT C — "Editorial"
    Photography leads. Mohinur full-bleed and enormous, her near-black studio
    ground dissolved into deep maroon. A modern fashion-magazine grid:
-   hairline gold rules, small-caps Jost labels, oversized Playfair.
+   two hairline gold rules, small-caps Jost labels, oversized Playfair.
    No frames, no circles, no ornament.
    ======================================================================= */
 
@@ -24,13 +24,13 @@
   --hx: -57px;
   --hy: -215px;
 
-  /* guest-speaker framing, same technique */
-  --sz: 190%;
-  --sx: -66px;
-  --sy: -14px;
+  /* guest framing, same technique */
+  --sz: 196%;
+  --sx: -78px;
+  --sy: 6px;
 
   /* type scale */
-  --t-title: 110px;
+  --t-title: 116px;
   --t-with: 46px;
   --t-label: 17px;
   --t-theme: 44px;
@@ -62,7 +62,7 @@
 /* screen lifts the near-black studio ground into deep maroon;
    the face only picks up a little warmth */
 .tone {
-  background: linear-gradient(168deg, #450318 0%, #360211 48%, #34020c 100%);
+  background: linear-gradient(168deg, #430317 0%, #350210 48%, #34020c 100%);
   mix-blend-mode: screen;
 }
 
@@ -108,8 +108,8 @@
   font-family: var(--display);
   font-weight: 500;
   font-size: var(--t-title);
-  line-height: 0.98;
-  letter-spacing: -0.02em;
+  line-height: 0.97;
+  letter-spacing: -0.022em;
   margin: 0;
   color: #fdf7ee;
 }
@@ -126,17 +126,23 @@
 }
 
 .rule { height: 1px; background: rgba(201,162,91,0.5); flex: 0 0 auto; }
-.r1 { margin-top: 44px; }
+.r1 { margin-top: 42px; }
 .r2 { margin-top: 38px; }
 
-/* information row: text column + guest-speaker portrait */
+/* information row: text column + guest portrait, both bounded by the rules */
 .row {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: var(--gutter);
   margin-top: 38px;
 }
-.col { flex: 1 1 auto; min-width: 0; }
+.col {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .label {
   font-family: var(--sans);
@@ -157,7 +163,6 @@
   margin-top: 14px;
 }
 
-.spk { margin-top: 44px; }
 .name {
   font-family: var(--display);
   font-weight: 500;
@@ -175,12 +180,8 @@
   margin-top: 4px;
 }
 
-/* guest-speaker portrait — frameless, hard-cut, grid-aligned */
-.sarv, .duo {
-  position: relative;
-  overflow: hidden;
-  background: #e6d8ca;
-}
+/* guest portrait — frameless hard-cut crop, warm-graded into the palette */
+.sarv, .duo { position: relative; overflow: hidden; background: #d8b8b0; }
 .sarv { flex: 0 0 auto; width: var(--sw); height: var(--sh); }
 .sarv > img, .duo > img {
   position: absolute;
@@ -189,12 +190,12 @@
   left: var(--sx);
   top: var(--sy);
   display: block;
-  filter: saturate(0.78) contrast(1.06) sepia(0.14);
+  filter: saturate(0.9) contrast(1.02) brightness(0.97);
 }
 .sarv::after, .duo::after {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(200deg, rgba(228,198,192,0.40), rgba(188,124,124,0.52));
+  background: linear-gradient(200deg, rgba(228,198,182,0.28), rgba(194,132,124,0.44));
   mix-blend-mode: multiply;
 }
 .duo { display: none; }
@@ -217,24 +218,23 @@
   color: var(--gold-soft);
   margin-left: auto;
 }
-.mark-inline { display: none; }
 
 /* ======================================================= ratio overrides = */
 
 /* ---- 9:16 — full-height portrait, type stacked low ---- */
 html[data-r="9x16"] .canvas {
   --hz: 118%; --hx: -57px; --hy: -215px;
-  --sz: 196%; --sx: -78px; --sy: -18px;
-  --t-title: 110px; --t-with: 46px; --t-theme: 44px; --t-name: 38px;
+  --sz: 268%; --sx: -203px; --sy: -154px;
+  --t-title: 116px; --t-with: 46px; --t-theme: 44px; --t-name: 38px;
   --t-role: 29px; --t-date: 48px; --t-city: 23px;
-  --sw: 430px; --sh: 540px; --gutter: 56px;
+  --sw: 434px; --sh: 506px; --gutter: 54px;
 }
 
-/* ---- 4:5 — portrait dominates, wide guest block bottom-left ---- */
+/* ---- 4:5 — portrait dominates, guest block bottom-left ---- */
 html[data-r="4x5"] .canvas {
   --hz: 132%; --hx: -50px; --hy: -205px;
-  --sz: 230%; --sx: -92px; --sy: -26px;
-  --t-title: 78px; --t-with: 36px; --t-label: 15px; --t-theme: 34px;
+  --sz: 280%; --sx: -129px; --sy: -105px;
+  --t-title: 80px; --t-with: 36px; --t-label: 15px; --t-theme: 34px;
   --t-name: 30px; --t-role: 24px; --t-date: 40px; --t-city: 19px;
   --sw: 360px; --sh: 356px; --gutter: 46px;
 }
@@ -243,22 +243,23 @@ html[data-r="4x5"] .row { flex-direction: row-reverse; margin-top: 30px; }
 html[data-r="4x5"] .r1 { margin-top: 32px; }
 html[data-r="4x5"] .r2 { margin-top: 30px; }
 html[data-r="4x5"] .when { margin-top: 22px; }
-html[data-r="4x5"] .spk { margin-top: 34px; }
 
 /* ---- 1:1 — double-portrait band over a full-width type band ---- */
 html[data-r="1x1"] .canvas {
-  --band: 560px;
-  --seam: 672px;
-  --hz: 260%; --hx: -184px; --hy: -120px;
-  --sz: 200%; --sx: -124px; --sy: -60px;
+  --band: 548px;
+  --seam: 660px;
+  --hz: 230%; --hx: -91px; --hy: -104px;
+  --sz: 235%; --sx: -189px; --sy: -133px;
   --t-title: 62px; --t-with: 32px; --t-label: 13px; --t-theme: 28px;
   --t-name: 28px; --t-role: 22px; --t-date: 36px; --t-city: 16px;
   --gutter: 48px;
 }
 html[data-r="1x1"] .hero { inset: 0 auto auto 0; width: var(--seam); height: var(--band); }
-html[data-r="1x1"] .hero > .scrim { display: none; }
-html[data-r="1x1"] .hero > .side { background: linear-gradient(90deg, rgba(34,1,8,0.30) 0%, rgba(34,1,8,0) 24%); }
-html[data-r="1x1"] .mark { display: none; }
+html[data-r="1x1"] .hero > .scrim {
+  background: linear-gradient(180deg, rgba(34,1,8,0.34) 0%, rgba(34,1,8,0) 14%);
+}
+html[data-r="1x1"] .hero > .side { background: linear-gradient(90deg, rgba(34,1,8,0.26) 0%, rgba(34,1,8,0) 22%); }
+html[data-r="1x1"] .mark { width: 152px; top: 58px; left: 58px; }
 html[data-r="1x1"] .duo {
   display: block;
   position: absolute;
@@ -269,29 +270,22 @@ html[data-r="1x1"] .sarv { display: none; }
 html[data-r="1x1"] .r1 { margin-top: 26px; }
 html[data-r="1x1"] .r2 { margin-top: 24px; }
 html[data-r="1x1"] .row { margin-top: 24px; }
-html[data-r="1x1"] .col { display: flex; align-items: flex-start; gap: 48px; }
+html[data-r="1x1"] .col { flex-direction: row; align-items: flex-start; gap: 48px; }
 html[data-r="1x1"] .themeblock { flex: 1 1 56%; min-width: 0; }
-html[data-r="1x1"] .spk { flex: 1 1 44%; min-width: 0; margin-top: 0; }
-html[data-r="1x1"] .when { margin-top: 22px; align-items: flex-end; }
-html[data-r="1x1"] .city { margin-left: 0; }
-html[data-r="1x1"] .mark-inline {
-  display: block;
-  width: 156px; height: auto;
-  margin-left: auto;
-  margin-bottom: -6px;
-}
+html[data-r="1x1"] .spk { flex: 1 1 44%; min-width: 0; }
+html[data-r="1x1"] .when { margin-top: 22px; }
 </style>
 </head>
 <body>
 <div class="canvas">
   <div class="hero">
-    <img src="assets/mohinur.jpg" alt="Mohinur Abdullayeva">
+    <img src="assets/derived/mohinur-warm.jpg" alt="Mohinur Abdullayeva">
     <div class="tone"></div>
     <div class="side"></div>
     <div class="scrim"></div>
   </div>
 
-  <div class="duo"><img src="assets/sarvinoz.jpg" alt="Sarvinoz Alisherovna"></div>
+  <div class="duo"><img src="assets/derived/sarvinoz-warm.jpg" alt="Sarvinoz Alisherovna"></div>
 
   <div class="layer grain"></div>
 
@@ -317,7 +311,7 @@ html[data-r="1x1"] .mark-inline {
         </div>
       </div>
 
-      <div class="sarv"><img src="assets/sarvinoz.jpg" alt="Sarvinoz Alisherovna"></div>
+      <div class="sarv"><img src="assets/derived/sarvinoz-warm.jpg" alt="Sarvinoz Alisherovna"></div>
     </div>
 
     <div class="rule r2"></div>
@@ -327,7 +321,6 @@ html[data-r="1x1"] .mark-inline {
       <span class="bar"></span>
       <span class="date num">11:00</span>
       <span class="city">Toshkent sh.</span>
-      <img class="mark-inline" src="assets/logo-cream-trim.png" alt="Diva Women Networking Club">
     </div>
   </div>
 </div>
