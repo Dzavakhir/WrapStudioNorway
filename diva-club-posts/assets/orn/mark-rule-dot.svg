@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 16" width="600" height="16">
+  <!-- Long hairline rule with one small filled dot, off-centre. Mask only. -->
+  <line x1="24" y1="8" x2="576" y2="8" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="440" cy="8" r="4.5" fill="#000"/>
+</svg>

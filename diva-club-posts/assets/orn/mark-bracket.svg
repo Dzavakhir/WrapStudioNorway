@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <!-- Two crop-mark corner brackets, diagonally opposed. Place at opposite corners of a text block. Mask only. -->
+  <g fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round">
+    <path d="M40,110 L40,40 L110,40"/>
+    <path d="M260,190 L260,260 L190,260"/>
+  </g>
+</svg>

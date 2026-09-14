@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+  <!-- Monogram D: hand-built serif letterform (beziers, no <text>) inside a thin oval cartouche tied with laurel. -->
+  <ellipse cx="120" cy="120" rx="82" ry="88" fill="none" stroke="#000" stroke-width="2"/>
+
+  <path fill="#000" fill-rule="evenodd" transform="translate(-3,-2)"
+        d="M66 64 L110 64 C140 64 164 74 168 90 C174 100 180 110 180 122 C180 134 174 144 168 154 C164 170 140 180 110 180 L66 180 C72 178 78 176 80 172 L80 72 C78 68 72 66 66 64 Z
+           M104 88 C128 90 148 100 152 122 C148 144 128 154 104 156 Z"/>
+
+  <g fill="#000">
+    <path d="M0 0 C10 -8 24 -8 34 0 C24 8 10 8 0 0 Z" transform="translate(100,206) rotate(200) scale(0.46)"/>
+    <path d="M0 0 C10 -8 24 -8 34 0 C24 8 10 8 0 0 Z" transform="translate(81,197) rotate(222) scale(0.42)"/>
+    <path d="M0 0 C10 -8 24 -8 34 0 C24 8 10 8 0 0 Z" transform="translate(67,180) rotate(242) scale(0.38)"/>
+    <path d="M0 0 C10 -8 24 -8 34 0 C24 8 10 8 0 0 Z" transform="translate(140,206) rotate(-20) scale(0.46)"/>
+    <path d="M0 0 C10 -8 24 -8 34 0 C24 8 10 8 0 0 Z" transform="translate(159,197) rotate(-42) scale(0.42)"/>
+    <path d="M0 0 C10 -8 24 -8 34 0 C24 8 10 8 0 0 Z" transform="translate(173,180) rotate(-62) scale(0.38)"/>
+    <circle cx="120" cy="208" r="3"/>
+  </g>
+</svg>

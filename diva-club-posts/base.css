@@ -1,0 +1,134 @@
+/* =========================================================================
+   DIVA WOMEN NETWORKING CLUB — shared design system
+   Event post system: 3 design directions x 3 ratios (9:16, 4:5, 1:1)
+   Every variant file owns its own layout; this file owns tokens + primitives.
+   ========================================================================= */
+
+@import url("fonts.css");
+
+:root {
+  /* --- brand palette (maroon sampled from the official logo: #93061F) --- */
+  --maroon: #93061f;
+  --maroon-rich: #7a0519;
+  --maroon-deep: #5a0413;
+  --maroon-ink: #34020c;
+  --wine: #4a0d1c;
+
+  --cream: #fbf4ea;
+  --ivory: #fffdf8;
+  --blush: #f4e3dd;
+  --blush-deep: #e8cdc6;
+  --rose: #d9a8a4;
+
+  --gold: #c9a25b;
+  --gold-soft: #e3cb99;
+  --gold-deep: #a8813c;
+
+  /* --- type --- */
+  --display: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --roman: "Marcellus", "Cormorant Garamond", Georgia, serif;
+  --sans: "Jost", "Helvetica Neue", Arial, sans-serif;
+
+  /* --- canvas metrics (overridden per ratio below) --- */
+  --W: 1080px;
+  --H: 1350px;
+  --pad: 76px;
+  --scale: 1; /* layout scale hook for ratio-specific tuning */
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* --------------------------- ratio definitions --------------------------- */
+html[data-r="9x16"] { --W: 1080px; --H: 1920px; --pad: 84px; }
+html[data-r="4x5"]  { --W: 1080px; --H: 1350px; --pad: 76px; }
+html[data-r="1x1"]  { --W: 1080px; --H: 1080px; --pad: 70px; }
+
+.canvas {
+  position: relative;
+  width: var(--W);
+  height: var(--H);
+  overflow: hidden;
+  isolation: isolate;
+  /* Cormorant defaults to old-style figures, which turns "1 ta" into "ı ta".
+     Lining figures are the correct choice for every number in this system. */
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+}
+
+/* ------------------------------ primitives ------------------------------- */
+
+/* full-bleed layer helper */
+.layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* photo helpers — face-safe crop values, verified against the source files */
+.ph { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ph--mohinur  { object-position: 50% 16%; }
+.ph--sarvinoz { object-position: 46% 14%; }
+
+/* hairline rules */
+.rule-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 18%, var(--gold) 82%, transparent);
+  border: 0;
+}
+.rule-solid { height: 1px; background: var(--gold); border: 0; }
+
+/* small caps tracking label */
+.eyebrow {
+  font-family: var(--sans);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.34em;
+}
+
+/* decorative diamond separator */
+.diamond {
+  width: 9px;
+  height: 9px;
+  transform: rotate(45deg);
+  background: var(--gold);
+  flex: 0 0 auto;
+}
+
+/* grain / paper texture — keeps large flat fills from banding */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background-image: url("assets/orn/grain.svg");
+  background-size: 300px 300px;
+  opacity: 0.32;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* soft vignette for photographic panels */
+.vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 50% 40%, transparent 42%, rgba(24, 2, 9, 0.55) 100%);
+  pointer-events: none;
+}
+
+/* logo sizing helper: the source lockup is 1838x1305 (trimmed, transparent) */
+.logo { display: block; width: auto; }
+
+/* numerals: Playfair's lining figures read best for the date block */
+.num { font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+
+/* prevents any stray text selection artefacts in screenshots */
+.canvas, .canvas * { user-select: none; }
