@@ -7,6 +7,33 @@ Audience: Uzbek-speaking professional women. Language: **Uzbek (Latin)**.
 
 ---
 
+## 0. CLIENT REDIRECT — supersedes anything below that conflicts with it
+
+After seeing the first draft the client asked for five changes. They apply to
+every post in the campaign and they outrank the rest of this brief:
+
+1. **No circular portrait frames.** No avatar circles, no gold rings, no
+   bordered ovals.
+2. **Frameless.** No decorative border around the canvas, no engraved
+   invitation frame, no outlined window around a photo (an outlined arch is a
+   frame too).
+3. **The people must be much bigger.** The two women are the hero of the post:
+   placed large — cut out against the ground, full-bleed and cropped by the
+   canvas edge, or dissolved into the ground with no visible edge. A face has
+   to read instantly at thumbnail size.
+4. **Modern, not vintage.** Contemporary fashion/editorial register: clean
+   grid, confident negative space, crisp modern type setting, minimal
+   decoration. Romance comes from colour, light, photography and type — not
+   from filigree, wreaths or engraving.
+5. **It must look professional.** No clip-art feel, no crowded ornament, no
+   cheap effects.
+
+Ornament budget: at most one or two deliberate accents per post, or none.
+Cutouts live in `assets/cutout/` (transparent PNG, measured bounding boxes in
+`assets/cutout/INDEX-cutout.md`); edge-free fades live in `assets/derived/`.
+
+---
+
 ## 1. Copy — use these words, do not invent new ones
 
 The client supplied this text. Every word below must appear on every post:
@@ -104,13 +131,14 @@ Fonts are self-hosted and offline — **only these four**:
 They should read as three different designers' work — different layout logic,
 different ground, different photo treatment. Not a recolour of one layout.
 
-- **A — "Romantik klassik"**: deep maroon ground, gold frame, ceremonial
-  invitation, symmetrical, centred, portraits in gold-ringed circles.
-- **B — "Ivory & blush"**: light cream/blush ground, maroon type, arched
-  portrait windows, botanical delicacy, lots of air.
-- **C — "Editorial"**: dramatic, asymmetric, magazine-cover energy — a
-  full-bleed portrait with a maroon wash, oversized display type, the second
-  portrait as an inset, thin gold rules.
+- **A — "Modern maroon"**: deep maroon ground, both women placed large and
+  frameless (cutouts or edge-free fades), a clean contemporary type block.
+  Composed and confident rather than ceremonial.
+- **B — "Ivory & blush"**: the light one — cream/blush ground, maroon ink,
+  large frameless portraits, lots of air. Modern beauty-brand calm.
+- **C — "Editorial"**: the dramatic one — photography-led, asymmetric,
+  magazine-cover energy, oversized display type, a maroon wash over a
+  full-bleed portrait. No frames, no inset circles.
 
 ## 6. Quality bar — every post is checked against this
 
