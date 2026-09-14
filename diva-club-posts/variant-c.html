@@ -33,12 +33,12 @@
   /* type scale */
   --t-title: 116px;
   --t-with: 46px;
-  --t-label: 17px;
+  --t-label: 18px;
   --t-theme: 44px;
   --t-name: 38px;
   --t-role: 29px;
   --t-date: 48px;
-  --t-city: 23px;
+  --t-city: 25px;
 
   --col: 500px;   /* width of the type column */
 }
@@ -246,14 +246,18 @@
    it so the type still lands below her chin, on a dark field. */
 html[data-r="9x16"] .canvas {
   --hz: 118%; --hx: -57px; --hy: -268px;
-  --sz: 165%; --sx: 7px; --sy: 10px;
+  /* the guest carries the mid-right of the Story: she is scaled up and lifted
+     so her head reaches the empty band under the title instead of sitting in
+     the corner. Her presence now matches the other two ratios. */
+  --sz: 150%; --sx: 45px; --sy: 0px;
   --t-title: 116px; --t-with: 46px; --t-theme: 44px; --t-name: 38px;
-  --t-role: 29px; --t-date: 48px; --t-city: 23px;
+  --t-role: 29px; --t-date: 48px; --t-city: 25px;
   --col: 500px;
 }
-/* wide enough that her silhouette is never sliced by the box: the only cuts
-   on her are the right and bottom canvas edges */
-html[data-r="9x16"] .sarv { width: 580px; height: 828px; }
+/* wide and tall enough that her silhouette is never sliced by the box: the
+   only cuts on her are the right and bottom canvas edges (she clears the box's
+   own top edge by 66px and its left edge by 145px) */
+html[data-r="9x16"] .sarv { width: 640px; height: 980px; }
 html[data-r="9x16"] .mark { top: 152px; }
 html[data-r="9x16"] .stack { bottom: 280px; }
 html[data-r="9x16"] .hero > .scrim {
@@ -280,11 +284,14 @@ html[data-r="9x16"] .when { margin-top: 22px; }
 html[data-r="9x16"] .city { margin-top: 10px; }
 
 /* ---- 4:5 — same logic, tighter: portrait dominates, figure bottom-right -- */
+/* --hy is 50px lower than the crop reads naturally: the canvas edge used to
+   land on Mohinur's hairline, so the portrait is dropped until a real band of
+   hair carries the top edge above her brow, as it does in the 9:16. */
 html[data-r="4x5"] .canvas {
-  --hz: 126%; --hx: -30px; --hy: -200px;
+  --hz: 126%; --hx: -30px; --hy: -150px;
   --sz: 197%; --sx: -2px; --sy: 15px;
-  --t-title: 76px; --t-with: 35px; --t-label: 15px; --t-theme: 33px;
-  --t-name: 30px; --t-role: 24px; --t-date: 40px; --t-city: 19px;
+  --t-title: 76px; --t-with: 35px; --t-label: 16px; --t-theme: 33px;
+  --t-name: 30px; --t-role: 27px; --t-date: 40px; --t-city: 22px;
   --col: 470px;
 }
 html[data-r="4x5"] .mark { width: 190px; }
@@ -307,8 +314,8 @@ html[data-r="1x1"] .canvas {
   --seam: 560px;
   --hz: 1260px; --hx: -141px; --hy: -104px;
   --sz: 168%; --sx: -11px; --sy: 15px;
-  --t-title: 62px; --t-with: 32px; --t-label: 13px; --t-theme: 28px;
-  --t-name: 28px; --t-role: 22px; --t-date: 36px; --t-city: 16px;
+  --t-title: 62px; --t-with: 32px; --t-label: 15px; --t-theme: 28px;
+  --t-name: 28px; --t-role: 26px; --t-date: 36px; --t-city: 19px;
   --col: 100%;
 }
 /* Both free edges are dissolved with a real alpha mask rather than a painted
@@ -338,8 +345,12 @@ html[data-r="1x1"] .hero > .scrim {
   background: linear-gradient(180deg, rgba(20,0,5,0.40) 0%, rgba(20,0,5,0) 20%);
 }
 html[data-r="1x1"] .hero > .side { background: linear-gradient(90deg, rgba(20,0,5,0.30) 0%, rgba(20,0,5,0) 26%); }
-/* +8px so the lockup's own transparent margin lands its ink on the type column */
-html[data-r="1x1"] .mark { width: 150px; top: 70px; left: 70px; }
+/* The hair/skin boundary runs diagonally through this corner, and the dark hair
+   left of it is only ~165px wide, so the lockup is scaled until its whole
+   silhouette — seated figure and strapline included — sits on the near-black
+   hair, on one even ground, clear of her temple and well above her brow. Only
+   the scale moves: it stays on the type column's gutter at var(--pad). */
+html[data-r="1x1"] .mark { width: 96px; }
 /* she stands past the photo block's baseline and dissolves before the type */
 html[data-r="1x1"] .sarv {
   top: 0; bottom: auto; right: 0; left: 540px;
