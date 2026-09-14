@@ -76,6 +76,12 @@ figure { margin: 0; }
   pointer-events: none;
 }
 
+/* focuses the eye on the two faces and keeps bright cloth off the edges */
+.vig {
+  background: radial-gradient(82% 56% at 50% 40%,
+    rgba(26, 1, 8, 0) 50%, rgba(26, 1, 8, .16) 76%, rgba(22, 1, 7, .40) 100%);
+}
+
 /* ------------------------------------------------------------------- stage */
 .stage {
   position: absolute;
@@ -284,7 +290,7 @@ html[data-r="9x16"] .canvas {
   --logoW: 190px; --gapLogo: 44px; --gapHost: 16px;
   --figW: 562px; --figH: 830px; --figOv: 220px;
   --stageTop: 566px; --stageShift: 17px;
-  --fadeA: 64%; --fadeB: 92%; --sinkA: 34%; --sinkM: 66%;
+  --fadeA: 64%; --fadeB: 92%; --sinkA: 30%; --sinkM: 58%;
   --namesTop: 1300px; --capW: 420px; --capOff: 143px; --scrimTop: 1040px;
   --fsTitle: 102px; --fsHost: 47px;
   --fsTag: 17px; --fsName: 40px; --fsRole: 28px;
@@ -299,7 +305,7 @@ html[data-r="4x5"] .canvas {
   --logoW: 152px; --gapLogo: 30px; --gapHost: 12px;
   --figW: 560px; --figH: 656px; --figOv: 196px;
   --stageTop: 452px; --stageShift: 17px;
-  --fadeA: 52%; --fadeB: 84%; --sinkA: 28%; --sinkM: 60%;
+  --fadeA: 52%; --fadeB: 84%; --sinkA: 26%; --sinkM: 56%;
   --namesTop: 866px; --capW: 420px; --capOff: 154px; --scrimTop: 690px;
   --fsTitle: 78px; --fsHost: 40px;
   --fsTag: 15px; --fsName: 32px; --fsRole: 24px;
@@ -347,6 +353,7 @@ html[data-r="1x1"] .nm { white-space: nowrap; }
   </div>
 
   <div class="scrim"></div>
+  <div class="layer vig"></div>
 
   <header class="head">
     <img class="logo" src="assets/logo-cream-trim.png" alt="Diva Women Networking Club">
@@ -357,11 +364,11 @@ html[data-r="1x1"] .nm { white-space: nowrap; }
   <div class="names">
     <div class="cap cap--l">
       <div class="tag"></div>
-      <div class="nm">Mohinur<br>Abdullayeva</div>
+      <div class="nm">Mohinur<br> Abdullayeva</div>
     </div>
     <div class="cap cap--r">
       <div class="tag">Mehmon spiker</div>
-      <div class="nm">Sarvinoz<br>Alisherovna</div>
+      <div class="nm">Sarvinoz<br> Alisherovna</div>
       <div class="role">psixolog, vrach psixoterapevt</div>
     </div>
   </div>

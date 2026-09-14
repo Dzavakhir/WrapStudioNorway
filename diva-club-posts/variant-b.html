@@ -46,7 +46,7 @@ html[data-r="9x16"] .canvas {
   --name: 42px; --role: 30px; --date: 64px; --logo: 156px;
   --horizon: 1015px;
   --fw1: 870px; --fx1: -285px; --fy1: 1005px;
-  --fw2: 800px; --fx2: 580px;  --fy2: 1045px;
+  --fw2: 800px; --fx2: 583px;  --fy2: 1034px;
   --g-host: 22px; --g-rule: 50px; --g-block: 36px; --g-cols: 44px;
 }
 
@@ -76,6 +76,10 @@ html[data-r="9x16"] .cols { flex-direction: column; align-items: stretch; gap: 3
 }
 
 /* ---------------------------- people ---------------------------- */
+/* Plain -cut.png (not -cut-soft) per assets/cutout/INDEX-cutout.md: the soft
+   matte is for maroon/gold grounds, the hard one is right on cream/ivory.
+   Both women's eye-lines sit at ~25.4% of their frame, so --fy1/--fy2 are
+   tuned to land both pairs of eyes on the same line in every ratio. */
 .figs { position: absolute; inset: 0; overflow: hidden; }
 .fig { position: absolute; display: block; height: auto; }
 .fig--m { width: var(--fw1); left: var(--fx1); top: var(--fy1); }
@@ -207,8 +211,8 @@ html[data-r="9x16"] .cols { flex-direction: column; align-items: stretch; gap: 3
   <div class="horizon"></div>
 
   <div class="figs">
-    <img class="fig fig--m" src="assets/cutout/mohinur-cut-soft.png" alt="Mohinur Abdullayeva">
-    <img class="fig fig--s" src="assets/cutout/sarvinoz-cut-soft.png" alt="Sarvinoz Alisherovna">
+    <img class="fig fig--m" src="assets/cutout/mohinur-cut.png" alt="Mohinur Abdullayeva">
+    <img class="fig fig--s" src="assets/cutout/sarvinoz-cut.png" alt="Sarvinoz Alisherovna">
   </div>
 
   <div class="head">
