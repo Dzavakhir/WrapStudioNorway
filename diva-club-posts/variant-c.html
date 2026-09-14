@@ -233,25 +233,56 @@
 /* ======================================================= ratio overrides = */
 
 /* ---- 9:16 — full-height portrait, type column left, figure bottom-right -- */
+/* Story-safe: platform chrome eats the top 140px and the bottom 250px of the
+   1920 frame, so the masthead drops clear of the first band and the whole
+   information stack is lifted clear of the second. The portrait rides up with
+   it so the type still lands below her chin, on a dark field. */
 html[data-r="9x16"] .canvas {
-  --hz: 118%; --hx: -57px; --hy: -215px;
-  --sz: 165%; --sx: -93px; --sy: 66px;
+  --hz: 118%; --hx: -57px; --hy: -312px;
+  --sz: 165%; --sx: 7px; --sy: 10px;
   --t-title: 116px; --t-with: 46px; --t-theme: 44px; --t-name: 38px;
   --t-role: 29px; --t-date: 48px; --t-city: 23px;
   --col: 500px;
 }
-html[data-r="9x16"] .sarv { width: 480px; height: 820px; }
+/* wide enough that her silhouette is never sliced by the box: the only cuts
+   on her are the right and bottom canvas edges */
+html[data-r="9x16"] .sarv { width: 580px; height: 828px; }
+html[data-r="9x16"] .mark { top: 152px; }
+html[data-r="9x16"] .stack { bottom: 280px; }
+html[data-r="9x16"] .hero > .scrim {
+  background: linear-gradient(180deg,
+      rgba(34,1,8,0.50) 0%,
+      rgba(34,1,8,0.12) 7%,
+      rgba(34,1,8,0.00) 18%,
+      rgba(34,1,8,0.00) 33.6%,
+      rgba(34,1,8,0.24) 36.2%,
+      rgba(34,1,8,0.64) 38.4%,
+      rgba(34,1,8,0.90) 40.4%,
+      #34020c 42.6%,
+      #34020c 100%);
+}
+html[data-r="9x16"] .title { line-height: 0.94; }
+html[data-r="9x16"] .with { margin-top: 10px; }
+html[data-r="9x16"] .r1 { margin-top: 28px; }
+html[data-r="9x16"] .r2 { margin-top: 26px; }
+html[data-r="9x16"] .row { margin-top: 26px; }
+html[data-r="9x16"] .theme-text { margin-top: 10px; }
+html[data-r="9x16"] .spk { margin-top: 30px; }
+html[data-r="9x16"] .name { margin-top: 8px; }
+html[data-r="9x16"] .when { margin-top: 22px; }
+html[data-r="9x16"] .city { margin-top: 10px; }
 
 /* ---- 4:5 — same logic, tighter: portrait dominates, figure bottom-right -- */
 html[data-r="4x5"] .canvas {
   --hz: 126%; --hx: -30px; --hy: -200px;
-  --sz: 197%; --sx: -82px; --sy: 15px;
+  --sz: 197%; --sx: -2px; --sy: 15px;
   --t-title: 76px; --t-with: 35px; --t-label: 15px; --t-theme: 33px;
   --t-name: 30px; --t-role: 24px; --t-date: 40px; --t-city: 19px;
   --col: 470px;
 }
 html[data-r="4x5"] .mark { width: 190px; }
-html[data-r="4x5"] .sarv { width: 500px; height: 600px; }
+/* box widened past her silhouette: the only cuts on her are canvas edges */
+html[data-r="4x5"] .sarv { width: 580px; height: 600px; }
 html[data-r="4x5"] .r1 { margin-top: 32px; }
 html[data-r="4x5"] .r2 { margin-top: 30px; }
 html[data-r="4x5"] .row { margin-top: 30px; }
@@ -260,20 +291,43 @@ html[data-r="4x5"] .when { margin-top: 22px; }
 html[data-r="4x5"] .city { margin-top: 14px; }
 
 /* ---- 1:1 — photo block + standing figure over one full-width type band -- */
+/* The hero is not a panel. It bleeds off the top and left canvas edges and its
+   two free edges are dissolved into the ground colour, so Mohinur sinks into
+   the maroon exactly the way Sarvinoz does — no box, no free-floating corner.
+   --hz is a pixel height here so the crop is independent of the sink depth. */
 html[data-r="1x1"] .canvas {
-  --band: 548px;
+  --band: 664px;
   --seam: 560px;
-  --hz: 230%; --hx: -141px; --hy: -104px;
+  --hz: 1260px; --hx: -141px; --hy: -104px;
   --sz: 168%; --sx: -11px; --sy: -5px;
   --t-title: 62px; --t-with: 32px; --t-label: 13px; --t-theme: 28px;
   --t-name: 28px; --t-role: 22px; --t-date: 36px; --t-city: 16px;
   --col: 100%;
 }
 html[data-r="1x1"] .hero { inset: 0 auto auto 0; width: var(--seam); height: var(--band); }
+/* bottom edge -> ground */
 html[data-r="1x1"] .hero > .scrim {
-  background: linear-gradient(180deg, rgba(34,1,8,0.34) 0%, rgba(34,1,8,0) 14%);
+  background: linear-gradient(180deg,
+      rgba(34,1,8,0.34) 0px,
+      rgba(34,1,8,0.00) 96px,
+      rgba(34,1,8,0.00) 424px,
+      rgba(34,1,8,0.16) 478px,
+      rgba(34,1,8,0.46) 524px,
+      rgba(34,1,8,0.76) 568px,
+      rgba(34,1,8,0.93) 608px,
+      #34020c 650px);
 }
-html[data-r="1x1"] .hero > .side { background: linear-gradient(90deg, rgba(34,1,8,0.26) 0%, rgba(34,1,8,0) 22%); }
+/* left edge quieted for the masthead, right edge -> ground */
+html[data-r="1x1"] .hero > .side {
+  background: linear-gradient(90deg,
+      rgba(34,1,8,0.26) 0px,
+      rgba(34,1,8,0.00) 150px,
+      rgba(34,1,8,0.00) 396px,
+      rgba(34,1,8,0.26) 452px,
+      rgba(34,1,8,0.62) 498px,
+      rgba(34,1,8,0.90) 536px,
+      #34020c 558px);
+}
 html[data-r="1x1"] .mark { width: 150px; top: 62px; left: 62px; }
 /* she stands past the photo block's baseline and dissolves before the type */
 html[data-r="1x1"] .sarv {

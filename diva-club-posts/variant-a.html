@@ -33,6 +33,7 @@
   --figOv: 196px;           /* how far the two boxes overlap               */
   --stageTop: 452px;
   --stageShift: 17px;       /* centres the pair on the two FACES, not boxes */
+  --maskX: 6%;              /* softener where a silhouette runs out of frame */
   --fadeA: 48%;             /* body fully opaque until here                */
   --fadeB: 82%;             /* body fully dissolved from here              */
   --sinkA: 26%;             /* maroon starts drinking the body here        */
@@ -109,9 +110,9 @@ figure { margin: 0; }
   position: absolute;
   inset: 0;
   -webkit-mask-image: linear-gradient(90deg,
-      rgba(0,0,0,0) 0%, #000 6%, #000 94%, rgba(0,0,0,0) 100%);
+      rgba(0,0,0,0) 0%, #000 var(--maskX), #000 calc(100% - var(--maskX)), rgba(0,0,0,0) 100%);
           mask-image: linear-gradient(90deg,
-      rgba(0,0,0,0) 0%, #000 6%, #000 94%, rgba(0,0,0,0) 100%);
+      rgba(0,0,0,0) 0%, #000 var(--maskX), #000 calc(100% - var(--maskX)), rgba(0,0,0,0) 100%);
 }
 .fig--m img { filter: brightness(1.05) contrast(1.02); }
 .fig--s img { filter: brightness(.97) contrast(1.03) saturate(.88); }
@@ -128,6 +129,13 @@ figure { margin: 0; }
     rgba(48, 2, 12, 1)  100%);
   -webkit-mask-size: cover;         mask-size: cover;
   -webkit-mask-repeat: no-repeat;   mask-repeat: no-repeat;
+}
+.fig--s .sink {
+  background: linear-gradient(180deg,
+    rgba(60, 3, 16, 0)   var(--sinkA),
+    rgba(57, 3, 15, .76) var(--sinkM),
+    rgba(50, 2, 13, .97) var(--fadeB),
+    rgba(48, 2, 12, 1)  100%);
 }
 .fig--m .sink {
   -webkit-mask-image: url("assets/cutout/mohinur-cut-soft.png");
@@ -275,6 +283,8 @@ figure { margin: 0; }
   flex: 0 0 auto;
 }
 .city {
+  display: block;
+  margin: var(--gapCity) 0 0;
   font-family: var(--sans);
   font-weight: 300;
   font-size: var(--fsCity);
@@ -286,47 +296,47 @@ figure { margin: 0; }
 
 /* ===================================================================== 9:16 */
 html[data-r="9x16"] .canvas {
-  --padX: 88px; --gTop: 100px; --gBot: 96px;
-  --logoW: 190px; --gapLogo: 44px; --gapHost: 16px;
-  --figW: 562px; --figH: 830px; --figOv: 220px;
-  --stageTop: 566px; --stageShift: 17px;
-  --fadeA: 64%; --fadeB: 92%; --sinkA: 30%; --sinkM: 58%;
-  --namesTop: 1300px; --capW: 420px; --capOff: 143px; --scrimTop: 1040px;
-  --fsTitle: 102px; --fsHost: 47px;
-  --fsTag: 17px; --fsName: 40px; --fsRole: 28px;
-  --fsLbl: 19px; --fsTopic: 56px; --fsTopic2: 39px;
-  --fsDate: 57px; --fsCity: 25px;
-  --markW: 300px; --gapMark: 40px; --gapWhen: 34px; --whenGap: 38px;
+  --padX: 88px; --gTop: 96px; --gBot: 92px;
+  --logoW: 178px; --gapLogo: 38px; --gapHost: 14px;
+  --figW: 690px; --figH: 885px; --figOv: 296px;
+  --stageTop: 548px; --stageShift: 12px; --maskX: 9%;
+  --fadeA: 58%; --fadeB: 77%; --sinkA: 46%; --sinkM: 60%;
+  --namesTop: 1262px; --capW: 420px; --capOff: 162px; --scrimTop: 1060px;
+  --fsTitle: 96px; --fsHost: 47px;
+  --fsTag: 18px; --fsName: 42px; --fsRole: 29px;
+  --fsLbl: 19px; --fsTopic: 58px; --fsTopic2: 39px;
+  --fsDate: 58px; --fsCity: 25px;
+  --markW: 300px; --gapMark: 36px; --gapWhen: 28px; --whenGap: 40px; --gapCity: 14px;
 }
 
 /* ====================================================================== 4:5 */
 html[data-r="4x5"] .canvas {
-  --padX: 78px; --gTop: 74px; --gBot: 70px;
+  --padX: 78px; --gTop: 74px; --gBot: 62px;
   --logoW: 152px; --gapLogo: 30px; --gapHost: 12px;
   --figW: 560px; --figH: 656px; --figOv: 196px;
-  --stageTop: 452px; --stageShift: 17px;
+  --stageTop: 452px; --stageShift: 17px; --maskX: 6%;
   --fadeA: 52%; --fadeB: 84%; --sinkA: 26%; --sinkM: 56%;
-  --namesTop: 866px; --capW: 420px; --capOff: 154px; --scrimTop: 690px;
+  --namesTop: 858px; --capW: 420px; --capOff: 154px; --scrimTop: 690px;
   --fsTitle: 78px; --fsHost: 40px;
   --fsTag: 15px; --fsName: 32px; --fsRole: 24px;
   --fsLbl: 16px; --fsTopic: 45px; --fsTopic2: 32px;
   --fsDate: 47px; --fsCity: 21px;
-  --markW: 240px; --gapMark: 24px; --gapWhen: 22px; --whenGap: 30px;
+  --markW: 240px; --gapMark: 18px; --gapWhen: 16px; --whenGap: 30px; --gapCity: 12px;
 }
 
 /* ====================================================================== 1:1 */
 html[data-r="1x1"] .canvas {
-  --padX: 72px; --gTop: 56px; --gBot: 58px;
+  --padX: 72px; --gTop: 56px; --gBot: 56px;
   --logoW: 108px; --gapLogo: 12px; --gapHost: 4px;
   --figW: 537px; --figH: 690px; --figOv: 138px;
-  --stageTop: 308px; --stageShift: 16px;
-  --fadeA: 50%; --fadeB: 68%; --sinkA: 30%; --sinkM: 52%;
-  --namesTop: 722px; --capW: 400px; --capOff: 173px; --scrimTop: 560px;
+  --stageTop: 308px; --stageShift: 16px; --maskX: 6%;
+  --fadeA: 48%; --fadeB: 66%; --sinkA: 30%; --sinkM: 52%;
+  --namesTop: 698px; --capW: 400px; --capOff: 173px; --scrimTop: 560px;
   --fsTitle: 54px; --fsHost: 30px;
   --fsTag: 13px; --fsName: 27px; --fsRole: 21px;
   --fsLbl: 14px; --fsTopic: 34px; --fsTopic2: 24px;
   --fsDate: 38px; --fsCity: 17px;
-  --markW: 170px; --gapMark: 16px; --gapWhen: 15px; --whenGap: 24px;
+  --markW: 170px; --gapMark: 18px; --gapWhen: 14px; --whenGap: 24px; --gapCity: 9px;
 }
 /* 1:1 is the compact cut — single-line names keep the stack tight */
 html[data-r="1x1"] .nm br { display: none; }
@@ -382,9 +392,8 @@ html[data-r="1x1"] .nm { white-space: nowrap; }
       <span class="d num">16-sentabr</span>
       <i class="v"></i>
       <span class="d num">11:00</span>
-      <i class="v"></i>
-      <span class="city">Toshkent sh.</span>
     </div>
+    <p class="city">Toshkent sh.</p>
   </footer>
 </div>
 </body>
